@@ -1,0 +1,10 @@
+theme colors:
+	dark gray and pastel blue
+	#0b141f
+	https://coolors.co/beb8eb-5299d3-0b5563-a2bce0-5e5c6c
+	https://coolors.co/08415c-cc2936-ebbab9-388697-b5ffe1
+	https://coolors.co/2b2d42-8d99ae-ffffff-000000
+	https://coolors.co/220c10-506c64-77cbb9-75b8c8-82becd
+	https://coolors.co/220c10-506c64-77cbb9-75b8c8-82becd
+	https://coolors.co/2f6690-3a7ca5-d9dcd6-16425b-81c3d7
+	https://coolors.co/4c6085-39a0ed-d4b483-13c4a3-32322c
