@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9585CB1B28F5F2BB00689958 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9585CB1A28F5F2BB00689958 /* TextFieldTableViewCell.swift */; };
+		95FA8BD428F5EACD00276CBE /* SetCreationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FA8BD328F5EACD00276CBE /* SetCreationVC.swift */; };
+		95FA8BD628F5EB3800276CBE /* SummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FA8BD528F5EB3800276CBE /* SummaryVC.swift */; };
 		FDA5CC3D28F524C300EF941B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA5CC3C28F524C300EF941B /* AppDelegate.swift */; };
 		FDA5CC3F28F524C300EF941B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA5CC3E28F524C300EF941B /* SceneDelegate.swift */; };
 		FDA5CC4128F524C300EF941B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA5CC4028F524C300EF941B /* ViewController.swift */; };
@@ -17,6 +20,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9585CB1A28F5F2BB00689958 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		95FA8BD328F5EACD00276CBE /* SetCreationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCreationVC.swift; sourceTree = "<group>"; };
+		95FA8BD528F5EB3800276CBE /* SummaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryVC.swift; sourceTree = "<group>"; };
 		FDA5CC3928F524C300EF941B /* StudyCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDA5CC3C28F524C300EF941B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FDA5CC3E28F524C300EF941B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +68,9 @@
 				FDA5CC3E28F524C300EF941B /* SceneDelegate.swift */,
 				FDA5CC4028F524C300EF941B /* ViewController.swift */,
 				FDA5CC4228F524C300EF941B /* Main.storyboard */,
+				95FA8BD528F5EB3800276CBE /* SummaryVC.swift */,
+				95FA8BD328F5EACD00276CBE /* SetCreationVC.swift */,
+				9585CB1A28F5F2BB00689958 /* TextFieldTableViewCell.swift */,
 				FDA5CC4828F524C500EF941B /* Assets.xcassets */,
 				FDA5CC4A28F524C500EF941B /* LaunchScreen.storyboard */,
 				FDA5CC4D28F524C500EF941B /* Info.plist */,
@@ -141,6 +150,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95FA8BD428F5EACD00276CBE /* SetCreationVC.swift in Sources */,
+				95FA8BD628F5EB3800276CBE /* SummaryVC.swift in Sources */,
+				9585CB1B28F5F2BB00689958 /* TextFieldTableViewCell.swift in Sources */,
 				FDA5CC4128F524C300EF941B /* ViewController.swift in Sources */,
 				FDA5CC4728F524C300EF941B /* StudyCard.xcdatamodeld in Sources */,
 				FDA5CC3D28F524C300EF941B /* AppDelegate.swift in Sources */,
