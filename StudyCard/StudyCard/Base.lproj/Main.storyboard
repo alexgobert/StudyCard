@@ -8,22 +8,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="StudyCard" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="HrC-uj-RAR"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="950.76923076923072" y="3.5545023696682461"/>
-        </scene>
         <!--SetCreationVC-->
         <scene sceneID="S6s-fc-imy">
             <objects>
@@ -36,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="100" id="XOo-j4-AQE" customClass="TextFieldTableViewCell" customModule="StudyCard" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TextFieldTableViewCell" rowHeight="100" id="XOo-j4-AQE" customClass="TextFieldTableViewCell" customModule="StudyCard" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XOo-j4-AQE" id="UDd-zr-7Gd">
@@ -175,12 +159,28 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="eeh-WC-8Af"/>
+                        <segue destination="pTk-XD-fLk" kind="relationship" relationship="rootViewController" id="2MA-cC-yun"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XgU-IC-WMu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="21.538461538461537" y="3.5545023696682461"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="yam-q1-YXf">
+            <objects>
+                <viewController id="pTk-XD-fLk" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IMW-Ai-Zk6">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="VBQ-Rd-h9d"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="mE3-3D-Ar3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HWh-yx-x8c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="802" y="4"/>
         </scene>
         <!--SummaryVC-->
         <scene sceneID="Nin-ql-JHX">
@@ -189,13 +189,86 @@
                     <view key="view" contentMode="scaleToFill" id="6bX-n4-4UG">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="46e-NV-Gg3">
+                                <rect key="frame" x="160.33333333333334" y="109" width="72.666666666666657" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unknown: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="na1-UB-O6v">
+                                <rect key="frame" x="50" y="201" width="146.66666666666666" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Known: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vvq-Uu-FFp">
+                                <rect key="frame" x="50" y="155" width="146.66666666666666" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gss-UK-ai2">
+                                <rect key="frame" x="0.0" y="247" width="393" height="426"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TextCell" id="awK-0D-L9q">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="awK-0D-L9q" id="HYZ-bR-f1s">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="12l-P2-U5y">
+                                <rect key="frame" x="98.333333333333329" y="698" width="196.66666666666669" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Retry unknown words?"/>
+                                <connections>
+                                    <action selector="retryButtonPressed:" destination="OH3-ga-2IT" eventType="touchUpInside" id="jnY-rj-94q"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0rS-eG-ZhE">
+                                <rect key="frame" x="124" y="758" width="145" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Retry all words?"/>
+                                <connections>
+                                    <action selector="retryButtonPressed:" destination="OH3-ga-2IT" eventType="touchUpInside" id="unL-I1-K9D"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="yF1-US-Q26"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="na1-UB-O6v" firstAttribute="trailing" secondItem="Vvq-Uu-FFp" secondAttribute="trailing" id="2mi-H6-91J"/>
+                            <constraint firstItem="12l-P2-U5y" firstAttribute="top" secondItem="gss-UK-ai2" secondAttribute="bottom" constant="25" id="6a7-nF-pXH"/>
+                            <constraint firstItem="yF1-US-Q26" firstAttribute="trailing" secondItem="gss-UK-ai2" secondAttribute="trailing" id="8ne-6E-Dzm"/>
+                            <constraint firstItem="yF1-US-Q26" firstAttribute="bottom" secondItem="0rS-eG-ZhE" secondAttribute="bottom" constant="25" id="BqG-of-9h4"/>
+                            <constraint firstItem="46e-NV-Gg3" firstAttribute="top" secondItem="yF1-US-Q26" secondAttribute="top" constant="50" id="COH-KK-Lhm"/>
+                            <constraint firstItem="Vvq-Uu-FFp" firstAttribute="top" secondItem="46e-NV-Gg3" secondAttribute="bottom" constant="25" id="F2C-eg-tge"/>
+                            <constraint firstItem="Vvq-Uu-FFp" firstAttribute="leading" secondItem="yF1-US-Q26" secondAttribute="leading" constant="50" id="HDm-yh-bNV"/>
+                            <constraint firstItem="12l-P2-U5y" firstAttribute="centerX" secondItem="6bX-n4-4UG" secondAttribute="centerX" id="PRM-Aj-nNs"/>
+                            <constraint firstItem="na1-UB-O6v" firstAttribute="leading" secondItem="Vvq-Uu-FFp" secondAttribute="leading" id="TtH-e5-p8P"/>
+                            <constraint firstItem="na1-UB-O6v" firstAttribute="top" secondItem="Vvq-Uu-FFp" secondAttribute="bottom" constant="25" id="XPP-bw-AtT"/>
+                            <constraint firstItem="gss-UK-ai2" firstAttribute="top" secondItem="na1-UB-O6v" secondAttribute="bottom" constant="25" id="apw-1G-cP3"/>
+                            <constraint firstItem="0rS-eG-ZhE" firstAttribute="top" secondItem="12l-P2-U5y" secondAttribute="bottom" constant="25" id="eRa-Yv-nWz"/>
+                            <constraint firstItem="46e-NV-Gg3" firstAttribute="centerX" secondItem="6bX-n4-4UG" secondAttribute="centerX" id="ht5-ah-xvA"/>
+                            <constraint firstItem="Vvq-Uu-FFp" firstAttribute="trailing" secondItem="46e-NV-Gg3" secondAttribute="centerX" id="lqp-ra-Ojt"/>
+                            <constraint firstItem="gss-UK-ai2" firstAttribute="leading" secondItem="yF1-US-Q26" secondAttribute="leading" id="oPf-BY-Y2n"/>
+                            <constraint firstItem="0rS-eG-ZhE" firstAttribute="centerX" secondItem="6bX-n4-4UG" secondAttribute="centerX" id="ytg-21-G0M"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="knownLabel" destination="Vvq-Uu-FFp" id="bKs-EV-u0j"/>
+                        <outlet property="tableView" destination="gss-UK-ai2" id="VEv-mp-yzq"/>
+                        <outlet property="unknownLabel" destination="na1-UB-O6v" id="ISX-0a-v6d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9px-Bp-P8N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1865" y="891"/>
+            <point key="canvasLocation" x="1864.885496183206" y="890.84507042253529"/>
         </scene>
     </scenes>
     <resources>
