@@ -8,22 +8,48 @@
 import UIKit
 
 class StudySetupVC: UIViewController {
+    
+    var shuffle:Bool = true
+    var itemFirst:String = ""
+    var delegate: UIViewController!
 
+    @IBOutlet weak var shuffleToggle: UISwitch!
+    
+    @IBOutlet weak var itemFirstCtrl: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        shuffle = true
+        itemFirst = "Term"
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func onItemFirstChanged(_ sender: Any) {
+        switch itemFirstCtrl.selectedSegmentIndex {
+        case 0:
+            itemFirst = "Term"
+            print(itemFirst)
+        case 1:
+            itemFirst = "Mixed"
+            print(itemFirst)
+        case 2:
+            itemFirst = "Definition"
+            print(itemFirst)
+        default:
+            itemFirst = "error"
+            print(itemFirst)
+        }
     }
-    */
-
+    
+    @IBAction func onToggleChanged(_ sender: Any) {
+        switch shuffleToggle.isOn {
+        case true:
+            shuffle = true
+            print(shuffle)
+        case false:
+            shuffle = false
+            print(shuffle)
+        }
+    }
 }

@@ -176,9 +176,15 @@
                                     <segment title="Mixed"/>
                                     <segment title="Definition"/>
                                 </segments>
+                                <connections>
+                                    <action selector="onItemFirstChanged:" destination="pj1-MM-WZ0" eventType="valueChanged" id="oEf-5w-mWj"/>
+                                </connections>
                             </segmentedControl>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sFz-N9-BRs">
                                 <rect key="frame" x="94" y="148" width="51" height="31"/>
+                                <connections>
+                                    <action selector="onToggleChanged:" destination="pj1-MM-WZ0" eventType="valueChanged" id="g9f-d0-CTz"/>
+                                </connections>
                             </switch>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="IYi-mm-IeR"/>
@@ -188,10 +194,8 @@
                             <constraint firstItem="zNt-AB-heG" firstAttribute="leading" secondItem="IYi-mm-IeR" secondAttribute="leading" constant="15" id="EbN-aL-NSX"/>
                             <constraint firstItem="4QF-G1-srq" firstAttribute="top" secondItem="zNt-AB-heG" secondAttribute="bottom" constant="35" id="IGg-mD-dXF"/>
                             <constraint firstItem="4QF-G1-srq" firstAttribute="leading" secondItem="IYi-mm-IeR" secondAttribute="leading" constant="15" id="KCK-SI-Lh9"/>
-                            <constraint firstItem="IYi-mm-IeR" firstAttribute="trailing" secondItem="4QF-G1-srq" secondAttribute="trailing" id="MMR-13-yZG"/>
                             <constraint firstItem="3nl-iT-U0P" firstAttribute="leading" secondItem="IYi-mm-IeR" secondAttribute="leading" constant="15" id="VK9-kJ-0gL"/>
                             <constraint firstItem="sFz-N9-BRs" firstAttribute="top" secondItem="IYi-mm-IeR" secondAttribute="top" constant="45" id="YK5-9l-zi2"/>
-                            <constraint firstItem="4QF-G1-srq" firstAttribute="leading" secondItem="IYi-mm-IeR" secondAttribute="leading" id="ZhS-Fd-kMl"/>
                             <constraint firstItem="sFz-N9-BRs" firstAttribute="leading" secondItem="3nl-iT-U0P" secondAttribute="trailing" constant="20" id="Zr2-c4-AzO"/>
                             <constraint firstItem="IYi-mm-IeR" firstAttribute="trailing" secondItem="4QF-G1-srq" secondAttribute="trailing" constant="15" id="kN4-VY-SN8"/>
                             <constraint firstItem="zNt-AB-heG" firstAttribute="top" secondItem="3nl-iT-U0P" secondAttribute="bottom" constant="50" id="qMI-rx-37s"/>
@@ -203,6 +207,10 @@
                             <color key="tintColor" systemColor="systemGreenColor"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="itemFirstCtrl" destination="4QF-G1-srq" id="M9j-TS-nZ4"/>
+                        <outlet property="shuffleToggle" destination="sFz-N9-BRs" id="nrN-a7-ItO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7sB-l2-Se7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -245,7 +253,7 @@
                                 <rect key="frame" x="0.0" y="159" width="393" height="659"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="aqa-jn-G9e" style="IBUITableViewCellStyleDefault" id="xqT-DO-wOx">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SetNameCell" textLabel="aqa-jn-G9e" style="IBUITableViewCellStyleDefault" id="xqT-DO-wOx">
                                         <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xqT-DO-wOx" id="43C-O8-DMg">
@@ -295,6 +303,10 @@
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="setSearch" destination="xf1-Qr-Lk9" id="kDH-kJ-x9r"/>
+                        <outlet property="setsTableView" destination="ahR-9u-QEh" id="Zrl-UT-h7c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HWh-yx-x8c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
