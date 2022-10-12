@@ -19,6 +19,7 @@
 		FDA5CC4728F524C300EF941B /* StudyCard.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FDA5CC4528F524C300EF941B /* StudyCard.xcdatamodeld */; };
 		FDA5CC4928F524C500EF941B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDA5CC4828F524C500EF941B /* Assets.xcassets */; };
 		FDA5CC4C28F524C500EF941B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDA5CC4A28F524C500EF941B /* LaunchScreen.storyboard */; };
+		FDA5CC5428F69D5B00EF941B /* StudySetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA5CC5328F69D5B00EF941B /* StudySetupVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		FDA5CC4828F524C500EF941B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FDA5CC4B28F524C500EF941B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FDA5CC4D28F524C500EF941B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FDA5CC5328F69D5B00EF941B /* StudySetupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudySetupVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				FDA5CC3E28F524C300EF941B /* SceneDelegate.swift */,
 				FDA5CC4028F524C300EF941B /* ViewController.swift */,
 				FDA5CC4228F524C300EF941B /* Main.storyboard */,
+				FDA5CC5328F69D5B00EF941B /* StudySetupVC.swift */,
 				95FA8BD528F5EB3800276CBE /* SummaryVC.swift */,
 				95FA8BD328F5EACD00276CBE /* SetCreationVC.swift */,
 				9585CB1C28F6013F00689958 /* CardSet.swift */,
@@ -162,6 +165,7 @@
 				9585CB1B28F5F2BB00689958 /* TextFieldTableViewCell.swift in Sources */,
 				FDA5CC4128F524C300EF941B /* ViewController.swift in Sources */,
 				FDA5CC4728F524C300EF941B /* StudyCard.xcdatamodeld in Sources */,
+				FDA5CC5428F69D5B00EF941B /* StudySetupVC.swift in Sources */,
 				FDA5CC3D28F524C300EF941B /* AppDelegate.swift in Sources */,
 				9585CB1D28F6013F00689958 /* CardSet.swift in Sources */,
 				FDA5CC3F28F524C300EF941B /* SceneDelegate.swift in Sources */,
