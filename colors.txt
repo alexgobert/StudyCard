@@ -8,4 +8,3 @@ theme colors:
 	https://coolors.co/220c10-506c64-77cbb9-75b8c8-82becd
 	https://coolors.co/2f6690-3a7ca5-d9dcd6-16425b-81c3d7
 	https://coolors.co/4c6085-39a0ed-d4b483-13c4a3-32322c
-	test
