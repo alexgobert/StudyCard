@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50A5D6CC2900BBD800D0E964 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5D6CB2900BBD800D0E964 /* ProfileViewController.swift */; };
+		50A5D6CE2900BC4700D0E964 /* StudyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5D6CD2900BC4700D0E964 /* StudyViewController.swift */; };
 		9585CB1B28F5F2BB00689958 /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9585CB1A28F5F2BB00689958 /* TextFieldTableViewCell.swift */; };
 		9585CB1D28F6013F00689958 /* CardSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9585CB1C28F6013F00689958 /* CardSet.swift */; };
 		9585CB2128F6062600689958 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9585CB2028F6062600689958 /* Card.swift */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		50A5D6CB2900BBD800D0E964 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		50A5D6CD2900BC4700D0E964 /* StudyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyViewController.swift; sourceTree = "<group>"; };
 		9585CB1A28F5F2BB00689958 /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
 		9585CB1C28F6013F00689958 /* CardSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSet.swift; sourceTree = "<group>"; };
 		9585CB2028F6062600689958 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
@@ -74,6 +78,8 @@
 				FDA5CC3E28F524C300EF941B /* SceneDelegate.swift */,
 				FDA5CC4028F524C300EF941B /* ViewController.swift */,
 				FDA5CC4228F524C300EF941B /* Main.storyboard */,
+				50A5D6CB2900BBD800D0E964 /* ProfileViewController.swift */,
+				50A5D6CD2900BC4700D0E964 /* StudyViewController.swift */,
 				FDA5CC5328F69D5B00EF941B /* StudySetupVC.swift */,
 				95FA8BD528F5EB3800276CBE /* SummaryVC.swift */,
 				95FA8BD328F5EACD00276CBE /* SetCreationVC.swift */,
@@ -163,8 +169,10 @@
 				9585CB2128F6062600689958 /* Card.swift in Sources */,
 				95FA8BD628F5EB3800276CBE /* SummaryVC.swift in Sources */,
 				9585CB1B28F5F2BB00689958 /* TextFieldTableViewCell.swift in Sources */,
+				50A5D6CE2900BC4700D0E964 /* StudyViewController.swift in Sources */,
 				FDA5CC4128F524C300EF941B /* ViewController.swift in Sources */,
 				FDA5CC4728F524C300EF941B /* StudyCard.xcdatamodeld in Sources */,
+				50A5D6CC2900BBD800D0E964 /* ProfileViewController.swift in Sources */,
 				FDA5CC5428F69D5B00EF941B /* StudySetupVC.swift in Sources */,
 				FDA5CC3D28F524C300EF941B /* AppDelegate.swift in Sources */,
 				9585CB1D28F6013F00689958 /* CardSet.swift in Sources */,
