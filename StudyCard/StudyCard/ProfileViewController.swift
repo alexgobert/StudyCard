@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -88,5 +89,14 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func deleteAccountButtonPressed(_ sender: Any) {
+    }
+    
+    @IBAction func logoutButtonPressed(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+            performSegue(withIdentifier: "signoutSegue", sender: nil)
+        } catch {
+            print("Sign out error")
+        }
     }
 }
