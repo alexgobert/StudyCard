@@ -7,6 +7,7 @@
 
 class CardSet {
     var set: [Card] = []
+    var name: String = ""
     
     init(set: [Card]?) {
         self.set = set ?? self.set
@@ -16,7 +17,8 @@ class CardSet {
         self.init(set: nil)
     }
     
-    init(terms: [String], definitions: [String]) {
+    init(name: String, terms: [String], definitions: [String]) {
+        self.name = name
         self.set = zip(terms, definitions).map(
             { (term: String, definition: String) -> Card
                 in return Card(term: term, definition: definition) }
