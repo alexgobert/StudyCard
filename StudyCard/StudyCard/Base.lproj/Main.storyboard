@@ -18,132 +18,74 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ZX0-NW-xlv">
-                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <rect key="frame" x="0.0" y="153" width="393" height="665"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TextFieldTableViewCell" rowHeight="100" id="XOo-j4-AQE" customClass="TextFieldTableViewCell" customModule="StudyCard" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="100"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TextFieldTableViewCell" rowHeight="120" id="XOo-j4-AQE" customClass="TextFieldTableViewCell" customModule="StudyCard" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XOo-j4-AQE" id="UDd-zr-7Gd">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" role="destructive" translatesAutoresizingMaskIntoConstraints="NO" id="mtW-Kj-DBu">
-                                                    <rect key="frame" x="340" y="33" width="48" height="34.333333333333343"/>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="trash" catalog="system">
-                                                        <color key="baseForegroundColor" systemColor="systemRedColor"/>
-                                                    </buttonConfiguration>
-                                                    <connections>
-                                                        <action selector="deletedPressed:" destination="XOo-j4-AQE" eventType="touchUpInside" id="M16-fa-KLV"/>
-                                                    </connections>
-                                                </button>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="10d-j2-7OR">
-                                                    <rect key="frame" x="20" y="0.0" width="90" height="100"/>
+                                                    <rect key="frame" x="20" y="10" width="348" height="100"/>
                                                     <subviews>
-                                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Definition" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="btC-O8-B6z">
-                                                            <rect key="frame" x="0.0" y="0.0" width="90" height="45"/>
+                                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Term" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="btC-O8-B6z">
+                                                            <rect key="frame" x="0.0" y="0.0" width="348" height="45"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
-                                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Term" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AKd-ec-Qt8">
-                                                            <rect key="frame" x="0.0" y="55" width="90" height="45"/>
+                                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Definition" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AKd-ec-Qt8">
+                                                            <rect key="frame" x="0.0" y="55" width="348" height="45"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstItem="AKd-ec-Qt8" firstAttribute="width" secondItem="btC-O8-B6z" secondAttribute="width" id="MWV-HU-3OA"/>
                                                         <constraint firstAttribute="trailing" secondItem="btC-O8-B6z" secondAttribute="trailing" id="UYk-wW-22T"/>
                                                         <constraint firstItem="btC-O8-B6z" firstAttribute="height" secondItem="AKd-ec-Qt8" secondAttribute="height" id="fFj-LU-53v"/>
                                                     </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="mtW-Kj-DBu" firstAttribute="centerY" secondItem="UDd-zr-7Gd" secondAttribute="centerY" id="J1d-bN-JZN"/>
-                                                <constraint firstItem="btC-O8-B6z" firstAttribute="top" secondItem="UDd-zr-7Gd" secondAttribute="top" id="KWD-AZ-oSF"/>
-                                                <constraint firstAttribute="bottom" secondItem="AKd-ec-Qt8" secondAttribute="bottom" id="MvI-GN-lsA"/>
                                                 <constraint firstItem="10d-j2-7OR" firstAttribute="leading" secondItem="UDd-zr-7Gd" secondAttribute="leading" constant="20" symbolic="YES" id="OJn-SA-YzA"/>
-                                                <constraint firstItem="10d-j2-7OR" firstAttribute="centerY" secondItem="UDd-zr-7Gd" secondAttribute="centerY" id="RCJ-jQ-6Ud"/>
-                                                <constraint firstAttribute="trailing" secondItem="mtW-Kj-DBu" secondAttribute="trailing" constant="5" id="j1C-Fy-ijb"/>
+                                                <constraint firstAttribute="trailing" secondItem="AKd-ec-Qt8" secondAttribute="trailing" constant="25" id="RqZ-8s-pYE"/>
+                                                <constraint firstItem="10d-j2-7OR" firstAttribute="centerY" secondItem="UDd-zr-7Gd" secondAttribute="centerY" id="WmP-9b-mou"/>
+                                                <constraint firstAttribute="bottom" secondItem="10d-j2-7OR" secondAttribute="bottom" constant="10" id="se7-gW-vrt"/>
+                                                <constraint firstItem="10d-j2-7OR" firstAttribute="top" secondItem="UDd-zr-7Gd" secondAttribute="top" constant="10" id="yXG-I2-tTM"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="definitionField" destination="btC-O8-B6z" id="aLj-X1-I9O"/>
-                                            <outlet property="deleteButton" destination="mtW-Kj-DBu" id="gec-UH-XUV"/>
+                                            <outlet property="definitionField" destination="AKd-ec-Qt8" id="Cxz-LJ-FST"/>
                                             <outlet property="stackView" destination="10d-j2-7OR" id="SWE-3v-oDt"/>
-                                            <outlet property="termField" destination="AKd-ec-Qt8" id="7Qu-AF-Hog"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="100" id="Aem-xa-zTb" customClass="TextFieldTableViewCell" customModule="StudyCard" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="150" width="393" height="100"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Aem-xa-zTb" id="vUS-oh-seP">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" role="destructive" translatesAutoresizingMaskIntoConstraints="NO" id="QqS-uQ-JF8">
-                                                    <rect key="frame" x="340" y="33" width="48" height="34.333333333333343"/>
-                                                    <state key="normal" title="Button"/>
-                                                    <buttonConfiguration key="configuration" style="plain" image="trash" catalog="system">
-                                                        <color key="baseForegroundColor" systemColor="systemRedColor"/>
-                                                    </buttonConfiguration>
-                                                    <connections>
-                                                        <action selector="deletedPressed:" destination="Aem-xa-zTb" eventType="touchUpInside" id="4bW-86-rho"/>
-                                                    </connections>
-                                                </button>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="JN0-j3-0hB">
-                                                    <rect key="frame" x="20" y="0.0" width="90" height="100"/>
-                                                    <subviews>
-                                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Definition" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hrd-FV-aln">
-                                                            <rect key="frame" x="0.0" y="0.0" width="90" height="45"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits"/>
-                                                        </textField>
-                                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Term" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XLT-WZ-3wm">
-                                                            <rect key="frame" x="0.0" y="55" width="90" height="45"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits"/>
-                                                        </textField>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="XLT-WZ-3wm" firstAttribute="width" secondItem="hrd-FV-aln" secondAttribute="width" id="6VW-19-W5Z"/>
-                                                        <constraint firstItem="hrd-FV-aln" firstAttribute="height" secondItem="XLT-WZ-3wm" secondAttribute="height" id="ELG-5k-Iby"/>
-                                                        <constraint firstAttribute="trailing" secondItem="hrd-FV-aln" secondAttribute="trailing" id="sb9-76-Jka"/>
-                                                    </constraints>
-                                                </stackView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="hrd-FV-aln" firstAttribute="top" secondItem="vUS-oh-seP" secondAttribute="top" id="1ix-pz-anv"/>
-                                                <constraint firstAttribute="bottom" secondItem="XLT-WZ-3wm" secondAttribute="bottom" id="GBE-II-0uk"/>
-                                                <constraint firstItem="JN0-j3-0hB" firstAttribute="centerY" secondItem="vUS-oh-seP" secondAttribute="centerY" id="Ore-Dp-OUa"/>
-                                                <constraint firstItem="JN0-j3-0hB" firstAttribute="leading" secondItem="vUS-oh-seP" secondAttribute="leading" constant="20" symbolic="YES" id="PRt-SH-I0f"/>
-                                                <constraint firstItem="QqS-uQ-JF8" firstAttribute="centerY" secondItem="vUS-oh-seP" secondAttribute="centerY" id="eXQ-wE-Xta"/>
-                                                <constraint firstAttribute="trailing" secondItem="QqS-uQ-JF8" secondAttribute="trailing" constant="5" id="hmE-uL-XYq"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="definitionField" destination="hrd-FV-aln" id="jR1-ef-aY3"/>
-                                            <outlet property="deleteButton" destination="QqS-uQ-JF8" id="Avc-xo-wOP"/>
-                                            <outlet property="stackView" destination="JN0-j3-0hB" id="nvu-fu-cIf"/>
-                                            <outlet property="termField" destination="XLT-WZ-3wm" id="rYj-HW-amE"/>
+                                            <outlet property="termField" destination="btC-O8-B6z" id="50J-hm-Vdo"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1wX-gF-x4N">
+                                <rect key="frame" x="20" y="113" width="173" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcm-Ay-HVU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="ZX0-NW-xlv" firstAttribute="top" secondItem="Bcm-Ay-HVU" secondAttribute="top" id="CcD-45-D7P"/>
+                            <constraint firstItem="ZX0-NW-xlv" firstAttribute="top" secondItem="Bcm-Ay-HVU" secondAttribute="top" constant="50" id="CcD-45-D7P"/>
                             <constraint firstItem="Bcm-Ay-HVU" firstAttribute="trailing" secondItem="ZX0-NW-xlv" secondAttribute="trailing" id="MOA-k8-XTX"/>
+                            <constraint firstItem="1wX-gF-x4N" firstAttribute="top" secondItem="Bcm-Ay-HVU" secondAttribute="top" constant="10" id="Rkq-Ga-3Nj"/>
+                            <constraint firstItem="Bcm-Ay-HVU" firstAttribute="trailing" secondItem="1wX-gF-x4N" secondAttribute="trailing" constant="200" id="Z79-GA-REr"/>
                             <constraint firstItem="ZX0-NW-xlv" firstAttribute="leading" secondItem="Bcm-Ay-HVU" secondAttribute="leading" id="kE2-qf-ciP"/>
                             <constraint firstItem="Bcm-Ay-HVU" firstAttribute="bottom" secondItem="ZX0-NW-xlv" secondAttribute="bottom" id="stQ-Z5-w03"/>
+                            <constraint firstItem="1wX-gF-x4N" firstAttribute="leading" secondItem="Bcm-Ay-HVU" secondAttribute="leading" constant="20" id="y52-Dn-Tl0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Cjj-zg-Qc6"/>
                     <connections>
                         <outlet property="tableView" destination="ZX0-NW-xlv" id="7LQ-SD-Fhy"/>
+                        <outlet property="titleField" destination="1wX-gF-x4N" id="vEE-XW-6Ji"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sGI-G1-6Qc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -676,7 +618,6 @@
         <image name="checkmark.circle" catalog="system" width="128" height="123"/>
         <image name="gearshape" catalog="system" width="128" height="123"/>
         <image name="person.crop.circle" catalog="system" width="128" height="123"/>
-        <image name="trash" catalog="system" width="117" height="128"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
@@ -685,9 +626,6 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
