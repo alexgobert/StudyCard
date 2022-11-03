@@ -13,7 +13,7 @@ let setTextCellIdentifier = "SetNameCell"
 
 var setList:[String] = ["Hello", "World", "Search", "Bar"]
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, StudyListUpdater {
     
     @IBOutlet weak var setsTableView: UITableView!
     @IBOutlet weak var setSearch: UISearchBar!
@@ -61,10 +61,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             setsTableView.reloadData()
         }
     
-//    func updateList(set: CardSet) {
+    // TODO
+    func updateList(set: CardSet) {
 //        setList.append(set)
-//        setsTableView.reloadData()
-//    }
+        setsTableView.reloadData()
+    }
 
 }
 
