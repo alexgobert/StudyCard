@@ -31,6 +31,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         searchData = setList
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SetCreationSegue", let destination = segue.destination as? SetCreationVC {
+            destination.delegate = self
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchData.count
     }

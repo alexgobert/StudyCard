@@ -21,12 +21,14 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         tableView.delegate = self
         tableView.dataSource = self
         
-        // initialize empty card set
-        currentSet = CardSet(name: nil, cards: nil)
-        
         // set variable height for rows
         tableView.estimatedRowHeight = 120
         tableView.rowHeight = UITableView.automaticDimension
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // initialize empty card set
+        currentSet = CardSet(name: nil, cards: nil)
     }
     
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
