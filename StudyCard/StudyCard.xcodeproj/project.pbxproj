@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		32317B6929135687006DD86E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 32317B6829135687006DD86E /* FirebaseAuth */; };
 		32317B6B29135687006DD86E /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 32317B6A29135687006DD86E /* FirebaseStorage */; };
+		32317B6D29136154006DD86E /* SummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32317B6C29136154006DD86E /* SummaryTableViewCell.swift */; };
 		50A5D6CC2900BBD800D0E964 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5D6CB2900BBD800D0E964 /* ProfileViewController.swift */; };
 		50A5D6CE2900BC4700D0E964 /* StudyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5D6CD2900BC4700D0E964 /* StudyViewController.swift */; };
 		8395461B2901402D0074368B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8395461A2901402D0074368B /* GoogleService-Info.plist */; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		32317B6C29136154006DD86E /* SummaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryTableViewCell.swift; sourceTree = "<group>"; };
 		50A5D6CB2900BBD800D0E964 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		50A5D6CD2900BC4700D0E964 /* StudyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyViewController.swift; sourceTree = "<group>"; };
 		8395461A2901402D0074368B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				FDA5CC3E28F524C300EF941B /* SceneDelegate.swift */,
 				FDA5CC4028F524C300EF941B /* ViewController.swift */,
 				FDA5CC4228F524C300EF941B /* Main.storyboard */,
+				32317B6C29136154006DD86E /* SummaryTableViewCell.swift */,
 				50A5D6CB2900BBD800D0E964 /* ProfileViewController.swift */,
 				83AD82EB29013746006A459B /* LoginViewController.swift */,
 				50A5D6CD2900BC4700D0E964 /* StudyViewController.swift */,
@@ -199,6 +202,7 @@
 				FDA5CC3D28F524C300EF941B /* AppDelegate.swift in Sources */,
 				9585CB1D28F6013F00689958 /* CardSet.swift in Sources */,
 				83AD82EC29013746006A459B /* LoginViewController.swift in Sources */,
+				32317B6D29136154006DD86E /* SummaryTableViewCell.swift in Sources */,
 				FDA5CC3F28F524C300EF941B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

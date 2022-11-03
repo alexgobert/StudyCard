@@ -8,11 +8,15 @@
 import UIKit
 
 class SummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    @IBOutlet weak var knownLabel: UILabel!
-    @IBOutlet weak var unknownLabel: UILabel!
+    
+    
+    @IBOutlet weak var knownCounter: UILabel!
+    @IBOutlet weak var unknownCounter: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     let sections: [String] = ["Known Terms", "Unknown Terms"]
+    var known: [Card]!
+    var unknown: [Card]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,16 +25,38 @@ class SummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.dataSource = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        knownCounter.text = "\(known.count)"
+        unknownCounter.text = "\(unknown.count)"
+    }
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return sections.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        var numRows: Int
+        
+        switch section {
+        case 0:
+            numRows = known.count
+        case 1:
+            numRows = unknown.count
+        default:
+            numRows = 0
+        }
+        
+        return numRows
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sections[section]
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TextCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SummaryTableViewCell", for: indexPath)
         
         return cell
     }
