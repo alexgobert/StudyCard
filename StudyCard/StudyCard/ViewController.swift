@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol StudyListUpdater {
-    func updateList(set: CardSet)
-}
-
 let setTextCellIdentifier = "SetNameCell"
 
 //var setList:[CardSet] = [CardSet(name: "Test Set", terms: ["Canine"], definitions: ["Dog"])]

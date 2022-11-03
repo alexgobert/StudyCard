@@ -6,42 +6,55 @@
 //
 
 class CardSet: Collection {
-    var set: [Card] = []
+    var cards: [Card] = [] {
+        didSet {
+            endIndex = Swift.max(self.cards.count, 0)
+        }
+    }
     var name: String = ""
     
     // conformance to Collection
-    var startIndex: Index = 0
-    var endIndex: Index
+    var startIndex: Int = 0
+    var endIndex: Int
     
-    init(name: String?, set: [Card]?) {
+    init(name: String?, cards: [Card]?) {
         self.name = name ?? self.name
-        self.set = set ?? self.set
+        self.cards = cards ?? self.cards
         
-        endIndex = max(self.set.count, 0)
+        endIndex = Swift.max(self.cards.count, 0)
     }
     
     convenience init() {
-        self.init(name: nil, set: nil)
+        self.init(name: nil, cards: nil)
     }
     
     init(name: String, terms: [String], definitions: [String]) {
         self.name = name
-        self.set = zip(terms, definitions).map(
+        cards = zip(terms, definitions).map(
             { (term: String, definition: String) -> Card
                 in return Card(term: term, definition: definition) }
         )
+        
+        endIndex = Swift.max(self.cards.count, 0)
+    }
+    
+    func isEmpty() -> Bool {
+        return cards.count == 0
     }
     
     func addCard(card: Card) {
-        set.append(card)
-        endIndex += 1
+        cards.append(card)
     }
     
     func remove(at index: Int) {
-        set.remove(at: index)
+        cards.remove(at: index)
     }
     
-    func index(after i: Index) -> Index {
-        return min(startIndex + 1, endIndex - 1)
+    subscript(position: Int) -> Card {
+        get { return cards[position] }
+    }
+    
+    func index(after i: Int) -> Int {
+        return Swift.min(startIndex + 1, endIndex - 1)
     }
 }

@@ -11,8 +11,9 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
 
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var tableView: UITableView!
+    
     var currentSet: CardSet!
-    var font: UIFont!
+    var delegate: StudyListUpdater!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,15 +22,26 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         tableView.dataSource = self
         
         // initialize empty card set
-        currentSet = CardSet(name: titleField.text)
+        currentSet = CardSet(name: nil, cards: nil)
         
         // set variable height for rows
         tableView.estimatedRowHeight = 120
         tableView.rowHeight = UITableView.automaticDimension
     }
     
+    @IBAction func saveButton(_ sender: UIBarButtonItem) {
+        if !currentSet.isEmpty(), let title = titleField.text {
+            currentSet.name = title
+            delegate.updateList(set: currentSet)
+            
+            self.navigationController?.popViewController(animated: true)
+        } else {
+            print("save error") // TODO add status label
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return currentSet.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -42,7 +54,7 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             currentSet.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
