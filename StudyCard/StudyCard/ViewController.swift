@@ -11,16 +11,15 @@ let setTextCellIdentifier = "SetNameCell"
 
 //var setList:[CardSet] = [CardSet(name: "Test Set", terms: ["Canine"], definitions: ["Dog"])]
 
-var setList:[String] = ["Hello", "World", "Search", "Bar"]
+//var setList:[String] = ["Hello", "World", "Search", "Bar"]
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, StudyListUpdater {
     
     @IBOutlet weak var setsTableView: UITableView!
     @IBOutlet weak var setSearch: UISearchBar!
     
-//    var searchData: [CardSet]!
-    
-    var searchData: [String] = setList
+    var setList: [CardSet]!
+    var searchData: [CardSet]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,12 +27,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         setsTableView.dataSource = self
         setSearch.delegate = self
         
-        searchData = setList
+//        searchData = setList
+        setList = []
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "SetCreationSegue", let destination = segue.destination as? SetCreationVC {
-            destination.delegate = self
+        if segue.identifier == "SetCreationSegue", let dest = segue.destination as? SetCreationVC {
+            dest.delegate = self
+        } else if segue.identifier == "StudySetupSegue", let dest = segue.destination as? StudySetupVC, let index = setsTableView.indexPathForSelectedRow?.row {
+            dest.cards = setList[index]
         }
     }
     
@@ -43,8 +45,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: setTextCellIdentifier, for: indexPath)
-//        cell.textLabel?.text = setList[indexPath.row].name
-        cell.textLabel?.text = searchData[indexPath.row]
+        cell.textLabel?.text = setList[indexPath.row].name
+//        cell.textLabel?.text = searchData[indexPath.row]
         
         return cell
     }
@@ -55,8 +57,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print("test")
-        searchData = searchText.isEmpty ? setList : setList.filter { (item: String) -> Bool in
-                return item.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+        // TODO fix
+        searchData = searchText.isEmpty ? setList : setList.filter {
+            (item: CardSet) -> Bool in
+            return item.name.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
             }
             setsTableView.reloadData()
         }

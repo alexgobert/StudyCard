@@ -50,11 +50,20 @@ class CardSet: Collection {
         cards.remove(at: index)
     }
     
+    // conformance to Collection
     subscript(position: Int) -> Card {
         get { return cards[position] }
     }
     
+    // conformance to Collection
     func index(after i: Int) -> Int {
         return Swift.min(startIndex + 1, endIndex - 1)
+    }
+    
+    func shuffle(_ doShuffle: Bool?) {
+        let shuff = doShuffle ?? true
+        if shuff {
+            cards.shuffle()
+        }
     }
 }

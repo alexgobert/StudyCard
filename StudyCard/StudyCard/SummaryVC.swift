@@ -9,14 +9,17 @@ import UIKit
 
 class SummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
     @IBOutlet weak var knownCounter: UILabel!
     @IBOutlet weak var unknownCounter: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     let sections: [String] = ["Known Terms", "Unknown Terms"]
-    var known: [Card]!
-    var unknown: [Card]!
+    var cards: CardSet!
+    var knownCards: [Card]!
+    var unknownCards: [Card]!
+    var sectionedCards: [[Card]] { [knownCards, unknownCards] }
+    
+    var delegate: StudyViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +31,8 @@ class SummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        knownCounter.text = "\(known.count)"
-        unknownCounter.text = "\(unknown.count)"
+        knownCounter.text = "\(knownCards.count)"
+        unknownCounter.text = "\(unknownCards.count)"
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -41,9 +44,9 @@ class SummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         switch section {
         case 0:
-            numRows = known.count
+            numRows = knownCards.count
         case 1:
-            numRows = unknown.count
+            numRows = unknownCards.count
         default:
             numRows = 0
         }
@@ -56,18 +59,19 @@ class SummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "SummaryTableViewCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SummaryTableViewCell", for: indexPath) as! SummaryTableViewCell
+        let card: Card = sectionedCards[indexPath.section][indexPath.row]
+        
+        cell.setCard(card)
         
         return cell
     }
     
     @IBAction func retryButtonPressed(_ sender: UIButton) {
         let senderTitle: String = (sender.titleLabel?.text)!
+        let newSet: CardSet = senderTitle.contains("unknown") ? CardSet(name: cards.name, cards: unknownCards) : cards
         
-        if senderTitle.contains("unknown") {
-            
-        } else if senderTitle.contains("all") {
-            
-        }
+        delegate.cards = newSet
+        self.navigationController?.popViewController(animated: true)
     }
 }
