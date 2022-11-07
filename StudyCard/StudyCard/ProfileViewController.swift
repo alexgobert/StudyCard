@@ -15,7 +15,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var profilePicImageView: UIImageView!
     
+    let storageRef: StorageReference = Storage.storage().reference(forURL: "profile_pictures")
     var imagePicked: Bool = false
+    var imageName: String!
     var observer: NSKeyValueObservation!
     
     override func viewDidLoad() {
@@ -27,7 +29,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             date.replace(" ", with: "")
             date.replace("/", with: "-")
             
-            self.storeImage(name: "image\(date).jpeg", image: change.newValue!!)
+            self.deleteImage(name: self.imageName)
+            self.imageName = "image\(date).jpeg"
+            self.storeImage(name: self.imageName, image: change.newValue!!)
         }
     }
     
@@ -72,15 +76,25 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
+    // Stores profile picture in Firebase
     func storeImage(name: String, image: UIImage) {
-        let pfpRef = Storage.storage().reference(forURL: "profile_pictures/\(name)")
+        let pfpRef = storageRef.child("\(name)")
         
         guard let imageData = image.jpegData(compressionQuality: 1) else {
             return
         }
         
-        pfpRef.putData(imageData) {
-            _, error in
+        pfpRef.putData(imageData) { _, error in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    // Deletes profile picture from Firebase
+    func deleteImage(name: String) {
+        let ref = storageRef.child(name)
+        ref.delete { error in
             if let error = error {
                 print(error.localizedDescription)
             }
