@@ -7,33 +7,40 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseStorage
 
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // Outlets to main
     @IBOutlet weak var emailLabel: UILabel!
-    
     @IBOutlet weak var profilePicImageView: UIImageView!
     
-    // Image Picked boolean for Profile Picture
-    var imagePicked = false
+    var imagePicked: Bool = false
+    var observer: NSKeyValueObservation!
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
+        observer = profilePicImageView.observe(\.image, options: [.new]) {
+            _, change in
+            var date: String = Date().formatted()
+            date.replace(" ", with: "")
+            date.replace("/", with: "-")
+            
+            self.storeImage(name: "image\(date).jpeg", image: change.newValue!!)
+        }
     }
     
     // Button Function for Using Camera to take Proile Picture
-    
     @IBAction func takeProfilePhotoButtonPressed(_ sender: Any) {
-        if UIImagePickerController.isSourceTypeAvailable(.camera) && imagePicked == false {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) && !imagePicked {
             
             let imagePickerController = UIImagePickerController()
             
             imagePickerController.delegate = self
-            
             imagePickerController.sourceType = .camera
             
-            self.present(imagePickerController, animated: true, completion: nil)
+            self.present(imagePickerController, animated: true)
             
             imagePicked = true
         }
@@ -63,22 +70,24 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             
             self.present(profilePicController, animated: true, completion: nil)
         }
+    }
+    
+    func storeImage(name: String, image: UIImage) {
+        let pfpRef = Storage.storage().reference(forURL: "profile_pictures/\(name)")
         
-        // Function for if user presses Cancel on Camera
-        func imagePickerControllerDidCancel (_picker: UIImagePickerController) {
-            self.dismiss(animated: true, completion: nil)
+        guard let imageData = image.jpegData(compressionQuality: 1) else {
+            return
         }
         
-        
-        func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
-            profilePicImageView.image = image
-            self.dismiss(animated: true, completion: nil)
+        pfpRef.putData(imageData) {
+            _, error in
+            if let error = error {
+                print(error.localizedDescription)
+            }
         }
     }
     
     // Actions for Profile Altercation Buttons
-    
     @IBAction func changeEmailButtonPressed(_ sender: Any) {
     }
     
