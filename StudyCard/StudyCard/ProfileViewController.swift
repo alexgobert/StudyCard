@@ -16,15 +16,23 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var profilePicImageView: UIImageView!
     
     let storageRef: StorageReference = Storage.storage().reference(forURL: "profile_pictures")
-    var imagePicked: Bool = false
-    var imageName: String!
+    let maxImageSize: Int64 = 10 * 1024 * 1024 // MB
+    var imageName: String = ""
     var observer: NSKeyValueObservation!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // load user image
+        if let user = Auth.auth().currentUser, let photoURL = user.photoURL {
+            loadImage(photoURL: photoURL)
+            imageName = photoURL.lastPathComponent
+        }
+        
+        // set up profile picture observer
         observer = profilePicImageView.observe(\.image, options: [.new]) {
             _, change in
+            // name images by date
             var date: String = Date().formatted()
             date.replace(" ", with: "")
             date.replace("/", with: "-")
@@ -37,7 +45,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     // Button Function for Using Camera to take Proile Picture
     @IBAction func takeProfilePhotoButtonPressed(_ sender: Any) {
-        if UIImagePickerController.isSourceTypeAvailable(.camera) && !imagePicked {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
             
             let imagePickerController = UIImagePickerController()
             
@@ -45,8 +53,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             imagePickerController.sourceType = .camera
             
             self.present(imagePickerController, animated: true)
-            
-            imagePicked = true
         }
     }
     
@@ -78,17 +84,36 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     // Stores profile picture in Firebase
     func storeImage(name: String, image: UIImage) {
-        let pfpRef = storageRef.child("\(name)")
-        
-        guard let imageData = image.jpegData(compressionQuality: 1) else {
+        guard let imageData = image.jpegData(compressionQuality: 1), let user = Auth.auth().currentUser else {
             return
         }
         
+        let pfpRef = storageRef.child("\(user.uid)/\(name)")
+        
+        // store image
         pfpRef.putData(imageData) { _, error in
             if let error = error {
                 print(error.localizedDescription)
             }
         }
+        
+        // store image url in profile data
+        // https://firebase.google.com/docs/auth/ios/manage-users#update_a_users_profile
+        let changeRequest = user.createProfileChangeRequest()
+        pfpRef.downloadURL { url, error in
+            if let url = url {
+                changeRequest.photoURL = url
+                
+            } else if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+        changeRequest.commitChanges { error in // save new profile data
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+        
     }
     
     // Deletes profile picture from Firebase
@@ -96,6 +121,20 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         let ref = storageRef.child(name)
         ref.delete { error in
             if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func loadImage(photoURL: URL) {
+        let photoRef = Storage.storage().reference(forURL: photoURL.absoluteString)
+        
+        // download to memory with max size 10 MB
+        photoRef.getData(maxSize: maxImageSize) { data, error in
+            // update profilePicImageView with retrieved image
+            if let data = data {
+                self.profilePicImageView.image = UIImage(data: data)
+            } else if let error = error {
                 print(error.localizedDescription)
             }
         }
