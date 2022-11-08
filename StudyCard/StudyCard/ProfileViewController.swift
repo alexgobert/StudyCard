@@ -1,5 +1,5 @@
 //
-//  ProfileViewController.swift
+//  ProfileVC.swift
 //  StudyCard
 //
 //  Created by Sam Song on 10/19/22.
@@ -9,7 +9,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseStorage
 
-class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // Outlets to main
     @IBOutlet weak var emailLabel: UILabel!
@@ -41,6 +41,14 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             self.imageName = "image\(date).jpeg"
             self.storeImage(name: self.imageName, image: change.newValue!!)
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        view.backgroundColor = globalBkgdColor
+        
+        emailLabel.font = globalFont
     }
     
     // Button Function for Using Camera to take Proile Picture

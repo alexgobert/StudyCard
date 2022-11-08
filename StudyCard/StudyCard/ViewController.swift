@@ -31,6 +31,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         setList = []
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        view.backgroundColor = globalBkgdColor
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SetCreationSegue", let dest = segue.destination as? SetCreationVC {
             dest.delegate = self
@@ -46,6 +52,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: setTextCellIdentifier, for: indexPath)
         cell.textLabel?.text = setList[indexPath.row].name
+        cell.textLabel?.font = globalFont
 //        cell.textLabel?.text = searchData[indexPath.row]
         
         return cell
