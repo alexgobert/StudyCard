@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="T4m-Ye-eAM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="T4m-Ye-eAM">
     <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -698,8 +698,16 @@
                     </view>
                     <navigationItem key="navigationItem" id="Prn-fl-XxS"/>
                     <connections>
+                        <outlet property="deleteAcctButton" destination="Jvq-HA-Fhv" id="tle-LZ-sSm"/>
+                        <outlet property="emailButton" destination="9TL-F2-FKU" id="de5-pU-TzU"/>
                         <outlet property="emailLabel" destination="oTN-1S-whu" id="Jqd-Kn-Fp3"/>
-                        <outlet property="profilePicImageView" destination="ME1-iv-sWH" id="M8A-UR-fGz"/>
+                        <outlet property="logoutButton" destination="7fp-be-SI8" id="Z6b-rz-OP8"/>
+                        <outlet property="nameButton" destination="lV8-ea-bLz" id="CRG-KB-PqR"/>
+                        <outlet property="nameLabel" destination="VRA-rk-l4v" id="1Fd-Q8-1hc"/>
+                        <outlet property="passwordButton" destination="Wiz-jh-qOe" id="l6P-tP-AiP"/>
+                        <outlet property="profilePicImageView" destination="ME1-iv-sWH" id="zhm-Fw-B89"/>
+                        <outlet property="selectPicButton" destination="4pi-yH-a9o" id="DIe-YV-Edb"/>
+                        <outlet property="takePicButton" destination="KW2-Nb-trv" id="nfe-U1-Sgg"/>
                         <segue destination="T4m-Ye-eAM" kind="presentation" identifier="signoutSegue" modalPresentationStyle="fullScreen" id="97P-C9-NHk"/>
                     </connections>
                 </viewController>

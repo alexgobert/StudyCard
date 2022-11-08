@@ -12,8 +12,16 @@ import FirebaseStorage
 class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     // Outlets to main
-    @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var profilePicImageView: UIImageView!
+    @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var emailButton: UIButton!
+    @IBOutlet weak var passwordButton: UIButton!
+    @IBOutlet weak var nameButton: UIButton!
+    @IBOutlet weak var deleteAcctButton: UIButton!
+    @IBOutlet weak var takePicButton: UIButton!
+    @IBOutlet weak var selectPicButton: UIButton!
+    @IBOutlet weak var logoutButton: UIButton!
     
     let storageRef: StorageReference = Storage.storage().reference(forURL: "profile_pictures")
     let maxImageSize: Int64 = 10 * 1024 * 1024 // MB
@@ -49,6 +57,19 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         view.backgroundColor = globalBkgdColor
         
         emailLabel.font = globalFont
+        nameLabel.font = globalFont
+        let buttons: [UIButton] = [
+            emailButton,
+            passwordButton,
+            nameButton,
+            deleteAcctButton,
+            takePicButton,
+            selectPicButton,
+            logoutButton
+        ]
+        for button in buttons {
+            button.titleLabel?.font = globalFont
+        }
     }
     
     // Button Function for Using Camera to take Proile Picture
