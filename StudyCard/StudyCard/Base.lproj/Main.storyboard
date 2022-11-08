@@ -9,6 +9,62 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Settings-->
+        <scene sceneID="jRj-GK-9b9">
+            <objects>
+                <viewController id="bF6-qo-A1q" customClass="SettingsViewController" customModule="StudyCard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eEY-kp-CVF">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Sound effects" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zzv-Wu-jwN">
+                                <rect key="frame" x="20" y="470" width="107" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ai4-7Q-e68">
+                                <rect key="frame" x="324" y="465" width="51" height="31"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Push notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dle-zf-dTy">
+                                <rect key="frame" x="20" y="431" width="136" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Zj-Bp-gXf">
+                                <rect key="frame" x="324" y="426" width="51" height="31"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Vibrations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFW-3m-Skn">
+                                <rect key="frame" x="20" y="509" width="77" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fPn-08-zZO">
+                                <rect key="frame" x="324" y="504" width="51" height="31"/>
+                            </switch>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="gVk-2E-ued"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Zzv-Wu-jwN" firstAttribute="leading" secondItem="gVk-2E-ued" secondAttribute="leading" constant="20" id="2Bi-Yf-UbS"/>
+                            <constraint firstItem="PFW-3m-Skn" firstAttribute="leading" secondItem="gVk-2E-ued" secondAttribute="leading" constant="20" id="2Tz-Gu-pDb"/>
+                            <constraint firstItem="9Zj-Bp-gXf" firstAttribute="centerY" secondItem="Dle-zf-dTy" secondAttribute="centerY" id="4m1-v3-eXT"/>
+                            <constraint firstItem="Dle-zf-dTy" firstAttribute="leading" secondItem="gVk-2E-ued" secondAttribute="leading" constant="20" id="9D1-b3-muh"/>
+                            <constraint firstItem="gVk-2E-ued" firstAttribute="trailing" secondItem="fPn-08-zZO" secondAttribute="trailing" constant="20" id="CGR-F3-2h1"/>
+                            <constraint firstItem="gVk-2E-ued" firstAttribute="trailing" secondItem="ai4-7Q-e68" secondAttribute="trailing" constant="20" id="Dtf-A9-vd5"/>
+                            <constraint firstItem="fPn-08-zZO" firstAttribute="centerY" secondItem="PFW-3m-Skn" secondAttribute="centerY" id="JQE-VN-rn6"/>
+                            <constraint firstItem="ai4-7Q-e68" firstAttribute="centerY" secondItem="Zzv-Wu-jwN" secondAttribute="centerY" id="VL0-dY-oRI"/>
+                            <constraint firstItem="gVk-2E-ued" firstAttribute="trailing" secondItem="9Zj-Bp-gXf" secondAttribute="trailing" constant="20" id="u0Z-Wl-iyX"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="PIZ-Yy-HLn"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q2q-bE-Al6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="21" y="-704"/>
+        </scene>
         <!--SetCreationVC-->
         <scene sceneID="S6s-fc-imy">
             <objects>
@@ -319,6 +375,9 @@
                     <navigationItem key="navigationItem" id="mE3-3D-Ar3">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="gearshape" catalog="system" style="plain" id="xwT-t3-Bqj">
                             <color key="tintColor" systemColor="labelColor"/>
+                            <connections>
+                                <segue destination="bF6-qo-A1q" kind="show" identifier="settingsSegue" id="qND-vf-UK4"/>
+                            </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem title="Item" style="plain" id="xMS-je-Aok">

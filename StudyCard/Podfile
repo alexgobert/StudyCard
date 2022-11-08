@@ -1,0 +1,7 @@
+
+target 'StudyCard' do
+  use_frameworks!
+
+pod 'DropDown'
+
+end
