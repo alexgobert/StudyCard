@@ -140,7 +140,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
     }
     
-    // Actions for Profile Altercation Buttons
+    // Actions for Profile Alteration Buttons
     @IBAction func changeEmailButtonPressed(_ sender: Any) {
     }
     
