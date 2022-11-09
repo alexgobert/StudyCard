@@ -74,7 +74,7 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         }
     }
     
-    // Button Function for Using Camera to take Proile Picture
+    // Button Function for Using Camera to take Profile Picture
     @IBAction func takeProfilePhotoButtonPressed(_ sender: Any) {
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             
@@ -173,6 +173,11 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     
     // Actions for Profile Alteration Buttons
     @IBAction func changeEmailButtonPressed(_ sender: Any) {
+        let emailChangeAlert = UIAlertController(title: "Change your email",
+                                      message: "",
+                                      preferredStyle: .alert)
+        emailChangeAlert.addTextField {
+        }
     }
     
     @IBAction func changePasswordButtonPressed(_ sender: Any) {

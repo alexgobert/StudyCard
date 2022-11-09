@@ -511,13 +511,13 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Pjs-4H-8Ec">
                                                     <rect key="frame" x="25" y="17.333333333333336" width="380" height="65.666666666666657"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Term" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ey2-kt-Zn5">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Term" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ey2-kt-Zn5">
                                                             <rect key="frame" x="0.0" y="0.0" width="38.666666666666664" height="20.333333333333332"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Definition" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qay-Ig-xwg">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Definition" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qay-Ig-xwg">
                                                             <rect key="frame" x="0.0" y="45.333333333333329" width="72.666666666666671" height="20.333333333333329"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -601,9 +601,9 @@
                                 <rect key="frame" x="40" y="138" width="182" height="176"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4pi-yH-a9o">
-                                <rect key="frame" x="223" y="145" width="200" height="35"/>
+                                <rect key="frame" x="232" y="154" width="191" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="lwt-Ck-XVX"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="yp8-6f-5WN"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Select Profile Picture"/>
@@ -611,10 +611,10 @@
                                     <action selector="selectProfilePhotoButtonPressed:" destination="FSq-yN-eSY" eventType="touchUpInside" id="rKF-7b-hh9"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KW2-Nb-trv">
-                                <rect key="frame" x="183" y="132" width="200" height="34.333333333333343"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KW2-Nb-trv">
+                                <rect key="frame" x="232" y="204" width="191" height="34.333333333333343"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="DLC-59-Mbv"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="Snl-rw-KCX"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Take Profile Picture"/>
@@ -622,58 +622,46 @@
                                     <action selector="takeProfilePhotoButtonPressed:" destination="FSq-yN-eSY" eventType="touchUpInside" id="HJF-qj-SnD"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTN-1S-whu">
-                                <rect key="frame" x="42" y="282" width="42" height="41"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTN-1S-whu">
+                                <rect key="frame" x="42" y="329" width="40.666666666666657" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9TL-F2-FKU">
-                                <rect key="frame" x="40" y="355" width="128" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9TL-F2-FKU">
+                                <rect key="frame" x="25" y="435.33333333333331" width="128" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Change Email"/>
                                 <connections>
                                     <action selector="changeEmailButtonPressed:" destination="FSq-yN-eSY" eventType="touchUpInside" id="D0d-xc-JCc"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wiz-jh-qOe">
-                                <rect key="frame" x="40" y="405" width="165" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wiz-jh-qOe">
+                                <rect key="frame" x="25" y="485.33333333333331" width="165" height="34.999999999999943"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Change Password "/>
                                 <connections>
                                     <action selector="changePasswordButtonPressed:" destination="FSq-yN-eSY" eventType="touchUpInside" id="j6c-Rd-4Bq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lV8-ea-bLz">
-                                <rect key="frame" x="40" y="457" width="133" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lV8-ea-bLz">
+                                <rect key="frame" x="25" y="535.33333333333337" width="133" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Change Name"/>
                                 <connections>
                                     <action selector="changeNameButtonPressed:" destination="FSq-yN-eSY" eventType="touchUpInside" id="EhL-EI-osv"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jvq-HA-Fhv">
-                                <rect key="frame" x="42" y="507" width="141" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Delete Account"/>
-                                <connections>
-                                    <action selector="deleteAccountButtonPressed:" destination="FSq-yN-eSY" eventType="touchUpInside" id="3UD-R3-7BM"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VRA-rk-l4v">
-                                <rect key="frame" x="42" y="334" width="45" height="21"/>
+                                <rect key="frame" x="42" y="364.33333333333331" width="45" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fp-be-SI8">
-                                <rect key="frame" x="183" y="174" width="200" height="35"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fp-be-SI8">
+                                <rect key="frame" x="232" y="253.33333333333337" width="191" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="zNl-iV-Grc"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="1br-n4-fPI"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Logout"/>
@@ -682,25 +670,51 @@
                                     <action selector="logoutButtonPressed:" destination="FSq-yN-eSY" eventType="touchUpInside" id="1MI-dV-rfw"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jvq-HA-Fhv">
+                                <rect key="frame" x="25" y="585.33333333333337" width="141" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Delete Account"/>
+                                <connections>
+                                    <action selector="deleteAccountButtonPressed:" destination="FSq-yN-eSY" eventType="touchUpInside" id="3UD-R3-7BM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Jrn-rC-Xu8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Jrn-rC-Xu8" firstAttribute="bottom" secondItem="ME1-iv-sWH" secondAttribute="bottom" constant="584" id="08O-2W-WUT"/>
+                            <constraint firstItem="lV8-ea-bLz" firstAttribute="top" secondItem="Wiz-jh-qOe" secondAttribute="bottom" constant="15" id="0Nf-gR-dVZ"/>
+                            <constraint firstItem="oTN-1S-whu" firstAttribute="leading" secondItem="VRA-rk-l4v" secondAttribute="leading" id="3ZP-Wf-xo4"/>
                             <constraint firstItem="ME1-iv-sWH" firstAttribute="top" secondItem="Jrn-rC-Xu8" secondAttribute="top" constant="35" id="5JL-cO-cmi"/>
-                            <constraint firstItem="4pi-yH-a9o" firstAttribute="top" secondItem="Jrn-rC-Xu8" secondAttribute="top" constant="42" id="6bI-qD-1b0"/>
+                            <constraint firstItem="VRA-rk-l4v" firstAttribute="top" secondItem="oTN-1S-whu" secondAttribute="bottom" constant="15" id="6ev-Pp-sO4"/>
                             <constraint firstItem="VRA-rk-l4v" firstAttribute="leading" secondItem="Jrn-rC-Xu8" secondAttribute="leading" constant="42" id="8nZ-ur-A7a"/>
-                            <constraint firstItem="7fp-be-SI8" firstAttribute="leading" secondItem="ME1-iv-sWH" secondAttribute="trailing" constant="8" symbolic="YES" id="Fnx-tR-bae"/>
+                            <constraint firstItem="Jrn-rC-Xu8" firstAttribute="bottom" secondItem="Jvq-HA-Fhv" secondAttribute="bottom" constant="277.66666666666663" id="9Yv-Ml-XuF"/>
+                            <constraint firstItem="Jrn-rC-Xu8" firstAttribute="trailing" secondItem="Jvq-HA-Fhv" secondAttribute="trailing" constant="264" id="CJh-4k-eun"/>
+                            <constraint firstItem="Jrn-rC-Xu8" firstAttribute="trailing" secondItem="lV8-ea-bLz" secondAttribute="trailing" constant="272" id="HfC-Yo-4aK"/>
+                            <constraint firstItem="4pi-yH-a9o" firstAttribute="leading" secondItem="ME1-iv-sWH" secondAttribute="trailing" constant="10" id="IWz-bf-gRe"/>
                             <constraint firstItem="Jrn-rC-Xu8" firstAttribute="trailing" secondItem="4pi-yH-a9o" secondAttribute="trailing" constant="7" id="Ked-mu-ijQ"/>
-                            <constraint firstItem="KW2-Nb-trv" firstAttribute="top" secondItem="Jrn-rC-Xu8" secondAttribute="top" constant="85" id="Pa7-fN-bqH"/>
+                            <constraint firstItem="Jvq-HA-Fhv" firstAttribute="top" secondItem="lV8-ea-bLz" secondAttribute="bottom" constant="15" id="LwP-xK-wYc"/>
+                            <constraint firstItem="Wiz-jh-qOe" firstAttribute="top" secondItem="9TL-F2-FKU" secondAttribute="bottom" constant="15" id="Mmh-WR-c7I"/>
+                            <constraint firstItem="oTN-1S-whu" firstAttribute="top" secondItem="ME1-iv-sWH" secondAttribute="bottom" constant="15" id="SbS-V1-zh6"/>
+                            <constraint firstItem="4pi-yH-a9o" firstAttribute="centerX" secondItem="KW2-Nb-trv" secondAttribute="centerX" id="Skt-hM-JLH"/>
+                            <constraint firstItem="Wiz-jh-qOe" firstAttribute="leading" secondItem="Jrn-rC-Xu8" secondAttribute="leading" constant="25" id="TnW-28-qz8"/>
                             <constraint firstItem="oTN-1S-whu" firstAttribute="leading" secondItem="Jrn-rC-Xu8" secondAttribute="leading" constant="42" id="UL1-hB-rMR"/>
                             <constraint firstItem="ME1-iv-sWH" firstAttribute="leading" secondItem="Jrn-rC-Xu8" secondAttribute="leading" constant="40" id="VEe-r1-sUa"/>
-                            <constraint firstItem="VRA-rk-l4v" firstAttribute="top" secondItem="ME1-iv-sWH" secondAttribute="bottom" constant="20" id="Y3S-vL-oZe"/>
-                            <constraint firstItem="oTN-1S-whu" firstAttribute="top" secondItem="VRA-rk-l4v" secondAttribute="bottom" constant="15" id="ddh-rz-ibQ"/>
-                            <constraint firstItem="KW2-Nb-trv" firstAttribute="leading" secondItem="ME1-iv-sWH" secondAttribute="trailing" constant="8" symbolic="YES" id="hKQ-MZ-6ob"/>
-                            <constraint firstItem="7fp-be-SI8" firstAttribute="top" secondItem="KW2-Nb-trv" secondAttribute="bottom" constant="7.6666666666666572" id="jg1-4f-mI7"/>
-                            <constraint firstItem="KW2-Nb-trv" firstAttribute="top" secondItem="4pi-yH-a9o" secondAttribute="bottom" constant="8" symbolic="YES" id="rmZ-pB-H6x"/>
-                            <constraint firstItem="4pi-yH-a9o" firstAttribute="leading" secondItem="ME1-iv-sWH" secondAttribute="trailing" constant="1" id="tp2-aY-src"/>
+                            <constraint firstItem="Jrn-rC-Xu8" firstAttribute="trailing" secondItem="Wiz-jh-qOe" secondAttribute="trailing" constant="240" id="WF9-Az-D8F"/>
+                            <constraint firstItem="lV8-ea-bLz" firstAttribute="leading" secondItem="Jrn-rC-Xu8" secondAttribute="leading" constant="25" id="Z0C-Ji-8df"/>
+                            <constraint firstItem="Jvq-HA-Fhv" firstAttribute="leading" secondItem="lV8-ea-bLz" secondAttribute="leading" id="dr8-U7-Sm3"/>
+                            <constraint firstItem="Jvq-HA-Fhv" firstAttribute="leading" secondItem="Jrn-rC-Xu8" secondAttribute="leading" constant="25" id="fuM-3X-KRf"/>
+                            <constraint firstItem="7fp-be-SI8" firstAttribute="leading" secondItem="ME1-iv-sWH" secondAttribute="trailing" constant="10" id="hBx-1D-VLq"/>
+                            <constraint firstItem="Jrn-rC-Xu8" firstAttribute="trailing" secondItem="9TL-F2-FKU" secondAttribute="trailing" constant="277" id="lki-0m-9AI"/>
+                            <constraint firstItem="KW2-Nb-trv" firstAttribute="centerX" secondItem="7fp-be-SI8" secondAttribute="centerX" id="nex-pA-Bz4"/>
+                            <constraint firstItem="9TL-F2-FKU" firstAttribute="leading" secondItem="Jrn-rC-Xu8" secondAttribute="leading" constant="25" id="oIe-WU-Naz"/>
+                            <constraint firstItem="KW2-Nb-trv" firstAttribute="leading" secondItem="ME1-iv-sWH" secondAttribute="trailing" constant="10" id="ozn-V1-7Xi"/>
+                            <constraint firstItem="lV8-ea-bLz" firstAttribute="leading" secondItem="Wiz-jh-qOe" secondAttribute="leading" id="pXh-uN-0U5"/>
+                            <constraint firstItem="Jrn-rC-Xu8" firstAttribute="trailing" secondItem="ME1-iv-sWH" secondAttribute="trailing" constant="208" id="qGP-xw-T43"/>
+                            <constraint firstItem="4pi-yH-a9o" firstAttribute="top" secondItem="Jrn-rC-Xu8" secondAttribute="top" constant="51" id="shx-oO-qGf"/>
+                            <constraint firstItem="KW2-Nb-trv" firstAttribute="top" secondItem="4pi-yH-a9o" secondAttribute="bottom" constant="15" id="x81-to-ut6"/>
+                            <constraint firstItem="7fp-be-SI8" firstAttribute="top" secondItem="KW2-Nb-trv" secondAttribute="bottom" constant="15" id="xIF-Sz-jV1"/>
+                            <constraint firstItem="9TL-F2-FKU" firstAttribute="top" secondItem="VRA-rk-l4v" secondAttribute="bottom" constant="50" id="yRH-0p-jmc"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Prn-fl-XxS"/>
@@ -720,7 +734,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="amG-Zh-psZ" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1579" y="4"/>
+            <point key="canvasLocation" x="1578.1395348837209" y="3.8626609442060089"/>
         </scene>
         <!--Study View Controller-->
         <scene sceneID="rox-i6-Zh3">
