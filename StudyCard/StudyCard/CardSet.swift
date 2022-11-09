@@ -46,6 +46,10 @@ class CardSet: Collection {
         cards.append(card)
     }
     
+    func addCard(term: String, definition: String) {
+        self.addCard(card: Card(termDefTuple: (term, definition)))
+    }
+    
     func remove(at index: Int) {
         cards.remove(at: index)
     }

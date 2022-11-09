@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SummaryTableViewCell: UITableViewCell {
+class SummaryTableViewCell: UITableViewCell, CustomTableViewCell {
 
     @IBOutlet weak var termLabel: UILabel!
     @IBOutlet weak var definitionLabel: UILabel!
@@ -29,6 +29,16 @@ class SummaryTableViewCell: UITableViewCell {
     
     func setDefinition(_ def: String) {
         termLabel.text = def
+    }
+    
+    func setFont(_ font: UIFont) {
+        termLabel.font = font
+        definitionLabel.font = font
+    }
+    
+    func setTags(_ tag: Int) {
+        termLabel.tag = tag
+        definitionLabel.tag = tag
     }
 
 }

@@ -9,9 +9,14 @@ import UIKit
 
 class SummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var knownLabel: UILabel!
+    @IBOutlet weak var unknownLabel: UILabel!
     @IBOutlet weak var knownCounter: UILabel!
     @IBOutlet weak var unknownCounter: UILabel!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var retryUnknownButton: UIButton!
+    @IBOutlet weak var retryAllButton: UIButton!
     
     let sections: [String] = ["Known Terms", "Unknown Terms"]
     var cards: CardSet!
@@ -33,6 +38,23 @@ class SummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         knownCounter.text = "\(knownCards.count)"
         unknownCounter.text = "\(unknownCards.count)"
+        
+        // theme compliance
+        view.backgroundColor = globalBkgdColor
+        
+        // theme compliance
+        let labels: [UILabel] = [
+            titleLabel,
+            knownLabel,
+            unknownLabel,
+            knownCounter,
+            unknownCounter
+        ]
+        for label in labels {
+            label.font = globalFont
+        }
+        retryUnknownButton.titleLabel?.font = globalFont
+        retryAllButton.titleLabel?.font = globalFont
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -63,6 +85,7 @@ class SummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let card: Card = sectionedCards[indexPath.section][indexPath.row]
         
         cell.setCard(card)
+        cell.setFont(globalFont)
         
         return cell
     }

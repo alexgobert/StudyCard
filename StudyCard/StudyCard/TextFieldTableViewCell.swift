@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TextFieldTableViewCell: UITableViewCell {
+class TextFieldTableViewCell: UITableViewCell, CustomTableViewCell {
     
     @IBOutlet weak var termField: UITextField!
     @IBOutlet weak var definitionField: UITextField!
@@ -18,6 +18,15 @@ class TextFieldTableViewCell: UITableViewCell {
     
     func getDefinition() -> String? {
         return definitionField?.text
+    }
+    
+    func setTags(_ tag: Int) {
+        termField.tag = tag
+        definitionField.tag = tag
+    }
+    
+    func setFont(_ font: UIFont) {
+        
     }
 
 }

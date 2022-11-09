@@ -54,8 +54,10 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        // theme compliance
         view.backgroundColor = globalBkgdColor
         
+        // theme compliance
         emailLabel.font = globalFont
         nameLabel.font = globalFont
         let buttons: [UIButton] = [

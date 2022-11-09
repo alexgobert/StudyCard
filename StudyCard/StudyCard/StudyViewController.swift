@@ -11,6 +11,9 @@ import UIKit
 class StudyViewController: UIViewController {
     
     @IBOutlet weak var progressBar: UIProgressView!
+    @IBOutlet weak var knownLabel: UILabel!
+    @IBOutlet weak var unknownLabel: UILabel!
+    @IBOutlet weak var swipeLabel: UILabel!
     
     var cards: CardSet!
     var itemFirst: String! // term, def, or mixed
@@ -26,6 +29,19 @@ class StudyViewController: UIViewController {
         
         knownCards = []
         unknownCards = []
+        
+        // theme compliance
+        view.backgroundColor = globalBkgdColor
+        
+        // theme compliance
+        let labels: [UILabel] = [
+            knownLabel,
+            unknownLabel,
+            swipeLabel
+        ]
+        for label in labels {
+            label.font = globalFont
+        }
     }
     
     func studyDone() {

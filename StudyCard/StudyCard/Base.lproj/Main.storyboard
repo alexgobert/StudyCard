@@ -255,6 +255,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="itemFirstCtrl" destination="4QF-G1-srq" id="M9j-TS-nZ4"/>
+                        <outlet property="itemFirstLabel" destination="zNt-AB-heG" id="87R-3E-ZcV"/>
+                        <outlet property="shuffleLabel" destination="3nl-iT-U0P" id="H1G-uq-1ZR"/>
                         <outlet property="shuffleToggle" destination="sFz-N9-BRs" id="nrN-a7-ItO"/>
                     </connections>
                 </viewController>
@@ -509,13 +511,13 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Pjs-4H-8Ec">
                                                     <rect key="frame" x="25" y="17.333333333333336" width="380" height="65.666666666666657"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Term" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ey2-kt-Zn5">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Term" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ey2-kt-Zn5">
                                                             <rect key="frame" x="0.0" y="0.0" width="38.666666666666664" height="20.333333333333332"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Definition" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qay-Ig-xwg">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Definition" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qay-Ig-xwg">
                                                             <rect key="frame" x="0.0" y="45.333333333333329" width="72.666666666666671" height="20.333333333333329"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -573,9 +575,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="7Jw-u0-7Rn"/>
                     <connections>
-                        <outlet property="knownCounter" destination="FjH-4D-eaU" id="zNO-bC-t9v"/>
+                        <outlet property="knownCounter" destination="FjH-4D-eaU" id="kIb-Fi-xid"/>
+                        <outlet property="knownLabel" destination="Vvq-Uu-FFp" id="egW-Od-HCl"/>
+                        <outlet property="retryAllButton" destination="0rS-eG-ZhE" id="VK2-hB-vOJ"/>
+                        <outlet property="retryUnknownButton" destination="12l-P2-U5y" id="k0F-4F-ZPx"/>
                         <outlet property="tableView" destination="gss-UK-ai2" id="VEv-mp-yzq"/>
+                        <outlet property="titleLabel" destination="46e-NV-Gg3" id="Sol-vv-bGf"/>
                         <outlet property="unknownCounter" destination="dJF-Z2-7z5" id="Svn-3j-GVU"/>
+                        <outlet property="unknownLabel" destination="na1-UB-O6v" id="I3b-DG-HbM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9px-Bp-P8N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -759,7 +766,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="QLV-f2-gcg"/>
                     <connections>
+                        <outlet property="knownLabel" destination="Ek8-Iv-lfr" id="tu9-3P-osZ"/>
                         <outlet property="progressBar" destination="dMK-LK-nvz" id="whh-gT-pp6"/>
+                        <outlet property="swipeLabel" destination="ALt-VB-fYY" id="m4U-kf-VVo"/>
+                        <outlet property="unknownLabel" destination="rOF-f6-18s" id="7zR-ya-ii1"/>
                         <segue destination="OH3-ga-2IT" kind="show" identifier="SummarySegue" id="ucF-oD-EbH"/>
                     </connections>
                 </viewController>

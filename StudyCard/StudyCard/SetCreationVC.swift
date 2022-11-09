@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var tableView: UITableView!
@@ -24,11 +24,17 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         // set variable height for rows
         tableView.estimatedRowHeight = 120
         tableView.rowHeight = UITableView.automaticDimension
+        
+        titleField.tag = -1 // only title field has -1 tag
     }
     
     override func viewWillAppear(_ animated: Bool) {
         // initialize empty card set
         currentSet = CardSet(name: nil, cards: nil)
+        
+        // set theme
+        view.backgroundColor = globalBkgdColor
+        titleField.font = globalFont
     }
     
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
@@ -49,9 +55,8 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldTableViewCell", for: indexPath) as! TextFieldTableViewCell
         
-        if let term = cell.getTerm(), let definition = cell.getDefinition() {
-            currentSet.addCard(card: Card(term: term, definition: definition))
-        }
+        cell.setTags(indexPath.row)
+        cell.setFont(globalFont)
         
         return cell
     }
@@ -60,6 +65,21 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         if editingStyle == .delete {
             currentSet.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        // enters guard clause if text field is the title field
+        guard textField.tag != -1 else {
+            currentSet.name = textField.text!
+            return
+        }
+        
+        let index = NSIndexPath(row: textField.tag, section: 0) as IndexPath
+        if let cell = tableView.cellForRow(at: index) as? TextFieldTableViewCell,
+           let term = cell.getTerm(),
+           let def = cell.getDefinition() {
+            currentSet.addCard(term: term, definition: def)
         }
     }
 

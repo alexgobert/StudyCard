@@ -14,11 +14,24 @@ class StudySetupVC: UIViewController {
     var itemFirst: String = ""
 
     @IBOutlet weak var shuffleToggle: UISwitch!
-    
     @IBOutlet weak var itemFirstCtrl: UISegmentedControl!
+    @IBOutlet weak var shuffleLabel: UILabel!
+    @IBOutlet weak var itemFirstLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // theme compliance
+        view.backgroundColor = globalBkgdColor
+        
+        // theme compliance
+        shuffleLabel.font = globalFont
+        itemFirstLabel.font = globalFont
+        itemFirstCtrl.setTitleTextAttributes([.font: globalFont!], for: .normal)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
