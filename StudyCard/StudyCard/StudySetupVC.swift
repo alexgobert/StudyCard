@@ -17,6 +17,7 @@ class StudySetupVC: UIViewController {
     @IBOutlet weak var itemFirstCtrl: UISegmentedControl!
     @IBOutlet weak var shuffleLabel: UILabel!
     @IBOutlet weak var itemFirstLabel: UILabel!
+    @IBOutlet weak var confirmButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +31,13 @@ class StudySetupVC: UIViewController {
         
         // theme compliance
         shuffleLabel.font = globalFont
+        shuffleLabel.textColor = globalFontColor
         itemFirstLabel.font = globalFont
-        itemFirstCtrl.setTitleTextAttributes([.font: globalFont!], for: .normal)
+        itemFirstLabel.textColor = globalFontColor
+        itemFirstCtrl.selectedSegmentTintColor = globalBkgdColor
+        itemFirstCtrl.backgroundColor = globalBkgdColor
+        itemFirstCtrl.setTitleTextAttributes([.font: globalFont!, .foregroundColor: globalFontColor!], for: .normal)
+        confirmButton.tintColor = globalFontColor
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

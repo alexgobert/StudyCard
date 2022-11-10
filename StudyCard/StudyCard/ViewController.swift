@@ -9,32 +9,45 @@ import UIKit
 
 let setTextCellIdentifier = "SetNameCell"
 
-//var setList:[CardSet] = [CardSet(name: "Test Set", terms: ["Canine"], definitions: ["Dog"])]
-
-//var setList:[String] = ["Hello", "World", "Search", "Bar"]
-
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, StudyListUpdater {
     
     @IBOutlet weak var setsTableView: UITableView!
     @IBOutlet weak var setSearch: UISearchBar!
+    @IBOutlet weak var settingsButton: UIBarButtonItem!
+    @IBOutlet weak var profileButton: UIBarButtonItem!
+    @IBOutlet weak var addButton: UIBarButtonItem!
     
-    var setList: [CardSet]!
+    var setList:[CardSet]! = [CardSet(name: "Test Set", terms: ["Canine"], definitions: ["Dog"])]
     var searchData: [CardSet]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchData = setList
+        
         setsTableView.delegate = self
         setsTableView.dataSource = self
         setSearch.delegate = self
         
-//        searchData = setList
-        setList = []
+        self.navigationController?.navigationBar.tintColor = globalFontColor
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         view.backgroundColor = globalBkgdColor
+        
+        setsTableView.backgroundColor = globalBkgdColor
+        setsTableView.separatorColor = globalFontColor
+        
+        setSearch.barTintColor = globalBkgdColor
+        setSearch.searchTextField.leftView?.tintColor = globalFontColor
+        setSearch.searchTextField.font = globalFont
+        setSearch.searchTextField.textColor = globalFontColor
+        
+        settingsButton.tintColor = globalFontColor
+        profileButton.tintColor = globalFontColor
+        addButton.tintColor = globalFontColor
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -53,7 +66,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = tableView.dequeueReusableCell(withIdentifier: setTextCellIdentifier, for: indexPath)
         cell.textLabel?.text = setList[indexPath.row].name
         cell.textLabel?.font = globalFont
-//        cell.textLabel?.text = searchData[indexPath.row]
+        cell.textLabel?.textColor = globalFontColor
+        cell.backgroundColor = globalBkgdColor
         
         return cell
     }
@@ -63,20 +77,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print("test")
-        // TODO fix
-        searchData = searchText.isEmpty ? setList : setList.filter {
-            (item: CardSet) -> Bool in
+        searchData = searchText.isEmpty ? setList : setList.filter { (item: CardSet) -> Bool in
             return item.name.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+                }
+                setsTableView.reloadData()
             }
-            setsTableView.reloadData()
-        }
     
-    // TODO
     func updateList(set: CardSet) {
-//        setList.append(set)
+        setList.append(set)
         setsTableView.reloadData()
     }
-
 }
 

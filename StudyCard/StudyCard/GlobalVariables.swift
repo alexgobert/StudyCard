@@ -7,5 +7,16 @@
 
 import UIKit
 
-var globalFont: UIFont!
-var globalBkgdColor: UIColor!
+var globalFont: UIFont! = UIFont(name: "ArialMT", size: 20)
+var globalBkgdColor: UIColor! = UIColor.white
+var globalFontColor: UIColor! = UIColor.black
+
+
+// Use this to find possible font names
+func printMyFonts() {
+    print("--------- Available Font names ----------")
+    for name in UIFont.familyNames {
+        print(name)
+        print(UIFont.fontNames(forFamilyName: name))
+    }
+}
