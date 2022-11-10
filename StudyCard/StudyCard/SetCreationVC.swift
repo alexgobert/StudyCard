@@ -6,6 +6,10 @@
 //
 
 import UIKit
+import CoreData
+
+let appDelegate = UIApplication.shared.delegate as! AppDelegate
+let context = appDelegate.persistentContainer.viewContext
 
 class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
@@ -67,6 +71,8 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         } else {
             let otherVC = delegate as! ViewController
             otherVC.updateList(set: CardSet(name: titleField.text, cards: cardSet))
+            
+            storeSet(name: titleField.text!, cards: cardSet)
             
             self.navigationController?.popViewController(animated: true)
         }
@@ -152,6 +158,34 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         cardSet.append(Card(term: nil, definition: nil))
         tableView.reloadData()
         
+    }
+    
+    func storeSet(name: String, cards: [Card]) {
+        let set = NSEntityDescription.insertNewObject(forEntityName: "StoredSet", into: context)
+        var termString = ""
+        var defString = ""
+        
+        for card in cards {
+            termString += String(card.term) + "|"
+            defString += String(card.definition) + "|"
+        }
+        
+        set.setValue(name, forKey: "name")
+        set.setValue(termString, forKey: "terms")
+        set.setValue(defString, forKey: "definitions")
+        
+//        saveContext()
+    }
+    
+    func saveContext() {
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                let nserror = error as NSError
+                NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
+        }
     }
 
 }

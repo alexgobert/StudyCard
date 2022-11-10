@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseAuth
+import CoreData
 
 let setTextCellIdentifier = "SetNameCell"
 
@@ -26,8 +27,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         setsTableView.delegate = self
         setsTableView.dataSource = self
         setSearch.delegate = self
-        
-        searchData = setList
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert]) {
             granted, error in
@@ -55,6 +54,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 }
             }
         }
+        
+        for set in retrieveSet() {
+            // work in progess
+        }
+        
+        searchData = setList
         
         sendNotification()
     }
@@ -113,6 +118,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         setsTableView.reloadData()
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            setList.remove(at: indexPath.row)
+            searchData = setList
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            deleteItem(setNum: indexPath.row)
+            
+        }
+    }
+    
     func sendNotification() {
         let notificationContent = UNMutableNotificationContent()
         notificationContent.title = "Message from StudyCard:"
@@ -128,6 +144,50 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         UNUserNotificationCenter.current().add(request) { (error : Error?) in
                             if let message = error {
                                 print(message.localizedDescription)
+            }
+        }
+    }
+    
+    func retrieveSet() -> [NSManagedObject] {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "StoredSet")
+        var fetchedResults:[NSManagedObject]? = nil
+        
+        do {
+            try fetchedResults = context.fetch(request) as? [NSManagedObject]
+        } catch {
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
+        
+        return(fetchedResults)!
+    }
+    
+    func deleteItem(setNum: Int) {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "StoredSet")
+        var fetchedResults:[NSManagedObject]
+        
+        do {
+            try fetchedResults = context.fetch(request) as! [NSManagedObject]
+            
+            context.delete(fetchedResults[setNum] as NSManagedObject)
+            
+        } catch {
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
+        
+        saveContext()
+    }
+    
+    func saveContext() {
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                let nserror = error as NSError
+                NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
     }
