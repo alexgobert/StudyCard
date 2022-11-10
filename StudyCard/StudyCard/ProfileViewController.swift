@@ -172,91 +172,88 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     }
     
     // Actions for Profile Alteration Buttons
-//    @IBAction func changeEmailButtonPressed(_ sender: Any) {
-//        let changeEmailController = UIAlertController(
-//            title: "Change your email",
-//            message: "",
-//            preferredStyle: .alert)
-//        
-//        changeEmailController.addTextField { (textField : UITextField!) -> Void in
-//            textField.placeholder = "Enter New Email Address"
-//            
-//            let saveAction = UIAlertAction(
-//                title: "Save",
-//                style: .default,
-//                handler: { (action : UIAlertAction!) Void in })
-//            
-//            let currentUser = Auth.auth().currentUser
-//            
-//            if Auth.auth().currentUser != nil {
-//                currentUser?.updateEmail(to: textField.text!) {
-//                    error in
-//                    if let error = error {
-//                        print(error)
-//                    } else {
-//                        print("Email changed")
-//                        let user = Auth.auth().currentUser
-//                        let name = user?.displayName!
-//                        let ref = Database.database().reference().child("main").child("users_sen").child(name!).child("email")
-//                        ref.setValue(textField.text!)
-//                        
-//                    }
-//                }
-//            }
-//            
-//        })
-//        
-//    changeEmailController.addAction(saveAction)
-//        }
-//    self.present(changeEmailController, animated: true, completion: {
-//        changeEmailController.view.superview?isUserInteractionEnabled = true
-//        changeEmailController.view.superview?.addGestureRecognizer(UITapGestureRecognizer(
-//            target: self,
-//            action: #selector(self.alertClose(gesture:))))
-//
-//    })
-//    
-//
-//}
-//    
-//    @IBAction func changePasswordButtonPressed(_ sender: Any) {
-//        
-//        let currentUser = Auth.auth().currentUser
-//        currentUser?.updatePassword(to: textField.text!) {
-//            error in
-//            if let error = error {
-//
-//            } else {
-//                print("Success")
-//            }
-//        }
-//        
-//        let userEmail = Auth.auth().currentUser?.email
-//        self.password = textField.text!
-//        
-//        let credential = EmailAuthProvider.credential(withEmail: userEmail , password: textField.text!)
-//        
-//        currentUser?.reauthenticate(with: credential) {
-//            error in
-//            if let error = error {
-//                // error occurs
-//            } else {
-//                // user re-authenticated
-//            }
-//        }
-//    
-//    @IBAction func changeNameButtonPressed(_ sender: Any) {
-//    }
-//    
-//    @IBAction func deleteAccountButtonPressed(_ sender: Any) {
-//    }
-//    
-//    @IBAction func logoutButtonPressed(_ sender: Any) {
-//        do {
-//            try Auth.auth().signOut()
-//            performSegue(withIdentifier: "signoutSegue", sender: nil)
-//        } catch {
-//            print("Sign out error")
-//        }
-//    }
+    @IBAction func changeEmailButtonPressed(_ sender: Any) {
+       let changeEmailController = UIAlertController(
+           title: "Change your email",
+           message: "",
+           preferredStyle: .alert)
+       
+        changeEmailController.addTextField { (textField : UITextField!) in
+            textField.placeholder = "Enter New Email Address"
+            
+            let saveAction = UIAlertAction(
+                title: "Save",
+                style: .default,
+                handler: { (action : UIAlertAction!) in break })
+            
+            let currentUser = Auth.auth().currentUser
+            
+            if Auth.auth().currentUser != nil {
+                currentUser?.updateEmail(to: textField.text!) {
+                    error in
+                    if let error = error {
+                        print(error)
+                    } else {
+                        print("Email changed")
+                        let user = Auth.auth().currentUser
+                        let name = user?.displayName!
+                        let ref = Database.database().reference().child("main").child("users_sen").child(name!).child("email")
+                        ref.setValue(textField.text!)
+                        
+                    }
+                }
+            }
+            
+        }
+       
+        changeEmailController.addAction(saveAction)
+        self.present(changeEmailController, animated: true) {
+            changeEmailController.view.superview.isUserInteractionEnabled = true
+            changeEmailController.view.superview?.addGestureRecognizer(UITapGestureRecognizer(
+                target: self,
+                action: #selector(self.alertClose(gesture:))))
+
+        }
+    }
+   
+    @IBAction func changePasswordButtonPressed(_ sender: Any) {
+       let currentUser = Auth.auth().currentUser
+       currentUser?.updatePassword(to: textField.text!) {
+           error in
+           if let error = error {
+
+           } else {
+               print("Success")
+           }
+       }
+       
+       let userEmail = Auth.auth().currentUser?.email
+       self.password = textField.text!
+       
+       let credential = EmailAuthProvider.credential(withEmail: userEmail , password: textField.text!)
+       
+       currentUser?.reauthenticate(with: credential) {
+           error in
+           if let error = error {
+               // error occurs
+           } else {
+               // user re-authenticated
+           }
+       }
+    }
+   
+    @IBAction func changeNameButtonPressed(_ sender: Any) {
+    }
+   
+    @IBAction func deleteAccountButtonPressed(_ sender: Any) {
+    }
+   
+    @IBAction func logoutButtonPressed(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+            performSegue(withIdentifier: "signoutSegue", sender: nil)
+        } catch {
+            print("Sign out error")
+        }
+    }
 }
