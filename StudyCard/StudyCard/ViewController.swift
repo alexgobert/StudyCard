@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 let setTextCellIdentifier = "SetNameCell"
 
@@ -17,7 +18,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var profileButton: UIBarButtonItem!
     @IBOutlet weak var addButton: UIBarButtonItem!
     
-    var setList:[CardSet]! = [CardSet(name: "Test Set", terms: ["Canine"], definitions: ["Dog"])]
+    var setList:[CardSet]! = []
     var searchData: [CardSet]!
     
     override func viewDidLoad() {
@@ -27,6 +28,35 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         setSearch.delegate = self
         
         searchData = setList
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert]) {
+            granted, error in
+            if granted {
+                ()
+            } else {
+                DispatchQueue.main.async {
+                    do {
+                        try Auth.auth().signOut()
+                        self.performSegue(withIdentifier: "NoPermission", sender: nil)
+                        
+                        let controller = UIAlertController(
+                            title: "Permission Denied",
+                            message: "Notification Permissions were denied. Please enable this through settings",
+                            preferredStyle: .alert)
+                        controller.addAction(UIAlertAction(
+                            title: "Return",
+                            style: .default,
+                            handler: nil))
+                        self.present(controller, animated: true)
+                        
+                    } catch {
+                        print("Sign out error")
+                    }
+                }
+            }
+        }
+        
+        sendNotification()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -79,9 +109,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchData = searchText.isEmpty ? setList : setList.filter { (item: CardSet) -> Bool in
             return item.name.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
-                }
-                setsTableView.reloadData()
+        }
+        setsTableView.reloadData()
+    }
+    
+    func sendNotification() {
+        let notificationContent = UNMutableNotificationContent()
+        notificationContent.title = "Message from StudyCard:"
+        notificationContent.body = "Don't forget to study for your upcoming exams!"
+        notificationContent.badge = NSNumber(value: 1)
+        notificationContent.sound = .default
+                        
+        var notificationTime = DateComponents()
+        notificationTime.hour = 8
+        notificationTime.minute = 0
+        let trigger = UNCalendarNotificationTrigger(dateMatching: notificationTime, repeats: true)
+        let request = UNNotificationRequest(identifier: "ID", content: notificationContent, trigger: trigger)
+                        UNUserNotificationCenter.current().add(request) { (error : Error?) in
+                            if let message = error {
+                                print(message.localizedDescription)
             }
+        }
+    }
     
     func updateList(set: CardSet) {
         setList.append(set)
