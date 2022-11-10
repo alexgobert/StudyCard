@@ -11,12 +11,16 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
 
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var addTermButton: UIButton!
     
-    var currentSet: CardSet!
     var delegate: StudyListUpdater!
+    var cellCount: Int = 1
+    var cardSet: [Card]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        cardSet = [Card(term: nil, definition: nil)]
 
         tableView.delegate = self
         tableView.dataSource = self
@@ -25,62 +29,129 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         tableView.estimatedRowHeight = 120
         tableView.rowHeight = UITableView.automaticDimension
         
-        titleField.tag = -1 // only title field has -1 tag
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        // initialize empty card set
-        currentSet = CardSet(name: nil, cards: nil)
-        
         // set theme
         view.backgroundColor = globalBkgdColor
         titleField.font = globalFont
+        tableView.backgroundColor = globalBkgdColor
+        
     }
     
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
-        if !currentSet.isEmpty(), let title = titleField.text {
-            currentSet.name = title
-            delegate.updateList(set: currentSet)
+        let emptyField = missingField()
+        
+        if emptyField {
+            let controller = UIAlertController(
+                title: "Missing Field",
+                message: "Please make sure to enter every term and definition",
+                preferredStyle: .alert)
+            controller.addAction(UIAlertAction(
+                title: "Return",
+                style: .default,
+                handler: nil))
+            present(controller, animated: true)
+            
+        } else if titleField.text == "" {
+            let controller = UIAlertController(
+                title: "Missing Title",
+                message: "Please enter a title",
+                preferredStyle: .alert)
+            controller.addAction(UIAlertAction(
+                title: "Return",
+                style: .default,
+                handler: nil))
+            present(controller, animated: true)
+            
+        } else {
+            let otherVC = delegate as! ViewController
+            otherVC.updateList(set: CardSet(name: titleField.text, cards: cardSet))
             
             self.navigationController?.popViewController(animated: true)
-        } else {
-            print("save error") // TODO add status label
         }
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return currentSet.count + 1
+        return cardSet.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldTableViewCell", for: indexPath) as! TextFieldTableViewCell
+        cell.termField.text = cardSet[indexPath.row].getTerm()
+        cell.definitionField.text = cardSet[indexPath.row].getDef()
+        cell.backgroundColor = globalBkgdColor
+        cell.tintColor = globalBkgdColor
         
-        cell.setTags(indexPath.row)
         cell.setFont(globalFont)
         
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            currentSet.remove(at: indexPath.row)
+            cardSet.remove(at: indexPath.row)
+            let deletedCell = tableView.cellForRow(at: indexPath) as! TextFieldTableViewCell
+            deletedCell.termField.text = ""
+            deletedCell.definitionField.text = ""
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        // enters guard clause if text field is the title field
-        guard textField.tag != -1 else {
-            currentSet.name = textField.text!
-            return
+    @IBAction func addButtonPressed(_ sender: Any) {
+        let emptyField = missingField()
+        
+        if emptyField {
+            let controller = UIAlertController(
+                title: "Missing Field",
+                message: "Please make sure to enter every term and definition",
+                preferredStyle: .alert)
+            controller.addAction(UIAlertAction(
+                title: "Return",
+                style: .default,
+                handler: nil))
+            present(controller, animated: true)
+            
+        } else {
+            addCard()
+        }
+    }
+    
+    func missingField() -> Bool {
+        let cellList = self.tableView.visibleCells as! [TextFieldTableViewCell]
+        
+        var emptyField = false
+        
+        for cell in cellList {
+            if cell.getTerm() == "" || cell.getDefinition() == "" {
+                emptyField = true
+                break
+            }
         }
         
-        let index = NSIndexPath(row: textField.tag, section: 0) as IndexPath
-        if let cell = tableView.cellForRow(at: index) as? TextFieldTableViewCell,
-           let term = cell.getTerm(),
-           let def = cell.getDefinition() {
-            currentSet.addCard(term: term, definition: def)
+        return emptyField
+        
+    }
+    
+    func addCard() {
+        let cellList = self.tableView.visibleCells as! [TextFieldTableViewCell]
+        
+        var i = 0
+        for cell in cellList {
+            cardSet[i].term = cell.getTerm()!
+            cardSet[i].definition = cell.getDefinition()!
+            
+            i += 1
         }
+        
+        cardSet.append(Card(term: nil, definition: nil))
+        tableView.reloadData()
+        
     }
 
 }

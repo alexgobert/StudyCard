@@ -8,8 +8,8 @@
 import UIKit
 
 var globalFont: UIFont! = UIFont(name: "ArialMT", size: 20)
-var globalBkgdColor: UIColor! = UIColor.white
-var globalFontColor: UIColor! = UIColor.black
+var globalBkgdColor: UIColor! = UIColor.black
+var globalFontColor: UIColor! = UIColor.white
 
 
 // Use this to find possible font names

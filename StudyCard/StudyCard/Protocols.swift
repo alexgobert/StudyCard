@@ -12,6 +12,5 @@ protocol StudyListUpdater {
 }
 
 protocol CustomTableViewCell {
-    func setTags(_ tag: Int)
     func setFont(_ font: UIFont)
 }

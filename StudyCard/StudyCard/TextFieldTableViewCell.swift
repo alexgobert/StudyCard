@@ -20,11 +20,6 @@ class TextFieldTableViewCell: UITableViewCell, CustomTableViewCell {
         return definitionField?.text
     }
     
-    func setTags(_ tag: Int) {
-        termField.tag = tag
-        definitionField.tag = tag
-    }
-    
     func setFont(_ font: UIFont) {
         
     }

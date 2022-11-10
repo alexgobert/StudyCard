@@ -22,18 +22,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchData = setList
-        
         setsTableView.delegate = self
         setsTableView.dataSource = self
         setSearch.delegate = self
         
-        self.navigationController?.navigationBar.tintColor = globalFontColor
+        searchData = setList
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
+        // theme compliance
+        self.navigationController?.navigationBar.tintColor = globalFontColor
         view.backgroundColor = globalBkgdColor
         
         setsTableView.backgroundColor = globalBkgdColor
@@ -85,6 +85,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func updateList(set: CardSet) {
         setList.append(set)
+        searchData = setList
         setsTableView.reloadData()
     }
 }

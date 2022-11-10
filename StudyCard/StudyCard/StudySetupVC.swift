@@ -28,8 +28,6 @@ class StudySetupVC: UIViewController {
         
         // theme compliance
         view.backgroundColor = globalBkgdColor
-        
-        // theme compliance
         shuffleLabel.font = globalFont
         shuffleLabel.textColor = globalFontColor
         itemFirstLabel.font = globalFont
