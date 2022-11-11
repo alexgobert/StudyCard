@@ -173,81 +173,102 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     
     // Actions for Profile Alteration Buttons
     @IBAction func changeEmailButtonPressed(_ sender: Any) {
-       let changeEmailController = UIAlertController(
-           title: "Change your email",
-           message: "",
-           preferredStyle: .alert)
-       
-        changeEmailController.addTextField { (textField : UITextField!) in
+        guard let currentUser = Auth.auth().currentUser else { return }
+
+        let changeEmailController = UIAlertController(title: "Change your email",
+                                                      message: nil,
+                                                      preferredStyle: .alert)
+        
+        changeEmailController.addTextField { textField in
             textField.placeholder = "Enter New Email Address"
-            
-            let saveAction = UIAlertAction(
-                title: "Save",
-                style: .default,
-                handler: { (action : UIAlertAction!) in break })
-            
-            let currentUser = Auth.auth().currentUser
-            
-            if Auth.auth().currentUser != nil {
-                currentUser?.updateEmail(to: textField.text!) {
-                    error in
-                    if let error = error {
-                        print(error)
-                    } else {
-                        print("Email changed")
-                        let user = Auth.auth().currentUser
-                        let name = user?.displayName!
-                        let ref = Database.database().reference().child("main").child("users_sen").child(name!).child("email")
-                        ref.setValue(textField.text!)
-                        
+        }
+        
+        let saveAction = UIAlertAction(title: "Save",
+                                       style: .default,
+                                       handler: { _ in
+            guard let textField = changeEmailController.textFields?.first,
+                  let newEmail = textField.text,
+                  !newEmail.isEmpty else { return }
+            currentUser.updateEmail(to: newEmail) { error in
+                if let error = error {
+                    print(error)
+                } else {
+                    print("Success")
+                }
+            }
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel",
+                                         style: .cancel,
+                                         handler: nil)
+        
+        changeEmailController.addAction(saveAction)
+        changeEmailController.addAction(cancelAction)
+        
+        present(changeEmailController, animated: true)
+    }
+
+    @IBAction func changePasswordButtonPressed(_ sender: Any) {
+        guard let currentUser = Auth.auth().currentUser else { return }
+        
+        let changePasswordController = UIAlertController(title: "Change your password",
+                                                         message: nil,
+                                                         preferredStyle: .alert)
+        
+        changePasswordController.addTextField { textField in
+            textField.placeholder = "Enter Current Password"
+        }
+        
+        changePasswordController.addTextField { textField in
+            textField.placeholder = "Enter New Password"
+        }
+        
+        let saveAction = UIAlertAction(title: "Save",
+                                       style: .default,
+                                       handler: { _ in
+            guard let currentPasswordTextField = changePasswordController.textFields?.first,
+                  let newPasswordTextField = changePasswordController.textFields?.last,
+                  let currentPassword = currentPasswordTextField.text,
+                  let newPassword = newPasswordTextField.text,
+                  !currentPassword.isEmpty,
+                  !newPassword.isEmpty else { return }
+            guard let email = currentUser.email else { return }
+            let credential = EmailAuthProvider.credential(withEmail: email,
+                                                          password: currentPassword)
+            currentUser.reauthenticate(with: credential) { result, error in
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                } else {
+                    currentUser.updatePassword(to: newPassword) {
+                        error in
+                        if let error = error {
+                            print(error.localizedDescription)
+                            return
+                        } else {
+                            print("Success")
+                        }
                     }
                 }
             }
-            
-        }
-       
-        changeEmailController.addAction(saveAction)
-        self.present(changeEmailController, animated: true) {
-            changeEmailController.view.superview.isUserInteractionEnabled = true
-            changeEmailController.view.superview?.addGestureRecognizer(UITapGestureRecognizer(
-                target: self,
-                action: #selector(self.alertClose(gesture:))))
-
-        }
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancel",
+                                         style: .cancel,
+                                         handler: nil)
+        
+        changePasswordController.addAction(saveAction)
+        changePasswordController.addAction(cancelAction)
+        
+        present(changePasswordController, animated: true)
     }
-   
-    @IBAction func changePasswordButtonPressed(_ sender: Any) {
-       let currentUser = Auth.auth().currentUser
-       currentUser?.updatePassword(to: textField.text!) {
-           error in
-           if let error = error {
-
-           } else {
-               print("Success")
-           }
-       }
-       
-       let userEmail = Auth.auth().currentUser?.email
-       self.password = textField.text!
-       
-       let credential = EmailAuthProvider.credential(withEmail: userEmail , password: textField.text!)
-       
-       currentUser?.reauthenticate(with: credential) {
-           error in
-           if let error = error {
-               // error occurs
-           } else {
-               // user re-authenticated
-           }
-       }
-    }
-   
-    @IBAction func changeNameButtonPressed(_ sender: Any) {
-    }
-   
-    @IBAction func deleteAccountButtonPressed(_ sender: Any) {
-    }
-   
+        
+//    @IBAction func changeNameButtonPressed(_ sender: Any) {
+//    }
+//
+//    @IBAction func deleteAccountButtonPressed(_ sender: Any) {
+//    }
+//
     @IBAction func logoutButtonPressed(_ sender: Any) {
         do {
             try Auth.auth().signOut()
