@@ -23,7 +23,7 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     @IBOutlet weak var selectPicButton: UIButton!
     @IBOutlet weak var logoutButton: UIButton!
     
-    let storageRef: StorageReference = Storage.storage().reference().child("profile_pictures/")
+    let storageRef: StorageReference = Storage.storage().reference().child("profile_pictures")
     let maxImageSize: Int64 = 10 * 1024 * 1024 // MB
     var imageName: String = ""
     var observer: NSKeyValueObservation!
@@ -35,8 +35,8 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         if let user = Auth.auth().currentUser, let photoURL = user.photoURL {
             loadImage(photoURL: photoURL)
             imageName = photoURL.lastPathComponent
-            self.emailLabel.text = user.email!
-            self.nameLabel.text = user.displayName!
+            self.emailLabel.text = user.email ?? ""
+            self.nameLabel.text = user.displayName ?? ""
         }
         
         // set up profile picture observer
@@ -121,33 +121,47 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         let pfpRef = storageRef.child("\(user.uid)/\(name)")
         
         // store image
-        pfpRef.putData(imageData) { _, error in
+        let uploadTask: StorageUploadTask = pfpRef.putData(imageData) { _, error in
             if let error = error {
                 print(error.localizedDescription)
             }
         }
         
-        // store image url in profile data
+        // wait for image URL to be generated server-side before attempting to store it in user data
+        uploadTask.observe(.success) { _ in
+            self.updateProfileWithImageURL(ref: pfpRef, user: user)
+        }
+    }
+    
+    // stores url at StorageReference in user's photo URL
+    // @param ref is a Firebase StorageReference, assumed to point at user's profile picture
+    // @param user is a Firebase user object
+    func updateProfileWithImageURL(ref: StorageReference, user: User) {
         // https://firebase.google.com/docs/auth/ios/manage-users#update_a_users_profile
         let changeRequest = user.createProfileChangeRequest()
-        pfpRef.downloadURL { url, error in
+        ref.downloadURL { url, error in
             if let url = url {
                 changeRequest.photoURL = url
-                
             } else if let error = error {
                 print(error.localizedDescription)
             }
-        }
-        changeRequest.commitChanges { error in // save new profile data
-            if let error = error {
-                print(error.localizedDescription)
+            
+            // must commit changes within downloadURL callstack to avoid async errors
+            // https://stackoverflow.com/questions/51821553/invalid-call-to-setphotourl-after-commitchangeswithcallback
+            changeRequest.commitChanges { error in // save new profile data
+                if let error = error {
+                    print(error.localizedDescription)
+                }
             }
         }
-        
     }
     
     // Deletes profile picture from Firebase
     func deleteImage(name: String) {
+        guard name != "" else {
+            return
+        }
+        
         let ref = storageRef.child(name)
         ref.delete { error in
             if let error = error {
@@ -174,32 +188,30 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     @IBAction func changeEmailButtonPressed(_ sender: Any) {
         guard let currentUser = Auth.auth().currentUser else { return }
 
-        let changeEmailController = UIAlertController(title: "Change your email",
-                                                      message: nil,
-                                                      preferredStyle: .alert)
+        let changeEmailController = UIAlertController(
+            title: "Change your email",
+            message: nil,
+            preferredStyle: .alert
+        )
         
         changeEmailController.addTextField { textField in
             textField.placeholder = "Enter New Email Address"
         }
         
-        let saveAction = UIAlertAction(title: "Save",
-                                       style: .default,
-                                       handler: { _ in
+        let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
             guard let textField = changeEmailController.textFields?.first,
                   let newEmail = textField.text,
-                  !newEmail.isEmpty else { return }
-            currentUser.updateEmail(to: newEmail) { error in
-                if let error = error {
-                    print(error)
-                } else {
-                    print("Success")
-                }
+                  !newEmail.isEmpty else {
+                return
+                
             }
-        })
+            self.updateEmail(user: currentUser, newEmail: newEmail)
+        }
         
-        let cancelAction = UIAlertAction(title: "Cancel",
-                                         style: .cancel,
-                                         handler: nil)
+        let cancelAction = UIAlertAction(
+            title: "Cancel",
+            style: .cancel
+        )
         
         changeEmailController.addAction(saveAction)
         changeEmailController.addAction(cancelAction)
@@ -208,11 +220,15 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     }
 
     @IBAction func changePasswordButtonPressed(_ sender: Any) {
-        guard let currentUser = Auth.auth().currentUser else { return }
+        guard let currentUser = Auth.auth().currentUser else {
+            return
+        }
         
-        let changePasswordController = UIAlertController(title: "Change your password",
-                                                         message: nil,
-                                                         preferredStyle: .alert)
+        let changePasswordController = UIAlertController(
+            title: "Change your password",
+            message: nil,
+            preferredStyle: .alert
+        )
         
         changePasswordController.addTextField { textField in
             textField.placeholder = "Enter Current Password"
@@ -222,39 +238,29 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             textField.placeholder = "Enter New Password"
         }
         
-        let saveAction = UIAlertAction(title: "Save",
-                                       style: .default,
-                                       handler: { _ in
-            guard let currentPasswordTextField = changePasswordController.textFields?.first,
+        let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
+            guard let email = currentUser.email,
+                  let currentPasswordTextField = changePasswordController.textFields?.first,
                   let newPasswordTextField = changePasswordController.textFields?.last,
                   let currentPassword = currentPasswordTextField.text,
                   let newPassword = newPasswordTextField.text,
                   !currentPassword.isEmpty,
-                  !newPassword.isEmpty else { return }
-            guard let email = currentUser.email else { return }
-            let credential = EmailAuthProvider.credential(withEmail: email,
-                                                          password: currentPassword)
+                  !newPassword.isEmpty else {
+                return
+            }
+            
+            // reauthenticate and change password
+            let credential = EmailAuthProvider.credential(withEmail: email, password: currentPassword)
             currentUser.reauthenticate(with: credential) { result, error in
                 if let error = error {
                     print(error.localizedDescription)
-                    return
                 } else {
-                    currentUser.updatePassword(to: newPassword) {
-                        error in
-                        if let error = error {
-                            print(error.localizedDescription)
-                            return
-                        } else {
-                            print("Success")
-                        }
-                    }
+                    self.updatePassword(user: currentUser, newPassword: newPassword)
                 }
             }
-        })
+        }
         
-        let cancelAction = UIAlertAction(title: "Cancel",
-                                         style: .cancel,
-                                         handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
         
         changePasswordController.addAction(saveAction)
         changePasswordController.addAction(cancelAction)
@@ -274,6 +280,34 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             performSegue(withIdentifier: "signoutSegue", sender: nil)
         } catch {
             print("Sign out error")
+        }
+    }
+    
+    // updates the email of a user
+    // @param user is a Firebase User object who's email will be changed
+    // @param newEmail is a string containing the desired new email
+    func updateEmail(user: User, newEmail: String) {
+        user.updateEmail(to: newEmail) { error in
+            if let error = error {
+                print(error)
+            } else {
+                print("Success")
+            }
+        }
+    }
+    
+    // updates the password of a user
+    // @param user is a Firebase User object who's password will be changed
+    // @param newPassword is a string containing the desired new password
+    func updatePassword(user: User, newPassword: String) {
+        user.updatePassword(to: newPassword) {
+            error in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            } else {
+                print("Success")
+            }
         }
     }
 }
