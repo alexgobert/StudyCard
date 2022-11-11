@@ -35,7 +35,7 @@ class LoginViewController: UIViewController {
         Auth.auth().signIn(withEmail: emailField.text!, password: passwordField.text!) {
             (authResult, error) in
             if let error = error as NSError? {
-                self.errorMessage.text = "\(error.localizedDescription)"
+                self.errorMessage.text = error.localizedDescription
             } else {
                 self.errorMessage.text = ""
             }
@@ -44,14 +44,16 @@ class LoginViewController: UIViewController {
     
     @IBAction func signupButtonPressed(_ sender: Any) {
         
-        let alert = UIAlertController(title: "Create an account",
-                                      message: "Register",
-                                      preferredStyle: .alert)
+        let alert = UIAlertController(
+            title: "Create an account",
+            message: "Register",
+            preferredStyle: .alert
+        )
+        
         alert.addTextField {
             tfEmail in
             tfEmail.placeholder = "Enter your email"
         }
-        
         alert.addTextField {
             tfPassword in
             tfPassword.isSecureTextEntry = true
@@ -67,7 +69,7 @@ class LoginViewController: UIViewController {
             Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) {
                 authResult, error in
                 if let error = error as NSError? {
-                    self.errorMessage.text = "\(error.localizedDescription)"
+                    self.errorMessage.text = error.localizedDescription
                 } else {
                     self.errorMessage.text = ""
                 }
@@ -83,4 +85,38 @@ class LoginViewController: UIViewController {
         
     }
 
+    @IBAction func resetPasswordButtonPressed(_ sender: Any) {
+        let alert = UIAlertController(
+            title: "Reset Password",
+            message: "Please enter your email and Firebase will send you a password reset email.",
+            preferredStyle: .alert
+        )
+        
+        alert.addTextField {
+            tfEmail in
+            tfEmail.placeholder = "Email"
+        }
+        
+        let resetAction = UIAlertAction(title: "Reset", style: .default) {
+            _ in
+            let emailField: UITextField = alert.textFields![0]
+            
+            // prompts Firebase to send a password reset email
+            Auth.auth().sendPasswordReset(withEmail: emailField.text!) {
+                error in
+                if let error = error {
+                    self.errorMessage.text = error.localizedDescription
+                } else {
+                    self.errorMessage.text = ""
+                }
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alert.addAction(resetAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true)
+    }
 }

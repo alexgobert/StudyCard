@@ -23,18 +23,20 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     @IBOutlet weak var selectPicButton: UIButton!
     @IBOutlet weak var logoutButton: UIButton!
     
-    let storageRef: StorageReference = Storage.storage().reference(forURL: "profile_pictures")
+    let storageRef: StorageReference = Storage.storage().reference().child("profile_pictures/")
     let maxImageSize: Int64 = 10 * 1024 * 1024 // MB
     var imageName: String = ""
     var observer: NSKeyValueObservation!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         // load user image
         if let user = Auth.auth().currentUser, let photoURL = user.photoURL {
             loadImage(photoURL: photoURL)
             imageName = photoURL.lastPathComponent
+            self.emailLabel.text = user.email!
+            self.nameLabel.text = user.displayName!
         }
         
         // set up profile picture observer
@@ -44,15 +46,12 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             var date: String = Date().formatted()
             date.replace(" ", with: "")
             date.replace("/", with: "-")
+            date.replace(",", with: "")
             
             self.deleteImage(name: self.imageName)
             self.imageName = "image\(date).jpeg"
             self.storeImage(name: self.imageName, image: change.newValue!!)
         }
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
         // theme compliance
         view.backgroundColor = globalBkgdColor
@@ -263,12 +262,12 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         present(changePasswordController, animated: true)
     }
         
-//    @IBAction func changeNameButtonPressed(_ sender: Any) {
-//    }
-//
-//    @IBAction func deleteAccountButtonPressed(_ sender: Any) {
-//    }
-//
+    @IBAction func changeNameButtonPressed(_ sender: Any) {
+    }
+
+    @IBAction func deleteAccountButtonPressed(_ sender: Any) {
+    }
+
     @IBAction func logoutButtonPressed(_ sender: Any) {
         do {
             try Auth.auth().signOut()
