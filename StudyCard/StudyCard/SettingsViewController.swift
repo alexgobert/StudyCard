@@ -7,6 +7,9 @@
 
 import UIKit
 
+let userDefaults = UserDefaults.standard
+let backgroundColorKey = "backgroundKey"
+
 struct Section {
     let title: String
     let options: [SettingsOptionType]
@@ -32,6 +35,14 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     let fonts: [String] = [
         "Comic Sans",
+        "Helvetica",
+        "Times New Roman",
+        "Open Sans",
+        "SF Pro",
+    ]
+    
+    let colors: [String] = [
+        "Gray",
         "Helvetica",
         "Times New Roman",
         "Open Sans",
@@ -76,7 +87,21 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                 self.present(fontController, animated: true)
             }),
             .staticCell(model: SettingsOption(title: "Color") {
-                
+                let colorController = UIAlertController(
+                    title: "Font",
+                    message: "Please select a color",
+                    preferredStyle: .alert)
+                for color in self.colors {
+                    colorController.addAction(UIAlertAction(
+                        title: color,
+                        style: .default
+                    ))
+                }
+                colorController.addAction(UIAlertAction(
+                    title: "Cancel",
+                    style: .cancel
+                    ))
+                self.present(colorController, animated: true)
             })
         ]))
         
