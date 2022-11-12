@@ -54,7 +54,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
         for set in retrieveSet() {
-            // work in progess
+            let setTitle = set.value(forKey: "name")
+            let termsData = set.value(forKey: "terms")
+            let definitionsData = set.value(forKey: "definitions")
+
+            let terms: [String] = try! JSONDecoder().decode([String].self, from: termsData! as! Data)
+            let definitions: [String] = try! JSONDecoder().decode([String].self, from: definitionsData! as! Data)
+
+            setList.append(CardSet(name: setTitle as! String, terms: terms, definitions: definitions))
+
         }
         
         searchData = setList

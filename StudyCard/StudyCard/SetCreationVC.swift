@@ -70,7 +70,17 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             
         } else {
             let otherVC = delegate as! ViewController
+            let cellList = self.tableView.visibleCells as! [TextFieldTableViewCell]
             otherVC.updateList(set: CardSet(name: titleField.text, cards: cardSet))
+            
+            // enure that all terms and definitions are stored to cells
+            var i = 0
+            for cell in cellList {
+                cardSet[i].term = cell.getTerm()!
+                cardSet[i].definition = cell.getDefinition()!
+                
+                i += 1
+            }
             
             storeSet(name: titleField.text!, cards: cardSet)
             
@@ -162,19 +172,24 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     func storeSet(name: String, cards: [Card]) {
         let set = NSEntityDescription.insertNewObject(forEntityName: "StoredSet", into: context)
-        var termString = ""
-        var defString = ""
+        var terms: [String] = []
+        var defs: [String] = []
         
         for card in cards {
-            termString += String(card.term) + "|"
-            defString += String(card.definition) + "|"
+            terms.append(card.term)
+            defs.append(card.definition)
         }
         
-        set.setValue(name, forKey: "name")
-        set.setValue(termString, forKey: "terms")
-        set.setValue(defString, forKey: "definitions")
+        let termsString: String = terms.description
+        let defsString: String = defs.description
+        let termsData = termsString.data(using: String.Encoding.utf8)
+        let defsData = defsString.data(using: String.Encoding.utf8)
         
-//        saveContext()
+        set.setValue(name, forKey: "name")
+        set.setValue(termsData, forKey: "terms")
+        set.setValue(defsData, forKey: "definitions")
+        
+        saveContext()
     }
     
     func saveContext() {
