@@ -19,7 +19,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var profileButton: UIBarButtonItem!
     @IBOutlet weak var addButton: UIBarButtonItem!
     
-    var setList:[CardSet]! = []
+    var setList: [CardSet] = []
     var searchData: [CardSet]!
     
     override func viewDidLoad() {
@@ -30,9 +30,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert]) {
             granted, error in
-            if granted {
-                ()
-            } else {
+            if !granted {
                 DispatchQueue.main.async {
                     do {
                         try Auth.auth().signOut()
@@ -49,7 +47,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                         self.present(controller, animated: true)
                         
                     } catch {
-                        print("Sign out error")
+                        self.errorAlert(message: "Sign out error")
                     }
                 }
             }
@@ -67,6 +65,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        setsTableView.reloadData()
+        
         // theme compliance
         self.navigationController?.navigationBar.tintColor = globalFontColor
         view.backgroundColor = globalBkgdColor
@@ -141,9 +141,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         notificationTime.minute = 0
         let trigger = UNCalendarNotificationTrigger(dateMatching: notificationTime, repeats: true)
         let request = UNNotificationRequest(identifier: "ID", content: notificationContent, trigger: trigger)
-                        UNUserNotificationCenter.current().add(request) { (error : Error?) in
-                            if let message = error {
-                                print(message.localizedDescription)
+        UNUserNotificationCenter.current().add(request) {
+                (error : Error?) in
+                if let error = error {
+                    self.errorAlert(message: error.localizedDescription)
             }
         }
     }
@@ -188,6 +189,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             } catch {
                 let nserror = error as NSError
                 NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+                errorAlert(message: nserror.localizedDescription)
             }
         }
     }
@@ -195,7 +197,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func updateList(set: CardSet) {
         setList.append(set)
         searchData = setList
-        setsTableView.reloadData()
     }
 }
 

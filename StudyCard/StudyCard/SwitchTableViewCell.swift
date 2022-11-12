@@ -24,6 +24,7 @@ class SwitchTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
         contentView.addSubview(label)
         contentView.addSubview(mySwitch)
         contentView.clipsToBounds = true
@@ -47,11 +48,13 @@ class SwitchTableViewCell: UITableViewCell {
             x: 20,
             y: 0,
             width: contentView.frame.size.width - 15,
-            height: contentView.frame.size.height)
+            height: contentView.frame.size.height
+        )
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        
         label.text = nil
         mySwitch.isOn = false
     }

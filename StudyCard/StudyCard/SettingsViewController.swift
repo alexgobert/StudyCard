@@ -30,6 +30,14 @@ struct SettingsOption {
 
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    let fonts: [String] = [
+        "Comic Sans",
+        "Helvetica",
+        "Times New Roman",
+        "Open Sans",
+        "SF Pro",
+    ]
+    
     private let tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.register(SettingTableViewCell.self, forCellReuseIdentifier: SettingTableViewCell.identifier)
@@ -55,24 +63,16 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                     title: "Font",
                     message: "Please select a font",
                     preferredStyle: .alert)
-                fontController.addAction(UIAlertAction(
-                    title: "Comic Sans",
-                    style: .default))
-                fontController.addAction(UIAlertAction(
-                    title: "Helvetica",
-                    style: .default))
-                fontController.addAction(UIAlertAction(
-                    title: "Times New Roman",
-                    style: .default))
-                fontController.addAction(UIAlertAction(
-                    title: "Open Sans",
-                    style: .default))
-                fontController.addAction(UIAlertAction(
-                    title: "SF Pro",
-                    style: .default))
+                for fontName in self.fonts {
+                    fontController.addAction(UIAlertAction(
+                        title: fontName,
+                        style:.default
+                    ))
+                }
                 fontController.addAction(UIAlertAction(
                     title: "Cancel",
-                    style: .cancel))
+                    style: .cancel
+                ))
                 self.present(fontController, animated: true)
             }),
             .staticCell(model: SettingsOption(title: "Color") {
@@ -117,11 +117,11 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             settingsCell.configure(with: model)
             return settingsCell
         case .switchCell(let model):
-            guard let settingsCell = tableView.dequeueReusableCell(withIdentifier: SwitchTableViewCell.identifier, for: indexPath) as? SwitchTableViewCell else {
+            guard let switchCell = tableView.dequeueReusableCell(withIdentifier: SwitchTableViewCell.identifier, for: indexPath) as? SwitchTableViewCell else {
                 return UITableViewCell()
             }
-            settingsCell.configure(with: model)
-            return settingsCell
+            switchCell.configure(with: model)
+            return switchCell
         }
     }
     

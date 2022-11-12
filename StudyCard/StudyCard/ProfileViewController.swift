@@ -123,7 +123,7 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         // store image
         let uploadTask: StorageUploadTask = pfpRef.putData(imageData) { _, error in
             if let error = error {
-                print(error.localizedDescription)
+                self.errorAlert(message: error.localizedDescription)
             }
         }
         
@@ -143,14 +143,14 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             if let url = url {
                 changeRequest.photoURL = url
             } else if let error = error {
-                print(error.localizedDescription)
+                self.errorAlert(message: error.localizedDescription)
             }
             
             // must commit changes within downloadURL callstack to avoid async errors
             // https://stackoverflow.com/questions/51821553/invalid-call-to-setphotourl-after-commitchangeswithcallback
             changeRequest.commitChanges { error in // save new profile data
                 if let error = error {
-                    print(error.localizedDescription)
+                    self.errorAlert(message: error.localizedDescription)
                 }
             }
         }
@@ -158,14 +158,14 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     
     // Deletes profile picture from Firebase
     func deleteImage(name: String) {
-        guard name != "" else {
+        guard !name.isEmpty else {
             return
         }
         
         let ref = storageRef.child(name)
         ref.delete { error in
             if let error = error {
-                print(error.localizedDescription)
+                self.errorAlert(message: error.localizedDescription)
             }
         }
     }
@@ -179,7 +179,7 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             if let data = data {
                 self.profilePicImageView.image = UIImage(data: data)
             } else if let error = error {
-                print(error.localizedDescription)
+                self.errorAlert(message: error.localizedDescription)
             }
         }
     }
@@ -240,10 +240,8 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         
         let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
             guard let email = currentUser.email,
-                  let currentPasswordTextField = changePasswordController.textFields?.first,
-                  let newPasswordTextField = changePasswordController.textFields?.last,
-                  let currentPassword = currentPasswordTextField.text,
-                  let newPassword = newPasswordTextField.text,
+                  let currentPassword = changePasswordController.textFields?.first?.text,
+                  let newPassword = changePasswordController.textFields?.last?.text,
                   !currentPassword.isEmpty,
                   !newPassword.isEmpty else {
                 return
@@ -251,9 +249,9 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             
             // reauthenticate and change password
             let credential = EmailAuthProvider.credential(withEmail: email, password: currentPassword)
-            currentUser.reauthenticate(with: credential) { result, error in
+            currentUser.reauthenticate(with: credential) { _, error in
                 if let error = error {
-                    print(error.localizedDescription)
+                    self.errorAlert(message: error.localizedDescription)
                 } else {
                     self.updatePassword(user: currentUser, newPassword: newPassword)
                 }
@@ -279,7 +277,7 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             try Auth.auth().signOut()
             performSegue(withIdentifier: "signoutSegue", sender: nil)
         } catch {
-            print("Sign out error")
+            errorAlert(message: "Sign out error")
         }
     }
     
@@ -289,9 +287,7 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     func updateEmail(user: User, newEmail: String) {
         user.updateEmail(to: newEmail) { error in
             if let error = error {
-                print(error)
-            } else {
-                print("Success")
+                self.errorAlert(message: error.localizedDescription)
             }
         }
     }
@@ -300,13 +296,9 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     // @param user is a Firebase User object who's password will be changed
     // @param newPassword is a string containing the desired new password
     func updatePassword(user: User, newPassword: String) {
-        user.updatePassword(to: newPassword) {
-            error in
+        user.updatePassword(to: newPassword) { error in
             if let error = error {
-                print(error.localizedDescription)
-                return
-            } else {
-                print("Success")
+                self.errorAlert(message: error.localizedDescription)
             }
         }
     }

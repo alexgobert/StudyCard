@@ -10,6 +10,7 @@
 		32317B6D29136154006DD86E /* SummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32317B6C29136154006DD86E /* SummaryTableViewCell.swift */; };
 		3285A4D229189E2100466C2B /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 3285A4D129189E2100466C2B /* FirebaseAuth */; };
 		3285A4D429189E2100466C2B /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 3285A4D329189E2100466C2B /* FirebaseStorage */; };
+		32A0F1A3291F3CF800FAF704 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A0F1A2291F3CF800FAF704 /* UIViewControllerExtension.swift */; };
 		50A5D6CC2900BBD800D0E964 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5D6CB2900BBD800D0E964 /* ProfileViewController.swift */; };
 		50A5D6CE2900BC4700D0E964 /* StudyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5D6CD2900BC4700D0E964 /* StudyViewController.swift */; };
 		83485B682919D93900705136 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83485B672919D93900705136 /* SettingsViewController.swift */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		32317B6C29136154006DD86E /* SummaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryTableViewCell.swift; sourceTree = "<group>"; };
+		32A0F1A2291F3CF800FAF704 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		50A5D6CB2900BBD800D0E964 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		50A5D6CD2900BC4700D0E964 /* StudyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyViewController.swift; sourceTree = "<group>"; };
 		83485B672919D93900705136 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				83DDC104291CFFC60099D7E5 /* SettingTableViewCell.swift */,
 				32317B6C29136154006DD86E /* SummaryTableViewCell.swift */,
 				50A5D6CB2900BBD800D0E964 /* ProfileViewController.swift */,
+				32A0F1A2291F3CF800FAF704 /* UIViewControllerExtension.swift */,
 				83AD82EB29013746006A459B /* LoginViewController.swift */,
 				50A5D6CD2900BC4700D0E964 /* StudyViewController.swift */,
 				FDA5CC5328F69D5B00EF941B /* StudySetupVC.swift */,
@@ -213,6 +216,7 @@
 				FDA5CC4728F524C300EF941B /* StudyCard.xcdatamodeld in Sources */,
 				50A5D6CC2900BBD800D0E964 /* ProfileViewController.swift in Sources */,
 				FDA5CC5428F69D5B00EF941B /* StudySetupVC.swift in Sources */,
+				32A0F1A3291F3CF800FAF704 /* UIViewControllerExtension.swift in Sources */,
 				FDA5CC3D28F524C300EF941B /* AppDelegate.swift in Sources */,
 				83DDC105291CFFC60099D7E5 /* SettingTableViewCell.swift in Sources */,
 				9585CB1D28F6013F00689958 /* CardSet.swift in Sources */,
