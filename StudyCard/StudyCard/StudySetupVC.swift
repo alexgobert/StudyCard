@@ -18,6 +18,8 @@ class StudySetupVC: UIViewController {
     @IBOutlet weak var shuffleLabel: UILabel!
     @IBOutlet weak var itemFirstLabel: UILabel!
     @IBOutlet weak var confirmButton: UIBarButtonItem!
+    @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,9 +51,24 @@ class StudySetupVC: UIViewController {
     
     @IBAction func onItemFirstChanged(_ sender: Any) {
         itemFirst = itemFirstCtrl.titleForSegment(at: itemFirstCtrl.selectedSegmentIndex)!
+        
+        print(itemFirst)
+        
     }
     
     @IBAction func onToggleChanged(_ sender: Any) {
         shuffle = shuffleToggle.isOn
+        
+        print(shuffle)
+        
     }
+    
+    @IBAction func editPressed(_ sender: Any) {
+        print("edit")
+    }
+    
+    @IBAction func deletePressed(_ sender: Any) {
+        print("delete")
+    }
+    
 }
