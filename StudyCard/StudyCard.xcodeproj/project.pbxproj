@@ -77,6 +77,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		32803CE2292348CE00565D46 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FDA5CC4028F524C300EF941B /* ViewController.swift */,
+				83485B672919D93900705136 /* SettingsViewController.swift */,
+				83AD82EB29013746006A459B /* LoginViewController.swift */,
+				50A5D6CD2900BC4700D0E964 /* StudyViewController.swift */,
+				FDA5CC5328F69D5B00EF941B /* StudySetupVC.swift */,
+				95FA8BD528F5EB3800276CBE /* SummaryVC.swift */,
+				95FA8BD328F5EACD00276CBE /* SetCreationVC.swift */,
+				50A5D6CB2900BBD800D0E964 /* ProfileViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		32803CE32923492500565D46 /* Custom Objects */ = {
+			isa = PBXGroup;
+			children = (
+				83DDC108291D09E00099D7E5 /* SwitchTableViewCell.swift */,
+				83DDC104291CFFC60099D7E5 /* SettingTableViewCell.swift */,
+				32317B6C29136154006DD86E /* SummaryTableViewCell.swift */,
+				32A0F1A2291F3CF800FAF704 /* UIViewControllerExtension.swift */,
+				9585CB1C28F6013F00689958 /* CardSet.swift */,
+				9585CB2028F6062600689958 /* Card.swift */,
+				9585CB1A28F5F2BB00689958 /* TextFieldTableViewCell.swift */,
+			);
+			path = "Custom Objects";
+			sourceTree = "<group>";
+		};
 		FDA5CC3028F524C300EF941B = {
 			isa = PBXGroup;
 			children = (
@@ -96,26 +125,13 @@
 		FDA5CC3B28F524C300EF941B /* StudyCard */ = {
 			isa = PBXGroup;
 			children = (
-				FDA5CC3C28F524C300EF941B /* AppDelegate.swift */,
-				83DDC108291D09E00099D7E5 /* SwitchTableViewCell.swift */,
-				FDA5CC3E28F524C300EF941B /* SceneDelegate.swift */,
-				FDA5CC4028F524C300EF941B /* ViewController.swift */,
-				950632EC291AA81800935ABB /* GlobalVariables.swift */,
+				32803CE2292348CE00565D46 /* View Controllers */,
+				32803CE32923492500565D46 /* Custom Objects */,
 				FDA5CC4228F524C300EF941B /* Main.storyboard */,
-				83485B672919D93900705136 /* SettingsViewController.swift */,
-				83DDC104291CFFC60099D7E5 /* SettingTableViewCell.swift */,
-				32317B6C29136154006DD86E /* SummaryTableViewCell.swift */,
-				50A5D6CB2900BBD800D0E964 /* ProfileViewController.swift */,
-				32A0F1A2291F3CF800FAF704 /* UIViewControllerExtension.swift */,
-				83AD82EB29013746006A459B /* LoginViewController.swift */,
-				50A5D6CD2900BC4700D0E964 /* StudyViewController.swift */,
-				FDA5CC5328F69D5B00EF941B /* StudySetupVC.swift */,
-				95FA8BD528F5EB3800276CBE /* SummaryVC.swift */,
-				95FA8BD328F5EACD00276CBE /* SetCreationVC.swift */,
-				9585CB1C28F6013F00689958 /* CardSet.swift */,
+				950632EC291AA81800935ABB /* GlobalVariables.swift */,
 				95F1B09C291351BC0026DC87 /* Protocols.swift */,
-				9585CB2028F6062600689958 /* Card.swift */,
-				9585CB1A28F5F2BB00689958 /* TextFieldTableViewCell.swift */,
+				FDA5CC3C28F524C300EF941B /* AppDelegate.swift */,
+				FDA5CC3E28F524C300EF941B /* SceneDelegate.swift */,
 				FDA5CC4828F524C500EF941B /* Assets.xcassets */,
 				FDA5CC4A28F524C500EF941B /* LaunchScreen.storyboard */,
 				FDA5CC4D28F524C500EF941B /* Info.plist */,

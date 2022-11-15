@@ -133,7 +133,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             tableView.deleteRows(at: [indexPath], with: .fade)
             
             deleteItem(setNum: indexPath.row)
-            
         }
     }
     
@@ -153,7 +152,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 (error : Error?) in
                 if let error = error {
                     self.errorAlert(message: error.localizedDescription)
-            }
+                }
         }
     }
     
