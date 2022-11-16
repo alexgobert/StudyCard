@@ -108,9 +108,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: setTextCellIdentifier, for: indexPath) as! SetListCell
         
-        cell.setName(setName: setList[indexPath.row].getName())
-        cell.setTimes(times: setList[indexPath.row].getTimesStudied())
-        cell.setPercent(percent: setList[indexPath.row].getPercentKnown())
+        cell.setName(setName: searchData[indexPath.row].getName())
+        cell.setTimes(times: searchData[indexPath.row].getTimesStudied())
+        cell.setPercent(percent: searchData[indexPath.row].getPercentKnown())
 //        cell.textLabel?.font = globalFont
 //        cell.textLabel?.textColor = globalFontColor
 //        cell.backgroundColor = globalBkgdColor
@@ -123,6 +123,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
         searchData = searchText.isEmpty ? setList : setList.filter { (item: CardSet) -> Bool in
             return item.name.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
         }
