@@ -25,6 +25,7 @@
 		95F1B09D291351BC0026DC87 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95F1B09C291351BC0026DC87 /* Protocols.swift */; };
 		95FA8BD428F5EACD00276CBE /* SetCreationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FA8BD328F5EACD00276CBE /* SetCreationVC.swift */; };
 		95FA8BD628F5EB3800276CBE /* SummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FA8BD528F5EB3800276CBE /* SummaryVC.swift */; };
+		FDA4D0342925543F000272BC /* SetListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA4D0332925543F000272BC /* SetListCell.swift */; };
 		FDA5CC3D28F524C300EF941B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA5CC3C28F524C300EF941B /* AppDelegate.swift */; };
 		FDA5CC3F28F524C300EF941B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA5CC3E28F524C300EF941B /* SceneDelegate.swift */; };
 		FDA5CC4128F524C300EF941B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDA5CC4028F524C300EF941B /* ViewController.swift */; };
@@ -52,6 +53,7 @@
 		95F1B09C291351BC0026DC87 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		95FA8BD328F5EACD00276CBE /* SetCreationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCreationVC.swift; sourceTree = "<group>"; };
 		95FA8BD528F5EB3800276CBE /* SummaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryVC.swift; sourceTree = "<group>"; };
+		FDA4D0332925543F000272BC /* SetListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetListCell.swift; sourceTree = "<group>"; };
 		FDA5CC3928F524C300EF941B /* StudyCard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudyCard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDA5CC3C28F524C300EF941B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FDA5CC3E28F524C300EF941B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 		32803CE32923492500565D46 /* Custom Objects */ = {
 			isa = PBXGroup;
 			children = (
+				FDA4D0332925543F000272BC /* SetListCell.swift */,
 				83DDC108291D09E00099D7E5 /* SwitchTableViewCell.swift */,
 				83DDC104291CFFC60099D7E5 /* SettingTableViewCell.swift */,
 				32317B6C29136154006DD86E /* SummaryTableViewCell.swift */,
@@ -228,6 +231,7 @@
 				83DDC109291D09E00099D7E5 /* SwitchTableViewCell.swift in Sources */,
 				50A5D6CE2900BC4700D0E964 /* StudyViewController.swift in Sources */,
 				FDA5CC4128F524C300EF941B /* ViewController.swift in Sources */,
+				FDA4D0342925543F000272BC /* SetListCell.swift in Sources */,
 				83485B682919D93900705136 /* SettingsViewController.swift in Sources */,
 				FDA5CC4728F524C300EF941B /* StudyCard.xcdatamodeld in Sources */,
 				50A5D6CC2900BBD800D0E964 /* ProfileViewController.swift in Sources */,

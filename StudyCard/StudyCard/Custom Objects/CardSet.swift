@@ -11,7 +11,10 @@ class CardSet: Collection {
             endIndex = Swift.max(self.cards.count, 0)
         }
     }
+    // initial values
     var name: String = ""
+    var timesStudied: Int = 0
+    var percentKnown: Float = 0.0
     
     // conformance to Collection
     var startIndex: Int = 0
@@ -36,6 +39,26 @@ class CardSet: Collection {
         )
         
         endIndex = Swift.max(self.cards.count, 0)
+    }
+    
+    func getName() -> String {
+        return name
+    }
+    
+    func setTimesStudied(times: Int) {
+        timesStudied = times
+    }
+    
+    func setPercentKnown(percent: Float) {
+        percentKnown = percent
+    }
+    
+    func getTimesStudied() -> Int {
+        return timesStudied
+    }
+    
+    func getPercentKnown() -> Float {
+        return percentKnown
     }
     
     func isEmpty() -> Bool {

@@ -106,11 +106,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: setTextCellIdentifier, for: indexPath)
-        cell.textLabel?.text = setList[indexPath.row].name
-        cell.textLabel?.font = globalFont
-        cell.textLabel?.textColor = globalFontColor
-        cell.backgroundColor = globalBkgdColor
+        let cell = tableView.dequeueReusableCell(withIdentifier: setTextCellIdentifier, for: indexPath) as! SetListCell
+        
+        cell.setName(setName: setList[indexPath.row].getName())
+        cell.setTimes(times: setList[indexPath.row].getTimesStudied())
+        cell.setPercent(percent: setList[indexPath.row].getPercentKnown())
+//        cell.textLabel?.font = globalFont
+//        cell.textLabel?.textColor = globalFontColor
+//        cell.backgroundColor = globalBkgdColor
         
         return cell
     }
@@ -126,15 +129,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         setsTableView.reloadData()
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            setList.remove(at: indexPath.row)
-            searchData = setList
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            
-            deleteItem(setNum: indexPath.row)
-        }
-    }
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            setList.remove(at: indexPath.row)
+//            searchData = setList
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//
+//            deleteItem(setNum: indexPath.row)
+//        }
+//    }
     
     func sendNotification() {
         let notificationContent = UNMutableNotificationContent()
