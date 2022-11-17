@@ -94,7 +94,7 @@ class SummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let senderTitle: String = (sender.titleLabel?.text)!
         let newSet: CardSet = senderTitle.contains("unknown") ? CardSet(name: cards.name, cards: unknownCards) : cards
         
-        delegate.cards = newSet
+        delegate.cardSet = newSet
         self.navigationController?.popViewController(animated: true)
     }
 }

@@ -270,6 +270,43 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     }
 
     @IBAction func deleteAccountButtonPressed(_ sender: Any) {
+        
+        // reauthenticate user before deleting acount
+        guard let currentUser = Auth.auth().currentUser else {
+            return
+        }
+        let deleteAccountController = UIAlertController(
+            title: "Delete your account",
+            message: nil,
+            preferredStyle: .alert
+        )
+        deleteAccountController.addTextField { textField in
+            textField.placeholder = "Enter Email"
+        }
+        
+        deleteAccountController.addTextField { textField in
+            textField.placeholder = "Enter Password"
+        }
+        
+        let deleteAction = UIAlertAction(title: "Delete", style: .default) { _ in
+            guard let email = currentUser.email,
+                  let currentEmail = deleteAccountController.textFields?.first?.text,
+                  let currentPassword = deleteAccountController.textFields?.last?.text,
+                  !currentEmail.isEmpty,
+                  !currentPassword.isEmpty else {
+                return
+            }
+            
+            let credential = EmailAuthProvider.credential(withEmail: email, password: currentPassword)
+            currentUser.reauthenticate(with: credential) { _, error in
+                if let error = error {
+                    self.errorAlert(message: error.localizedDescription)
+                } else {
+                    currentUser.delete();
+                    self.performSegue(withIdentifier: "signoutSegue", sender: nil)
+                }
+            }
+        }
     }
 
     @IBAction func logoutButtonPressed(_ sender: Any) {
