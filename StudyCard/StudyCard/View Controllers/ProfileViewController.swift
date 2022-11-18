@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseStorage
+import CryptoKit
 
 class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -25,7 +26,13 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     
     let storageRef: StorageReference = Storage.storage().reference().child("profile_pictures")
     let maxImageSize: Int64 = 10 * 1024 * 1024 // MB
-    var imageName: String = ""
+    var imageName: String = "" {
+        willSet {
+            if imageName != newValue {
+                self.deleteImage(name: imageName)
+            }
+        }
+    }
     var observer: NSKeyValueObservation!
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,13 +50,6 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         observer = profilePicImageView.observe(\.image, options: [.new]) {
             _, change in
             // name images by date
-            var date: String = Date().formatted()
-            date.replace(" ", with: "")
-            date.replace("/", with: "-")
-            date.replace(",", with: "")
-            
-            self.deleteImage(name: self.imageName)
-            self.imageName = "image\(date).jpeg"
             self.storeImage(name: self.imageName, image: change.newValue!!)
         }
         
@@ -82,7 +82,7 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             imagePickerController.delegate = self
             imagePickerController.sourceType = .camera
             
-            self.present(imagePickerController, animated: true)
+            present(imagePickerController, animated: true)
         }
     }
     
@@ -93,8 +93,16 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        
+        // https://www.hackingwithswift.com/example-code/cryptokit/how-to-calculate-the-sha-hash-of-a-string-or-data-instance
+        let imageData: Data = (image?.jpegData(compressionQuality: 1))!
+        let hashedData: SHA256Digest = SHA256.hash(data: imageData)
+        let hashedString: String = hashedData.compactMap { String(format: "%02x", $0) }.joined()
+        
+        imageName = hashedString
         profilePicImageView.image = image
-        self.dismiss(animated: true, completion: nil)
+        
+        dismiss(animated: true)
     }
     
     
@@ -105,10 +113,9 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             let profilePicController = UIImagePickerController()
             
             profilePicController.delegate = self
+            profilePicController.sourceType = .photoLibrary
             
-            profilePicController.sourceType = UIImagePickerController.SourceType.photoLibrary
-            
-            self.present(profilePicController, animated: true, completion: nil)
+            present(profilePicController, animated: true)
         }
     }
     
@@ -118,7 +125,7 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             return
         }
         
-        let pfpRef = storageRef.child("\(user.uid)/\(name)")
+        let pfpRef = storageRef.child(name)
         
         // store image
         let uploadTask: StorageUploadTask = pfpRef.putData(imageData) { _, error in
@@ -280,13 +287,6 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             message: nil,
             preferredStyle: .alert
         )
-        deleteAccountController.addTextField { textField in
-            textField.placeholder = "Enter Email"
-        }
-        
-        deleteAccountController.addTextField { textField in
-            textField.placeholder = "Enter Password"
-        }
         
         let deleteAction = UIAlertAction(title: "Delete", style: .default) { _ in
             guard let email = currentUser.email,
@@ -307,6 +307,16 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
                 }
             }
         }
+        
+        deleteAccountController.addAction(deleteAction)
+        deleteAccountController.addTextField { textField in
+            textField.placeholder = "Enter Email"
+        }
+        deleteAccountController.addTextField { textField in
+            textField.placeholder = "Enter Password"
+        }
+        
+        present(deleteAccountController, animated: true)
     }
 
     @IBAction func logoutButtonPressed(_ sender: Any) {
