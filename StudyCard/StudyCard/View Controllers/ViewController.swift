@@ -11,7 +11,7 @@ import CoreData
 
 let setTextCellIdentifier = "SetNameCell"
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, StudyListUpdater {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, StudyListUpdater, DeleteList {
     
     @IBOutlet weak var setsTableView: UITableView!
     @IBOutlet weak var setSearch: UISearchBar!
@@ -101,6 +101,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             dest.delegate = self
         } else if segue.identifier == "StudySetupSegue", let dest = segue.destination as? StudySetupVC, let index = setsTableView.indexPathForSelectedRow?.row {
             dest.cards = setList[index]
+            dest.delegate = self
         }
     }
     
@@ -203,8 +204,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         searchData = setList
     }
     
+    func deleteItem(cardSet: CardSet) {
+        var i = 0
+        var index: Int = 0
+        for set in setList {
+            if cardSet === set {
+                index = i
+                break
+            }
+            
+            i += 1
+            
+        }
+        
+        setList.remove(at: index)
+        searchData = setList
+
+        deleteItem(setNum: index)
+    }
+    
     func setCellHeight() {
-        print("test")
         let cellList = setsTableView.visibleCells as! [SetListCell]
         print(cellList)
         var maxCellHeight = CGFloat(70)
@@ -213,9 +232,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let maxLabelSize = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
             let actualLabelSize = cell.name.text!.boundingRect(with: maxLabelSize, options: [.usesLineFragmentOrigin], attributes: [.font: cell.name.font!], context: nil)
             let labelHeight = actualLabelSize.height
-            
-            print(labelHeight)
-            print("test")
             
             if CGFloat(labelHeight) > maxCellHeight {
                 maxCellHeight = labelHeight

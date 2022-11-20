@@ -12,6 +12,7 @@ class StudySetupVC: UIViewController {
     var cards: CardSet!
     var shuffle: Bool = true
     var itemFirst: String! // Term, Mixed, Definition
+    var delegate: DeleteList!
 
     @IBOutlet weak var shuffleToggle: UISwitch!
     @IBOutlet weak var itemFirstCtrl: UISegmentedControl!
@@ -70,6 +71,8 @@ class StudySetupVC: UIViewController {
     
     @IBAction func deletePressed(_ sender: Any) {
         print("delete")
+        let otherVC = delegate!
+        otherVC.deleteItem(cardSet: cards)
     }
     
 }

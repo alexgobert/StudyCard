@@ -14,3 +14,7 @@ protocol StudyListUpdater {
 protocol CustomTableViewCell {
     func setFont(_ font: UIFont)
 }
+
+protocol DeleteList {
+    func deleteItem(cardSet: CardSet)
+}
