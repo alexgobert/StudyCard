@@ -19,11 +19,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var profileButton: UIBarButtonItem!
     @IBOutlet weak var addButton: UIBarButtonItem!
     
-    var setList: [CardSet] = []
+    var setList: [CardSet]!
     var searchData: [CardSet]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setList = []
+        
         setsTableView.delegate = self
         setsTableView.dataSource = self
         setSearch.delegate = self
@@ -65,13 +68,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
         }
         
-        searchData = setList
-        
         sendNotification()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        searchData = setList
         
         setsTableView.reloadData()
         
@@ -129,7 +132,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
         searchData = searchText.isEmpty ? setList : setList.filter { (item: CardSet) -> Bool in
-            return item.name.range(of: searchText, options: .caseInsensitive, range: nil, locale: nil) != nil
+            return item.name.range(of: searchText, options: .caseInsensitive) != nil
         }
         setsTableView.reloadData()
     }
@@ -205,16 +208,17 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func deleteItem(cardSet: CardSet) {
-        var i = 0
-        var index: Int = 0
-        for set in setList {
+        var index: Int?
+        for (i, set) in setList.enumerated() {
             if cardSet === set {
                 index = i
                 break
             }
-            
-            i += 1
-            
+        }
+        
+        // unwrap optional index to make sure it has a value
+        guard let index = index else {
+            return
         }
         
         setList.remove(at: index)

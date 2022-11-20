@@ -47,7 +47,7 @@ class StudySetupVC: UIViewController {
         if segue.identifier == "StudySegue", let dest = segue.destination as? StudyViewController {
             cards.shuffle(shuffle)
             
-            dest.setCards(cards)
+            dest.setCards(&cards)
             dest.itemFirst = itemFirst
         }
     }

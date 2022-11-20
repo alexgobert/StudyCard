@@ -104,7 +104,7 @@ class StudyViewController: UIViewController {
         }
     }
     
-    func setCards(_ cardSet: CardSet) {
+    func setCards(_ cardSet: inout CardSet) {
         self.cardSet = cardSet
     }
     

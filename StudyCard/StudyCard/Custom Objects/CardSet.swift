@@ -5,12 +5,13 @@
 //  Created by Alex Gobert on 10/11/22.
 //
 
-class CardSet: Collection {
+class CardSet: Collection, Equatable, CustomStringConvertible {
     var cards: [Card] = [] {
         didSet {
             endIndex = Swift.max(self.cards.count, 0)
         }
     }
+    
     // initial values
     var name: String = ""
     var timesStudied: Int = 0
@@ -19,6 +20,11 @@ class CardSet: Collection {
     // conformance to Collection
     var startIndex: Int = 0
     var endIndex: Int
+    
+    // conformance to CustomStringConvertible
+    var description: String {
+        return str()
+    }
     
     // remember parent set for recursive percent setting
     var parent: CardSet!
@@ -55,6 +61,10 @@ class CardSet: Collection {
         }
     }
     
+    static func == (lhs: CardSet, rhs: CardSet) -> Bool {
+        return lhs.getName() == rhs.getName() && lhs.cards == rhs.cards
+    }
+    
     func getName() -> String {
         return name
     }
@@ -68,7 +78,7 @@ class CardSet: Collection {
     }
     
     func setPercentKnown(percent: Float) {
-        percentKnown = percent
+        percentKnown = Swift.min(percent, 1)
     }
     
     func getTimesStudied() -> Int {
@@ -110,5 +120,14 @@ class CardSet: Collection {
         if shuff {
             cards.shuffle()
         }
+    }
+    
+    func str() -> String {
+        var string = name + "\n"
+        
+        string += "\tTimes Studied: \(getTimesStudied())\n"
+        string += "\tPercentage Known: \(getPercentKnown())\n"
+        
+        return string
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Foundation
 
 class SetListCell: UITableViewCell {
     
@@ -26,19 +27,24 @@ class SetListCell: UITableViewCell {
     }
     
     func setPercent(percent: Float) {
-        percentKnown.text = "\(percent)%"
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .percent
+        formatter.usesSignificantDigits = true
+        formatter.maximumSignificantDigits = 3
+        
+        percentKnown.text = formatter.string(from: percent as NSNumber)
     }
     
     func getName() -> String {
-        return name.text!
+        return name.text ?? ""
     }
     
     func getTimesStudied() -> String {
-        return timesStudied.text!
+        return timesStudied.text ?? ""
     }
     
     func getPercentKnown() -> String {
-        return percentKnown.text!
+        return percentKnown.text ?? ""
     }
     
 }

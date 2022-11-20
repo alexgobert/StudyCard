@@ -31,6 +31,8 @@ class SummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
         tableView.delegate = self
         tableView.dataSource = self
+        
+        navigationItem.hidesBackButton = true // hide back button
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -123,10 +125,10 @@ class SummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         }
         
         delegate.cardSet = newSet
-        dismiss(animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func doneButtonPressed(_ sender: Any) {
-        performSegue(withIdentifier: "MainScreenSegue", sender: nil)
+        navigationController?.popToRootViewController(animated: true)
     }
 }
