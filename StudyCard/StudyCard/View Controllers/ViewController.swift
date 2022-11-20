@@ -130,16 +130,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         setsTableView.reloadData()
     }
     
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            setList.remove(at: indexPath.row)
-//            searchData = setList
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//
-//            deleteItem(setNum: indexPath.row)
-//        }
-//    }
-    
     func sendNotification() {
         let notificationContent = UNMutableNotificationContent()
         notificationContent.title = "Message from StudyCard:"

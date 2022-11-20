@@ -20,30 +20,31 @@ class StudyViewController: UIViewController {
     
     var cardSet: CardSet!
     var itemFirst: String! // term, def, or mixed
-    var currentCard: Card?
+    var currentCard: Card!
     var isShowingTerm: Bool = true
-    var remainingCards: [Card]!
     var knownCards: [Card]!
     var unknownCards: [Card]!
+    var remainingCards: [Card]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        guard let currentCard = cardSet.cards.first else { return }
-        self.currentCard = currentCard
-        cardLabel.text = currentCard.term
+        
+        currentCard = cardSet.first
+        cardLabel.text = currentCard.getTerm()
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapCard))
         cardView.addGestureRecognizer(tapGestureRecognizer)
     }
     
     @objc func didTapCard() {
-        guard let currentCard = currentCard else { return }
-        cardLabel.text = isShowingTerm ? currentCard.definition : currentCard.term
-        UIView.transition(with: cardView,
-                          duration: 1,
-                          options: isShowingTerm ? .transitionFlipFromRight : .transitionFlipFromLeft,
-                          animations: nil,
-                          completion: nil)
+        
+        cardLabel.text = isShowingTerm ? currentCard.getDef() : currentCard.getTerm()
+        UIView.transition(
+            with: cardView,
+            duration: 1,
+            options: isShowingTerm ? .transitionFlipFromRight : .transitionFlipFromLeft,
+            animations: nil
+        )
         isShowingTerm.toggle()
     }
     
@@ -72,9 +73,34 @@ class StudyViewController: UIViewController {
         performSegue(withIdentifier: "SummarySegue", sender: nil)
     }
     
+    func changeCard() {
+        guard !remainingCards.isEmpty else {
+            studyDone()
+            return
+        }
+        
+        currentCard = remainingCards.first
+        
+        // determine whether term or def should be displayed
+        switch itemFirst {
+        case "Term":
+            isShowingTerm = true
+        case "Definition":
+            isShowingTerm = false
+        default: // mixed by default
+            isShowingTerm = Bool.random()
+        }
+        
+        // change card label
+        cardLabel.text = isShowingTerm ? currentCard.getTerm() : currentCard.getDef()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SummarySegue", let dest = segue.destination as? SummaryVC {
             dest.delegate = self
+            dest.knownCards = knownCards
+            dest.unknownCards = unknownCards
+            dest.cards = cardSet
         }
     }
     
@@ -86,63 +112,60 @@ class StudyViewController: UIViewController {
     @IBAction func rightGesture(_ sender: UISwipeGestureRecognizer) {
         print("Right")
         print("don't know it")
-        if let currentCard = currentCard {
-            unknownCards.append(currentCard)
-            remainingCards.removeAll(where: {
-                $0.term == currentCard.term && $0.definition == currentCard.definition
-            })
-//            if remainingCards.isEmpty {
-//                cardView.isHidden = true
-//                cardLabel.isHidden = true
-//            }
-            let startingX = self.cardView.center.x
-            self.view.layoutIfNeeded()
-            UIView.animate(withDuration: 1, delay: 0, animations: {
-                self.cardView.center.x += 2*UIScreen.main.bounds.width
-                self.view.layoutIfNeeded()
-            }, completion: {_ in
-                self.cardView.center.x = -2*UIScreen.main.bounds.width
-                self.view.layoutIfNeeded()
-                UIView.animate(withDuration: 1, delay: 0, animations: {
-                    self.cardView.center.x = startingX
-                    //self.cardLabel.text = "New Term"
-                    self.view.layoutIfNeeded()
-                })
-            })
-        }
+        
+        // process card
+        unknownCards.append(currentCard)
+        remainingCards.removeAll(where: { $0 == currentCard })
+        
+        // animate card motion
+        animateCard(outBoundDirection: "Right")
     }
     
     // Left swipe Gesture
     @IBAction func leftGesture(_ sender: UISwipeGestureRecognizer) {
         print("Left")
         print("know it")
-        if let currentCard = currentCard {
-            knownCards.append(currentCard)
-            remainingCards.removeAll(where: {
-                $0.term == currentCard.term && $0.definition == currentCard.definition
-            })
-            // Above is same as this
-//            remainingCards.removeAll(where: { card in
-//                card.term == currentCard.term && card.definition == currentCard.definition
-//            })
-//            if remainingCards.isEmpty {
-//                cardView.isHidden = true
-//                cardLabel.isHidden = true
-//            }
-            let startingX = self.cardView.center.x
-            self.view.layoutIfNeeded()
-            UIView.animate(withDuration: 1, delay: 0, animations: {
-                self.cardView.center.x -= 2*UIScreen.main.bounds.width
+        
+        // process card
+        knownCards.append(currentCard)
+        remainingCards.removeAll(where: { $0 == currentCard })
+        
+        // animate card motion
+        animateCard(outBoundDirection: "Left")
+    }
+    
+    func animateCard(outBoundDirection: String) {
+        // unit scalar that determines x direction of motion
+        // -1 if left, +1 else (right)
+        let sign: CGFloat = outBoundDirection == "Left" ? -1 : 1
+        
+        // animate card according to sign
+        let startingX = cardView.center.x
+        view.layoutIfNeeded()
+        UIView.animate(
+            withDuration: 1,
+            delay: 0,
+            animations: {
+                // slide off screen left or right, depending on sign
+                self.cardView.center.x += sign * 2 * UIScreen.main.bounds.width
                 self.view.layoutIfNeeded()
-            }, completion: {_ in
-                self.cardView.center.x = 2*UIScreen.main.bounds.width
+            },
+            completion: { _ in
+                // update current card
+                self.changeCard()
+                
+                // slide in from other side of screen, depending on sign
+                self.cardView.center.x = -sign * 2 * UIScreen.main.bounds.width
                 self.view.layoutIfNeeded()
-                UIView.animate(withDuration: 1, delay: 0, animations: {
-                    self.cardView.center.x = startingX
-                    self.cardLabel.text = "New Term"
-                    self.view.layoutIfNeeded()
-                })
-            })
-        }
+                UIView.animate(
+                    withDuration: 1,
+                    delay: 0,
+                    animations: {
+                        self.cardView.center.x = startingX
+                        self.view.layoutIfNeeded()
+                    }
+                )
+            }
+        )
     }
 }

@@ -20,6 +20,9 @@ class CardSet: Collection {
     var startIndex: Int = 0
     var endIndex: Int
     
+    // remember parent set for recursive percent setting
+    var parent: CardSet!
+    
     init(name: String?, cards: [Card]?) {
         self.name = name ?? self.name
         self.cards = cards ?? self.cards
@@ -41,8 +44,23 @@ class CardSet: Collection {
         endIndex = Swift.max(self.cards.count, 0)
     }
     
+    func updatePercent(knownCount: Int) {
+        let currentKnown = Int(percentKnown * Float(cards.count))
+        let newKnown = currentKnown + knownCount
+        
+        if let parent = parent {
+            parent.updatePercent(knownCount: newKnown)
+        } else {
+            setPercentKnown(percent: Float(newKnown) / Float(cards.count))
+        }
+    }
+    
     func getName() -> String {
         return name
+    }
+    
+    func incrementTimesStudied(_ times: Int = 1) {
+        timesStudied += times
     }
     
     func setTimesStudied(times: Int) {

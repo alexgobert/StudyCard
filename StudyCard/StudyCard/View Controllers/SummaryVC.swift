@@ -36,8 +36,17 @@ class SummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        // set variable height for rows
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableView.automaticDimension
+        
+        // update UILabels
         knownCounter.text = "\(knownCards.count)"
         unknownCounter.text = "\(unknownCards.count)"
+        
+        // update times studied
+        cards.incrementTimesStudied()
+        cards.updatePercent(knownCount: knownCards.count)
         
         // theme compliance
         view.backgroundColor = globalBkgdColor
@@ -57,7 +66,7 @@ class SummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         retryAllButton.titleLabel?.font = globalFont
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
     }
     
@@ -90,11 +99,34 @@ class SummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     @IBAction func retryButtonPressed(_ sender: UIButton) {
-        let senderTitle: String = (sender.titleLabel?.text)!
-        let newSet: CardSet = senderTitle.contains("unknown") ? CardSet(name: cards.name, cards: unknownCards) : cards
+        guard let senderTitle = sender.titleLabel?.text else {
+            return
+        }
+        
+        var newSet: CardSet
+        
+        if senderTitle.contains("unknown") {
+            guard !unknownCards.isEmpty else {
+                errorAlert(message: "No Unknown Cards")
+                return
+            }
+            
+            newSet = CardSet(name: cards.getName(), cards: unknownCards)
+            newSet.parent = cards
+        } else {
+            newSet = cards
+        }
         
         delegate.cardSet = newSet
-        self.navigationController?.popViewController(animated: true)
+        dismiss(animated: true)
+    }
+    
+    @IBAction func doneButtonPressed(_ sender: Any) {
+        performSegue(withIdentifier: "MainScreenSegue", sender: nil)
     }
 }

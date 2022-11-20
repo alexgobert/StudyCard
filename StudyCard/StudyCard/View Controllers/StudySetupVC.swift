@@ -11,7 +11,7 @@ class StudySetupVC: UIViewController {
     
     var cards: CardSet!
     var shuffle: Bool = true
-    var itemFirst: String = ""
+    var itemFirst: String! // Term, Mixed, Definition
 
     @IBOutlet weak var shuffleToggle: UISwitch!
     @IBOutlet weak var itemFirstCtrl: UISegmentedControl!
@@ -27,6 +27,8 @@ class StudySetupVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        itemFirst = itemFirstCtrl.titleForSegment(at: itemFirstCtrl.selectedSegmentIndex)!
         
         // theme compliance
         view.backgroundColor = globalBkgdColor
@@ -53,7 +55,6 @@ class StudySetupVC: UIViewController {
         itemFirst = itemFirstCtrl.titleForSegment(at: itemFirstCtrl.selectedSegmentIndex)!
         
         print(itemFirst)
-        
     }
     
     @IBAction func onToggleChanged(_ sender: Any) {

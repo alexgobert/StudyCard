@@ -23,8 +23,6 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        cardSet = [Card(term: nil, definition: nil)]
 
         tableView.delegate = self
         tableView.dataSource = self
@@ -36,6 +34,8 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        cardSet = []
+        
         // set theme
         view.backgroundColor = globalBkgdColor
         titleField.font = globalFont
@@ -90,7 +90,7 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cardSet.count
+        return cardSet.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

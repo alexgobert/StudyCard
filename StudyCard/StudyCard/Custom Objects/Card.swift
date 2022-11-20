@@ -5,7 +5,7 @@
 //  Created by Alex Gobert on 10/11/22.
 //
 
-class Card {
+class Card: Equatable {
     var term: String = ""
     var definition: String = ""
     
@@ -26,6 +26,10 @@ class Card {
     init(defTermTuple: (String, String)) {
         definition = defTermTuple.0
         term = defTermTuple.1
+    }
+    
+    static func == (lhs: Card, rhs: Card) -> Bool {
+        lhs.getTerm() == rhs.getTerm() && lhs.getDef() == rhs.getDef()
     }
     
     func getTerm() -> String {
