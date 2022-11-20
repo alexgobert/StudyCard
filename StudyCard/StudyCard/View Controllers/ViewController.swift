@@ -72,7 +72,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
         setsTableView.reloadData()
         
         // theme compliance
@@ -90,6 +90,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         settingsButton.tintColor = globalFontColor
         profileButton.tintColor = globalFontColor
         addButton.tintColor = globalFontColor
+        
+        setCellHeight()
+        setsTableView.reloadData()
         
     }
     
@@ -198,6 +201,29 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func updateList(set: CardSet) {
         setList.append(set)
         searchData = setList
+    }
+    
+    func setCellHeight() {
+        print("test")
+        let cellList = setsTableView.visibleCells as! [SetListCell]
+        print(cellList)
+        var maxCellHeight = CGFloat(70)
+        for cell in cellList {
+            let width = cell.name.frame.width
+            let maxLabelSize = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
+            let actualLabelSize = cell.name.text!.boundingRect(with: maxLabelSize, options: [.usesLineFragmentOrigin], attributes: [.font: cell.name.font!], context: nil)
+            let labelHeight = actualLabelSize.height
+            
+            print(labelHeight)
+            print("test")
+            
+            if CGFloat(labelHeight) > maxCellHeight {
+                maxCellHeight = labelHeight
+            }
+        }
+        
+        setsTableView.rowHeight = maxCellHeight
+        
     }
 }
 
