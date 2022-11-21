@@ -39,10 +39,12 @@ class SettingTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         label.text = nil
+        label.textColor = nil
     }
     
     public func configure(with model: SettingsOption) {
         label.text = model.title
+        label.textColor = model.fontColor
     }
 
 }

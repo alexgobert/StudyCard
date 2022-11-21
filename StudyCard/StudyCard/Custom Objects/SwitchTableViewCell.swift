@@ -18,7 +18,7 @@ class SwitchTableViewCell: UITableViewCell {
     
     private let mySwitch: UISwitch = {
        let mySwitch = UISwitch()
-        mySwitch.onTintColor = .systemBlue
+        mySwitch.onTintColor = ThemeManager.current.secondaryColor
         return mySwitch
     }()
     
@@ -61,6 +61,7 @@ class SwitchTableViewCell: UITableViewCell {
     
     public func configure(with model: SettingsSwitchOption) {
         label.text = model.title
+        label.textColor = model.fontColor
         mySwitch.isOn = model.isOn
     }
 

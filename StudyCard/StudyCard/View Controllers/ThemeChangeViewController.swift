@@ -31,6 +31,8 @@ class ThemeChangeViewController: UIViewController, UITableViewDelegate, UITableV
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        
+        navigationItem.title = "Theme"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,7 +50,7 @@ class ThemeChangeViewController: UIViewController, UITableViewDelegate, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: textCellIdentifier, for: indexPath)
         cell.textLabel?.text = themes[row]
         cell.textLabel?.textColor = ThemeManager.current.fontColor
-        cell.backgroundColor = ThemeManager.current.backgroundColor
+        cell.backgroundColor = ThemeManager.current.lightColor
         return cell
     }
     
@@ -73,5 +75,14 @@ class ThemeChangeViewController: UIViewController, UITableViewDelegate, UITableV
         self.view.backgroundColor = ThemeManager.current.backgroundColor
         tableView.backgroundColor = ThemeManager.current.backgroundColor
         tableView.separatorColor = ThemeManager.current.fontColor
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = ThemeManager.current.backgroundColor
+                
+        // This will alter the navigation bar title appearance
+        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: ThemeManager.current.fontColor]
+
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
 }

@@ -28,12 +28,14 @@ enum SettingsOptionType {
 
 struct SettingsSwitchOption {
     let title: String
+    let fontColor: UIColor
     var isOn: Bool
     let handler: (() -> Void)
 }
 
 struct SettingsOption {
     let title: String
+    let fontColor: UIColor
     let handler: (() -> Void)
 }
 
@@ -55,17 +57,22 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.delegate = self
         tableView.dataSource = self
         tableView.frame = view.bounds
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.isTranslucent = false
+        navigationItem.title = "Settings"
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         // theme compliance
         applyTheme()
+        tableView.reloadData()
     }
     
     func configure() {
         models.append(Section(title: "Theme", options: [
-            .staticCell(model: SettingsOption(title: "Font") {
+            .staticCell(model: SettingsOption(title: "Font", fontColor: ThemeManager.current.fontColor) {
                 let fontController = UIAlertController(
                     title: "Font",
                     message: "Please select a font",
@@ -76,19 +83,19 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                 ))
                 self.present(fontController, animated: true)
             }),
-            .staticCell(model: SettingsOption(title: "Theme") {
+            .staticCell(model: SettingsOption(title: "Theme", fontColor: ThemeManager.current.fontColor) {
                 self.performSegue(withIdentifier: "themeSegue", sender: self)
             })
         ]))
         
         models.append(Section(title: "Sounds", options: [
-            .switchCell(model: SettingsSwitchOption(title: "Push notifications", isOn: true) {
+            .switchCell(model: SettingsSwitchOption(title: "Push Notifications", fontColor: ThemeManager.current.fontColor, isOn: true) {
                 
             }),
-            .switchCell(model: SettingsSwitchOption(title: "Volume Mute", isOn: true) {
+            .switchCell(model: SettingsSwitchOption(title: "Volume Mute", fontColor: ThemeManager.current.fontColor, isOn: true) {
                 
             }),
-            .switchCell(model: SettingsSwitchOption(title: "Vibrations", isOn: true) {
+            .switchCell(model: SettingsSwitchOption(title: "Vibrations", fontColor: ThemeManager.current.fontColor, isOn: true) {
                 
             })
         ]))
@@ -97,6 +104,11 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         let section = models[section]
         return section.title
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = ThemeManager.current.fontColor
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -116,14 +128,20 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                 return UITableViewCell()
             }
             settingsCell.configure(with: model)
-            settingsCell.backgroundColor = ThemeManager.current.secondaryColor
+            settingsCell.backgroundColor = ThemeManager.current.lightColor
+            settingsCell.preservesSuperviewLayoutMargins = false
+            settingsCell.separatorInset = UIEdgeInsets.zero
+            settingsCell.layoutMargins = UIEdgeInsets.zero
             return settingsCell
         case .switchCell(let model):
             guard let switchCell = tableView.dequeueReusableCell(withIdentifier: SwitchTableViewCell.identifier, for: indexPath) as? SwitchTableViewCell else {
                 return UITableViewCell()
             }
             switchCell.configure(with: model)
-            switchCell.backgroundColor = ThemeManager.current.secondaryColor
+            switchCell.backgroundColor = ThemeManager.current.lightColor
+            switchCell.preservesSuperviewLayoutMargins = false
+            switchCell.separatorInset = UIEdgeInsets.zero
+            switchCell.layoutMargins = UIEdgeInsets.zero
             return switchCell
         }
     }
@@ -151,6 +169,17 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         self.navigationController?.navigationBar.tintColor = ThemeManager.current.fontColor
         self.view.backgroundColor = ThemeManager.current.backgroundColor
         tableView.backgroundColor = ThemeManager.current.backgroundColor
-        tableView.separatorColor = ThemeManager.current.secondaryColor
+        tableView.separatorColor = ThemeManager.current.fontColor
+        
+        // This will change the navigation bar background color
+        let appearance = UINavigationBarAppearance()
+        appearance.backgroundColor = ThemeManager.current.backgroundColor
+                
+        // This will alter the navigation bar title appearance
+        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: ThemeManager.current.fontColor]
+        appearance.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: ThemeManager.current.fontColor]
+
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
 }

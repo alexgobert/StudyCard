@@ -17,9 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="IuJ-in-moN">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="IuJ-in-moN">
                                 <rect key="frame" x="0.0" y="103" width="393" height="715"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TextCell" id="Ecr-e3-Umt">
                                         <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
@@ -41,7 +40,7 @@
                             <constraint firstItem="IuJ-in-moN" firstAttribute="leading" secondItem="06X-bz-Ezt" secondAttribute="leading" id="hmo-h7-OFT"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="flf-1a-Al7"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="flf-1a-Al7"/>
                     <connections>
                         <outlet property="tableView" destination="IuJ-in-moN" id="P9f-V6-fsN"/>
                     </connections>
@@ -50,7 +49,7 @@
             </objects>
             <point key="canvasLocation" x="-718" y="-704"/>
         </scene>
-        <!--Settings-->
+        <!--Settings View Controller-->
         <scene sceneID="jRj-GK-9b9">
             <objects>
                 <viewController id="bF6-qo-A1q" customClass="SettingsViewController" customModule="StudyCard" customModuleProvider="target" sceneMemberID="viewController">
@@ -60,7 +59,7 @@
                         <viewLayoutGuide key="safeArea" id="gVk-2E-ued"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Settings" id="PIZ-Yy-HLn"/>
+                    <navigationItem key="navigationItem" id="PIZ-Yy-HLn"/>
                     <connections>
                         <segue destination="Yjd-xo-HTT" kind="show" identifier="themeSegue" id="ZPX-9k-5l7"/>
                     </connections>
