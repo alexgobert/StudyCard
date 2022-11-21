@@ -33,25 +33,31 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert]) {
             granted, error in
-            if !granted {
-                DispatchQueue.main.async {
-                    do {
-                        try Auth.auth().signOut()
-                        self.performSegue(withIdentifier: "NoPermission", sender: nil)
-                        
-                        let controller = UIAlertController(
-                            title: "Permission Denied",
-                            message: "Notification Permissions were denied. Please enable this through settings",
-                            preferredStyle: .alert)
-                        controller.addAction(UIAlertAction(
-                            title: "Return",
-                            style: .default,
-                            handler: nil))
-                        self.present(controller, animated: true)
-                        
-                    } catch {
-                        self.errorAlert(message: "Sign out error")
-                    }
+            
+            // authorization granted, can break
+            guard !granted else {
+                return
+            }
+            
+            // sign out and prevent user from using app
+            DispatchQueue.main.async {
+                do {
+                    try Auth.auth().signOut()
+                    
+                    let controller = UIAlertController(
+                        title: "Permission Denied",
+                        message: "Notification Permissions were denied. Please enable this through settings",
+                        preferredStyle: .alert)
+                    controller.addAction(UIAlertAction(
+                        title: "Return",
+                        style: .default,
+                        handler: nil))
+                    self.present(controller, animated: true)
+                    
+                    self.dismiss(animated: true)
+                    
+                } catch {
+                    self.errorAlert(message: "Sign out error")
                 }
             }
         }
@@ -149,17 +155,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         notificationTime.minute = 0
         let trigger = UNCalendarNotificationTrigger(dateMatching: notificationTime, repeats: true)
         let request = UNNotificationRequest(identifier: "ID", content: notificationContent, trigger: trigger)
+        
         UNUserNotificationCenter.current().add(request) {
-                (error : Error?) in
-                if let error = error {
-                    self.errorAlert(message: error.localizedDescription)
-                }
+            (error : Error?) in
+            if let error = error {
+                self.errorAlert(message: error.localizedDescription)
+            }
         }
     }
     
     func retrieveSet() -> [NSManagedObject] {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "StoredSet")
-        var fetchedResults:[NSManagedObject]? = nil
+        var fetchedResults: [NSManagedObject]?
         
         do {
             try fetchedResults = context.fetch(request) as? [NSManagedObject]
@@ -169,7 +176,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             abort()
         }
         
-        return(fetchedResults)!
+        return fetchedResults!
     }
     
     func deleteItem(setNum: Int) {
@@ -229,21 +236,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func setCellHeight() {
         let cellList = setsTableView.visibleCells as! [SetListCell]
-        print(cellList)
-        var maxCellHeight = CGFloat(70)
+        
+        var maxCellHeight: CGFloat = 70
         for cell in cellList {
             let width = cell.name.frame.width
             let maxLabelSize = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
             let actualLabelSize = cell.name.text!.boundingRect(with: maxLabelSize, options: [.usesLineFragmentOrigin], attributes: [.font: cell.name.font!], context: nil)
             let labelHeight = actualLabelSize.height
             
-            if CGFloat(labelHeight) > maxCellHeight {
-                maxCellHeight = labelHeight
-            }
+            maxCellHeight = max(maxCellHeight, labelHeight)
         }
         
         setsTableView.rowHeight = maxCellHeight
-        
     }
 }
 

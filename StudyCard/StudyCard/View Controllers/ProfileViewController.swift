@@ -322,7 +322,7 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     @IBAction func logoutButtonPressed(_ sender: Any) {
         do {
             try Auth.auth().signOut()
-            performSegue(withIdentifier: "signoutSegue", sender: nil)
+            dismiss(animated: true)
         } catch {
             errorAlert(message: "Sign out error")
         }

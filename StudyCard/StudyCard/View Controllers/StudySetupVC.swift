@@ -47,22 +47,17 @@ class StudySetupVC: UIViewController {
         if segue.identifier == "StudySegue", let dest = segue.destination as? StudyViewController {
             cards.shuffle(shuffle)
             
-            dest.setCards(&cards)
+            dest.setCards(cards)
             dest.itemFirst = itemFirst
         }
     }
     
     @IBAction func onItemFirstChanged(_ sender: Any) {
         itemFirst = itemFirstCtrl.titleForSegment(at: itemFirstCtrl.selectedSegmentIndex)!
-        
-        print(itemFirst)
     }
     
     @IBAction func onToggleChanged(_ sender: Any) {
         shuffle = shuffleToggle.isOn
-        
-        print(shuffle)
-        
     }
     
     @IBAction func editPressed(_ sender: Any) {
@@ -70,9 +65,8 @@ class StudySetupVC: UIViewController {
     }
     
     @IBAction func deletePressed(_ sender: Any) {
-        print("delete")
-        let otherVC = delegate!
-        otherVC.deleteItem(cardSet: cards)
+        delegate.deleteItem(cardSet: cards)
+        navigationController?.popViewController(animated: true)
     }
     
 }

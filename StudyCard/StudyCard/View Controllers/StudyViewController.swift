@@ -55,6 +55,9 @@ class StudyViewController: UIViewController {
         knownCards = []
         unknownCards = []
         
+        // initialize progress
+        progressBar.setProgress(0, animated: false)
+        
         // theme compliance
         view.backgroundColor = globalBkgdColor
         
@@ -104,7 +107,7 @@ class StudyViewController: UIViewController {
         }
     }
     
-    func setCards(_ cardSet: inout CardSet) {
+    func setCards(_ cardSet: CardSet) {
         self.cardSet = cardSet
     }
     
@@ -138,6 +141,15 @@ class StudyViewController: UIViewController {
         // unit scalar that determines x direction of motion
         // -1 if left, +1 else (right)
         let sign: CGFloat = outBoundDirection == "Left" ? -1 : 1
+        
+        // animate progress bar async (simultaneous with card animation)
+        DispatchQueue.global(qos: .utility).async {
+            let progress = 1.0 - Float(self.remainingCards.count) / Float(self.cardSet.count)
+            
+            DispatchQueue.main.async { // update UI
+                self.progressBar.setProgress(progress, animated: true)
+            }
+        }
         
         // animate card according to sign
         let startingX = cardView.center.x

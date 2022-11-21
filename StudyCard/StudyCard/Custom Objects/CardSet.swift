@@ -20,11 +20,10 @@ class CardSet: Collection, Equatable, CustomStringConvertible {
     // conformance to Collection
     var startIndex: Int = 0
     var endIndex: Int
+    var count: Int { cards.count } // using Collection.count will soft lock code, this is an easy workaround
     
     // conformance to CustomStringConvertible
-    var description: String {
-        return str()
-    }
+    var description: String { str() }
     
     // remember parent set for recursive percent setting
     var parent: CardSet!
@@ -51,13 +50,13 @@ class CardSet: Collection, Equatable, CustomStringConvertible {
     }
     
     func updatePercent(knownCount: Int) {
-        let currentKnown = Int(percentKnown * Float(cards.count))
+        let currentKnown = Int(percentKnown * Float(count))
         let newKnown = currentKnown + knownCount
         
         if let parent = parent {
             parent.updatePercent(knownCount: newKnown)
         } else {
-            setPercentKnown(percent: Float(newKnown) / Float(cards.count))
+            setPercentKnown(percent: Float(newKnown) / Float(count))
         }
     }
     
@@ -78,7 +77,8 @@ class CardSet: Collection, Equatable, CustomStringConvertible {
     }
     
     func setPercentKnown(percent: Float) {
-        percentKnown = Swift.min(percent, 1)
+        // take the highest known value up to 100%
+        percentKnown = Swift.min(Swift.max(percentKnown, percent), 1)
     }
     
     func getTimesStudied() -> Int {

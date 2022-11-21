@@ -188,7 +188,6 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Delete Set"/>
                                 <connections>
                                     <action selector="deletePressed:" destination="pj1-MM-WZ0" eventType="touchUpInside" id="ssn-2C-zay"/>
-                                    <segue destination="pTk-XD-fLk" kind="show" id="Jzh-kX-d4u"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4c0-Wy-L52">
@@ -493,7 +492,6 @@
                         <outlet property="setSearch" destination="xf1-Qr-Lk9" id="kDH-kJ-x9r"/>
                         <outlet property="setsTableView" destination="ahR-9u-QEh" id="Zrl-UT-h7c"/>
                         <outlet property="settingsButton" destination="xwT-t3-Bqj" id="WO8-FX-zZT"/>
-                        <segue destination="T4m-Ye-eAM" kind="presentation" identifier="NoPermission" modalPresentationStyle="fullScreen" id="M41-tY-0D4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HWh-yx-x8c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -842,7 +840,6 @@
                         <outlet property="profilePicImageView" destination="ME1-iv-sWH" id="zhm-Fw-B89"/>
                         <outlet property="selectPicButton" destination="4pi-yH-a9o" id="DIe-YV-Edb"/>
                         <outlet property="takePicButton" destination="KW2-Nb-trv" id="nfe-U1-Sgg"/>
-                        <segue destination="T4m-Ye-eAM" kind="presentation" identifier="signoutSegue" modalPresentationStyle="fullScreen" id="97P-C9-NHk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="amG-Zh-psZ" sceneMemberID="firstResponder"/>
@@ -857,8 +854,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe based on Knowledge" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ALt-VB-fYY">
-                                <rect key="frame" x="91.666666666666686" y="598" width="210" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Swipe Based on Knowledge!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ALt-VB-fYY">
+                                <rect key="frame" x="89.000000000000014" y="598" width="215.33333333333337" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -866,14 +863,14 @@
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dMK-LK-nvz">
                                 <rect key="frame" x="120" y="713" width="150" height="4"/>
                             </progressView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Needs some Work" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rOF-f6-18s">
-                                <rect key="frame" x="16" y="133" width="140" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I Know It!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rOF-f6-18s">
+                                <rect key="frame" x="16" y="133" width="70" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I know it!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ek8-Iv-lfr">
-                                <rect key="frame" x="309" y="135" width="68" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Needs Some Work" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ek8-Iv-lfr">
+                                <rect key="frame" x="235.66666666666663" y="135" width="141.33333333333337" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -944,10 +941,6 @@
             <point key="canvasLocation" x="1578" y="850"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="2MA-cC-yun"/>
-        <segue reference="M41-tY-0D4"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <image name="checkmark" catalog="system" width="128" height="114"/>
         <image name="checkmark.circle" catalog="system" width="128" height="123"/>
