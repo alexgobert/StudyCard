@@ -303,7 +303,7 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
                     self.errorAlert(message: error.localizedDescription)
                 } else {
                     currentUser.delete();
-                    self.performSegue(withIdentifier: "signoutSegue", sender: nil)
+                    self.dismiss(animated: true) // dismiss entire stack
                 }
             }
         }
@@ -322,7 +322,7 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     @IBAction func logoutButtonPressed(_ sender: Any) {
         do {
             try Auth.auth().signOut()
-            dismiss(animated: true)
+            dismiss(animated: true) // dismiss entire stack
         } catch {
             errorAlert(message: "Sign out error")
         }

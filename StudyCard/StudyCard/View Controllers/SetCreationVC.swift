@@ -34,7 +34,7 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        cardSet = []
+        cardSet = [Card()]
         
         // set theme
         view.backgroundColor = globalBkgdColor
@@ -90,11 +90,12 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cardSet.count + 1
+        return cardSet.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TextFieldTableViewCell", for: indexPath) as! TextFieldTableViewCell
+        
         cell.termField.text = cardSet[indexPath.row].getTerm()
         cell.definitionField.text = cardSet[indexPath.row].getDef()
         cell.backgroundColor = globalBkgdColor
