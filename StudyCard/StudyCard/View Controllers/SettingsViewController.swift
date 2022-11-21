@@ -170,11 +170,11 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         // alters the navigation bar title appearance
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = ThemeManager.current.backgroundColor
-        appearance.titleTextAttributes = [NSAttributedString.Key.font: globalBackButtonFont! ,NSAttributedString.Key.foregroundColor: ThemeManager.current.fontColor]
-        appearance.largeTitleTextAttributes = [NSAttributedString.Key.font: globalTitleFont! ,NSAttributedString.Key.foregroundColor: ThemeManager.current.fontColor]
+        appearance.titleTextAttributes = [NSAttributedString.Key.font: globalBackButtonFont ,NSAttributedString.Key.foregroundColor: ThemeManager.current.fontColor]
+        appearance.largeTitleTextAttributes = [NSAttributedString.Key.font: globalTitleFont ,NSAttributedString.Key.foregroundColor: ThemeManager.current.fontColor]
         
         let button = UIBarButtonItemAppearance(style: .plain)
-            button.normal.titleTextAttributes = [NSAttributedString.Key.font: globalBackButtonFont!, NSAttributedString.Key.foregroundColor: ThemeManager.current.fontColor]
+            button.normal.titleTextAttributes = [NSAttributedString.Key.font: globalBackButtonFont, NSAttributedString.Key.foregroundColor: ThemeManager.current.fontColor]
         appearance.buttonAppearance = button
 
         navigationController?.navigationBar.standardAppearance = appearance
