@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dvT-7C-Q4h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dvT-7C-Q4h">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -303,7 +303,7 @@
                             <constraint firstItem="4c0-Wy-L52" firstAttribute="firstBaseline" secondItem="4QF-G1-srq" secondAttribute="baseline" constant="150" id="vZK-Vb-Nga"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" style="editor" id="2mt-Ag-Ujz">
+                    <navigationItem key="navigationItem" id="2mt-Ag-Ujz">
                         <barButtonItem key="rightBarButtonItem" title="Confirm" style="plain" id="FZ6-rd-edr">
                             <imageReference key="image" image="checkmark.circle" catalog="system" symbolScale="large"/>
                             <color key="tintColor" systemColor="systemGreenColor"/>
