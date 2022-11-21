@@ -57,6 +57,12 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.frame = view.bounds
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // theme compliance
+        applyTheme()
+    }
+    
     func configure() {
         models.append(Section(title: "Theme", options: [
             .staticCell(model: SettingsOption(title: "Font") {
@@ -110,12 +116,14 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                 return UITableViewCell()
             }
             settingsCell.configure(with: model)
+            settingsCell.backgroundColor = ThemeManager.current.secondaryColor
             return settingsCell
         case .switchCell(let model):
             guard let switchCell = tableView.dequeueReusableCell(withIdentifier: SwitchTableViewCell.identifier, for: indexPath) as? SwitchTableViewCell else {
                 return UITableViewCell()
             }
             switchCell.configure(with: model)
+            switchCell.backgroundColor = ThemeManager.current.secondaryColor
             return switchCell
         }
     }
@@ -129,5 +137,20 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         case .switchCell(let model):
             model.handler()
         }
+    }
+    
+    func catchNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: NSNotification.Name("ThemeUpdate"), object: nil)
+    }
+    
+    @objc func reloadTheme() {
+        applyTheme()
+    }
+    
+    func applyTheme() {
+        self.navigationController?.navigationBar.tintColor = ThemeManager.current.fontColor
+        self.view.backgroundColor = ThemeManager.current.backgroundColor
+        tableView.backgroundColor = ThemeManager.current.backgroundColor
+        tableView.separatorColor = ThemeManager.current.secondaryColor
     }
 }

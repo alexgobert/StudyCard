@@ -10,8 +10,12 @@ import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var resetPasswordButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var errorMessage: UILabel!
     
     override func viewDidLoad() {
@@ -28,6 +32,12 @@ class LoginViewController: UIViewController {
                 self.passwordField.text = nil
             }
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // theme compliance
+        applyTheme()
     }
     
     @IBAction func loginButtonPressed(_ sender: Any) {
@@ -75,5 +85,23 @@ class LoginViewController: UIViewController {
         alert.addAction(cancelAction)
         
         present(alert, animated: true)
+    }
+    
+    func catchNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: NSNotification.Name("ThemeUpdate"), object: nil)
+    }
+    
+    @objc func reloadTheme() {
+        applyTheme()
+    }
+    
+    func applyTheme() {
+        self.view.backgroundColor = ThemeManager.current.backgroundColor
+        titleLabel.textColor = ThemeManager.current.secondaryColor
+        loginButton.backgroundColor = ThemeManager.current.secondaryColor
+        loginButton.tintColor = ThemeManager.current.fontColor
+        resetPasswordButton.tintColor = ThemeManager.current.fontColor
+        signUpButton.tintColor = ThemeManager.current.fontColor
+        errorMessage.textColor = ThemeManager.current.fontColor
     }
 }

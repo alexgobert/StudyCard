@@ -253,14 +253,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         setsTableView.separatorColor = ThemeManager.current.secondaryColor
         
         setSearch.barTintColor = ThemeManager.current.backgroundColor
-        setSearch.searchTextField.leftView?.tintColor = ThemeManager.current.secondaryColor
+        setSearch.searchTextField.leftView?.tintColor = ThemeManager.current.fontColor
         setSearch.searchTextField.font = globalFont
         setSearch.searchTextField.textColor = ThemeManager.current.fontColor
-        setSearch.tintColor = ThemeManager.current.secondaryColor
+        setSearch.tintColor = ThemeManager.current.fontColor
         
-        settingsButton.tintColor = ThemeManager.current.secondaryColor
-        profileButton.tintColor = ThemeManager.current.secondaryColor
-        addButton.tintColor = ThemeManager.current.secondaryColor
+        settingsButton.tintColor = ThemeManager.current.fontColor
+        profileButton.tintColor = ThemeManager.current.fontColor
+        addButton.tintColor = ThemeManager.current.fontColor
     }
 }
 

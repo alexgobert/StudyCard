@@ -38,6 +38,9 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        // adds border to image view
+        profilePicImageView.layer.borderWidth = 1
+        
         // load user image
         if let user = Auth.auth().currentUser, let photoURL = user.photoURL {
             loadImage(photoURL: photoURL)
@@ -57,20 +60,7 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         view.backgroundColor = globalBkgdColor
         
         // theme compliance
-        emailLabel.font = globalFont
-        nameLabel.font = globalFont
-        let buttons: [UIButton] = [
-            emailButton,
-            passwordButton,
-            nameButton,
-            deleteAcctButton,
-            takePicButton,
-            selectPicButton,
-            logoutButton
-        ]
-        for button in buttons {
-            button.titleLabel?.font = globalFont
-        }
+        applyTheme()
     }
     
     // Button Function for Using Camera to take Profile Picture
@@ -348,5 +338,37 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
                 self.errorAlert(message: error.localizedDescription)
             }
         }
+    }
+    
+    func catchNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: NSNotification.Name("ThemeUpdate"), object: nil)
+    }
+    
+    @objc func reloadTheme() {
+        applyTheme()
+    }
+    
+    func applyTheme() {
+        profilePicImageView.layer.borderColor = ThemeManager.current.fontColor.cgColor
+        self.navigationController?.navigationBar.tintColor = ThemeManager.current.fontColor
+        self.view.backgroundColor = ThemeManager.current.backgroundColor
+        emailLabel.font = globalFont
+        emailLabel.textColor = ThemeManager.current.fontColor
+        nameLabel.font = globalFont
+        nameLabel.textColor = ThemeManager.current.fontColor
+        let buttons: [UIButton] = [
+            emailButton,
+            passwordButton,
+            nameButton,
+            deleteAcctButton,
+            takePicButton,
+            selectPicButton,
+            logoutButton
+        ]
+        for button in buttons {
+            button.titleLabel?.font = globalFont
+            button.tintColor = ThemeManager.current.fontColor
+        }
+        
     }
 }
