@@ -180,10 +180,8 @@ class StudyViewController: UIViewController {
     }
     
     func applyTheme() {
-        self.navigationController?.navigationBar.tintColor = ThemeManager.current.fontColor
         self.view.backgroundColor = ThemeManager.current.backgroundColor
         progressBar.progressTintColor = ThemeManager.current.secondaryColor
-        progressBar.trackTintColor = .white
         let labels: [UILabel] = [
             knownLabel,
             unknownLabel,
@@ -191,6 +189,7 @@ class StudyViewController: UIViewController {
         ]
         for label in labels {
             label.textColor = ThemeManager.current.fontColor
+            label.font = globalTextFont
         }
     }
 

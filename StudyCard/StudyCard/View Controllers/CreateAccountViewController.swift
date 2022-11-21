@@ -63,7 +63,7 @@ class CreateAccountViewController: UIViewController {
     }
     
     func applyTheme() {
-        self.navigationController?.navigationBar.tintColor = ThemeManager.current.fontColor
+        // changes color
         self.view.backgroundColor = ThemeManager.current.backgroundColor
         titleLabel.textColor = ThemeManager.current.fontColor
         emailLabel.textColor = ThemeManager.current.fontColor
@@ -77,5 +77,27 @@ class CreateAccountViewController: UIViewController {
         passwordField.tintColor = ThemeManager.current.secondaryColor
         confirmPasswordField.tintColor = ThemeManager.current.secondaryColor
         
+        // changes font
+        titleLabel.font = UIFont(name: userDefaults.string(forKey: FONT_KEY) ?? "TimesNewRomanPSMT", size: 34)!
+        emailLabel.font = UIFont(name: userDefaults.string(forKey: FONT_KEY) ?? "TimesNewRomanPSMT", size: 15)!
+        emailField.font = UIFont(name: userDefaults.string(forKey: FONT_KEY) ?? "TimesNewRomanPSMT", size: 14)!
+        passwordLabel.font = UIFont(name: userDefaults.string(forKey: FONT_KEY) ?? "TimesNewRomanPSMT", size: 15)!
+        passwordField.font = UIFont(name: userDefaults.string(forKey: FONT_KEY) ?? "TimesNewRomanPSMT", size: 14)!
+        confirmPasswordLabel.font = UIFont(name: userDefaults.string(forKey: FONT_KEY) ?? "TimesNewRomanPSMT", size: 15)!
+        confirmPasswordField.font = UIFont(name: userDefaults.string(forKey: FONT_KEY) ?? "TimesNewRomanPSMT", size: 14)!
+        createButton.titleLabel?.font = UIFont(name: userDefaults.string(forKey: FONT_KEY) ?? "TimesNewRomanPSMT", size: 15)!
+        agreementLabel.font = UIFont(name: userDefaults.string(forKey: FONT_KEY) ?? "TimesNewRomanPSMT", size: 13)!
+        errorMessage.font = UIFont(name: userDefaults.string(forKey: FONT_KEY) ?? "TimesNewRomanPSMT", size: 15)!
+        
+        
+        // alters the navigation bar back button
+        let appearance = UINavigationBarAppearance()
+        let button = UIBarButtonItemAppearance(style: .plain)
+            button.normal.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: userDefaults.string(forKey: FONT_KEY) ?? "TimesNewRomanPSMT", size: 20)!, NSAttributedString.Key.foregroundColor: ThemeManager.current.fontColor]
+        appearance.backgroundColor = ThemeManager.current.backgroundColor
+        appearance.buttonAppearance = button
+        
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
 }

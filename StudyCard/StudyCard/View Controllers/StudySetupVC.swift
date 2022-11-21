@@ -69,18 +69,21 @@ class StudySetupVC: UIViewController {
     }
     
     func applyTheme() {
-        self.navigationController?.navigationBar.tintColor = ThemeManager.current.fontColor
+        // changes color
         self.view.backgroundColor = ThemeManager.current.backgroundColor
-        shuffleLabel.font = globalFont
         shuffleLabel.textColor = ThemeManager.current.fontColor
-        itemFirstLabel.font = globalFont
         itemFirstLabel.textColor = ThemeManager.current.fontColor
         itemFirstCtrl.selectedSegmentTintColor = ThemeManager.current.secondaryColor
         itemFirstCtrl.backgroundColor = ThemeManager.current.secondaryColor
-        itemFirstCtrl.setTitleTextAttributes([.font: globalFont!, .foregroundColor: ThemeManager.current.fontColor], for: .normal)
         confirmButton.tintColor = ThemeManager.current.secondaryColor
         editButton.tintColor = ThemeManager.current.secondaryColor
         deleteButton.tintColor = ThemeManager.current.secondaryColor
+        
+        shuffleLabel.font = globalTextFont
+        itemFirstLabel.font = globalTextFont
+        itemFirstCtrl.setTitleTextAttributes([.font: globalTextFont!, .foregroundColor: ThemeManager.current.fontColor], for: .normal)
+        editButton.titleLabel?.font = globalButtonFont
+        deleteButton.titleLabel?.font = globalButtonFont
         
     }
     

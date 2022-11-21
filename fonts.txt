@@ -1,8 +1,6 @@
-comic sans
-lobster
-times new roman
-didot
-helvetica
-SF Pro
-open sans
-roboto
+courier new - "CourierNewPSMT"
+times new roman - "TimesNewRomanPSMT"
+didot - "Didot"
+helvetica - "Helvetica"
+Hoefler text - "HoeflerText-Regular"
+verdana - "Verdana"

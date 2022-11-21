@@ -36,6 +36,13 @@ class SummaryTableViewCell: UITableViewCell, CustomTableViewCell {
         definitionLabel.font = font
     }
     
+    func setColor(backgroundColor: UIColor, fontColor: UIColor) {
+        self.backgroundColor = backgroundColor
+        self.tintColor = backgroundColor
+        termLabel.textColor = fontColor
+        definitionLabel.textColor = fontColor
+    }
+    
     func setTags(_ tag: Int) {
         termLabel.tag = tag
         definitionLabel.tag = tag

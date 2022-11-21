@@ -88,13 +88,9 @@ class SummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SummaryTableViewCell", for: indexPath) as! SummaryTableViewCell
         let card: Card = sectionedCards[indexPath.section][indexPath.row]
         
-        cell.backgroundColor = ThemeManager.current.backgroundColor
-        cell.termLabel?.textColor = ThemeManager.current.fontColor
-        cell.definitionLabel?.textColor = ThemeManager.current.fontColor
-        
-        
         cell.setCard(card)
-        cell.setFont(globalFont)
+        cell.setColor(backgroundColor: ThemeManager.current.backgroundColor, fontColor: ThemeManager.current.fontColor)
+        cell.setFont(globalTextFont)
         
         return cell
     }
@@ -143,6 +139,10 @@ class SummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.view.backgroundColor = ThemeManager.current.backgroundColor
         tableView.backgroundColor = ThemeManager.current.backgroundColor
         
+        doneButton.tintColor = ThemeManager.current.secondaryColor
+        retryUnknownButton.tintColor = ThemeManager.current.secondaryColor
+        retryAllButton.tintColor = ThemeManager.current.secondaryColor
+        
         let labels: [UILabel] = [
             titleLabel,
             knownLabel,
@@ -152,11 +152,10 @@ class SummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         ]
         for label in labels {
             label.textColor = ThemeManager.current.fontColor
+            label.font = globalTextFont
         }
-        doneButton.tintColor = ThemeManager.current.secondaryColor
-        retryUnknownButton.tintColor = ThemeManager.current.secondaryColor
-        retryAllButton.tintColor = ThemeManager.current.secondaryColor
-        retryUnknownButton.titleLabel?.font = globalFont
-        retryAllButton.titleLabel?.font = globalFont
+        
+        retryUnknownButton.titleLabel?.font = globalButtonFont
+        retryAllButton.titleLabel?.font = globalButtonFont
     }
 }

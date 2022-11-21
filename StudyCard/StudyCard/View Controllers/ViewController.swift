@@ -112,13 +112,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.setName(setName: searchData[indexPath.row].getName())
         cell.setTimes(times: searchData[indexPath.row].getTimesStudied())
         cell.setPercent(percent: searchData[indexPath.row].getPercentKnown())
-        cell.textLabel?.font = globalFont
+        
         cell.name?.textColor = ThemeManager.current.fontColor
         cell.timesStudied?.textColor = ThemeManager.current.fontColor
         cell.percentKnown?.textColor = ThemeManager.current.fontColor
         cell.timesStudiedLabel?.textColor = ThemeManager.current.fontColor
         cell.percentKnownLabel?.textColor = ThemeManager.current.fontColor
         cell.backgroundColor = ThemeManager.current.backgroundColor
+        
+        cell.name?.font = globalTextFont
+        cell.timesStudied?.font = globalTextFont
+        cell.percentKnown?.font = globalTextFont
+        cell.timesStudiedLabel?.font = globalTextFont
+        cell.percentKnownLabel?.font = globalTextFont
         
         return cell
     }
@@ -251,20 +257,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func applyTheme() {
-        self.navigationController?.navigationBar.tintColor = ThemeManager.current.fontColor
+        // changes color
         self.view.backgroundColor = ThemeManager.current.backgroundColor
         setsTableView.backgroundColor = ThemeManager.current.backgroundColor
         setsTableView.separatorColor = ThemeManager.current.fontColor
-        
         setSearch.barTintColor = ThemeManager.current.backgroundColor
         setSearch.searchTextField.leftView?.tintColor = ThemeManager.current.fontColor
-        setSearch.searchTextField.font = globalFont
         setSearch.searchTextField.textColor = ThemeManager.current.fontColor
         setSearch.tintColor = ThemeManager.current.fontColor
-        
         settingsButton.tintColor = ThemeManager.current.fontColor
         profileButton.tintColor = ThemeManager.current.fontColor
         addButton.tintColor = ThemeManager.current.fontColor
+        
+        setSearch.searchTextField.font = globalTextFont
     }
 }
 

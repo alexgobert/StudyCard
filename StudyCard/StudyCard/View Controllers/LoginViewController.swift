@@ -96,14 +96,28 @@ class LoginViewController: UIViewController {
     }
     
     func applyTheme() {
+        // changes color
         self.view.backgroundColor = ThemeManager.current.backgroundColor
         titleLabel.textColor = ThemeManager.current.secondaryColor
         loginButton.backgroundColor = ThemeManager.current.secondaryColor
-        loginButton.tintColor = ThemeManager.current.fontColor
-        resetPasswordButton.tintColor = ThemeManager.current.fontColor
-        signUpButton.tintColor = ThemeManager.current.fontColor
         errorMessage.textColor = ThemeManager.current.fontColor
         emailField.tintColor = ThemeManager.current.secondaryColor
         passwordField.tintColor = ThemeManager.current.secondaryColor
+        
+        // changes font
+        titleLabel.font = globalTitleFont
+        emailField.font = globalTextFont
+        passwordField.font = globalTextFont
+        errorMessage.font = globalButtonFont
+        
+        let buttons: [UIButton] = [
+            resetPasswordButton,
+            loginButton,
+            signUpButton
+        ]
+        for button in buttons {
+            button.titleLabel?.font = globalButtonFont
+            button.tintColor = ThemeManager.current.fontColor
+        }
     }
 }

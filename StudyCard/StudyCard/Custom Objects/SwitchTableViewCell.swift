@@ -56,11 +56,14 @@ class SwitchTableViewCell: UITableViewCell {
         super.prepareForReuse()
         
         label.text = nil
+        label.font = nil
+        label.textColor = nil
         mySwitch.isOn = false
     }
     
     public func configure(with model: SettingsSwitchOption) {
         label.text = model.title
+        label.font = model.font
         label.textColor = model.fontColor
         mySwitch.isOn = model.isOn
     }

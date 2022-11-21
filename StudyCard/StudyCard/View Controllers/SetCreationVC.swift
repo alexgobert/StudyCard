@@ -97,10 +97,10 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         cell.termField.text = cardSet[indexPath.row].getTerm()
         cell.definitionField.text = cardSet[indexPath.row].getDef()
-        cell.backgroundColor = ThemeManager.current.backgroundColor
-        cell.tintColor = ThemeManager.current.backgroundColor
         
-        cell.setFont(globalFont)
+        
+        cell.setColor(ThemeManager.current.backgroundColor)
+        cell.setFont(globalTextFont)
         
         return cell
     }
@@ -213,7 +213,6 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     func applyTheme() {
         self.view.backgroundColor = ThemeManager.current.backgroundColor
-        titleField.font = globalFont
         tableView.backgroundColor = ThemeManager.current.backgroundColor
         addTermButton.tintColor = ThemeManager.current.secondaryColor
         saveButton.tintColor = ThemeManager.current.secondaryColor

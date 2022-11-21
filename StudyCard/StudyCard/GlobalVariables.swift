@@ -7,7 +7,10 @@
 
 import UIKit
 
-var globalFont: UIFont! = UIFont(name: "ArialMT", size: 20)
+var globalTextFont: UIFont! = UIFont(name: userDefaults.string(forKey: FONT_KEY) ?? "TimesNewRomanPSMT", size: 14)
+var globalButtonFont: UIFont! = UIFont(name: userDefaults.string(forKey: FONT_KEY) ?? "TimesNewRomanPSMT", size: 15)
+var globalBackButtonFont: UIFont! = UIFont(name: userDefaults.string(forKey: FONT_KEY) ?? "TimesNewRomanPSMT", size: 20)
+var globalTitleFont: UIFont! = UIFont(name: userDefaults.string(forKey: FONT_KEY) ?? "TimesNewRomanPSMT", size: 34)
 var globalBkgdColor: UIColor! = .white
 var globalFontColor: UIColor! = .black
 

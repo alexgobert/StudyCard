@@ -1,21 +1,33 @@
 //
-//  ThemeChangeViewController.swift
+//  FontChangeViewControllerTableViewController.swift
 //  StudyCard
 //
-//  Created by Chris Tran on 11/20/22.
+//  Created by Chris Tran on 11/21/22.
 //
 
 import UIKit
 
-public let themes = [
-    "Default Theme",
-    "Ocean Theme",
-    "Sunshine Theme"
+public let fonts: [String] = [
+    "Courier New",
+    "Didot",
+    "Helvetica",
+    "Hoefler Text",
+    "Times New Roman",
+    "Verdana"
 ]
 
-let themeCellIdentifier = "themeCell"
+let officialFontNames: [String] = [
+    "CourierNewPSMT",
+    "Didot",
+    "Helvetica",
+    "HoeflerText-Regular",
+    "TimesNewRomanPSMT",
+    "Verdana"
+]
 
-class ThemeChangeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+let fontCellIdentifier = "fontCell"
+
+class FontChangeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -24,7 +36,7 @@ class ThemeChangeViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.delegate = self
         tableView.dataSource = self
         
-        navigationItem.title = "Theme"
+        navigationItem.title = "Font"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,24 +46,25 @@ class ThemeChangeViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return themes.count
+        return fonts.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let row = indexPath.row
-        let cell = tableView.dequeueReusableCell(withIdentifier: themeCellIdentifier, for: indexPath)
-        cell.textLabel?.text = themes[row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: fontCellIdentifier, for: indexPath)
+        cell.textLabel?.text = fonts[row]
         cell.textLabel?.font = globalTextFont
         cell.textLabel?.textColor = ThemeManager.current.fontColor
         cell.backgroundColor = ThemeManager.current.lightColor
-        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let row = indexPath.row
         tableView.deselectRow(at: indexPath, animated: true)
-        ThemeManager.current = ThemeManager.themes[row]
+        
+        userDefaults.set(officialFontNames[row], forKey: FONT_KEY)
+        
         NotificationCenter.default.post(name: NSNotification.Name("ThemeUpdate"), object: nil)
         self.navigationController?.popViewController(animated: true)
     }

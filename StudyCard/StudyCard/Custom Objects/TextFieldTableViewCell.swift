@@ -21,7 +21,13 @@ class TextFieldTableViewCell: UITableViewCell, CustomTableViewCell {
     }
     
     func setFont(_ font: UIFont) {
-        
+        termField.font = font
+        definitionField.font = font
+    }
+    
+    func setColor(_ color: UIColor) {
+        self.backgroundColor = color
+        self.tintColor = color
     }
 
 }

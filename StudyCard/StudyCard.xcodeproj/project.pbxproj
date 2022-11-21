@@ -21,6 +21,7 @@
 		83B60F59292B2190006974FD /* ThemeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B60F58292B2190006974FD /* ThemeProtocol.swift */; };
 		83B60F5B292B21F9006974FD /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B60F5A292B21F9006974FD /* Themes.swift */; };
 		83B60F5D292B2479006974FD /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B60F5C292B2479006974FD /* ThemeManager.swift */; };
+		83B60F5F292B6D40006974FD /* FontChangeViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B60F5E292B6D40006974FD /* FontChangeViewControllerTableViewController.swift */; };
 		83DDC105291CFFC60099D7E5 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DDC104291CFFC60099D7E5 /* SettingTableViewCell.swift */; };
 		83DDC109291D09E00099D7E5 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DDC108291D09E00099D7E5 /* SwitchTableViewCell.swift */; };
 		950632ED291AA81800935ABB /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950632EC291AA81800935ABB /* GlobalVariables.swift */; };
@@ -54,6 +55,7 @@
 		83B60F58292B2190006974FD /* ThemeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProtocol.swift; sourceTree = "<group>"; };
 		83B60F5A292B21F9006974FD /* Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
 		83B60F5C292B2479006974FD /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		83B60F5E292B6D40006974FD /* FontChangeViewControllerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontChangeViewControllerTableViewController.swift; sourceTree = "<group>"; };
 		83DDC104291CFFC60099D7E5 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		83DDC108291D09E00099D7E5 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
 		950632EC291AA81800935ABB /* GlobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				50A5D6CB2900BBD800D0E964 /* ProfileViewController.swift */,
 				835E1163292B14EC00CC9075 /* CreateAccountViewController.swift */,
 				83B60F56292B1DA3006974FD /* ThemeChangeViewController.swift */,
+				83B60F5E292B6D40006974FD /* FontChangeViewControllerTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				FDA4D0342925543F000272BC /* SetListCell.swift in Sources */,
 				83485B682919D93900705136 /* SettingsViewController.swift in Sources */,
 				FDA5CC4728F524C300EF941B /* StudyCard.xcdatamodeld in Sources */,
+				83B60F5F292B6D40006974FD /* FontChangeViewControllerTableViewController.swift in Sources */,
 				50A5D6CC2900BBD800D0E964 /* ProfileViewController.swift in Sources */,
 				FDA5CC5428F69D5B00EF941B /* StudySetupVC.swift in Sources */,
 				32A0F1A3291F3CF800FAF704 /* UIViewControllerExtension.swift in Sources */,
