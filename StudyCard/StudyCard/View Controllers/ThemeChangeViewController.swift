@@ -47,6 +47,7 @@ class ThemeChangeViewController: UIViewController, UITableViewDelegate, UITableV
         let row = indexPath.row
         let cell = tableView.dequeueReusableCell(withIdentifier: textCellIdentifier, for: indexPath)
         cell.textLabel?.text = themes[row]
+        cell.textLabel?.textColor = ThemeManager.current.fontColor
         cell.backgroundColor = ThemeManager.current.backgroundColor
         return cell
     }

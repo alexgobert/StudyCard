@@ -277,7 +277,7 @@
                         <outlet property="editButton" destination="4c0-Wy-L52" id="y15-T1-XIP"/>
                         <outlet property="itemFirstCtrl" destination="4QF-G1-srq" id="M9j-TS-nZ4"/>
                         <outlet property="itemFirstLabel" destination="zNt-AB-heG" id="87R-3E-ZcV"/>
-                        <outlet property="shuffleLabel" destination="3nl-iT-U0P" id="H1G-uq-1ZR"/>
+                        <outlet property="shuffleLabel" destination="3nl-iT-U0P" id="rk2-9d-r2C"/>
                         <outlet property="shuffleToggle" destination="sFz-N9-BRs" id="nrN-a7-ItO"/>
                     </connections>
                 </viewController>
@@ -607,11 +607,11 @@
                                         <rect key="frame" x="0.0" y="215" width="393" height="500"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SetNameCell" rowHeight="87" id="xqT-DO-wOx" customClass="SetListCell" customModule="StudyCard" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SetNameCell" rowHeight="87" id="xqT-DO-wOx" customClass="SetListCell" customModule="StudyCard" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="50" width="393" height="87"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xqT-DO-wOx" id="43C-O8-DMg">
-                                                    <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="87"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="87"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="setName" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fPR-0g-M7G">
@@ -624,7 +624,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="viN-BI-WKT">
-                                                            <rect key="frame" x="174" y="23.333333333333332" width="160.66666666666663" height="40.666666666666671"/>
+                                                            <rect key="frame" x="192.33333333333337" y="23.333333333333332" width="160.66666666666663" height="40.666666666666671"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Xiq-wE-qxA">
                                                                     <rect key="frame" x="0.0" y="0.0" width="119.66666666666667" height="40.666666666666664"/>
@@ -644,7 +644,7 @@
                                                                     </subviews>
                                                                 </stackView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Fia-I1-jzV">
-                                                                    <rect key="frame" x="136.66666666666669" y="0.0" width="24" height="40.666666666666664"/>
+                                                                    <rect key="frame" x="136.66666666666666" y="0.0" width="24" height="40.666666666666664"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhr-IZ-FUU">
                                                                             <rect key="frame" x="0.0" y="0.0" width="24" height="20.333333333333332"/>
@@ -678,7 +678,9 @@
                                                 <connections>
                                                     <outlet property="name" destination="fPR-0g-M7G" id="3hh-ZN-ONQ"/>
                                                     <outlet property="percentKnown" destination="uJy-4d-JJE" id="9ye-c6-Vo7"/>
-                                                    <outlet property="timesStudied" destination="fhr-IZ-FUU" id="Amp-ZC-ToL"/>
+                                                    <outlet property="percentKnownLabel" destination="1G0-rd-9NU" id="LQR-2P-9Ps"/>
+                                                    <outlet property="timesStudied" destination="fhr-IZ-FUU" id="IUy-Tt-ehV"/>
+                                                    <outlet property="timesStudiedLabel" destination="y23-tM-kMY" id="IiM-jS-8se"/>
                                                     <segue destination="pj1-MM-WZ0" kind="show" identifier="StudySetupSegue" id="tZM-u8-WmB"/>
                                                 </connections>
                                             </tableViewCell>
@@ -854,9 +856,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jn4-Yh-Szj">
                                 <rect key="frame" x="333.33333333333331" y="110.99999999999999" width="49.666666666666686" height="34.333333333333329"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="checkmark.circle" catalog="system">
-                                    <color key="baseForegroundColor" systemColor="systemGreenColor"/>
-                                </buttonConfiguration>
+                                <buttonConfiguration key="configuration" style="plain" image="checkmark.circle" catalog="system"/>
                                 <connections>
                                     <action selector="doneButtonPressed:" destination="OH3-ga-2IT" eventType="touchUpInside" id="MFI-Dg-5yB"/>
                                 </connections>
@@ -883,6 +883,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="7Jw-u0-7Rn"/>
                     <connections>
+                        <outlet property="doneButton" destination="Jn4-Yh-Szj" id="RVf-6Y-ezB"/>
                         <outlet property="knownCounter" destination="FjH-4D-eaU" id="kIb-Fi-xid"/>
                         <outlet property="knownLabel" destination="Vvq-Uu-FFp" id="egW-Od-HCl"/>
                         <outlet property="retryAllButton" destination="0rS-eG-ZhE" id="VK2-hB-vOJ"/>
@@ -950,7 +951,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="AIK-RP-siJ">
-                                <rect key="frame" x="25" y="318.66666666666674" width="353" height="34.333333333333371"/>
+                                <rect key="frame" x="25" y="318.66666666666674" width="353" height="34.333333333333314"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9TL-F2-FKU">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="34.333333333333336"/>

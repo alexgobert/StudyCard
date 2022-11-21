@@ -20,7 +20,6 @@ class SettingTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(label)
         contentView.clipsToBounds = true
-        accessoryType = .disclosureIndicator
     }
     
     required init?(coder: NSCoder) {

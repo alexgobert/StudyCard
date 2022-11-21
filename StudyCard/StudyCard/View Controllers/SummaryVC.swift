@@ -17,6 +17,7 @@ class SummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var retryUnknownButton: UIButton!
     @IBOutlet weak var retryAllButton: UIButton!
+    @IBOutlet weak var doneButton: UIButton!
     
     let sections: [String] = ["Known Terms", "Unknown Terms"]
     var cards: CardSet!
@@ -51,21 +52,7 @@ class SummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         cards.updatePercent(knownCount: knownCards.count)
         
         // theme compliance
-        view.backgroundColor = globalBkgdColor
-        
-        // theme compliance
-        let labels: [UILabel] = [
-            titleLabel,
-            knownLabel,
-            unknownLabel,
-            knownCounter,
-            unknownCounter
-        ]
-        for label in labels {
-            label.font = globalFont
-        }
-        retryUnknownButton.titleLabel?.font = globalFont
-        retryAllButton.titleLabel?.font = globalFont
+        applyTheme()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -91,9 +78,20 @@ class SummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return sections[section]
     }
     
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
+        view.tintColor = ThemeManager.current.backgroundColor
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.textColor = ThemeManager.current.fontColor
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SummaryTableViewCell", for: indexPath) as! SummaryTableViewCell
         let card: Card = sectionedCards[indexPath.section][indexPath.row]
+        
+        cell.backgroundColor = ThemeManager.current.backgroundColor
+        cell.termLabel?.textColor = ThemeManager.current.fontColor
+        cell.definitionLabel?.textColor = ThemeManager.current.fontColor
+        
         
         cell.setCard(card)
         cell.setFont(globalFont)
@@ -130,5 +128,35 @@ class SummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBAction func doneButtonPressed(_ sender: Any) {
         navigationController?.popToRootViewController(animated: true)
+    }
+    
+    func catchNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: NSNotification.Name("ThemeUpdate"), object: nil)
+    }
+    
+    @objc func reloadTheme() {
+        applyTheme()
+    }
+    
+    func applyTheme() {
+        self.navigationController?.navigationBar.tintColor = ThemeManager.current.fontColor
+        self.view.backgroundColor = ThemeManager.current.backgroundColor
+        tableView.backgroundColor = ThemeManager.current.backgroundColor
+        
+        let labels: [UILabel] = [
+            titleLabel,
+            knownLabel,
+            unknownLabel,
+            knownCounter,
+            unknownCounter
+        ]
+        for label in labels {
+            label.textColor = ThemeManager.current.fontColor
+        }
+        doneButton.tintColor = ThemeManager.current.secondaryColor
+        retryUnknownButton.tintColor = ThemeManager.current.secondaryColor
+        retryAllButton.tintColor = ThemeManager.current.secondaryColor
+        retryUnknownButton.titleLabel?.font = globalFont
+        retryAllButton.titleLabel?.font = globalFont
     }
 }

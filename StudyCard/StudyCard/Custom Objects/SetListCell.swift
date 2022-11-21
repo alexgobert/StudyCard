@@ -11,8 +11,10 @@ import Foundation
 class SetListCell: UITableViewCell {
     
     @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var timesStudied: UILabel!
+    @IBOutlet weak var timesStudiedLabel: UILabel!
     @IBOutlet weak var percentKnown: UILabel!
+    @IBOutlet weak var percentKnownLabel: UILabel!
+    @IBOutlet weak var timesStudied: UILabel!
     
     var font: UIFont!
     var fontColor: UIColor!

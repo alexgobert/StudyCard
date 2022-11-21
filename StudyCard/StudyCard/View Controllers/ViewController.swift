@@ -113,7 +113,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.setTimes(times: searchData[indexPath.row].getTimesStudied())
         cell.setPercent(percent: searchData[indexPath.row].getPercentKnown())
         cell.textLabel?.font = globalFont
-        cell.textLabel?.textColor = ThemeManager.current.fontColor
+        cell.name?.textColor = ThemeManager.current.fontColor
+        cell.timesStudied?.textColor = ThemeManager.current.fontColor
+        cell.percentKnown?.textColor = ThemeManager.current.fontColor
+        cell.timesStudiedLabel?.textColor = ThemeManager.current.fontColor
+        cell.percentKnownLabel?.textColor = ThemeManager.current.fontColor
         cell.backgroundColor = ThemeManager.current.backgroundColor
         
         return cell

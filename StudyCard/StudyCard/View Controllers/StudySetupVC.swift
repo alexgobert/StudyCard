@@ -8,7 +8,6 @@
 import UIKit
 
 class StudySetupVC: UIViewController {
-    
     var cards: CardSet!
     var shuffle: Bool = true
     var itemFirst: String! // Term, Mixed, Definition
@@ -32,15 +31,7 @@ class StudySetupVC: UIViewController {
         itemFirst = itemFirstCtrl.titleForSegment(at: itemFirstCtrl.selectedSegmentIndex)!
         
         // theme compliance
-        view.backgroundColor = globalBkgdColor
-        shuffleLabel.font = globalFont
-        shuffleLabel.textColor = globalFontColor
-        itemFirstLabel.font = globalFont
-        itemFirstLabel.textColor = globalFontColor
-        itemFirstCtrl.selectedSegmentTintColor = globalBkgdColor
-        itemFirstCtrl.backgroundColor = globalBkgdColor
-        itemFirstCtrl.setTitleTextAttributes([.font: globalFont!, .foregroundColor: globalFontColor!], for: .normal)
-        confirmButton.tintColor = globalFontColor
+        applyTheme()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -67,6 +58,30 @@ class StudySetupVC: UIViewController {
     @IBAction func deletePressed(_ sender: Any) {
         delegate.deleteItem(cardSet: cards)
         navigationController?.popViewController(animated: true)
+    }
+    
+    func catchNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: NSNotification.Name("ThemeUpdate"), object: nil)
+    }
+    
+    @objc func reloadTheme() {
+        applyTheme()
+    }
+    
+    func applyTheme() {
+        self.navigationController?.navigationBar.tintColor = ThemeManager.current.fontColor
+        self.view.backgroundColor = ThemeManager.current.backgroundColor
+        shuffleLabel.font = globalFont
+        shuffleLabel.textColor = ThemeManager.current.fontColor
+        itemFirstLabel.font = globalFont
+        itemFirstLabel.textColor = ThemeManager.current.fontColor
+        itemFirstCtrl.selectedSegmentTintColor = ThemeManager.current.secondaryColor
+        itemFirstCtrl.backgroundColor = ThemeManager.current.secondaryColor
+        itemFirstCtrl.setTitleTextAttributes([.font: globalFont!, .foregroundColor: ThemeManager.current.fontColor], for: .normal)
+        confirmButton.tintColor = ThemeManager.current.secondaryColor
+        editButton.tintColor = ThemeManager.current.secondaryColor
+        deleteButton.tintColor = ThemeManager.current.secondaryColor
+        
     }
     
 }
