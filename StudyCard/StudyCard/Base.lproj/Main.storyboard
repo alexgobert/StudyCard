@@ -943,170 +943,154 @@
         <scene sceneID="Ztk-7E-hVJ">
             <objects>
                 <viewController storyboardIdentifier="ProfileViewController" id="FSq-yN-eSY" customClass="ProfileVC" customModule="StudyCard" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="oXD-cO-t1Q">
+                    <view key="view" contentMode="scaleToFill" id="oXD-cO-t1Q">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ME1-iv-sWH">
-                                <rect key="frame" x="40" y="138" width="145" height="96"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="145" id="7aV-ae-igt"/>
-                                </constraints>
-                            </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="e6n-yG-xT6">
-                                <rect key="frame" x="194.66666666666663" y="154" width="183.33333333333337" height="34.333333333333343"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="VB2-zD-O2b" userLabel="Profile Stack">
+                                <rect key="frame" x="30" y="123.00000000000003" width="333" height="320.66666666666674"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4pi-yH-a9o">
-                                        <rect key="frame" x="0.33333333333334281" y="0.0" width="182.66666666666666" height="34.333333333333336"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="yp8-6f-5WN"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Select Profile Picture"/>
-                                        <connections>
-                                            <action selector="selectProfilePhotoButtonPressed:" destination="FSq-yN-eSY" eventType="touchUpInside" id="rKF-7b-hh9"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="n6n-oK-ltr">
-                                <rect key="frame" x="195" y="203.33333333333334" width="183" height="34.333333333333343"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KW2-Nb-trv">
-                                        <rect key="frame" x="4" y="0.0" width="175" height="34.333333333333336"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="Snl-rw-KCX"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Take Profile Picture"/>
-                                        <connections>
-                                            <action selector="takeProfilePhotoButtonPressed:" destination="FSq-yN-eSY" eventType="touchUpInside" id="HJF-qj-SnD"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTN-1S-whu">
-                                <rect key="frame" x="38" y="283.33333333333337" width="40.666666666666657" height="20.333333333333314"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="AIK-RP-siJ">
-                                <rect key="frame" x="25" y="318.66666666666669" width="353" height="27"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9TL-F2-FKU">
-                                        <rect key="frame" x="0.0" y="0.0" width="78" height="27"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Change Email"/>
-                                        <connections>
-                                            <action selector="changeEmailButtonPressed:" destination="FSq-yN-eSY" eventType="touchUpInside" id="D0d-xc-JCc"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Dqw-xW-WzW">
-                                <rect key="frame" x="25" y="360.66666666666674" width="353" height="30"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wiz-jh-qOe">
-                                        <rect key="frame" x="0.0" y="0.0" width="127" height="30"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Change Password "/>
-                                        <connections>
-                                            <action selector="changePasswordButtonPressed:" destination="FSq-yN-eSY" eventType="touchUpInside" id="j6c-Rd-4Bq"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="RU9-5V-Q7A">
-                                <rect key="frame" x="25" y="455.33333333333326" width="353" height="34.333333333333314"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Sfl-qm-2PY">
-                                        <rect key="frame" x="0.0" y="0.0" width="353" height="34.333333333333336"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bnh-bD-iST">
+                                        <rect key="frame" x="0.0" y="0.0" width="330" height="190.66666666666666"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="drM-P9-z69">
+                                                <rect key="frame" x="0.0" y="0.0" width="145" height="190.66666666666666"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ME1-iv-sWH">
+                                                        <rect key="frame" x="0.0" y="0.0" width="145" height="130"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="130" id="ZGc-AL-LCs"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VRA-rk-l4v">
+                                                        <rect key="frame" x="0.0" y="140" width="145" height="20.333333333333343"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTN-1S-whu">
+                                                        <rect key="frame" x="0.0" y="170.33333333333331" width="145" height="20.333333333333343"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="ME1-iv-sWH" firstAttribute="width" secondItem="drM-P9-z69" secondAttribute="width" id="Duk-mh-NRJ"/>
+                                                    <constraint firstItem="VRA-rk-l4v" firstAttribute="width" secondItem="drM-P9-z69" secondAttribute="width" id="OFb-My-hTo"/>
+                                                    <constraint firstItem="oTN-1S-whu" firstAttribute="width" secondItem="drM-P9-z69" secondAttribute="width" id="ygg-lo-xLV"/>
+                                                </constraints>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1uG-s4-Kgq">
+                                                <rect key="frame" x="155" y="0.0" width="175" height="110"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4pi-yH-a9o">
+                                                        <rect key="frame" x="0.0" y="0.0" width="175" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="yp8-6f-5WN"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Select Profile Picture"/>
+                                                        <connections>
+                                                            <action selector="selectProfilePhotoButtonPressed:" destination="FSq-yN-eSY" eventType="touchUpInside" id="rKF-7b-hh9"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KW2-Nb-trv">
+                                                        <rect key="frame" x="0.0" y="40" width="175" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="Snl-rw-KCX"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Take Profile Picture"/>
+                                                        <connections>
+                                                            <action selector="takeProfilePhotoButtonPressed:" destination="FSq-yN-eSY" eventType="touchUpInside" id="HJF-qj-SnD"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fp-be-SI8">
+                                                        <rect key="frame" x="0.0" y="80" width="175" height="30"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="1br-n4-fPI"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="Logout"/>
+                                                        <connections>
+                                                            <action selector="changeNameButtonPressed:" destination="FSq-yN-eSY" eventType="touchUpInside" id="egU-d9-X6w"/>
+                                                            <action selector="logoutButtonPressed:" destination="FSq-yN-eSY" eventType="touchUpInside" id="1MI-dV-rfw"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bUz-41-lBZ" userLabel="Change Stack">
+                                        <rect key="frame" x="0.0" y="200.66666666666669" width="333" height="120"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lV8-ea-bLz">
-                                                <rect key="frame" x="0.0" y="0.0" width="132.33333333333334" height="34.333333333333336"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Change Name"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="333" height="15"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="15" id="FiD-ul-fep"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Change Name"/>
                                                 <connections>
                                                     <action selector="changeNameButtonPressed:" destination="FSq-yN-eSY" eventType="touchUpInside" id="EhL-EI-osv"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9TL-F2-FKU">
+                                                <rect key="frame" x="0.0" y="35" width="333" height="15"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="15" id="aHm-Xg-jxr"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Change Email"/>
+                                                <connections>
+                                                    <action selector="changeEmailButtonPressed:" destination="FSq-yN-eSY" eventType="touchUpInside" id="D0d-xc-JCc"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wiz-jh-qOe">
+                                                <rect key="frame" x="0.0" y="70" width="333" height="15"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="15" id="vGf-FF-Shs"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Change Password "/>
+                                                <connections>
+                                                    <action selector="changePasswordButtonPressed:" destination="FSq-yN-eSY" eventType="touchUpInside" id="j6c-Rd-4Bq"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jvq-HA-Fhv">
+                                                <rect key="frame" x="0.0" y="105" width="333" height="15"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="15" id="Hlb-aQ-Va7"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Delete Account"/>
+                                                <connections>
+                                                    <action selector="deleteAccountButtonPressed:" destination="FSq-yN-eSY" eventType="touchUpInside" id="3UD-R3-7BM"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="9TL-F2-FKU" firstAttribute="width" secondItem="bUz-41-lBZ" secondAttribute="width" id="A2y-cL-DDP"/>
+                                            <constraint firstItem="Wiz-jh-qOe" firstAttribute="width" secondItem="bUz-41-lBZ" secondAttribute="width" id="gZ5-9H-tsw"/>
+                                            <constraint firstItem="lV8-ea-bLz" firstAttribute="width" secondItem="bUz-41-lBZ" secondAttribute="width" id="nbc-cP-n1P"/>
+                                            <constraint firstItem="Jvq-HA-Fhv" firstAttribute="width" secondItem="bUz-41-lBZ" secondAttribute="width" id="wT7-rc-GrA"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="bUz-41-lBZ" firstAttribute="width" secondItem="VB2-zD-O2b" secondAttribute="width" id="NJv-ML-PMD"/>
+                                    <constraint firstItem="bUz-41-lBZ" firstAttribute="top" secondItem="bnh-bD-iST" secondAttribute="bottom" constant="50" id="OCt-vm-mO6"/>
+                                </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="2Ki-dy-8Zn">
-                                <rect key="frame" x="195" y="252.66666666666666" width="175" height="34.333333333333343"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fp-be-SI8">
-                                        <rect key="frame" x="0.0" y="0.0" width="175" height="34.333333333333336"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="1br-n4-fPI"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Logout"/>
-                                        <connections>
-                                            <action selector="changeNameButtonPressed:" destination="FSq-yN-eSY" eventType="touchUpInside" id="egU-d9-X6w"/>
-                                            <action selector="logoutButtonPressed:" destination="FSq-yN-eSY" eventType="touchUpInside" id="1MI-dV-rfw"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="E9w-Qq-39s">
-                                <rect key="frame" x="25" y="459.33333333333337" width="353" height="30"/>
-                            </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VRA-rk-l4v">
-                                <rect key="frame" x="38" y="255" width="45" height="20.333333333333371"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jvq-HA-Fhv">
-                                <rect key="frame" x="25" y="497" width="105" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Delete Account"/>
-                                <connections>
-                                    <action selector="deleteAccountButtonPressed:" destination="FSq-yN-eSY" eventType="touchUpInside" id="3UD-R3-7BM"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Jrn-rC-Xu8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Jrn-rC-Xu8" firstAttribute="bottom" secondItem="ME1-iv-sWH" secondAttribute="bottom" constant="584" id="08O-2W-WUT"/>
-                            <constraint firstItem="E9w-Qq-39s" firstAttribute="top" secondItem="Sfl-qm-2PY" secondAttribute="bottom" constant="15" id="0YK-fE-aOi"/>
-                            <constraint firstItem="Dqw-xW-WzW" firstAttribute="top" secondItem="AIK-RP-siJ" secondAttribute="bottom" constant="15" id="2fs-Jk-jGb"/>
-                            <constraint firstItem="Jrn-rC-Xu8" firstAttribute="trailing" secondItem="oTN-1S-whu" secondAttribute="trailing" constant="314.33333333333337" id="3EH-3n-Nie"/>
-                            <constraint firstItem="oTN-1S-whu" firstAttribute="leading" secondItem="VRA-rk-l4v" secondAttribute="leading" id="3ZP-Wf-xo4"/>
-                            <constraint firstItem="VRA-rk-l4v" firstAttribute="top" secondItem="ME1-iv-sWH" secondAttribute="bottom" constant="21" id="4wS-ht-sUq"/>
-                            <constraint firstItem="ME1-iv-sWH" firstAttribute="top" secondItem="Jrn-rC-Xu8" secondAttribute="top" constant="35" id="5JL-cO-cmi"/>
-                            <constraint firstItem="E9w-Qq-39s" firstAttribute="leading" secondItem="Jrn-rC-Xu8" secondAttribute="leading" constant="25" id="7Ui-I6-2GQ"/>
-                            <constraint firstItem="Jrn-rC-Xu8" firstAttribute="trailing" secondItem="AIK-RP-siJ" secondAttribute="trailing" constant="15" id="A5l-95-fBY"/>
-                            <constraint firstItem="Jrn-rC-Xu8" firstAttribute="trailing" secondItem="ME1-iv-sWH" secondAttribute="trailing" constant="208" id="Atn-sJ-xaJ"/>
-                            <constraint firstItem="oTN-1S-whu" firstAttribute="leading" secondItem="Jrn-rC-Xu8" secondAttribute="leading" constant="38" id="Cnu-g1-KGs"/>
-                            <constraint firstItem="Jrn-rC-Xu8" firstAttribute="trailing" secondItem="Sfl-qm-2PY" secondAttribute="trailing" constant="15" id="Col-sU-yQA"/>
-                            <constraint firstItem="4pi-yH-a9o" firstAttribute="leading" secondItem="ME1-iv-sWH" secondAttribute="trailing" constant="10" id="Csf-e4-eQw"/>
-                            <constraint firstItem="Jrn-rC-Xu8" firstAttribute="trailing" secondItem="e6n-yG-xT6" secondAttribute="trailing" constant="15" id="DEn-6k-eGx"/>
-                            <constraint firstItem="Sfl-qm-2PY" firstAttribute="top" secondItem="Dqw-xW-WzW" secondAttribute="bottom" constant="15" id="I4O-vs-nYx"/>
-                            <constraint firstItem="Jrn-rC-Xu8" firstAttribute="trailing" secondItem="Dqw-xW-WzW" secondAttribute="trailing" constant="15" id="KPn-az-wrH"/>
-                            <constraint firstItem="Dqw-xW-WzW" firstAttribute="leading" secondItem="Jrn-rC-Xu8" secondAttribute="leading" constant="25" id="R1U-i7-9PM"/>
-                            <constraint firstItem="VRA-rk-l4v" firstAttribute="leading" secondItem="Jrn-rC-Xu8" secondAttribute="leading" constant="38" id="RtD-Mz-RVj"/>
-                            <constraint firstItem="oTN-1S-whu" firstAttribute="top" secondItem="VRA-rk-l4v" secondAttribute="bottom" constant="8" symbolic="YES" id="Tw8-r5-Vq9"/>
-                            <constraint firstItem="ME1-iv-sWH" firstAttribute="leading" secondItem="Jrn-rC-Xu8" secondAttribute="leading" constant="40" id="VEe-r1-sUa"/>
-                            <constraint firstItem="e6n-yG-xT6" firstAttribute="top" secondItem="Jrn-rC-Xu8" secondAttribute="top" constant="51" id="Wd8-bc-Ut3"/>
-                            <constraint firstItem="AIK-RP-siJ" firstAttribute="leading" secondItem="Jrn-rC-Xu8" secondAttribute="leading" constant="25" id="ZL7-6s-lME"/>
-                            <constraint firstItem="AIK-RP-siJ" firstAttribute="top" secondItem="oTN-1S-whu" secondAttribute="bottom" constant="15" id="ZiX-iK-odR"/>
-                            <constraint firstItem="7fp-be-SI8" firstAttribute="top" secondItem="n6n-oK-ltr" secondAttribute="bottom" constant="15" id="Znp-Zk-FXc"/>
-                            <constraint firstItem="Jrn-rC-Xu8" firstAttribute="trailing" secondItem="2Ki-dy-8Zn" secondAttribute="trailing" constant="23" id="agB-bh-EUO"/>
-                            <constraint firstItem="Jrn-rC-Xu8" firstAttribute="trailing" secondItem="E9w-Qq-39s" secondAttribute="trailing" constant="15" id="baw-Z8-Rtw"/>
-                            <constraint firstItem="Jrn-rC-Xu8" firstAttribute="trailing" secondItem="n6n-oK-ltr" secondAttribute="trailing" constant="15" id="dSH-7Y-hAZ"/>
-                            <constraint firstItem="Sfl-qm-2PY" firstAttribute="leading" secondItem="Jrn-rC-Xu8" secondAttribute="leading" constant="25" id="fqZ-iY-shs"/>
-                            <constraint firstItem="KW2-Nb-trv" firstAttribute="top" secondItem="e6n-yG-xT6" secondAttribute="bottom" constant="15" id="gj2-wG-fdj"/>
-                            <constraint firstItem="Jrn-rC-Xu8" firstAttribute="trailing" secondItem="VRA-rk-l4v" secondAttribute="trailing" constant="310" id="h8f-s3-wSS"/>
-                            <constraint firstItem="n6n-oK-ltr" firstAttribute="leading" secondItem="ME1-iv-sWH" secondAttribute="trailing" constant="10" id="srk-RV-llW"/>
-                            <constraint firstItem="2Ki-dy-8Zn" firstAttribute="leading" secondItem="ME1-iv-sWH" secondAttribute="trailing" constant="10" id="tEb-wf-ijw"/>
+                            <constraint firstItem="Jrn-rC-Xu8" firstAttribute="trailing" secondItem="VB2-zD-O2b" secondAttribute="trailing" constant="30" id="SPh-MO-Ytb"/>
+                            <constraint firstItem="VB2-zD-O2b" firstAttribute="leading" secondItem="Jrn-rC-Xu8" secondAttribute="leading" constant="30" id="owi-fr-dHA"/>
+                            <constraint firstItem="VB2-zD-O2b" firstAttribute="top" secondItem="Jrn-rC-Xu8" secondAttribute="top" constant="20" id="xGu-Qy-mJa"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Prn-fl-XxS"/>
