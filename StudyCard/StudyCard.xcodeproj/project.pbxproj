@@ -18,7 +18,6 @@
 		8395461B2901402D0074368B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8395461A2901402D0074368B /* GoogleService-Info.plist */; };
 		83AD82EC29013746006A459B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AD82EB29013746006A459B /* LoginViewController.swift */; };
 		83B60F57292B1DA3006974FD /* ThemeChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B60F56292B1DA3006974FD /* ThemeChangeViewController.swift */; };
-		83B60F59292B2190006974FD /* ThemeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B60F58292B2190006974FD /* ThemeProtocol.swift */; };
 		83B60F5B292B21F9006974FD /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B60F5A292B21F9006974FD /* Themes.swift */; };
 		83B60F5D292B2479006974FD /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B60F5C292B2479006974FD /* ThemeManager.swift */; };
 		83B60F5F292B6D40006974FD /* FontChangeViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B60F5E292B6D40006974FD /* FontChangeViewControllerTableViewController.swift */; };
@@ -52,7 +51,6 @@
 		8395461A2901402D0074368B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		83AD82EB29013746006A459B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		83B60F56292B1DA3006974FD /* ThemeChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeChangeViewController.swift; sourceTree = "<group>"; };
-		83B60F58292B2190006974FD /* ThemeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProtocol.swift; sourceTree = "<group>"; };
 		83B60F5A292B21F9006974FD /* Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
 		83B60F5C292B2479006974FD /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		83B60F5E292B6D40006974FD /* FontChangeViewControllerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontChangeViewControllerTableViewController.swift; sourceTree = "<group>"; };
@@ -120,7 +118,6 @@
 				9585CB1C28F6013F00689958 /* CardSet.swift */,
 				9585CB2028F6062600689958 /* Card.swift */,
 				9585CB1A28F5F2BB00689958 /* TextFieldTableViewCell.swift */,
-				83B60F58292B2190006974FD /* ThemeProtocol.swift */,
 				83B60F5A292B21F9006974FD /* Themes.swift */,
 				83B60F5C292B2479006974FD /* ThemeManager.swift */,
 			);
@@ -244,7 +241,6 @@
 				95F1B09D291351BC0026DC87 /* Protocols.swift in Sources */,
 				95FA8BD428F5EACD00276CBE /* SetCreationVC.swift in Sources */,
 				9585CB2128F6062600689958 /* Card.swift in Sources */,
-				83B60F59292B2190006974FD /* ThemeProtocol.swift in Sources */,
 				95FA8BD628F5EB3800276CBE /* SummaryVC.swift in Sources */,
 				9585CB1B28F5F2BB00689958 /* TextFieldTableViewCell.swift in Sources */,
 				83B60F57292B1DA3006974FD /* ThemeChangeViewController.swift in Sources */,

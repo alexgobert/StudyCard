@@ -18,3 +18,10 @@ protocol CustomTableViewCell {
 protocol DeleteList {
     func deleteItem(cardSet: CardSet)
 }
+
+protocol ThemeProtocol {
+    var fontColor: UIColor { get set }
+    var backgroundColor: UIColor { get set }
+    var lightColor: UIColor { get set }
+    var secondaryColor: UIColor { get set }
+}
