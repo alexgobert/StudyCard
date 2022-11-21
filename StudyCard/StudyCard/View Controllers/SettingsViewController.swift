@@ -8,7 +8,13 @@
 import UIKit
 
 let userDefaults = UserDefaults.standard
-let backgroundColorKey = "backgroundKey"
+let muteKey = "muteKey"
+let vibrationKey = "vibrationKey"
+let notifKey = "notificationKey"
+
+let BACKGROUND_COLOR_KEY = "backgroundColorKey"
+let SECONDARY_COLOR_KEY = "secondaryColorKey"
+let FONT_COLOR_KEY = "fontColorKey"
 
 struct Section {
     let title: String
@@ -32,22 +38,6 @@ struct SettingsOption {
 }
 
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
-    let fonts: [String] = [
-        "Comic Sans",
-        "Helvetica",
-        "Times New Roman",
-        "Open Sans",
-        "SF Pro",
-    ]
-    
-    let colors: [String] = [
-        "Gray",
-        "Helvetica",
-        "Times New Roman",
-        "Open Sans",
-        "SF Pro",
-    ]
     
     private let tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
@@ -74,34 +64,14 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                     title: "Font",
                     message: "Please select a font",
                     preferredStyle: .alert)
-                for fontName in self.fonts {
-                    fontController.addAction(UIAlertAction(
-                        title: fontName,
-                        style:.default
-                    ))
-                }
                 fontController.addAction(UIAlertAction(
                     title: "Cancel",
                     style: .cancel
                 ))
                 self.present(fontController, animated: true)
             }),
-            .staticCell(model: SettingsOption(title: "Color") {
-                let colorController = UIAlertController(
-                    title: "Font",
-                    message: "Please select a color",
-                    preferredStyle: .alert)
-                for color in self.colors {
-                    colorController.addAction(UIAlertAction(
-                        title: color,
-                        style: .default
-                    ))
-                }
-                colorController.addAction(UIAlertAction(
-                    title: "Cancel",
-                    style: .cancel
-                    ))
-                self.present(colorController, animated: true)
+            .staticCell(model: SettingsOption(title: "Theme") {
+                self.performSegue(withIdentifier: "themeSegue", sender: self)
             })
         ]))
         

@@ -17,6 +17,10 @@
 		835E1164292B14EC00CC9075 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835E1163292B14EC00CC9075 /* CreateAccountViewController.swift */; };
 		8395461B2901402D0074368B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8395461A2901402D0074368B /* GoogleService-Info.plist */; };
 		83AD82EC29013746006A459B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AD82EB29013746006A459B /* LoginViewController.swift */; };
+		83B60F57292B1DA3006974FD /* ThemeChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B60F56292B1DA3006974FD /* ThemeChangeViewController.swift */; };
+		83B60F59292B2190006974FD /* ThemeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B60F58292B2190006974FD /* ThemeProtocol.swift */; };
+		83B60F5B292B21F9006974FD /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B60F5A292B21F9006974FD /* Themes.swift */; };
+		83B60F5D292B2479006974FD /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B60F5C292B2479006974FD /* ThemeManager.swift */; };
 		83DDC105291CFFC60099D7E5 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DDC104291CFFC60099D7E5 /* SettingTableViewCell.swift */; };
 		83DDC109291D09E00099D7E5 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DDC108291D09E00099D7E5 /* SwitchTableViewCell.swift */; };
 		950632ED291AA81800935ABB /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950632EC291AA81800935ABB /* GlobalVariables.swift */; };
@@ -46,6 +50,10 @@
 		835E1163292B14EC00CC9075 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		8395461A2901402D0074368B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		83AD82EB29013746006A459B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		83B60F56292B1DA3006974FD /* ThemeChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeChangeViewController.swift; sourceTree = "<group>"; };
+		83B60F58292B2190006974FD /* ThemeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProtocol.swift; sourceTree = "<group>"; };
+		83B60F5A292B21F9006974FD /* Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
+		83B60F5C292B2479006974FD /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		83DDC104291CFFC60099D7E5 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		83DDC108291D09E00099D7E5 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
 		950632EC291AA81800935ABB /* GlobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
@@ -93,6 +101,7 @@
 				95FA8BD328F5EACD00276CBE /* SetCreationVC.swift */,
 				50A5D6CB2900BBD800D0E964 /* ProfileViewController.swift */,
 				835E1163292B14EC00CC9075 /* CreateAccountViewController.swift */,
+				83B60F56292B1DA3006974FD /* ThemeChangeViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -108,6 +117,9 @@
 				9585CB1C28F6013F00689958 /* CardSet.swift */,
 				9585CB2028F6062600689958 /* Card.swift */,
 				9585CB1A28F5F2BB00689958 /* TextFieldTableViewCell.swift */,
+				83B60F58292B2190006974FD /* ThemeProtocol.swift */,
+				83B60F5A292B21F9006974FD /* Themes.swift */,
+				83B60F5C292B2479006974FD /* ThemeManager.swift */,
 			);
 			path = "Custom Objects";
 			sourceTree = "<group>";
@@ -229,9 +241,12 @@
 				95F1B09D291351BC0026DC87 /* Protocols.swift in Sources */,
 				95FA8BD428F5EACD00276CBE /* SetCreationVC.swift in Sources */,
 				9585CB2128F6062600689958 /* Card.swift in Sources */,
+				83B60F59292B2190006974FD /* ThemeProtocol.swift in Sources */,
 				95FA8BD628F5EB3800276CBE /* SummaryVC.swift in Sources */,
 				9585CB1B28F5F2BB00689958 /* TextFieldTableViewCell.swift in Sources */,
+				83B60F57292B1DA3006974FD /* ThemeChangeViewController.swift in Sources */,
 				83DDC109291D09E00099D7E5 /* SwitchTableViewCell.swift in Sources */,
+				83B60F5B292B21F9006974FD /* Themes.swift in Sources */,
 				50A5D6CE2900BC4700D0E964 /* StudyViewController.swift in Sources */,
 				FDA5CC4128F524C300EF941B /* ViewController.swift in Sources */,
 				FDA4D0342925543F000272BC /* SetListCell.swift in Sources */,
@@ -242,6 +257,7 @@
 				32A0F1A3291F3CF800FAF704 /* UIViewControllerExtension.swift in Sources */,
 				835E1164292B14EC00CC9075 /* CreateAccountViewController.swift in Sources */,
 				FDA5CC3D28F524C300EF941B /* AppDelegate.swift in Sources */,
+				83B60F5D292B2479006974FD /* ThemeManager.swift in Sources */,
 				83DDC105291CFFC60099D7E5 /* SettingTableViewCell.swift in Sources */,
 				9585CB1D28F6013F00689958 /* CardSet.swift in Sources */,
 				83AD82EC29013746006A459B /* LoginViewController.swift in Sources */,

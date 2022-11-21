@@ -10,6 +10,7 @@ import FirebaseAuth
 import CoreData
 
 let setTextCellIdentifier = "SetNameCell"
+let THEME_KEY = "themeKey"
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, StudyListUpdater, DeleteList {
     
@@ -85,20 +86,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         setsTableView.reloadData()
         
         // theme compliance
-        self.navigationController?.navigationBar.tintColor = globalFontColor
-        view.backgroundColor = globalBkgdColor
-        
-        setsTableView.backgroundColor = globalBkgdColor
-        setsTableView.separatorColor = globalFontColor
-        
-        setSearch.barTintColor = globalBkgdColor
-        setSearch.searchTextField.leftView?.tintColor = globalFontColor
-        setSearch.searchTextField.font = globalFont
-        setSearch.searchTextField.textColor = globalFontColor
-        
-        settingsButton.tintColor = globalFontColor
-        profileButton.tintColor = globalFontColor
-        addButton.tintColor = globalFontColor
+        applyTheme()
         
         setCellHeight()
         setsTableView.reloadData()
@@ -248,6 +236,31 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
         setsTableView.rowHeight = maxCellHeight
+    }
+    
+    func catchNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: NSNotification.Name("ThemeUpdate"), object: nil)
+    }
+    
+    @objc func reloadTheme() {
+        applyTheme()
+    }
+    
+    func applyTheme() {
+        self.navigationController?.navigationBar.tintColor = ThemeManager.current.fontColor
+        self.view.backgroundColor = ThemeManager.current.backgroundColor
+        setsTableView.backgroundColor = ThemeManager.current.backgroundColor
+        setsTableView.separatorColor = ThemeManager.current.secondaryColor
+        
+        setSearch.barTintColor = ThemeManager.current.backgroundColor
+        setSearch.searchTextField.leftView?.tintColor = ThemeManager.current.secondaryColor
+        setSearch.searchTextField.font = globalFont
+        setSearch.searchTextField.textColor = ThemeManager.current.fontColor
+        setSearch.tintColor = ThemeManager.current.secondaryColor
+        
+        settingsButton.tintColor = ThemeManager.current.secondaryColor
+        profileButton.tintColor = ThemeManager.current.secondaryColor
+        addButton.tintColor = ThemeManager.current.secondaryColor
     }
 }
 

@@ -9,6 +9,47 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Theme Change View Controller-->
+        <scene sceneID="o8p-AO-tAr">
+            <objects>
+                <viewController id="Yjd-xo-HTT" customClass="ThemeChangeViewController" customModule="StudyCard" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cOQ-gd-Abm">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="IuJ-in-moN">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TextCell" id="Ecr-e3-Umt">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ecr-e3-Umt" id="ZMK-Lw-VZW">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="06X-bz-Ezt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="IuJ-in-moN" firstAttribute="top" secondItem="06X-bz-Ezt" secondAttribute="top" id="0Df-Ea-b1K"/>
+                            <constraint firstItem="06X-bz-Ezt" firstAttribute="trailing" secondItem="IuJ-in-moN" secondAttribute="trailing" id="COM-kN-hH9"/>
+                            <constraint firstItem="06X-bz-Ezt" firstAttribute="bottom" secondItem="IuJ-in-moN" secondAttribute="bottom" id="P8d-4P-qYr"/>
+                            <constraint firstItem="IuJ-in-moN" firstAttribute="leading" secondItem="06X-bz-Ezt" secondAttribute="leading" id="hmo-h7-OFT"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="flf-1a-Al7"/>
+                    <connections>
+                        <outlet property="tableView" destination="IuJ-in-moN" id="P9f-V6-fsN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pH8-sG-Km2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-718" y="-704"/>
+        </scene>
         <!--Settings-->
         <scene sceneID="jRj-GK-9b9">
             <objects>
@@ -20,10 +61,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="PIZ-Yy-HLn"/>
+                    <connections>
+                        <segue destination="Yjd-xo-HTT" kind="show" identifier="themeSegue" id="ZPX-9k-5l7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q2q-bE-Al6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="21" y="-704"/>
+            <point key="canvasLocation" x="82" y="-704"/>
         </scene>
         <!--SetCreationVC-->
         <scene sceneID="S6s-fc-imy">
