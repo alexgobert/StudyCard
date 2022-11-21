@@ -361,7 +361,10 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         let appearance = UINavigationBarAppearance()
         
         let button = UIBarButtonItemAppearance(style: .plain)
-            button.normal.titleTextAttributes = [NSAttributedString.Key.font: globalBackButtonFont!, NSAttributedString.Key.foregroundColor: ThemeManager.current.fontColor]
+        button.normal.titleTextAttributes = [
+            .font: globalBackButtonFont,
+            .foregroundColor: ThemeManager.current.fontColor
+        ]
         
         appearance.backgroundColor = ThemeManager.current.backgroundColor
         appearance.buttonAppearance = button

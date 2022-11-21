@@ -78,19 +78,24 @@ class FontChangeViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func applyTheme() {
-        self.navigationController?.navigationBar.tintColor = ThemeManager.current.fontColor
-        self.view.backgroundColor = ThemeManager.current.backgroundColor
-        tableView.backgroundColor = ThemeManager.current.backgroundColor
-        tableView.separatorColor = ThemeManager.current.fontColor
+        let manager: ThemeProtocol = ThemeManager.current
+        
+        self.navigationController?.navigationBar.tintColor = manager.fontColor
+        self.view.backgroundColor = manager.backgroundColor
+        tableView.backgroundColor = manager.backgroundColor
+        tableView.separatorColor = manager.fontColor
         
         let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = ThemeManager.current.backgroundColor
+        appearance.backgroundColor = manager.backgroundColor
                 
         // This will alter the navigation bar title appearance
-        appearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: ThemeManager.current.fontColor]
+        appearance.titleTextAttributes = [.foregroundColor: manager.fontColor]
         
         let button = UIBarButtonItemAppearance(style: .plain)
-            button.normal.titleTextAttributes = [NSAttributedString.Key.font: globalBackButtonFont!, NSAttributedString.Key.foregroundColor: ThemeManager.current.fontColor]
+        button.normal.titleTextAttributes = [
+            .font: globalBackButtonFont,
+            .foregroundColor: manager.fontColor
+        ]
         appearance.buttonAppearance = button
 
         navigationController?.navigationBar.standardAppearance = appearance

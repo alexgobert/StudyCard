@@ -9,5 +9,5 @@ import Foundation
 
 class ThemeManager {
     static var current: ThemeProtocol = DefaultTheme()
-    static let themes = [DefaultTheme(), OceanTheme(), SunshineTheme()] as! [ThemeProtocol]
+    static let themes: [ThemeProtocol] = [DefaultTheme(), OceanTheme(), SunshineTheme()]
 }

@@ -47,7 +47,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pH8-sG-Km2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-718" y="-704"/>
+            <point key="canvasLocation" x="2717" y="-1461"/>
         </scene>
         <!--Font Change View Controller-->
         <scene sceneID="3fn-5z-oh5">
@@ -88,7 +88,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HsI-ep-AqI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="82" y="-1406"/>
+            <point key="canvasLocation" x="1737" y="-1461"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="jRj-GK-9b9">
@@ -108,7 +108,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q2q-bE-Al6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="82" y="-704"/>
+            <point key="canvasLocation" x="2187" y="-757"/>
         </scene>
         <!--SetCreationVC-->
         <scene sceneID="S6s-fc-imy">
@@ -227,7 +227,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sGI-G1-6Qc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="801" y="-704"/>
+            <point key="canvasLocation" x="1343" y="-757"/>
         </scene>
         <!--StudySetupVC-->
         <scene sceneID="VAt-6B-DN8">
@@ -324,7 +324,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7sB-l2-Se7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="801" y="850"/>
+            <point key="canvasLocation" x="1737" y="828"/>
         </scene>
         <!--Create Account View Controller-->
         <scene sceneID="I4f-Ex-rRL">
@@ -471,7 +471,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5y7-7c-3dE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="82" y="713"/>
+            <point key="canvasLocation" x="-283" y="713"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="Ana-YQ-hx6">
@@ -605,12 +605,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lFt-7f-Fkp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="81.679389312977094" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="-283" y="4"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Main Nav Controller-->
         <scene sceneID="Yvd-bZ-cLE">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0FS-jW-h6P" sceneMemberID="viewController">
+                <navigationController title="Main Nav Controller" automaticallyAdjustsScrollViewInsets="NO" id="0FS-jW-h6P" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="lJq-X7-ntX"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="CXg-uQ-3gS">
@@ -624,7 +624,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XgU-IC-WMu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="947.32824427480909" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="732" y="4"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="yam-q1-YXf">
@@ -937,7 +937,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9px-Bp-P8N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2334" y="850"/>
+            <point key="canvasLocation" x="3271" y="828"/>
         </scene>
         <!--ProfileVC-->
         <scene sceneID="Ztk-7E-hVJ">
@@ -1105,12 +1105,11 @@
                         <outlet property="profilePicImageView" destination="ME1-iv-sWH" id="zhm-Fw-B89"/>
                         <outlet property="selectPicButton" destination="4pi-yH-a9o" id="DIe-YV-Edb"/>
                         <outlet property="takePicButton" destination="KW2-Nb-trv" id="nfe-U1-Sgg"/>
-                        <segue destination="dvT-7C-Q4h" kind="show" identifier="signoutSegue" id="EqH-az-CLa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="amG-Zh-psZ" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2504.5801526717555" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="2717" y="4"/>
         </scene>
         <!--Study View Controller-->
         <scene sceneID="rox-i6-Zh3">
@@ -1205,12 +1204,12 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1578" y="850"/>
+            <point key="canvasLocation" x="2514" y="828"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Login Nav Controller-->
         <scene sceneID="M5Y-NB-Zxs">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dvT-7C-Q4h" sceneMemberID="viewController">
+                <navigationController title="Login Nav Controller" automaticallyAdjustsScrollViewInsets="NO" id="dvT-7C-Q4h" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="gIB-8Q-CkP"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="b9E-Z6-Jbf">
@@ -1224,7 +1223,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qtg-f7-KHy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-845.03816793893122" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="-1083" y="4"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

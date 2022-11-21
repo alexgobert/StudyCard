@@ -81,7 +81,7 @@ class StudySetupVC: UIViewController {
         
         shuffleLabel.font = globalTextFont
         itemFirstLabel.font = globalTextFont
-        itemFirstCtrl.setTitleTextAttributes([.font: globalTextFont!, .foregroundColor: ThemeManager.current.fontColor], for: .normal)
+        itemFirstCtrl.setTitleTextAttributes([.font: globalTextFont, .foregroundColor: ThemeManager.current.fontColor], for: .normal)
         editButton.titleLabel?.font = globalButtonFont
         deleteButton.titleLabel?.font = globalButtonFont
         
