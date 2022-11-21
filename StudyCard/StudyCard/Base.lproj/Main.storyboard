@@ -179,6 +179,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addTermButton" destination="mFr-uV-VL5" id="3Me-7p-fF3"/>
+                        <outlet property="saveButton" destination="RHu-2i-FsC" id="K8E-ml-SNs"/>
                         <outlet property="tableView" destination="ZX0-NW-xlv" id="7LQ-SD-Fhy"/>
                         <outlet property="titleField" destination="1wX-gF-x4N" id="vEE-XW-6Ji"/>
                     </connections>

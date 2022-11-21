@@ -15,6 +15,7 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
 
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var addTermButton: UIButton!
     
     var delegate: StudyListUpdater!
@@ -37,9 +38,7 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         cardSet = [Card()]
         
         // set theme
-        view.backgroundColor = globalBkgdColor
-        titleField.font = globalFont
-        tableView.backgroundColor = globalBkgdColor
+        applyTheme()
         
     }
     
@@ -98,8 +97,8 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         cell.termField.text = cardSet[indexPath.row].getTerm()
         cell.definitionField.text = cardSet[indexPath.row].getDef()
-        cell.backgroundColor = globalBkgdColor
-        cell.tintColor = globalBkgdColor
+        cell.backgroundColor = ThemeManager.current.backgroundColor
+        cell.tintColor = ThemeManager.current.backgroundColor
         
         cell.setFont(globalFont)
         
@@ -202,6 +201,22 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
                 NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
+    }
+    
+    func catchNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTheme), name: NSNotification.Name("ThemeUpdate"), object: nil)
+    }
+    
+    @objc func reloadTheme() {
+        applyTheme()
+    }
+    
+    func applyTheme() {
+        self.view.backgroundColor = ThemeManager.current.backgroundColor
+        titleField.font = globalFont
+        tableView.backgroundColor = ThemeManager.current.backgroundColor
+        addTermButton.tintColor = ThemeManager.current.secondaryColor
+        saveButton.tintColor = ThemeManager.current.secondaryColor
     }
 
 }

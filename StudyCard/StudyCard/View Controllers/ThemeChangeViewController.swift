@@ -47,7 +47,6 @@ class ThemeChangeViewController: UIViewController, UITableViewDelegate, UITableV
         let row = indexPath.row
         let cell = tableView.dequeueReusableCell(withIdentifier: textCellIdentifier, for: indexPath)
         cell.textLabel?.text = themes[row]
-        cell.textLabel?.textColor = ThemeManager.current.fontColor
         cell.backgroundColor = ThemeManager.current.backgroundColor
         return cell
     }
@@ -72,6 +71,6 @@ class ThemeChangeViewController: UIViewController, UITableViewDelegate, UITableV
         self.navigationController?.navigationBar.tintColor = ThemeManager.current.fontColor
         self.view.backgroundColor = ThemeManager.current.backgroundColor
         tableView.backgroundColor = ThemeManager.current.backgroundColor
-        tableView.separatorColor = ThemeManager.current.secondaryColor
+        tableView.separatorColor = ThemeManager.current.fontColor
     }
 }

@@ -73,6 +73,9 @@ class CreateAccountViewController: UIViewController {
         createButton.tintColor = ThemeManager.current.fontColor
         agreementLabel.textColor = ThemeManager.current.fontColor
         errorMessage.textColor = ThemeManager.current.fontColor
+        emailField.tintColor = ThemeManager.current.secondaryColor
+        passwordField.tintColor = ThemeManager.current.secondaryColor
+        confirmPasswordField.tintColor = ThemeManager.current.secondaryColor
         
     }
 }

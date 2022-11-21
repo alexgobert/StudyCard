@@ -112,9 +112,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.setName(setName: searchData[indexPath.row].getName())
         cell.setTimes(times: searchData[indexPath.row].getTimesStudied())
         cell.setPercent(percent: searchData[indexPath.row].getPercentKnown())
-//        cell.textLabel?.font = globalFont
-//        cell.textLabel?.textColor = globalFontColor
-//        cell.backgroundColor = globalBkgdColor
+        cell.textLabel?.font = globalFont
+        cell.textLabel?.textColor = ThemeManager.current.fontColor
+        cell.backgroundColor = ThemeManager.current.backgroundColor
         
         return cell
     }
@@ -250,7 +250,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.navigationController?.navigationBar.tintColor = ThemeManager.current.fontColor
         self.view.backgroundColor = ThemeManager.current.backgroundColor
         setsTableView.backgroundColor = ThemeManager.current.backgroundColor
-        setsTableView.separatorColor = ThemeManager.current.secondaryColor
+        setsTableView.separatorColor = ThemeManager.current.fontColor
         
         setSearch.barTintColor = ThemeManager.current.backgroundColor
         setSearch.searchTextField.leftView?.tintColor = ThemeManager.current.fontColor

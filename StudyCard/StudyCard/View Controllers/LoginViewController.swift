@@ -103,5 +103,7 @@ class LoginViewController: UIViewController {
         resetPasswordButton.tintColor = ThemeManager.current.fontColor
         signUpButton.tintColor = ThemeManager.current.fontColor
         errorMessage.textColor = ThemeManager.current.fontColor
+        emailField.tintColor = ThemeManager.current.secondaryColor
+        passwordField.tintColor = ThemeManager.current.secondaryColor
     }
 }
