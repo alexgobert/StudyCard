@@ -41,49 +41,6 @@ class LoginViewController: UIViewController {
             }
         }
     }
-    
-    @IBAction func signupButtonPressed(_ sender: Any) {
-        
-        let alert = UIAlertController(
-            title: "Create an account",
-            message: "Register",
-            preferredStyle: .alert
-        )
-        
-        alert.addTextField {
-            tfEmail in
-            tfEmail.placeholder = "Enter your email"
-        }
-        alert.addTextField {
-            tfPassword in
-            tfPassword.isSecureTextEntry = true
-            tfPassword.placeholder = "Enter your password"
-        }
-        
-        let saveAction = UIAlertAction(title: "Save", style: .default) {
-            _ in
-            let emailField = alert.textFields![0]
-            let passwordField = alert.textFields![1]
-            
-            // creates a new user
-            Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) {
-                authResult, error in
-                if let error = error as NSError? {
-                    self.errorMessage.text = error.localizedDescription
-                } else {
-                    self.errorMessage.text = ""
-                }
-            }
-        }
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        
-        alert.addAction(saveAction)
-        alert.addAction(cancelAction)
-        
-        present(alert, animated: true)
-        
-    }
 
     @IBAction func resetPasswordButtonPressed(_ sender: Any) {
         let alert = UIAlertController(

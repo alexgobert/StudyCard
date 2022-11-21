@@ -14,6 +14,7 @@
 		50A5D6CC2900BBD800D0E964 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5D6CB2900BBD800D0E964 /* ProfileViewController.swift */; };
 		50A5D6CE2900BC4700D0E964 /* StudyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5D6CD2900BC4700D0E964 /* StudyViewController.swift */; };
 		83485B682919D93900705136 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83485B672919D93900705136 /* SettingsViewController.swift */; };
+		835E1164292B14EC00CC9075 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835E1163292B14EC00CC9075 /* CreateAccountViewController.swift */; };
 		8395461B2901402D0074368B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8395461A2901402D0074368B /* GoogleService-Info.plist */; };
 		83AD82EC29013746006A459B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AD82EB29013746006A459B /* LoginViewController.swift */; };
 		83DDC105291CFFC60099D7E5 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DDC104291CFFC60099D7E5 /* SettingTableViewCell.swift */; };
@@ -42,6 +43,7 @@
 		50A5D6CB2900BBD800D0E964 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		50A5D6CD2900BC4700D0E964 /* StudyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyViewController.swift; sourceTree = "<group>"; };
 		83485B672919D93900705136 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		835E1163292B14EC00CC9075 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		8395461A2901402D0074368B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		83AD82EB29013746006A459B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		83DDC104291CFFC60099D7E5 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				95FA8BD528F5EB3800276CBE /* SummaryVC.swift */,
 				95FA8BD328F5EACD00276CBE /* SetCreationVC.swift */,
 				50A5D6CB2900BBD800D0E964 /* ProfileViewController.swift */,
+				835E1163292B14EC00CC9075 /* CreateAccountViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				50A5D6CC2900BBD800D0E964 /* ProfileViewController.swift in Sources */,
 				FDA5CC5428F69D5B00EF941B /* StudySetupVC.swift in Sources */,
 				32A0F1A3291F3CF800FAF704 /* UIViewControllerExtension.swift in Sources */,
+				835E1164292B14EC00CC9075 /* CreateAccountViewController.swift in Sources */,
 				FDA5CC3D28F524C300EF941B /* AppDelegate.swift in Sources */,
 				83DDC105291CFFC60099D7E5 /* SettingTableViewCell.swift in Sources */,
 				9585CB1D28F6013F00689958 /* CardSet.swift in Sources */,
