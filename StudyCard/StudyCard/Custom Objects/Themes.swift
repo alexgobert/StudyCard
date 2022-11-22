@@ -17,7 +17,7 @@ struct DefaultTheme: ThemeProtocol {
     var fontColor: UIColor = UIColor(red: 120/255, green: 250/255, blue: 240/255, alpha: 1)
     var backgroundColor: UIColor = UIColor(red: 11/255, green: 20/255, blue: 31/255, alpha: 1.0)
     var lightColor: UIColor = UIColor(red: 8/255, green: 129/255, blue: 130/255, alpha: 1.0)
-    var secondaryColor: UIColor =  UIColor(red: 8/255, green: 129/255, blue: 130/255, alpha: 1.0)
+    var secondaryColor: UIColor =  UIColor(red: 0/255, green: 90/255, blue: 90/255, alpha: 1.0)
 }
 struct OceanTheme: ThemeProtocol {
     var fontColor: UIColor = .white

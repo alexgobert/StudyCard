@@ -17,8 +17,7 @@ class SwitchTableViewCell: UITableViewCell {
     }()
     
     private let mySwitch: UISwitch = {
-       let mySwitch = UISwitch()
-        mySwitch.onTintColor = ThemeManager.current.secondaryColor
+        let mySwitch = UISwitch()
         return mySwitch
     }()
     
@@ -58,6 +57,7 @@ class SwitchTableViewCell: UITableViewCell {
         label.text = nil
         label.font = nil
         label.textColor = nil
+        mySwitch.onTintColor = nil
         mySwitch.isOn = false
     }
     
@@ -65,6 +65,7 @@ class SwitchTableViewCell: UITableViewCell {
         label.text = model.title
         label.font = model.font
         label.textColor = model.fontColor
+        mySwitch.onTintColor = model.switchColor
         mySwitch.isOn = model.isOn
     }
 
