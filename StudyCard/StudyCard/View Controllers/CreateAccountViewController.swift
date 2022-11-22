@@ -82,16 +82,29 @@ class CreateAccountViewController: UIViewController {
         titleLabel.font = globalTitleFont
         emailLabel.font = globalButtonFont
         emailField.font = globalTextFont
+        emailField.backgroundColor = globalSecondaryColor.withAlphaComponent(0.50)
+        self.emailField.attributedPlaceholder = NSAttributedString(
+            string: "Enter your email",
+            attributes: [NSAttributedString.Key.foregroundColor: globalFontColor.withAlphaComponent(0.50)])
         passwordLabel.font = globalButtonFont
         passwordField.font = globalTextFont
+        passwordField.backgroundColor = globalSecondaryColor.withAlphaComponent(0.50)
+        self.passwordField.attributedPlaceholder = NSAttributedString(
+            string: "Create a password",
+            attributes: [NSAttributedString.Key.foregroundColor: globalFontColor.withAlphaComponent(0.50)])
         confirmPasswordLabel.font = globalButtonFont
         confirmPasswordField.font = globalTextFont
+        confirmPasswordField.backgroundColor = globalSecondaryColor.withAlphaComponent(0.50)
+        self.confirmPasswordField.attributedPlaceholder = NSAttributedString(
+            string: "Re-enter password",
+            attributes: [NSAttributedString.Key.foregroundColor: globalFontColor.withAlphaComponent(0.50)])
         createButton.titleLabel?.font = globalButtonFont
         agreementLabel.font = globalTextFont
         errorMessage.font = globalButtonFont
         
         
         // alters the navigation bar back button
+        self.navigationController?.navigationBar.tintColor = globalFontColor
         let appearance = UINavigationBarAppearance()
         let button = UIBarButtonItemAppearance(style: .plain)
             button.normal.titleTextAttributes = [NSAttributedString.Key.font: globalBackButtonFont, NSAttributedString.Key.foregroundColor: globalFontColor]
