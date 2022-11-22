@@ -99,6 +99,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         } else if segue.identifier == "StudySetupSegue", let dest = segue.destination as? StudySetupVC, let index = setsTableView.indexPathForSelectedRow?.row {
             dest.cards = setList[index]
             dest.delegate = self
+            dest.setIndex = index
         }
     }
     
@@ -175,6 +176,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
         return fetchedResults!
+        
     }
     
     func deleteItem(setNum: Int) {
@@ -207,9 +209,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-    func updateList(set: CardSet) {
-        setList.append(set)
+    func updateList(set: CardSet, index: Int?) {
+        if index != nil {
+            setList[index!] = set
+        } else {
+            setList.append(set)
+        }
+        
         searchData = setList
+        
     }
     
     func deleteItem(cardSet: CardSet) {
@@ -230,6 +238,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         searchData = setList
 
         deleteItem(setNum: index)
+        
     }
     
     func setCellHeight() {

@@ -21,6 +21,8 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     var delegate: StudyListUpdater!
     var cellCount: Int = 1
     var cardSet: [Card]!
+    var importedSet: CardSet!
+    var setIndex: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +41,16 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         // set theme
         applyTheme()
+        
+        if importedSet != nil {
+            cardSet.remove(at: 0)
+            for card in importedSet.cards {
+                cardSet.append(card)
+            }
+            
+            titleField.text = importedSet.name
+            
+        }
         
     }
     
@@ -70,7 +82,7 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         } else {
             let otherVC = delegate as! ViewController
             let cellList = self.tableView.visibleCells as! [TextFieldTableViewCell]
-            otherVC.updateList(set: CardSet(name: titleField.text, cards: cardSet))
+            otherVC.updateList(set: CardSet(name: titleField.text, cards: cardSet), index: setIndex)
             
             // enure that all terms and definitions are stored to cells
             var i = 0
@@ -190,6 +202,7 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         set.setValue(defsData, forKey: "definitions")
         
         saveContext()
+        
     }
     
     func saveContext() {

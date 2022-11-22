@@ -282,6 +282,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Edit Set"/>
                                 <connections>
                                     <action selector="editPressed:" destination="pj1-MM-WZ0" eventType="touchUpInside" id="Bzp-Hw-XJT"/>
+                                    <segue destination="imV-ix-dZD" kind="show" identifier="SetEditSegue" id="b6A-rZ-KXU"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1230,6 +1231,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Ss0-R2-MPf"/>
+        <segue reference="b6A-rZ-KXU"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="checkmark" catalog="system" width="128" height="114"/>

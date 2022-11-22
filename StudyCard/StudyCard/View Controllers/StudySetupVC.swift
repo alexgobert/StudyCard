@@ -11,7 +11,8 @@ class StudySetupVC: UIViewController {
     var cards: CardSet!
     var shuffle: Bool = true
     var itemFirst: String! // Term, Mixed, Definition
-    var delegate: DeleteList!
+    var delegate: ViewController!
+    var setIndex: Int!
 
     @IBOutlet weak var shuffleToggle: UISwitch!
     @IBOutlet weak var itemFirstCtrl: UISegmentedControl!
@@ -40,6 +41,12 @@ class StudySetupVC: UIViewController {
             
             dest.setCards(cards)
             dest.itemFirst = itemFirst
+        }
+        
+        if segue.identifier == "SetEditSegue", let dest = segue.destination as? SetCreationVC {
+            dest.importedSet = cards
+            dest.delegate = delegate
+            dest.setIndex = setIndex
         }
     }
     

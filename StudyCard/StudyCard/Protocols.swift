@@ -8,7 +8,7 @@
 import UIKit
 
 protocol StudyListUpdater {
-    func updateList(set: CardSet)
+    func updateList(set: CardSet, index: Int?)
 }
 
 protocol CustomTableViewCell {
