@@ -92,13 +92,13 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         ]))
         
         models.append(Section(title: "Sounds", options: [
-            .switchCell(model: SettingsSwitchOption(title: "Push Notifications", font: globalTextFont, fontColor: globalFontColor, switchColor: globalSecondaryColor, isOn: userDefaults.bool(forKey: NOTIFICATION_KEY)) {
+            .switchCell(model: SettingsSwitchOption(title: "Push Notifications", font: globalTextFont, fontColor: globalFontColor, switchColor: globalBkgdColor, isOn: userDefaults.bool(forKey: NOTIFICATION_KEY)) {
                 
             }),
-            .switchCell(model: SettingsSwitchOption(title: "Volume Mute", font: globalTextFont, fontColor: globalFontColor, switchColor: globalSecondaryColor, isOn: userDefaults.bool(forKey: MUTE_KEY)) {
+            .switchCell(model: SettingsSwitchOption(title: "Volume Mute", font: globalTextFont, fontColor: globalFontColor, switchColor: globalBkgdColor, isOn: userDefaults.bool(forKey: MUTE_KEY)) {
                 
             }),
-            .switchCell(model: SettingsSwitchOption(title: "Vibrations", font: globalTextFont, fontColor: globalFontColor, switchColor: globalSecondaryColor, isOn: userDefaults.bool(forKey: VIBRATION_KEY)) {
+            .switchCell(model: SettingsSwitchOption(title: "Vibrations", font: globalTextFont, fontColor: globalFontColor, switchColor: globalBkgdColor, isOn: userDefaults.bool(forKey: VIBRATION_KEY)) {
                 
             })
         ]))
