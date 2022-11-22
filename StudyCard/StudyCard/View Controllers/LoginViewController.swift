@@ -32,6 +32,8 @@ class LoginViewController: UIViewController {
                 self.passwordField.text = nil
             }
         }
+        
+        catchNotification()
     }
     
     override func viewWillAppear(_ animated: Bool) {

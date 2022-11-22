@@ -25,6 +25,7 @@ class CreateAccountViewController: UIViewController {
         super.viewDidLoad()
         passwordField.isSecureTextEntry = true
         confirmPasswordField.isSecureTextEntry = true
+        catchNotification()
     }
     
     override func viewWillAppear(_ animated: Bool) {

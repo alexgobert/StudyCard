@@ -35,6 +35,12 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     }
     var observer: NSKeyValueObservation!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        catchNotification()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -55,9 +61,6 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             // name images by date
             self.storeImage(name: self.imageName, image: change.newValue!!)
         }
-        
-        // theme compliance
-        view.backgroundColor = globalBkgdColor
         
         // theme compliance
         applyTheme()

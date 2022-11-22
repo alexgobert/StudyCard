@@ -24,6 +24,7 @@ class StudySetupVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        catchNotification()
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -76,6 +76,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
         sendNotification()
+        catchNotification()
     }
     
     override func viewWillAppear(_ animated: Bool) {

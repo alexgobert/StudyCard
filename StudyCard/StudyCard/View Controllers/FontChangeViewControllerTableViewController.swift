@@ -37,6 +37,7 @@ class FontChangeViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView.dataSource = self
         
         navigationItem.title = "Font"
+        catchNotification()
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -34,6 +34,7 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         tableView.estimatedRowHeight = 120
         tableView.rowHeight = UITableView.automaticDimension
         
+        catchNotification()
     }
     
     override func viewWillAppear(_ animated: Bool) {

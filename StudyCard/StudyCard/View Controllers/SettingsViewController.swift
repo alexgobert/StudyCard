@@ -65,6 +65,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         navigationController?.navigationBar.isTranslucent = false
         navigationItem.title = "Settings"
         
+        catchNotification()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -159,6 +160,10 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     @objc func reloadTheme() {
+        globalTextFont = UIFont(name: userDefaults.string(forKey: FONT_KEY) ?? "TimesNewRomanPSMT", size: 14)!
+        globalButtonFont = UIFont(name: userDefaults.string(forKey: FONT_KEY) ?? "TimesNewRomanPSMT", size: 15)!
+        globalBackButtonFont = UIFont(name: userDefaults.string(forKey: FONT_KEY) ?? "TimesNewRomanPSMT", size: 20)!
+        globalTitleFont = UIFont(name: userDefaults.string(forKey: FONT_KEY) ?? "TimesNewRomanPSMT", size: 34)!
         applyTheme()
     }
     

@@ -34,6 +34,7 @@ class SummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.dataSource = self
         
         navigationItem.hidesBackButton = true // hide back button
+        catchNotification()
     }
     
     override func viewWillAppear(_ animated: Bool) {

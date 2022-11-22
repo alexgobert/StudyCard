@@ -25,6 +25,7 @@ class ThemeChangeViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.dataSource = self
         
         navigationItem.title = "Theme"
+        catchNotification()
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -34,6 +34,7 @@ class StudyViewController: UIViewController {
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapCard))
         cardView.addGestureRecognizer(tapGestureRecognizer)
+        catchNotification()
     }
     
     @objc func didTapCard() {
