@@ -64,6 +64,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.isTranslucent = false
         navigationItem.title = "Settings"
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -162,10 +163,14 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func applyTheme() {
+        models.removeAll()
+        configure()
+        
         // changes color
         self.view.backgroundColor = ThemeManager.current.backgroundColor
         tableView.backgroundColor = ThemeManager.current.backgroundColor
         tableView.separatorColor = ThemeManager.current.fontColor
+        tableView.tintColor = ThemeManager.current.fontColor
         
         // alters the navigation bar title appearance
         let appearance = UINavigationBarAppearance()
@@ -179,5 +184,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
 
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        
+        self.navigationController?.navigationBar.tintColor = ThemeManager.current.secondaryColor
+        
     }
 }

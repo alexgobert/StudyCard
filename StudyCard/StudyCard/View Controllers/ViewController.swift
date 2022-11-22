@@ -89,6 +89,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         applyTheme()
         
         setCellHeight()
+        
         setsTableView.reloadData()
         
     }
@@ -127,11 +128,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.timesStudiedLabel?.font = globalTextFont
         cell.percentKnownLabel?.font = globalTextFont
         
+        let selectedCellView: UIView = UIView()
+        selectedCellView.backgroundColor = ThemeManager.current.secondaryColor
+        cell.selectedBackgroundView = selectedCellView
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -139,7 +145,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         searchData = searchText.isEmpty ? setList : setList.filter { (item: CardSet) -> Bool in
             return item.name.range(of: searchText, options: .caseInsensitive) != nil
         }
+        
         setsTableView.reloadData()
+        
     }
     
     func sendNotification() {
@@ -279,6 +287,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         addButton.tintColor = ThemeManager.current.fontColor
         
         setSearch.searchTextField.font = globalTextFont
+        
+        self.navigationController?.navigationBar.tintColor = ThemeManager.current.fontColor
+        
+        navigationController?.navigationBar.prefersLargeTitles = false
     }
 }
 

@@ -56,10 +56,14 @@ class StudySetupVC: UIViewController {
     
     @IBAction func onToggleChanged(_ sender: Any) {
         shuffle = shuffleToggle.isOn
-    }
-    
-    @IBAction func editPressed(_ sender: Any) {
-        print("edit")
+        if shuffleToggle.isOn {
+            shuffleToggle.backgroundColor = ThemeManager.current.lightColor
+            shuffleToggle.onTintColor = ThemeManager.current.lightColor
+        } else {
+            shuffleToggle.backgroundColor = ThemeManager.current.fontColor.withAlphaComponent(0.8)
+            shuffleToggle.tintColor = ThemeManager.current.fontColor.withAlphaComponent(0.8)
+        }
+        
     }
     
     @IBAction func deletePressed(_ sender: Any) {
@@ -79,12 +83,17 @@ class StudySetupVC: UIViewController {
         // changes color
         self.view.backgroundColor = ThemeManager.current.backgroundColor
         shuffleLabel.textColor = ThemeManager.current.fontColor
+        shuffleToggle.layer.cornerRadius = shuffleToggle.frame.height / 2.0
+        shuffleToggle.clipsToBounds = true
+        shuffleToggle.backgroundColor = ThemeManager.current.lightColor
+        shuffleToggle.onTintColor = ThemeManager.current.lightColor
+        
         itemFirstLabel.textColor = ThemeManager.current.fontColor
-        itemFirstCtrl.selectedSegmentTintColor = ThemeManager.current.secondaryColor
-        itemFirstCtrl.backgroundColor = ThemeManager.current.secondaryColor
+        itemFirstCtrl.selectedSegmentTintColor = ThemeManager.current.backgroundColor.withAlphaComponent(0.25)
+        itemFirstCtrl.backgroundColor = ThemeManager.current.lightColor
         confirmButton.tintColor = ThemeManager.current.secondaryColor
         editButton.tintColor = ThemeManager.current.secondaryColor
-        deleteButton.tintColor = ThemeManager.current.secondaryColor
+        deleteButton.tintColor = UIColor(red: 255/255, green: 50/255, blue: 50/255, alpha: 1.0)
         
         shuffleLabel.font = globalTextFont
         itemFirstLabel.font = globalTextFont
@@ -92,6 +101,7 @@ class StudySetupVC: UIViewController {
         editButton.titleLabel?.font = globalButtonFont
         deleteButton.titleLabel?.font = globalButtonFont
         
+        confirmButton.tintColor = ThemeManager.current.fontColor
+        
     }
-    
 }

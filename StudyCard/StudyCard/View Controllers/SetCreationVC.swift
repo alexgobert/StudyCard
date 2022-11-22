@@ -114,6 +114,10 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         cell.setColor(ThemeManager.current.backgroundColor)
         cell.setFont(globalTextFont)
         
+        let selectedCellView: UIView = UIView()
+        selectedCellView.backgroundColor = ThemeManager.current.secondaryColor
+        cell.selectedBackgroundView = selectedCellView
+        
         return cell
     }
     
@@ -229,6 +233,13 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         tableView.backgroundColor = ThemeManager.current.backgroundColor
         addTermButton.tintColor = ThemeManager.current.secondaryColor
         saveButton.tintColor = ThemeManager.current.secondaryColor
+        titleField.font = globalTextFont
+        titleField.backgroundColor = ThemeManager.current.secondaryColor
+        titleField.textColor = ThemeManager.current.fontColor
+        titleField.attributedPlaceholder = NSAttributedString(
+            string: "Title",
+            attributes: [NSAttributedString.Key.foregroundColor: ThemeManager.current.fontColor.withAlphaComponent(0.50)])
+        
     }
 
 }
