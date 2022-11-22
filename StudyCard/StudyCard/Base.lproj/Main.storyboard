@@ -304,7 +304,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2mt-Ag-Ujz">
-                        <barButtonItem key="rightBarButtonItem" title="Confirm" style="plain" id="FZ6-rd-edr">
+                        <barButtonItem key="rightBarButtonItem" title="Confirm" style="done" id="FZ6-rd-edr">
                             <imageReference key="image" image="checkmark.circle" catalog="system" symbolScale="large"/>
                             <color key="tintColor" systemColor="systemGreenColor"/>
                             <connections>
@@ -411,7 +411,7 @@
                                             <action selector="onCreateButtonPressed:" destination="cUe-XM-S4T" eventType="touchUpInside" id="73W-Wy-eAs"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By signing up, you accept StudyCard's Terms of Service and Privacy Policy" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOg-3D-Z7O">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By signing up, you accept StudyCard's Terms of Service and Privacy Policy" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pOg-3D-Z7O">
                                         <rect key="frame" x="0.0" y="432" width="333" height="31.333333333333314"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                         <nil key="textColor"/>
@@ -431,6 +431,7 @@
                                     <constraint firstItem="XnE-kV-TIV" firstAttribute="top" secondItem="Rr5-9g-ogO" secondAttribute="bottom" constant="5" id="70e-0H-HKv"/>
                                     <constraint firstItem="Rr5-9g-ogO" firstAttribute="width" secondItem="dZ7-p0-vKz" secondAttribute="width" id="7uQ-uT-t0f"/>
                                     <constraint firstItem="88P-3Q-A7g" firstAttribute="width" secondItem="dZ7-p0-vKz" secondAttribute="width" id="D0S-VE-Tmh"/>
+                                    <constraint firstAttribute="trailing" secondItem="RZR-v6-KOm" secondAttribute="trailing" id="G0n-L4-4uy"/>
                                     <constraint firstItem="XnE-kV-TIV" firstAttribute="width" secondItem="dZ7-p0-vKz" secondAttribute="width" id="JK0-Te-vA3"/>
                                     <constraint firstAttribute="trailing" secondItem="pOg-3D-Z7O" secondAttribute="trailing" constant="40" id="Pv5-RT-1aJ"/>
                                     <constraint firstItem="RZR-v6-KOm" firstAttribute="top" secondItem="XnE-kV-TIV" secondAttribute="bottom" constant="50" id="Sog-A5-xls"/>
@@ -439,6 +440,7 @@
                                     <constraint firstItem="RZR-v6-KOm" firstAttribute="width" secondItem="dZ7-p0-vKz" secondAttribute="width" id="cys-OM-QOv"/>
                                     <constraint firstItem="5xA-PG-DcG" firstAttribute="width" secondItem="dZ7-p0-vKz" secondAttribute="width" id="e0q-me-YUM"/>
                                     <constraint firstItem="nDt-DT-AeR" firstAttribute="width" secondItem="dZ7-p0-vKz" secondAttribute="width" id="ePz-TK-R6m"/>
+                                    <constraint firstItem="RZR-v6-KOm" firstAttribute="leading" secondItem="dZ7-p0-vKz" secondAttribute="leading" id="exz-X6-vmw"/>
                                     <constraint firstItem="KSc-7z-69k" firstAttribute="width" secondItem="dZ7-p0-vKz" secondAttribute="width" id="g0X-XU-wB1"/>
                                     <constraint firstItem="HiS-ka-YlK" firstAttribute="width" secondItem="dZ7-p0-vKz" secondAttribute="width" id="l61-eW-Wt4"/>
                                     <constraint firstItem="7XD-3M-db3" firstAttribute="width" secondItem="dZ7-p0-vKz" secondAttribute="width" id="nuI-xk-myK"/>
@@ -670,13 +672,13 @@
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Xiq-wE-qxA">
                                                                     <rect key="frame" x="0.0" y="0.0" width="119.66666666666667" height="40.666666666666664"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Times Studied:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y23-tM-kMY">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Times Studied:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y23-tM-kMY">
                                                                             <rect key="frame" x="0.0" y="0.0" width="119.66666666666667" height="20.333333333333332"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Percent Known:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1G0-rd-9NU">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Percent Known:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1G0-rd-9NU">
                                                                             <rect key="frame" x="0.0" y="20.333333333333336" width="119.66666666666667" height="20.333333333333336"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
@@ -687,13 +689,13 @@
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Fia-I1-jzV">
                                                                     <rect key="frame" x="136.66666666666666" y="0.0" width="24" height="40.666666666666664"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="#" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhr-IZ-FUU">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fhr-IZ-FUU">
                                                                             <rect key="frame" x="0.0" y="0.0" width="24" height="20.333333333333332"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="x%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJy-4d-JJE">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJy-4d-JJE">
                                                                             <rect key="frame" x="0.0" y="20.333333333333336" width="24" height="20.333333333333336"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
@@ -746,21 +748,21 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="mE3-3D-Ar3">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="gearshape" catalog="system" style="plain" id="xwT-t3-Bqj">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="gearshape" catalog="system" style="done" id="xwT-t3-Bqj">
                             <color key="tintColor" systemColor="labelColor"/>
                             <connections>
                                 <segue destination="bF6-qo-A1q" kind="show" identifier="settingsSegue" id="qND-vf-UK4"/>
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem title="Item" style="plain" id="xMS-je-Aok">
+                            <barButtonItem title="Item" style="done" id="xMS-je-Aok">
                                 <imageReference key="image" image="person.crop.circle" catalog="system" symbolScale="large"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <connections>
                                     <segue destination="FSq-yN-eSY" kind="show" identifier="ProfileSegue" id="zEo-P4-NDB"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem style="plain" systemItem="add" id="e3S-jW-mMd">
+                            <barButtonItem style="done" systemItem="add" id="e3S-jW-mMd">
                                 <color key="tintColor" systemColor="systemGreenColor"/>
                                 <connections>
                                     <segue destination="imV-ix-dZD" kind="show" identifier="SetCreationSegue" id="H2S-ih-Vmz"/>
@@ -1229,7 +1231,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Ss0-R2-MPf"/>
+        <segue reference="zZk-kr-WfG"/>
         <segue reference="b6A-rZ-KXU"/>
     </inferredMetricsTieBreakers>
     <resources>
