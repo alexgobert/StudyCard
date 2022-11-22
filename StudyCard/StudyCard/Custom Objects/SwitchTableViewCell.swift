@@ -33,7 +33,12 @@ class SwitchTableViewCell: UITableViewCell {
     }
     
     @objc func valueChanged(sender: UISwitch) {
-        print((label.text ?? "") + " switch is " + (sender.isOn ? "ON" : "OFF"))
+        if sender.isOn == true{
+            userDefaults.set(true, forKey: toggleKeys[label.text ?? ""] ?? "")
+        } else {
+            userDefaults.set(false, forKey: toggleKeys[label.text ?? ""] ?? "")
+        }
+        
     }
     
     required init?(coder: NSCoder) {

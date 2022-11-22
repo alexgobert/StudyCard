@@ -17,6 +17,10 @@ let SECONDARY_COLOR_KEY = "secondaryColorKey"
 let FONT_COLOR_KEY = "fontColorKey"
 let FONT_KEY = "fontKey"
 
+var toggleKeys = ["Push Notifications": NOTIFICATION_KEY,
+                  "Vibrations": VIBRATION_KEY,
+                  "Volume Mute": MUTE_KEY]
+
 struct Section {
     let title: String
     let options: [SettingsOptionType]
@@ -87,13 +91,13 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         ]))
         
         models.append(Section(title: "Sounds", options: [
-            .switchCell(model: SettingsSwitchOption(title: "Push Notifications", font: globalTextFont, fontColor: ThemeManager.current.fontColor, switchColor: ThemeManager.current.secondaryColor, isOn: true) {
+            .switchCell(model: SettingsSwitchOption(title: "Push Notifications", font: globalTextFont, fontColor: ThemeManager.current.fontColor, switchColor: ThemeManager.current.secondaryColor, isOn: userDefaults.bool(forKey: NOTIFICATION_KEY)) {
                 
             }),
-            .switchCell(model: SettingsSwitchOption(title: "Volume Mute", font: globalTextFont, fontColor: ThemeManager.current.fontColor, switchColor: ThemeManager.current.secondaryColor, isOn: true) {
+            .switchCell(model: SettingsSwitchOption(title: "Volume Mute", font: globalTextFont, fontColor: ThemeManager.current.fontColor, switchColor: ThemeManager.current.secondaryColor, isOn: userDefaults.bool(forKey: MUTE_KEY)) {
                 
             }),
-            .switchCell(model: SettingsSwitchOption(title: "Vibrations", font: globalTextFont, fontColor: ThemeManager.current.fontColor, switchColor: ThemeManager.current.secondaryColor, isOn: true) {
+            .switchCell(model: SettingsSwitchOption(title: "Vibrations", font: globalTextFont, fontColor: ThemeManager.current.fontColor, switchColor: ThemeManager.current.secondaryColor, isOn: userDefaults.bool(forKey: VIBRATION_KEY)) {
                 
             })
         ]))
