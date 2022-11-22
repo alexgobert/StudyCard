@@ -99,20 +99,20 @@ class LoginViewController: UIViewController {
     
     func applyTheme() {
         // changes color
-        self.view.backgroundColor = ThemeManager.current.backgroundColor
-        titleLabel.textColor = ThemeManager.current.fontColor
-        loginButton.backgroundColor = ThemeManager.current.secondaryColor
-        errorMessage.textColor = ThemeManager.current.fontColor
-        emailField.backgroundColor = ThemeManager.current.secondaryColor.withAlphaComponent(0.50)
-        emailField.textColor = ThemeManager.current.fontColor
+        self.view.backgroundColor = globalBkgdColor
+        titleLabel.textColor = globalFontColor
+        loginButton.backgroundColor = globalSecondaryColor
+        errorMessage.textColor = globalFontColor
+        emailField.backgroundColor = globalSecondaryColor.withAlphaComponent(0.50)
+        emailField.textColor = globalFontColor
         self.emailField.attributedPlaceholder = NSAttributedString(
             string: "Email",
-            attributes: [NSAttributedString.Key.foregroundColor: ThemeManager.current.fontColor.withAlphaComponent(0.50)])
-        passwordField.backgroundColor = ThemeManager.current.secondaryColor.withAlphaComponent(0.50)
-        passwordField.textColor = ThemeManager.current.fontColor
+            attributes: [NSAttributedString.Key.foregroundColor: globalFontColor.withAlphaComponent(0.50)])
+        passwordField.backgroundColor = globalSecondaryColor.withAlphaComponent(0.50)
+        passwordField.textColor = globalFontColor
         self.passwordField.attributedPlaceholder = NSAttributedString(
             string: "Password",
-            attributes: [NSAttributedString.Key.foregroundColor: ThemeManager.current.fontColor.withAlphaComponent(0.50)])
+            attributes: [NSAttributedString.Key.foregroundColor: globalFontColor.withAlphaComponent(0.50)])
         
         // changes font
         titleLabel.font = globalTitleFont
@@ -127,7 +127,7 @@ class LoginViewController: UIViewController {
         ]
         for button in buttons {
             button.titleLabel?.font = globalButtonFont
-            button.tintColor = ThemeManager.current.fontColor
+            button.tintColor = globalFontColor
         }
     }
 }

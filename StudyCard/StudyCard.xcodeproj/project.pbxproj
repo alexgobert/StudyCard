@@ -19,7 +19,6 @@
 		83AD82EC29013746006A459B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83AD82EB29013746006A459B /* LoginViewController.swift */; };
 		83B60F57292B1DA3006974FD /* ThemeChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B60F56292B1DA3006974FD /* ThemeChangeViewController.swift */; };
 		83B60F5B292B21F9006974FD /* Themes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B60F5A292B21F9006974FD /* Themes.swift */; };
-		83B60F5D292B2479006974FD /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B60F5C292B2479006974FD /* ThemeManager.swift */; };
 		83B60F5F292B6D40006974FD /* FontChangeViewControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B60F5E292B6D40006974FD /* FontChangeViewControllerTableViewController.swift */; };
 		83DDC105291CFFC60099D7E5 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DDC104291CFFC60099D7E5 /* SettingTableViewCell.swift */; };
 		83DDC109291D09E00099D7E5 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83DDC108291D09E00099D7E5 /* SwitchTableViewCell.swift */; };
@@ -52,7 +51,6 @@
 		83AD82EB29013746006A459B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		83B60F56292B1DA3006974FD /* ThemeChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeChangeViewController.swift; sourceTree = "<group>"; };
 		83B60F5A292B21F9006974FD /* Themes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themes.swift; sourceTree = "<group>"; };
-		83B60F5C292B2479006974FD /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		83B60F5E292B6D40006974FD /* FontChangeViewControllerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontChangeViewControllerTableViewController.swift; sourceTree = "<group>"; };
 		83DDC104291CFFC60099D7E5 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		83DDC108291D09E00099D7E5 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
@@ -119,7 +117,6 @@
 				9585CB2028F6062600689958 /* Card.swift */,
 				9585CB1A28F5F2BB00689958 /* TextFieldTableViewCell.swift */,
 				83B60F5A292B21F9006974FD /* Themes.swift */,
-				83B60F5C292B2479006974FD /* ThemeManager.swift */,
 			);
 			path = "Custom Objects";
 			sourceTree = "<group>";
@@ -257,7 +254,6 @@
 				32A0F1A3291F3CF800FAF704 /* UIViewControllerExtension.swift in Sources */,
 				835E1164292B14EC00CC9075 /* CreateAccountViewController.swift in Sources */,
 				FDA5CC3D28F524C300EF941B /* AppDelegate.swift in Sources */,
-				83B60F5D292B2479006974FD /* ThemeManager.swift in Sources */,
 				83DDC105291CFFC60099D7E5 /* SettingTableViewCell.swift in Sources */,
 				9585CB1D28F6013F00689958 /* CardSet.swift in Sources */,
 				83AD82EC29013746006A459B /* LoginViewController.swift in Sources */,

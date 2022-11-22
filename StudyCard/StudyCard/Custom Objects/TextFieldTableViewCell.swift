@@ -28,16 +28,16 @@ class TextFieldTableViewCell: UITableViewCell, CustomTableViewCell {
     func setColor(_ color: UIColor) {
         self.backgroundColor = color
         self.tintColor = color
-        self.termField.backgroundColor = ThemeManager.current.secondaryColor
-        self.termField.textColor = ThemeManager.current.fontColor
-        self.definitionField.backgroundColor = ThemeManager.current.secondaryColor
-        self.definitionField.textColor = ThemeManager.current.fontColor
+        self.termField.backgroundColor = globalSecondaryColor
+        self.termField.textColor = globalFontColor
+        self.definitionField.backgroundColor = globalSecondaryColor
+        self.definitionField.textColor = globalFontColor
         self.termField.attributedPlaceholder = NSAttributedString(
             string: "Term",
-            attributes: [NSAttributedString.Key.foregroundColor: ThemeManager.current.fontColor.withAlphaComponent(0.50)])
+            attributes: [NSAttributedString.Key.foregroundColor: globalFontColor.withAlphaComponent(0.50)])
         self.definitionField.attributedPlaceholder = NSAttributedString(
             string: "Definition",
-            attributes: [NSAttributedString.Key.foregroundColor: ThemeManager.current.fontColor.withAlphaComponent(0.50)])
+            attributes: [NSAttributedString.Key.foregroundColor: globalFontColor.withAlphaComponent(0.50)])
     }
 
 }

@@ -58,11 +58,11 @@ class StudySetupVC: UIViewController {
     @IBAction func onToggleChanged(_ sender: Any) {
         shuffle = shuffleToggle.isOn
         if shuffleToggle.isOn {
-            shuffleToggle.backgroundColor = ThemeManager.current.lightColor
-            shuffleToggle.onTintColor = ThemeManager.current.lightColor
+            shuffleToggle.backgroundColor = globalLightColor
+            shuffleToggle.onTintColor = globalLightColor
         } else {
-            shuffleToggle.backgroundColor = ThemeManager.current.fontColor.withAlphaComponent(0.8)
-            shuffleToggle.tintColor = ThemeManager.current.fontColor.withAlphaComponent(0.8)
+            shuffleToggle.backgroundColor = globalFontColor.withAlphaComponent(0.8)
+            shuffleToggle.tintColor = globalFontColor.withAlphaComponent(0.8)
         }
         
     }
@@ -82,27 +82,27 @@ class StudySetupVC: UIViewController {
     
     func applyTheme() {
         // changes color
-        self.view.backgroundColor = ThemeManager.current.backgroundColor
-        shuffleLabel.textColor = ThemeManager.current.fontColor
+        self.view.backgroundColor = globalBkgdColor
+        shuffleLabel.textColor = globalFontColor
         shuffleToggle.layer.cornerRadius = shuffleToggle.frame.height / 2.0
         shuffleToggle.clipsToBounds = true
-        shuffleToggle.backgroundColor = ThemeManager.current.lightColor
-        shuffleToggle.onTintColor = ThemeManager.current.lightColor
+        shuffleToggle.backgroundColor = globalLightColor
+        shuffleToggle.onTintColor = globalLightColor
         
-        itemFirstLabel.textColor = ThemeManager.current.fontColor
-        itemFirstCtrl.selectedSegmentTintColor = ThemeManager.current.backgroundColor.withAlphaComponent(0.25)
-        itemFirstCtrl.backgroundColor = ThemeManager.current.lightColor
-        confirmButton.tintColor = ThemeManager.current.secondaryColor
-        editButton.tintColor = ThemeManager.current.secondaryColor
+        itemFirstLabel.textColor = globalFontColor
+        itemFirstCtrl.selectedSegmentTintColor = globalBkgdColor.withAlphaComponent(0.25)
+        itemFirstCtrl.backgroundColor = globalLightColor
+        confirmButton.tintColor = globalSecondaryColor
+        editButton.tintColor = globalSecondaryColor
         deleteButton.tintColor = UIColor(red: 255/255, green: 50/255, blue: 50/255, alpha: 1.0)
         
         shuffleLabel.font = globalTextFont
         itemFirstLabel.font = globalTextFont
-        itemFirstCtrl.setTitleTextAttributes([.font: globalTextFont, .foregroundColor: ThemeManager.current.fontColor], for: .normal)
+        itemFirstCtrl.setTitleTextAttributes([.font: globalTextFont, .foregroundColor: globalFontColor], for: .normal)
         editButton.titleLabel?.font = globalButtonFont
         deleteButton.titleLabel?.font = globalButtonFont
         
-        confirmButton.tintColor = ThemeManager.current.fontColor
+        confirmButton.tintColor = globalFontColor
         
     }
 }

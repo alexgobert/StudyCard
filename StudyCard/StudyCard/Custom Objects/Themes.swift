@@ -31,3 +31,33 @@ struct SunshineTheme: ThemeProtocol {
     var lightColor: UIColor = UIColor(red: 245/255, green: 157/255, blue: 105/255, alpha: 0.8)
     var secondaryColor: UIColor = UIColor(red: 190/255, green: 26/255, blue: 26/255, alpha: 1.0)
 }
+
+// extension that allows storing of colors to user defaults
+extension UserDefaults {
+    func colorForKey(key: String) -> UIColor? {
+      var colorReturnded: UIColor?
+      if let colorData = data(forKey: key) {
+        do {
+          if let color = try NSKeyedUnarchiver.unarchiveTopLevelObjectWithData(colorData) as? UIColor {
+            colorReturnded = color
+          }
+        } catch {
+          print("Error UserDefaults")
+        }
+      }
+      return colorReturnded
+    }
+    
+    func setColor(color: UIColor?, forKey key: String) {
+      var colorData: NSData?
+      if let color = color {
+        do {
+          let data = try NSKeyedArchiver.archivedData(withRootObject: color, requiringSecureCoding: false) as NSData?
+          colorData = data
+        } catch {
+          print("Error UserDefaults")
+        }
+      }
+      set(colorData, forKey: key)
+    }
+  }

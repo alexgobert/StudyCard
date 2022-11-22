@@ -352,10 +352,10 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     }
     
     func applyTheme() {
-        profilePicImageView.layer.borderColor = ThemeManager.current.fontColor.cgColor
-        self.view.backgroundColor = ThemeManager.current.backgroundColor
-        emailLabel.textColor = ThemeManager.current.fontColor
-        nameLabel.textColor = ThemeManager.current.fontColor
+        profilePicImageView.layer.borderColor = globalFontColor.cgColor
+        self.view.backgroundColor = globalBkgdColor
+        emailLabel.textColor = globalFontColor
+        nameLabel.textColor = globalFontColor
         
         emailLabel.font = globalTextFont
         nameLabel.font = globalTextFont
@@ -366,10 +366,10 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         let button = UIBarButtonItemAppearance(style: .plain)
         button.normal.titleTextAttributes = [
             .font: globalBackButtonFont,
-            .foregroundColor: ThemeManager.current.fontColor
+            .foregroundColor: globalFontColor
         ]
         
-        appearance.backgroundColor = ThemeManager.current.backgroundColor
+        appearance.backgroundColor = globalBkgdColor
         appearance.buttonAppearance = button
 
         navigationController?.navigationBar.standardAppearance = appearance
@@ -386,7 +386,7 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         ]
         for button in buttons {
             button.titleLabel?.font = globalButtonFont
-            button.tintColor = ThemeManager.current.fontColor
+            button.tintColor = globalFontColor
         }
         
     }

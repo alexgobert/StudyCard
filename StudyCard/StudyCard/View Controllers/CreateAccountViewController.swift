@@ -65,37 +65,37 @@ class CreateAccountViewController: UIViewController {
     
     func applyTheme() {
         // changes color
-        self.view.backgroundColor = ThemeManager.current.backgroundColor
-        titleLabel.textColor = ThemeManager.current.fontColor
-        emailLabel.textColor = ThemeManager.current.fontColor
-        passwordLabel.textColor = ThemeManager.current.fontColor
-        confirmPasswordLabel.textColor = ThemeManager.current.fontColor
-        createButton.backgroundColor = ThemeManager.current.secondaryColor
-        createButton.tintColor = ThemeManager.current.fontColor
-        agreementLabel.textColor = ThemeManager.current.fontColor
-        errorMessage.textColor = ThemeManager.current.fontColor
-        emailField.tintColor = ThemeManager.current.secondaryColor
-        passwordField.tintColor = ThemeManager.current.secondaryColor
-        confirmPasswordField.tintColor = ThemeManager.current.secondaryColor
+        self.view.backgroundColor = globalBkgdColor
+        titleLabel.textColor = globalFontColor
+        emailLabel.textColor = globalFontColor
+        passwordLabel.textColor = globalFontColor
+        confirmPasswordLabel.textColor = globalFontColor
+        createButton.backgroundColor = globalSecondaryColor
+        createButton.tintColor = globalFontColor
+        agreementLabel.textColor = globalFontColor
+        errorMessage.textColor = globalFontColor
+        emailField.tintColor = globalSecondaryColor
+        passwordField.tintColor = globalSecondaryColor
+        confirmPasswordField.tintColor = globalSecondaryColor
         
         // changes font
-        titleLabel.font = UIFont(name: userDefaults.string(forKey: FONT_KEY) ?? "TimesNewRomanPSMT", size: 34)!
-        emailLabel.font = UIFont(name: userDefaults.string(forKey: FONT_KEY) ?? "TimesNewRomanPSMT", size: 15)!
-        emailField.font = UIFont(name: userDefaults.string(forKey: FONT_KEY) ?? "TimesNewRomanPSMT", size: 14)!
-        passwordLabel.font = UIFont(name: userDefaults.string(forKey: FONT_KEY) ?? "TimesNewRomanPSMT", size: 15)!
-        passwordField.font = UIFont(name: userDefaults.string(forKey: FONT_KEY) ?? "TimesNewRomanPSMT", size: 14)!
-        confirmPasswordLabel.font = UIFont(name: userDefaults.string(forKey: FONT_KEY) ?? "TimesNewRomanPSMT", size: 15)!
-        confirmPasswordField.font = UIFont(name: userDefaults.string(forKey: FONT_KEY) ?? "TimesNewRomanPSMT", size: 14)!
-        createButton.titleLabel?.font = UIFont(name: userDefaults.string(forKey: FONT_KEY) ?? "TimesNewRomanPSMT", size: 15)!
-        agreementLabel.font = UIFont(name: userDefaults.string(forKey: FONT_KEY) ?? "TimesNewRomanPSMT", size: 13)!
-        errorMessage.font = UIFont(name: userDefaults.string(forKey: FONT_KEY) ?? "TimesNewRomanPSMT", size: 15)!
+        titleLabel.font = globalTitleFont
+        emailLabel.font = globalButtonFont
+        emailField.font = globalTextFont
+        passwordLabel.font = globalButtonFont
+        passwordField.font = globalTextFont
+        confirmPasswordLabel.font = globalButtonFont
+        confirmPasswordField.font = globalTextFont
+        createButton.titleLabel?.font = globalButtonFont
+        agreementLabel.font = globalTextFont
+        errorMessage.font = globalButtonFont
         
         
         // alters the navigation bar back button
         let appearance = UINavigationBarAppearance()
         let button = UIBarButtonItemAppearance(style: .plain)
-            button.normal.titleTextAttributes = [NSAttributedString.Key.font: UIFont(name: userDefaults.string(forKey: FONT_KEY) ?? "TimesNewRomanPSMT", size: 20)!, NSAttributedString.Key.foregroundColor: ThemeManager.current.fontColor]
-        appearance.backgroundColor = ThemeManager.current.backgroundColor
+            button.normal.titleTextAttributes = [NSAttributedString.Key.font: globalBackButtonFont, NSAttributedString.Key.foregroundColor: globalFontColor]
+        appearance.backgroundColor = globalBkgdColor
         appearance.buttonAppearance = button
         
         navigationController?.navigationBar.standardAppearance = appearance

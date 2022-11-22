@@ -80,9 +80,9 @@ class SummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
-        view.tintColor = ThemeManager.current.backgroundColor
+        view.tintColor = globalBkgdColor
         let header = view as! UITableViewHeaderFooterView
-        header.textLabel?.textColor = ThemeManager.current.fontColor
+        header.textLabel?.textColor = globalFontColor
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -90,7 +90,7 @@ class SummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let card: Card = sectionedCards[indexPath.section][indexPath.row]
         
         cell.setCard(card)
-        cell.setColor(backgroundColor: ThemeManager.current.backgroundColor, fontColor: ThemeManager.current.fontColor)
+        cell.setColor(backgroundColor: globalBkgdColor, fontColor: globalFontColor)
         cell.setFont(globalTextFont)
         
         return cell
@@ -136,13 +136,13 @@ class SummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func applyTheme() {
-        self.navigationController?.navigationBar.tintColor = ThemeManager.current.fontColor
-        self.view.backgroundColor = ThemeManager.current.backgroundColor
-        tableView.backgroundColor = ThemeManager.current.backgroundColor
+        self.navigationController?.navigationBar.tintColor = globalFontColor
+        self.view.backgroundColor = globalBkgdColor
+        tableView.backgroundColor = globalBkgdColor
         
-        doneButton.tintColor = ThemeManager.current.secondaryColor
-        retryUnknownButton.tintColor = ThemeManager.current.secondaryColor
-        retryAllButton.tintColor = ThemeManager.current.secondaryColor
+        doneButton.tintColor = globalSecondaryColor
+        retryUnknownButton.tintColor = globalSecondaryColor
+        retryAllButton.tintColor = globalSecondaryColor
         
         let labels: [UILabel] = [
             titleLabel,
@@ -152,7 +152,7 @@ class SummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             unknownCounter
         ]
         for label in labels {
-            label.textColor = ThemeManager.current.fontColor
+            label.textColor = globalFontColor
             label.font = globalTextFont
         }
         

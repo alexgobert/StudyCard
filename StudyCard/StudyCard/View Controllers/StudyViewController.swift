@@ -181,15 +181,15 @@ class StudyViewController: UIViewController {
     }
     
     func applyTheme() {
-        self.view.backgroundColor = ThemeManager.current.backgroundColor
-        progressBar.progressTintColor = ThemeManager.current.secondaryColor
+        self.view.backgroundColor = globalBkgdColor
+        progressBar.progressTintColor = globalSecondaryColor
         let labels: [UILabel] = [
             knownLabel,
             unknownLabel,
             swipeLabel
         ]
         for label in labels {
-            label.textColor = ThemeManager.current.fontColor
+            label.textColor = globalFontColor
             label.font = globalTextFont
         }
     }

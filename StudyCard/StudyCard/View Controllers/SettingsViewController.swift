@@ -8,12 +8,13 @@
 import UIKit
 
 let userDefaults = UserDefaults.standard
-
+//keys for user defaults
 let MUTE_KEY = "muteKey"
 let VIBRATION_KEY = "vibrationKey"
 let NOTIFICATION_KEY = "notificationKey"
 let BACKGROUND_COLOR_KEY = "backgroundColorKey"
 let SECONDARY_COLOR_KEY = "secondaryColorKey"
+let LIGHT_COLOR_KEY = "secondaryColorKey"
 let FONT_COLOR_KEY = "fontColorKey"
 let FONT_KEY = "fontKey"
 
@@ -82,22 +83,22 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func configure() {
         models.append(Section(title: "Theme", options: [
-            .staticCell(model: SettingsOption(title: "Font", font: globalTextFont, fontColor: ThemeManager.current.fontColor) {
+            .staticCell(model: SettingsOption(title: "Font", font: globalTextFont, fontColor: globalFontColor) {
                 self.performSegue(withIdentifier: "fontSegue", sender: self)
             }),
-            .staticCell(model: SettingsOption(title: "Theme", font: globalTextFont, fontColor: ThemeManager.current.fontColor) {
+            .staticCell(model: SettingsOption(title: "Theme", font: globalTextFont, fontColor: globalFontColor) {
                 self.performSegue(withIdentifier: "themeSegue", sender: self)
             })
         ]))
         
         models.append(Section(title: "Sounds", options: [
-            .switchCell(model: SettingsSwitchOption(title: "Push Notifications", font: globalTextFont, fontColor: ThemeManager.current.fontColor, switchColor: ThemeManager.current.secondaryColor, isOn: userDefaults.bool(forKey: NOTIFICATION_KEY)) {
+            .switchCell(model: SettingsSwitchOption(title: "Push Notifications", font: globalTextFont, fontColor: globalFontColor, switchColor: globalSecondaryColor, isOn: userDefaults.bool(forKey: NOTIFICATION_KEY)) {
                 
             }),
-            .switchCell(model: SettingsSwitchOption(title: "Volume Mute", font: globalTextFont, fontColor: ThemeManager.current.fontColor, switchColor: ThemeManager.current.secondaryColor, isOn: userDefaults.bool(forKey: MUTE_KEY)) {
+            .switchCell(model: SettingsSwitchOption(title: "Volume Mute", font: globalTextFont, fontColor: globalFontColor, switchColor: globalSecondaryColor, isOn: userDefaults.bool(forKey: MUTE_KEY)) {
                 
             }),
-            .switchCell(model: SettingsSwitchOption(title: "Vibrations", font: globalTextFont, fontColor: ThemeManager.current.fontColor, switchColor: ThemeManager.current.secondaryColor, isOn: userDefaults.bool(forKey: VIBRATION_KEY)) {
+            .switchCell(model: SettingsSwitchOption(title: "Vibrations", font: globalTextFont, fontColor: globalFontColor, switchColor: globalSecondaryColor, isOn: userDefaults.bool(forKey: VIBRATION_KEY)) {
                 
             })
         ]))
@@ -110,7 +111,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int){
         let header = view as! UITableViewHeaderFooterView
-        header.textLabel?.textColor = ThemeManager.current.fontColor
+        header.textLabel?.textColor = globalFontColor
         header.textLabel?.font = globalTextFont
     }
     
@@ -131,7 +132,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                 return UITableViewCell()
             }
             settingsCell.configure(with: model)
-            settingsCell.backgroundColor = ThemeManager.current.lightColor
+            settingsCell.backgroundColor = globalLightColor
             settingsCell.preservesSuperviewLayoutMargins = false
             settingsCell.separatorInset = UIEdgeInsets.zero
             settingsCell.layoutMargins = UIEdgeInsets.zero
@@ -141,7 +142,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                 return UITableViewCell()
             }
             switchCell.configure(with: model)
-            switchCell.backgroundColor = ThemeManager.current.lightColor
+            switchCell.backgroundColor = globalLightColor
             switchCell.preservesSuperviewLayoutMargins = false
             switchCell.separatorInset = UIEdgeInsets.zero
             switchCell.layoutMargins = UIEdgeInsets.zero
@@ -165,10 +166,15 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     @objc func reloadTheme() {
+        // updates global variables
         globalTextFont = UIFont(name: userDefaults.string(forKey: FONT_KEY) ?? "TimesNewRomanPSMT", size: 14)!
         globalButtonFont = UIFont(name: userDefaults.string(forKey: FONT_KEY) ?? "TimesNewRomanPSMT", size: 15)!
         globalBackButtonFont = UIFont(name: userDefaults.string(forKey: FONT_KEY) ?? "TimesNewRomanPSMT", size: 20)!
         globalTitleFont = UIFont(name: userDefaults.string(forKey: FONT_KEY) ?? "TimesNewRomanPSMT", size: 34)!
+        globalBkgdColor = (userDefaults.colorForKey(key: BACKGROUND_COLOR_KEY) ?? DefaultTheme().backgroundColor)!
+        globalSecondaryColor = (userDefaults.colorForKey(key: SECONDARY_COLOR_KEY) ?? DefaultTheme().secondaryColor)!
+        globalLightColor = (userDefaults.colorForKey(key: LIGHT_COLOR_KEY) ?? DefaultTheme().lightColor)!
+        globalFontColor = (userDefaults.colorForKey(key: FONT_COLOR_KEY) ?? DefaultTheme().fontColor)!
         applyTheme()
     }
     
@@ -177,25 +183,25 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         configure()
         
         // changes color
-        self.view.backgroundColor = ThemeManager.current.backgroundColor
-        tableView.backgroundColor = ThemeManager.current.backgroundColor
-        tableView.separatorColor = ThemeManager.current.fontColor
-        tableView.tintColor = ThemeManager.current.fontColor
+        self.view.backgroundColor = globalBkgdColor
+        tableView.backgroundColor = globalBkgdColor
+        tableView.separatorColor = globalFontColor
+        tableView.tintColor = globalFontColor
         
         // alters the navigation bar title appearance
         let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = ThemeManager.current.backgroundColor
-        appearance.titleTextAttributes = [NSAttributedString.Key.font: globalBackButtonFont ,NSAttributedString.Key.foregroundColor: ThemeManager.current.fontColor]
-        appearance.largeTitleTextAttributes = [NSAttributedString.Key.font: globalTitleFont ,NSAttributedString.Key.foregroundColor: ThemeManager.current.fontColor]
+        appearance.backgroundColor = globalBkgdColor
+        appearance.titleTextAttributes = [NSAttributedString.Key.font: globalBackButtonFont ,NSAttributedString.Key.foregroundColor: globalFontColor]
+        appearance.largeTitleTextAttributes = [NSAttributedString.Key.font: globalTitleFont ,NSAttributedString.Key.foregroundColor: globalFontColor]
         
         let button = UIBarButtonItemAppearance(style: .plain)
-            button.normal.titleTextAttributes = [NSAttributedString.Key.font: globalBackButtonFont, NSAttributedString.Key.foregroundColor: ThemeManager.current.fontColor]
+            button.normal.titleTextAttributes = [NSAttributedString.Key.font: globalBackButtonFont, NSAttributedString.Key.foregroundColor: globalFontColor]
         appearance.buttonAppearance = button
 
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         
-        self.navigationController?.navigationBar.tintColor = ThemeManager.current.secondaryColor
+        self.navigationController?.navigationBar.tintColor = globalSecondaryColor
         
     }
 }

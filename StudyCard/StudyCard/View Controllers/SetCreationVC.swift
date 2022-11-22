@@ -112,11 +112,11 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         cell.definitionField.text = cardSet[indexPath.row].getDef()
         
         
-        cell.setColor(ThemeManager.current.backgroundColor)
+        cell.setColor(globalBkgdColor)
         cell.setFont(globalTextFont)
         
         let selectedCellView: UIView = UIView()
-        selectedCellView.backgroundColor = ThemeManager.current.secondaryColor
+        selectedCellView.backgroundColor = globalSecondaryColor
         cell.selectedBackgroundView = selectedCellView
         
         return cell
@@ -230,16 +230,16 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     func applyTheme() {
-        self.view.backgroundColor = ThemeManager.current.backgroundColor
-        tableView.backgroundColor = ThemeManager.current.backgroundColor
-        addTermButton.tintColor = ThemeManager.current.secondaryColor
-        saveButton.tintColor = ThemeManager.current.secondaryColor
+        self.view.backgroundColor = globalBkgdColor
+        tableView.backgroundColor = globalBkgdColor
+        addTermButton.tintColor = globalSecondaryColor
+        saveButton.tintColor = globalSecondaryColor
         titleField.font = globalTextFont
-        titleField.backgroundColor = ThemeManager.current.secondaryColor
-        titleField.textColor = ThemeManager.current.fontColor
+        titleField.backgroundColor = globalSecondaryColor
+        titleField.textColor = globalFontColor
         titleField.attributedPlaceholder = NSAttributedString(
             string: "Title",
-            attributes: [NSAttributedString.Key.foregroundColor: ThemeManager.current.fontColor.withAlphaComponent(0.50)])
+            attributes: [NSAttributedString.Key.foregroundColor: globalFontColor.withAlphaComponent(0.50)])
         
     }
 

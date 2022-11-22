@@ -13,6 +13,8 @@ public let themes = [
     "Sunshine Theme"
 ]
 
+let themesList: [ThemeProtocol] = [DefaultTheme(), OceanTheme(), SunshineTheme()]
+
 let themeCellIdentifier = "themeCell"
 
 class ThemeChangeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -43,8 +45,8 @@ class ThemeChangeViewController: UIViewController, UITableViewDelegate, UITableV
         let cell = tableView.dequeueReusableCell(withIdentifier: themeCellIdentifier, for: indexPath)
         cell.textLabel?.text = themes[row]
         cell.textLabel?.font = globalTextFont
-        cell.textLabel?.textColor = ThemeManager.current.fontColor
-        cell.backgroundColor = ThemeManager.current.lightColor
+        cell.textLabel?.textColor = globalFontColor
+        cell.backgroundColor = globalLightColor
         
         return cell
     }
@@ -52,7 +54,12 @@ class ThemeChangeViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let row = indexPath.row
         tableView.deselectRow(at: indexPath, animated: true)
-        ThemeManager.current = ThemeManager.themes[row]
+        
+        userDefaults.setColor(color: themesList[row].backgroundColor, forKey: BACKGROUND_COLOR_KEY)
+        userDefaults.setColor(color: themesList[row].secondaryColor, forKey: SECONDARY_COLOR_KEY)
+        userDefaults.setColor(color: themesList[row].lightColor, forKey: LIGHT_COLOR_KEY)
+        userDefaults.setColor(color: themesList[row].fontColor, forKey: FONT_COLOR_KEY)
+        
         NotificationCenter.default.post(name: NSNotification.Name("ThemeUpdate"), object: nil)
         self.navigationController?.popViewController(animated: true)
     }
@@ -66,23 +73,21 @@ class ThemeChangeViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func applyTheme() {
-        let manager: ThemeProtocol = ThemeManager.current
-        
-        self.navigationController?.navigationBar.tintColor = manager.fontColor
-        self.view.backgroundColor = manager.backgroundColor
-        tableView.backgroundColor = manager.backgroundColor
-        tableView.separatorColor = manager.fontColor
+        self.navigationController?.navigationBar.tintColor = globalFontColor
+        self.view.backgroundColor = globalBkgdColor
+        tableView.backgroundColor = globalBkgdColor
+        tableView.separatorColor = globalFontColor
         
         let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = manager.backgroundColor
+        appearance.backgroundColor = globalBkgdColor
                 
         // This will alter the navigation bar title appearance
-        appearance.titleTextAttributes = [.foregroundColor: manager.fontColor]
+        appearance.titleTextAttributes = [.foregroundColor: globalFontColor]
         
         let button = UIBarButtonItemAppearance(style: .plain)
         button.normal.titleTextAttributes = [
             .font: globalBackButtonFont,
-            .foregroundColor: manager.fontColor
+            .foregroundColor: globalFontColor
         ]
         appearance.buttonAppearance = button
 

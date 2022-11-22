@@ -116,12 +116,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.setTimes(times: searchData[indexPath.row].getTimesStudied())
         cell.setPercent(percent: searchData[indexPath.row].getPercentKnown())
         
-        cell.name?.textColor = ThemeManager.current.fontColor
-        cell.timesStudied?.textColor = ThemeManager.current.fontColor
-        cell.percentKnown?.textColor = ThemeManager.current.fontColor
-        cell.timesStudiedLabel?.textColor = ThemeManager.current.fontColor
-        cell.percentKnownLabel?.textColor = ThemeManager.current.fontColor
-        cell.backgroundColor = ThemeManager.current.backgroundColor
+        cell.name?.textColor = globalFontColor
+        cell.timesStudied?.textColor = globalFontColor
+        cell.percentKnown?.textColor = globalFontColor
+        cell.timesStudiedLabel?.textColor = globalFontColor
+        cell.percentKnownLabel?.textColor = globalFontColor
+        cell.backgroundColor = globalBkgdColor
         
         cell.name?.font = globalTextFont
         cell.timesStudied?.font = globalTextFont
@@ -130,7 +130,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.percentKnownLabel?.font = globalTextFont
         
         let selectedCellView: UIView = UIView()
-        selectedCellView.backgroundColor = ThemeManager.current.secondaryColor
+        selectedCellView.backgroundColor = globalSecondaryColor
         cell.selectedBackgroundView = selectedCellView
         
         return cell
@@ -276,20 +276,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func applyTheme() {
         // changes color
-        self.view.backgroundColor = ThemeManager.current.backgroundColor
-        setsTableView.backgroundColor = ThemeManager.current.backgroundColor
-        setsTableView.separatorColor = ThemeManager.current.fontColor
-        setSearch.barTintColor = ThemeManager.current.backgroundColor
-        setSearch.searchTextField.leftView?.tintColor = ThemeManager.current.fontColor
-        setSearch.searchTextField.textColor = ThemeManager.current.fontColor
-        setSearch.tintColor = ThemeManager.current.fontColor
-        settingsButton.tintColor = ThemeManager.current.fontColor
-        profileButton.tintColor = ThemeManager.current.fontColor
-        addButton.tintColor = ThemeManager.current.fontColor
+        self.view.backgroundColor = globalBkgdColor
+        setsTableView.backgroundColor = globalBkgdColor
+        setsTableView.separatorColor = globalFontColor
+        setSearch.barTintColor = globalBkgdColor
+        setSearch.searchTextField.leftView?.tintColor = globalFontColor
+        setSearch.searchTextField.textColor = globalFontColor
+        setSearch.tintColor = globalFontColor
+        settingsButton.tintColor = globalFontColor
+        profileButton.tintColor = globalFontColor
+        addButton.tintColor = globalFontColor
         
         setSearch.searchTextField.font = globalTextFont
         
-        self.navigationController?.navigationBar.tintColor = ThemeManager.current.fontColor
+        self.navigationController?.navigationBar.tintColor = globalFontColor
         
         navigationController?.navigationBar.prefersLargeTitles = false
     }

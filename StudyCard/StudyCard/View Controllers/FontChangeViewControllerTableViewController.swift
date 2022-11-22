@@ -54,9 +54,9 @@ class FontChangeViewController: UIViewController, UITableViewDelegate, UITableVi
         let row = indexPath.row
         let cell = tableView.dequeueReusableCell(withIdentifier: fontCellIdentifier, for: indexPath)
         cell.textLabel?.text = fonts[row]
-        cell.textLabel?.font = globalTextFont
-        cell.textLabel?.textColor = ThemeManager.current.fontColor
-        cell.backgroundColor = ThemeManager.current.lightColor
+        cell.textLabel?.font = UIFont(name: officialFontNames[row], size: 14)!
+        cell.textLabel?.textColor = globalFontColor
+        cell.backgroundColor = globalLightColor
         return cell
     }
     
@@ -79,23 +79,21 @@ class FontChangeViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func applyTheme() {
-        let manager: ThemeProtocol = ThemeManager.current
-        
-        self.navigationController?.navigationBar.tintColor = manager.fontColor
-        self.view.backgroundColor = manager.backgroundColor
-        tableView.backgroundColor = manager.backgroundColor
-        tableView.separatorColor = manager.fontColor
+        self.navigationController?.navigationBar.tintColor = globalFontColor
+        self.view.backgroundColor = globalBkgdColor
+        tableView.backgroundColor = globalBkgdColor
+        tableView.separatorColor = globalFontColor
         
         let appearance = UINavigationBarAppearance()
-        appearance.backgroundColor = manager.backgroundColor
+        appearance.backgroundColor = globalBkgdColor
                 
         // This will alter the navigation bar title appearance
-        appearance.titleTextAttributes = [.foregroundColor: manager.fontColor]
+        appearance.titleTextAttributes = [.foregroundColor: globalFontColor]
         
         let button = UIBarButtonItemAppearance(style: .plain)
         button.normal.titleTextAttributes = [
             .font: globalBackButtonFont,
-            .foregroundColor: manager.fontColor
+            .foregroundColor: globalFontColor
         ]
         appearance.buttonAppearance = button
 

@@ -25,3 +25,11 @@ protocol ThemeProtocol {
     var lightColor: UIColor { get set }
     var secondaryColor: UIColor { get set }
 }
+
+protocol DefaultInitializable {
+  init()
+}
+
+protocol UserDefaultsPeristable: Codable, DefaultInitializable {
+    static var key: String {get}
+}
