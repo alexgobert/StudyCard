@@ -98,11 +98,19 @@ class LoginViewController: UIViewController {
     func applyTheme() {
         // changes color
         self.view.backgroundColor = ThemeManager.current.backgroundColor
-        titleLabel.textColor = ThemeManager.current.secondaryColor
+        titleLabel.textColor = ThemeManager.current.fontColor
         loginButton.backgroundColor = ThemeManager.current.secondaryColor
         errorMessage.textColor = ThemeManager.current.fontColor
-        emailField.tintColor = ThemeManager.current.secondaryColor
-        passwordField.tintColor = ThemeManager.current.secondaryColor
+        emailField.backgroundColor = ThemeManager.current.secondaryColor.withAlphaComponent(0.50)
+        emailField.textColor = ThemeManager.current.fontColor
+        self.emailField.attributedPlaceholder = NSAttributedString(
+            string: "Email",
+            attributes: [NSAttributedString.Key.foregroundColor: ThemeManager.current.fontColor.withAlphaComponent(0.50)])
+        passwordField.backgroundColor = ThemeManager.current.secondaryColor.withAlphaComponent(0.50)
+        passwordField.textColor = ThemeManager.current.fontColor
+        self.passwordField.attributedPlaceholder = NSAttributedString(
+            string: "Password",
+            attributes: [NSAttributedString.Key.foregroundColor: ThemeManager.current.fontColor.withAlphaComponent(0.50)])
         
         // changes font
         titleLabel.font = globalTitleFont
