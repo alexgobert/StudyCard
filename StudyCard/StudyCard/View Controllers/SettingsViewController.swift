@@ -37,6 +37,7 @@ struct SettingsSwitchOption {
     let font: UIFont
     let fontColor: UIColor
     let switchColor: UIColor
+    let backgroundColor: UIColor
     var isOn: Bool
     let handler: (() -> Void)
 }
@@ -92,13 +93,13 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         ]))
         
         models.append(Section(title: "Sounds", options: [
-            .switchCell(model: SettingsSwitchOption(title: "Push Notifications", font: globalTextFont, fontColor: globalFontColor, switchColor: globalBkgdColor, isOn: userDefaults.bool(forKey: NOTIFICATION_KEY)) {
+            .switchCell(model: SettingsSwitchOption(title: "Push Notifications", font: globalTextFont, fontColor: globalFontColor, switchColor: globalBkgdColor, backgroundColor: globalFontColor, isOn: userDefaults.bool(forKey: NOTIFICATION_KEY)) {
                 
             }),
-            .switchCell(model: SettingsSwitchOption(title: "Volume Mute", font: globalTextFont, fontColor: globalFontColor, switchColor: globalBkgdColor, isOn: userDefaults.bool(forKey: MUTE_KEY)) {
+            .switchCell(model: SettingsSwitchOption(title: "Volume Mute", font: globalTextFont, fontColor: globalFontColor, switchColor: globalBkgdColor, backgroundColor: globalFontColor, isOn: userDefaults.bool(forKey: MUTE_KEY)) {
                 
             }),
-            .switchCell(model: SettingsSwitchOption(title: "Vibrations", font: globalTextFont, fontColor: globalFontColor, switchColor: globalBkgdColor, isOn: userDefaults.bool(forKey: VIBRATION_KEY)) {
+            .switchCell(model: SettingsSwitchOption(title: "Vibrations", font: globalTextFont, fontColor: globalFontColor, switchColor: globalBkgdColor, backgroundColor: globalFontColor, isOn: userDefaults.bool(forKey: VIBRATION_KEY)) {
                 
             })
         ]))

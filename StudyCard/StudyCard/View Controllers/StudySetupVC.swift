@@ -62,8 +62,8 @@ class StudySetupVC: UIViewController {
             shuffleToggle.backgroundColor = globalLightColor
             shuffleToggle.onTintColor = globalLightColor
         } else {
-            shuffleToggle.backgroundColor = globalFontColor.withAlphaComponent(0.8)
-            shuffleToggle.tintColor = globalFontColor.withAlphaComponent(0.8)
+            shuffleToggle.backgroundColor = globalFontColor
+            shuffleToggle.tintColor = globalFontColor
         }
         
     }

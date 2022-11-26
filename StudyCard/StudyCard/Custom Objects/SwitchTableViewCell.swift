@@ -70,6 +70,9 @@ class SwitchTableViewCell: UITableViewCell {
         label.text = model.title
         label.font = model.font
         label.textColor = model.fontColor
+        mySwitch.layer.cornerRadius = mySwitch.frame.height / 2.0
+        mySwitch.clipsToBounds = true
+        mySwitch.backgroundColor = model.backgroundColor
         mySwitch.onTintColor = model.switchColor
         mySwitch.isOn = model.isOn
     }
