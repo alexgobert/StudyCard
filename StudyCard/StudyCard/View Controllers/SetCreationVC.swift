@@ -23,6 +23,7 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     var cardSet: [Card]!
     var importedSet: CardSet!
     var setIndex: Int!
+    var editingSet: Bool!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -188,7 +189,6 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     func storeSet(name: String, cards: [Card]) {
-        let set = NSEntityDescription.insertNewObject(forEntityName: "StoredSet", into: context)
         var terms: [String] = []
         var defs: [String] = []
         
@@ -202,9 +202,33 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         let termsData = termsString.data(using: String.Encoding.utf8)
         let defsData = defsString.data(using: String.Encoding.utf8)
         
-        set.setValue(name, forKey: "name")
-        set.setValue(termsData, forKey: "terms")
-        set.setValue(defsData, forKey: "definitions")
+        if editingSet {
+            
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "StoredSet")
+            var fetchedResults:[NSManagedObject]
+            
+            do {
+                try fetchedResults = context.fetch(request) as! [NSManagedObject]
+                
+                fetchedResults[setIndex].setValue(name, forKey: "name")
+                fetchedResults[setIndex].setValue(termsData, forKey: "terms")
+                fetchedResults[setIndex].setValue(defsData, forKey: "definitions")
+                
+            } catch {
+                let nserror = error as NSError
+                NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+                abort()
+            }
+            
+            
+        } else {
+            let set = NSEntityDescription.insertNewObject(forEntityName: "StoredSet", into: context)
+            
+            set.setValue(name, forKey: "name")
+            set.setValue(termsData, forKey: "terms")
+            set.setValue(defsData, forKey: "definitions")
+            
+        }
         
         saveContext()
         

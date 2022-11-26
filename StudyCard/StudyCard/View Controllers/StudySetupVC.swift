@@ -48,6 +48,7 @@ class StudySetupVC: UIViewController {
             dest.importedSet = cards
             dest.delegate = delegate
             dest.setIndex = setIndex
+            dest.editingSet = true
         }
     }
     

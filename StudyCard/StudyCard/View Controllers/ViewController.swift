@@ -98,6 +98,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SetCreationSegue", let dest = segue.destination as? SetCreationVC {
             dest.delegate = self
+            dest.editingSet = false
         } else if segue.identifier == "StudySetupSegue", let dest = segue.destination as? StudySetupVC, let index = setsTableView.indexPathForSelectedRow?.row {
             dest.cards = setList[index]
             dest.delegate = self
