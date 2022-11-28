@@ -7,6 +7,7 @@
 
 
 import UIKit
+import AVKit
 
 class StudyViewController: UIViewController {
     
@@ -25,6 +26,8 @@ class StudyViewController: UIViewController {
     var knownCards: [Card]!
     var unknownCards: [Card]!
     var remainingCards: [Card]!
+    
+    var audioPlayer: AVAudioPlayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +50,7 @@ class StudyViewController: UIViewController {
             animations: nil
         )
         isShowingTerm.toggle()
+        playSound(named: "CardFlip")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -102,6 +106,16 @@ class StudyViewController: UIViewController {
         self.cardSet = cardSet
     }
     
+    func playSound(named resource: String) {
+        guard let url = Bundle.main.url(forResource: resource, withExtension: "mp3") else { return }
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            audioPlayer?.play()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
     // Right swipe Gesture
     @IBAction func rightGesture(_ sender: UISwipeGestureRecognizer) {
         print("Right")
@@ -113,6 +127,7 @@ class StudyViewController: UIViewController {
         
         // animate card motion
         animateCard(outBoundDirection: "Right")
+        playSound(named: "CardSwoosh")
     }
     
     // Left swipe Gesture
@@ -126,6 +141,7 @@ class StudyViewController: UIViewController {
         
         // animate card motion
         animateCard(outBoundDirection: "Left")
+        playSound(named: "CardSwoosh")
     }
     
     func animateCard(outBoundDirection: String) {
@@ -193,5 +209,5 @@ class StudyViewController: UIViewController {
             label.font = globalTextFont
         }
     }
-
+    
 }

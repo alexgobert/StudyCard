@@ -11,6 +11,8 @@
 		3285A4D229189E2100466C2B /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 3285A4D129189E2100466C2B /* FirebaseAuth */; };
 		3285A4D429189E2100466C2B /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 3285A4D329189E2100466C2B /* FirebaseStorage */; };
 		32A0F1A3291F3CF800FAF704 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A0F1A2291F3CF800FAF704 /* UIViewControllerExtension.swift */; };
+		5069592D2935237000CD5133 /* CardFlip.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5069592C2935237000CD5133 /* CardFlip.mp3 */; };
+		5069592F293523C000CD5133 /* CardSwoosh.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5069592E293523C000CD5133 /* CardSwoosh.mp3 */; };
 		50A5D6CC2900BBD800D0E964 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5D6CB2900BBD800D0E964 /* ProfileViewController.swift */; };
 		50A5D6CE2900BC4700D0E964 /* StudyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A5D6CD2900BC4700D0E964 /* StudyViewController.swift */; };
 		83485B682919D93900705136 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83485B672919D93900705136 /* SettingsViewController.swift */; };
@@ -43,6 +45,8 @@
 /* Begin PBXFileReference section */
 		32317B6C29136154006DD86E /* SummaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryTableViewCell.swift; sourceTree = "<group>"; };
 		32A0F1A2291F3CF800FAF704 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		5069592C2935237000CD5133 /* CardFlip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CardFlip.mp3; sourceTree = "<group>"; };
+		5069592E293523C000CD5133 /* CardSwoosh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CardSwoosh.mp3; sourceTree = "<group>"; };
 		50A5D6CB2900BBD800D0E964 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		50A5D6CD2900BC4700D0E964 /* StudyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyViewController.swift; sourceTree = "<group>"; };
 		83485B672919D93900705136 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +125,15 @@
 			path = "Custom Objects";
 			sourceTree = "<group>";
 		};
+		5069592B293522E000CD5133 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				5069592C2935237000CD5133 /* CardFlip.mp3 */,
+				5069592E293523C000CD5133 /* CardSwoosh.mp3 */,
+			);
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		FDA5CC3028F524C300EF941B = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +153,7 @@
 		FDA5CC3B28F524C300EF941B /* StudyCard */ = {
 			isa = PBXGroup;
 			children = (
+				5069592B293522E000CD5133 /* Sounds */,
 				32803CE2292348CE00565D46 /* View Controllers */,
 				32803CE32923492500565D46 /* Custom Objects */,
 				FDA5CC4228F524C300EF941B /* Main.storyboard */,
@@ -223,6 +237,8 @@
 			files = (
 				FDA5CC4C28F524C500EF941B /* LaunchScreen.storyboard in Resources */,
 				8395461B2901402D0074368B /* GoogleService-Info.plist in Resources */,
+				5069592D2935237000CD5133 /* CardFlip.mp3 in Resources */,
+				5069592F293523C000CD5133 /* CardSwoosh.mp3 in Resources */,
 				FDA5CC4928F524C500EF941B /* Assets.xcassets in Resources */,
 				FDA5CC4428F524C300EF941B /* Main.storyboard in Resources */,
 			);
