@@ -839,43 +839,39 @@
                                 <rect key="frame" x="0.0" y="253.99999999999997" width="393" height="420.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SummaryTableViewCell" rowHeight="100" id="awK-0D-L9q" customClass="SummaryTableViewCell" customModule="StudyCard" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="100"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SummaryTableViewCell" rowHeight="85" translatesAutoresizingMaskIntoConstraints="NO" id="awK-0D-L9q" customClass="SummaryTableViewCell" customModule="StudyCard" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="awK-0D-L9q" id="HYZ-bR-f1s" customClass="SummaryTableViewCell" customModule="StudyCard" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Pjs-4H-8Ec">
-                                                    <rect key="frame" x="25" y="10" width="343" height="80"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Term" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ey2-kt-Zn5">
-                                                            <rect key="frame" x="0.0" y="0.0" width="38.666666666666664" height="34.666666666666664"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Definition" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qay-Ig-xwg">
-                                                            <rect key="frame" x="0.0" y="59.666666666666679" width="72.666666666666671" height="20.333333333333336"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Term" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zCy-BH-3OD">
+                                                    <rect key="frame" x="25" y="10" width="343" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Definition" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="svq-Bj-Am6">
+                                                    <rect key="frame" x="25" y="55.333333333333343" width="343" height="19.666666666666657"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Pjs-4H-8Ec" firstAttribute="top" secondItem="HYZ-bR-f1s" secondAttribute="top" constant="10" id="LTE-8J-6Zj"/>
+                                                <constraint firstAttribute="trailing" secondItem="zCy-BH-3OD" secondAttribute="trailing" constant="25" id="0nk-mv-xAG"/>
+                                                <constraint firstItem="zCy-BH-3OD" firstAttribute="leading" secondItem="HYZ-bR-f1s" secondAttribute="leading" constant="25" id="4Gb-IC-xDv"/>
+                                                <constraint firstItem="svq-Bj-Am6" firstAttribute="trailing" secondItem="zCy-BH-3OD" secondAttribute="trailing" id="K1I-UO-w9f"/>
+                                                <constraint firstItem="zCy-BH-3OD" firstAttribute="top" secondItem="HYZ-bR-f1s" secondAttribute="top" constant="10" id="b9t-Xi-Q99"/>
+                                                <constraint firstItem="svq-Bj-Am6" firstAttribute="leading" secondItem="zCy-BH-3OD" secondAttribute="leading" id="ptA-Qw-zOc"/>
+                                                <constraint firstAttribute="bottom" secondItem="svq-Bj-Am6" secondAttribute="bottom" constant="10" id="xoj-NP-KYA"/>
+                                                <constraint firstItem="svq-Bj-Am6" firstAttribute="top" secondItem="zCy-BH-3OD" secondAttribute="bottom" constant="25" id="xy0-o0-hzz"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <constraints>
-                                            <constraint firstItem="Pjs-4H-8Ec" firstAttribute="centerY" secondItem="awK-0D-L9q" secondAttribute="centerY" id="Ovd-UL-uKL"/>
-                                            <constraint firstAttribute="trailing" secondItem="Pjs-4H-8Ec" secondAttribute="trailing" constant="25" id="sIG-S7-4s5"/>
-                                            <constraint firstItem="Pjs-4H-8Ec" firstAttribute="leading" secondItem="awK-0D-L9q" secondAttribute="leading" constant="25" id="sbi-uP-Cmc"/>
-                                        </constraints>
                                         <connections>
-                                            <outlet property="definitionLabel" destination="qay-Ig-xwg" id="u1r-4K-vvg"/>
-                                            <outlet property="termLabel" destination="ey2-kt-Zn5" id="eSs-Dg-CmH"/>
+                                            <outlet property="definitionLabel" destination="svq-Bj-Am6" id="6ms-qt-nNZ"/>
+                                            <outlet property="termLabel" destination="zCy-BH-3OD" id="gsK-f0-WuJ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

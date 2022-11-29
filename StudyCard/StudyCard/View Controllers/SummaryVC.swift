@@ -33,16 +33,16 @@ class SummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         
+        // set variable height for rows
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 85
+        
         navigationItem.hidesBackButton = true // hide back button
         catchNotification()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        // set variable height for rows
-        tableView.estimatedRowHeight = 100
-        tableView.rowHeight = UITableView.automaticDimension
         
         // update UILabels
         knownCounter.text = "\(knownCards.count)"

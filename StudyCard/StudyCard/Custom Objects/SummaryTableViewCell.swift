@@ -28,7 +28,7 @@ class SummaryTableViewCell: UITableViewCell, CustomTableViewCell {
     }
     
     func setDefinition(_ def: String) {
-        termLabel.text = def
+        definitionLabel.text = def
     }
     
     func setFont(_ font: UIFont) {
