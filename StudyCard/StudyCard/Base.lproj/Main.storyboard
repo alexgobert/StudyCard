@@ -846,27 +846,27 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Term" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zCy-BH-3OD">
-                                                    <rect key="frame" x="25" y="10" width="343" height="20.333333333333329"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Term" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zCy-BH-3OD">
+                                                    <rect key="frame" x="25" y="9.9999999999999982" width="343" height="20.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Definition" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="svq-Bj-Am6">
-                                                    <rect key="frame" x="25" y="55.333333333333343" width="343" height="19.666666666666657"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="Definition" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="svq-Bj-Am6">
+                                                    <rect key="frame" x="25" y="55.333333333333336" width="343" height="19.666666666666664"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="zCy-BH-3OD" secondAttribute="trailing" constant="25" id="0nk-mv-xAG"/>
-                                                <constraint firstItem="zCy-BH-3OD" firstAttribute="leading" secondItem="HYZ-bR-f1s" secondAttribute="leading" constant="25" id="4Gb-IC-xDv"/>
-                                                <constraint firstItem="svq-Bj-Am6" firstAttribute="trailing" secondItem="zCy-BH-3OD" secondAttribute="trailing" id="K1I-UO-w9f"/>
-                                                <constraint firstItem="zCy-BH-3OD" firstAttribute="top" secondItem="HYZ-bR-f1s" secondAttribute="top" constant="10" id="b9t-Xi-Q99"/>
-                                                <constraint firstItem="svq-Bj-Am6" firstAttribute="leading" secondItem="zCy-BH-3OD" secondAttribute="leading" id="ptA-Qw-zOc"/>
-                                                <constraint firstAttribute="bottom" secondItem="svq-Bj-Am6" secondAttribute="bottom" constant="10" id="xoj-NP-KYA"/>
-                                                <constraint firstItem="svq-Bj-Am6" firstAttribute="top" secondItem="zCy-BH-3OD" secondAttribute="bottom" constant="25" id="xy0-o0-hzz"/>
+                                                <constraint firstAttribute="bottom" secondItem="svq-Bj-Am6" secondAttribute="bottom" constant="10" id="Gl5-Qs-OTx"/>
+                                                <constraint firstAttribute="trailing" secondItem="zCy-BH-3OD" secondAttribute="trailing" constant="25" id="L97-2W-E9x"/>
+                                                <constraint firstItem="svq-Bj-Am6" firstAttribute="top" secondItem="zCy-BH-3OD" secondAttribute="bottom" constant="25" id="Mpp-OK-zT1"/>
+                                                <constraint firstItem="zCy-BH-3OD" firstAttribute="top" secondItem="HYZ-bR-f1s" secondAttribute="top" constant="10" id="Ms8-CY-Z0i"/>
+                                                <constraint firstItem="zCy-BH-3OD" firstAttribute="leading" secondItem="svq-Bj-Am6" secondAttribute="leading" id="dNk-fu-FjJ"/>
+                                                <constraint firstItem="zCy-BH-3OD" firstAttribute="trailing" secondItem="svq-Bj-Am6" secondAttribute="trailing" id="dVO-y9-oLR"/>
+                                                <constraint firstItem="zCy-BH-3OD" firstAttribute="leading" secondItem="HYZ-bR-f1s" secondAttribute="leading" constant="25" id="iYD-wd-RQX"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1227,8 +1227,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="zZk-kr-WfG"/>
-        <segue reference="b6A-rZ-KXU"/>
+        <segue reference="Ss0-R2-MPf"/>
+        <segue reference="H2S-ih-Vmz"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="checkmark" catalog="system" width="128" height="114"/>
