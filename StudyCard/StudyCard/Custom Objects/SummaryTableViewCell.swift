@@ -12,15 +12,9 @@ class SummaryTableViewCell: UITableViewCell, CustomTableViewCell {
     @IBOutlet weak var termLabel: UILabel!
     @IBOutlet weak var definitionLabel: UILabel!
     
-    var card: Card! {
-        didSet {
-            setTerm(card.getTerm())
-            setDefinition(card.getDef())
-        }
-    }
-    
     func setCard(_ card: Card) {
-        self.card = card
+        setTerm(card.getTerm())
+        setDefinition(card.getDef())
     }
     
     func setTerm(_ term: String) {
@@ -32,7 +26,12 @@ class SummaryTableViewCell: UITableViewCell, CustomTableViewCell {
     }
     
     func setFont(_ font: UIFont) {
-        termLabel.font = font
+        // bold term label
+        // https://stackoverflow.com/questions/16015916/how-do-i-create-a-bold-uifont-from-a-regular-uifont
+        if let boldDescriptor = font.fontDescriptor.withSymbolicTraits(.traitBold) {
+            termLabel.font = UIFont(descriptor: boldDescriptor, size: font.pointSize)
+        }
+
         definitionLabel.font = font
     }
     

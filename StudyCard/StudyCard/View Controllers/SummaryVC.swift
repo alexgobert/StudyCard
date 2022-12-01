@@ -30,12 +30,12 @@ class SummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // set variable height for rows
+//        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 100
+        
         tableView.delegate = self
         tableView.dataSource = self
-        
-        // set variable height for rows
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 85
         
         navigationItem.hidesBackButton = true // hide back button
         catchNotification()
@@ -55,7 +55,7 @@ class SummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         // theme compliance
         applyTheme()
     }
-    
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
     }
