@@ -56,17 +56,17 @@ class LoginViewController: UIViewController {
 
     @IBAction func resetPasswordButtonPressed(_ sender: Any) {
         let alert = UIAlertController(
-            title: "Reset Password",
-            message: "Please enter your email and Firebase will send you a password reset email.",
+            title: "Reset your password",
+            message: "Enter the email address you signed up with. We'll send you a link to log in and reset your password.",
             preferredStyle: .alert
         )
         
         alert.addTextField {
             tfEmail in
-            tfEmail.placeholder = "Email"
+            tfEmail.placeholder = "Email address"
         }
         
-        let resetAction = UIAlertAction(title: "Reset", style: .default) {
+        let resetAction = UIAlertAction(title: "OK", style: .default) {
             _ in
             let emailField: UITextField = alert.textFields![0]
             
