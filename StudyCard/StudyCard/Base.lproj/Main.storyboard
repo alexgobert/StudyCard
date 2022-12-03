@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dvT-7C-Q4h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dvT-7C-Q4h">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -146,23 +146,23 @@
                                             </connections>
                                         </button>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TextFieldTableViewCell" rowHeight="120" id="XOo-j4-AQE" customClass="TextFieldTableViewCell" customModule="StudyCard" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TextFieldTableViewCell" rowHeight="120" id="XOo-j4-AQE" customClass="TextFieldTableViewCell" customModule="StudyCard" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="50" width="393" height="120"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XOo-j4-AQE" id="UDd-zr-7Gd">
-                                                    <rect key="frame" x="0.0" y="0.0" width="362.66666666666669" height="120"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="120"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="10d-j2-7OR">
-                                                            <rect key="frame" x="20" y="10" width="317.66666666666669" height="100"/>
+                                                            <rect key="frame" x="20" y="10" width="353" height="100"/>
                                                             <subviews>
                                                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Term" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="btC-O8-B6z">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="317.66666666666669" height="45"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="353" height="45"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                 </textField>
                                                                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Definition" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AKd-ec-Qt8">
-                                                                    <rect key="frame" x="0.0" y="55" width="317.66666666666669" height="45"/>
+                                                                    <rect key="frame" x="0.0" y="55" width="353" height="45"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                 </textField>
@@ -175,7 +175,7 @@
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstItem="10d-j2-7OR" firstAttribute="leading" secondItem="UDd-zr-7Gd" secondAttribute="leading" constant="20" symbolic="YES" id="OJn-SA-YzA"/>
-                                                        <constraint firstAttribute="trailing" secondItem="AKd-ec-Qt8" secondAttribute="trailing" constant="25" id="RqZ-8s-pYE"/>
+                                                        <constraint firstAttribute="trailing" secondItem="AKd-ec-Qt8" secondAttribute="trailing" constant="20" id="RqZ-8s-pYE"/>
                                                         <constraint firstItem="10d-j2-7OR" firstAttribute="centerY" secondItem="UDd-zr-7Gd" secondAttribute="centerY" id="WmP-9b-mou"/>
                                                         <constraint firstAttribute="bottom" secondItem="10d-j2-7OR" secondAttribute="bottom" constant="10" id="se7-gW-vrt"/>
                                                         <constraint firstItem="10d-j2-7OR" firstAttribute="top" secondItem="UDd-zr-7Gd" secondAttribute="top" constant="10" id="yXG-I2-tTM"/>
@@ -244,13 +244,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Term or Definition First:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zNt-AB-heG">
-                                <rect key="frame" x="15" y="224" width="178" height="21"/>
+                                <rect key="frame" x="15" y="289" width="178" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4QF-G1-srq">
-                                <rect key="frame" x="15" y="280" width="363" height="32"/>
+                                <rect key="frame" x="15" y="345" width="363" height="32"/>
                                 <segments>
                                     <segment title="Term"/>
                                     <segment title="Mixed"/>
@@ -268,7 +268,7 @@
                                 </connections>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WUT-xo-gLH">
-                                <rect key="frame" x="144.66666666666666" y="562" width="104" height="35"/>
+                                <rect key="frame" x="144.66666666666666" y="668" width="104" height="35"/>
                                 <color key="tintColor" systemColor="systemRedColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Delete Set"/>
@@ -277,7 +277,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4c0-Wy-L52">
-                                <rect key="frame" x="155" y="427" width="83" height="35"/>
+                                <rect key="frame" x="155" y="518" width="83" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Edit Set"/>
                                 <connections>
@@ -289,18 +289,18 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="3nl-iT-U0P" firstAttribute="top" secondItem="IYi-mm-IeR" secondAttribute="top" constant="50" id="3dD-jV-05g"/>
-                            <constraint firstItem="WUT-xo-gLH" firstAttribute="top" secondItem="4c0-Wy-L52" secondAttribute="bottom" constant="100" id="EBY-TM-QTP"/>
                             <constraint firstItem="zNt-AB-heG" firstAttribute="leading" secondItem="IYi-mm-IeR" secondAttribute="leading" constant="15" id="EbN-aL-NSX"/>
                             <constraint firstItem="4QF-G1-srq" firstAttribute="top" secondItem="zNt-AB-heG" secondAttribute="bottom" constant="35" id="IGg-mD-dXF"/>
                             <constraint firstItem="4QF-G1-srq" firstAttribute="leading" secondItem="IYi-mm-IeR" secondAttribute="leading" constant="15" id="KCK-SI-Lh9"/>
                             <constraint firstItem="WUT-xo-gLH" firstAttribute="centerX" secondItem="eMA-Gf-iCf" secondAttribute="centerX" id="Mzv-cR-buD"/>
                             <constraint firstItem="3nl-iT-U0P" firstAttribute="leading" secondItem="IYi-mm-IeR" secondAttribute="leading" constant="15" id="VK9-kJ-0gL"/>
                             <constraint firstItem="sFz-N9-BRs" firstAttribute="top" secondItem="IYi-mm-IeR" secondAttribute="top" constant="45" id="YK5-9l-zi2"/>
+                            <constraint firstItem="WUT-xo-gLH" firstAttribute="top" secondItem="4c0-Wy-L52" secondAttribute="bottom" constant="115" id="Z7m-ZT-mcQ"/>
                             <constraint firstItem="sFz-N9-BRs" firstAttribute="leading" secondItem="3nl-iT-U0P" secondAttribute="trailing" constant="20" id="Zr2-c4-AzO"/>
                             <constraint firstItem="4c0-Wy-L52" firstAttribute="centerX" secondItem="eMA-Gf-iCf" secondAttribute="centerX" id="g1W-FO-6pW"/>
                             <constraint firstItem="IYi-mm-IeR" firstAttribute="trailing" secondItem="4QF-G1-srq" secondAttribute="trailing" constant="15" id="kN4-VY-SN8"/>
-                            <constraint firstItem="zNt-AB-heG" firstAttribute="top" secondItem="3nl-iT-U0P" secondAttribute="bottom" constant="50" id="qMI-rx-37s"/>
-                            <constraint firstItem="4c0-Wy-L52" firstAttribute="firstBaseline" secondItem="4QF-G1-srq" secondAttribute="baseline" constant="150" id="vZK-Vb-Nga"/>
+                            <constraint firstItem="zNt-AB-heG" firstAttribute="top" secondItem="3nl-iT-U0P" secondAttribute="bottom" constant="115" id="qMI-rx-37s"/>
+                            <constraint firstItem="IYi-mm-IeR" firstAttribute="bottom" secondItem="WUT-xo-gLH" secondAttribute="bottom" constant="115" id="weK-eL-sAD"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2mt-Ag-Ujz">
@@ -839,7 +839,7 @@
                                 <rect key="frame" x="0.0" y="253.99999999999997" width="393" height="420.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SummaryTableViewCell" textLabel="vvI-SM-ioC" detailTextLabel="sFy-0c-Val" rowHeight="100" style="IBUITableViewCellStyleSubtitle" translatesAutoresizingMaskIntoConstraints="NO" id="awK-0D-L9q" customClass="SummaryTableViewCell" customModule="StudyCard" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SummaryTableViewCell" textLabel="vvI-SM-ioC" detailTextLabel="sFy-0c-Val" rowHeight="100" style="IBUITableViewCellStyleSubtitle" translatesAutoresizingMaskIntoConstraints="NO" id="awK-0D-L9q" customClass="SummaryTableViewCell" customModule="StudyCard" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="awK-0D-L9q" translatesAutoresizingMaskIntoConstraints="NO" id="HYZ-bR-f1s" customClass="SummaryTableViewCell" customModule="StudyCard" customModuleProvider="target">
@@ -1221,7 +1221,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="Ss0-R2-MPf"/>
-        <segue reference="H2S-ih-Vmz"/>
+        <segue reference="b6A-rZ-KXU"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="checkmark" catalog="system" width="128" height="114"/>

@@ -21,12 +21,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // NOTE FROM ALEX: can't build the project rn, macbook air will die. if simulator does not function properly then comment the rest of this function out (only leave the guard clause)
         // https://stackoverflow.com/questions/61296807/skip-login-page-is-user-already-logged-in-cant-override-storyboard-initial-vi
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let identifier: String = Auth.auth().currentUser != nil ? "Main Nav Controller" : "Login Nav Controller"
-        
-        self.window = UIWindow(windowScene: windowScene)
-        self.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: identifier)
-        self.window?.makeKeyAndVisible()
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let identifier: String = Auth.auth().currentUser != nil ? "Main Nav Controller" : "Login Nav Controller"
+//
+//        self.window = UIWindow(windowScene: windowScene)
+//        self.window?.rootViewController = storyboard.instantiateViewController(withIdentifier: identifier)
+//        self.window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
