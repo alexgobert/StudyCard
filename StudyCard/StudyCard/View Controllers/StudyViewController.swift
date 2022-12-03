@@ -15,14 +15,16 @@ class StudyViewController: UIViewController {
     @IBOutlet weak var knownLabel: UILabel!
     @IBOutlet weak var unknownLabel: UILabel!
     @IBOutlet weak var swipeLabel: UILabel!
-    
     @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var cardLabel: UILabel!
+    
+    let animationDuration: TimeInterval = 0.5 // seconds
     
     var cardSet: CardSet!
     var itemFirst: String! // term, def, or mixed
     var currentCard: Card!
-    var isShowingTerm: Bool = true
+    var isShowingTerm = true
+    var isAnimating = false
     var knownCards: [Card]!
     var unknownCards: [Card]!
     var remainingCards: [Card]!
@@ -32,36 +34,24 @@ class StudyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        currentCard = cardSet.first
-        cardLabel.text = currentCard.getTerm()
-        
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapCard))
         cardView.addGestureRecognizer(tapGestureRecognizer)
         catchNotification()
     }
     
-    @objc func didTapCard() {
-        
-        cardLabel.text = isShowingTerm ? currentCard.getDef() : currentCard.getTerm()
-        UIView.transition(
-            with: cardView,
-            duration: 1,
-            options: isShowingTerm ? .transitionFlipFromRight : .transitionFlipFromLeft,
-            animations: nil
-        )
-        isShowingTerm.toggle()
-        playSound(named: "CardFlip")
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        // initialize card arrays
         remainingCards = cardSet.cards
         knownCards = []
         unknownCards = []
         
         // initialize progress
         progressBar.setProgress(0, animated: false)
+        
+        // update UI
+        changeCard()
         
         // theme compliance
         applyTheme()
@@ -116,10 +106,37 @@ class StudyViewController: UIViewController {
         }
     }
     
+    @objc func didTapCard() {
+        // only allow one animation at a time
+        guard !isAnimating else {
+            return
+        }
+        
+        // begin animation
+        isAnimating = true
+        
+        cardLabel.text = isShowingTerm ? currentCard.getDef() : currentCard.getTerm()
+        UIView.transition(
+            with: cardView,
+            duration: animationDuration,
+            options: isShowingTerm ? .transitionFlipFromRight : .transitionFlipFromLeft,
+            animations: nil
+        )
+        playSound(named: "CardFlip")
+    
+        // post conditions
+        isShowingTerm.toggle()
+        isAnimating = false
+    }
+    
     // Right swipe Gesture
     @IBAction func rightGesture(_ sender: UISwipeGestureRecognizer) {
-        print("Right")
-        print("don't know it")
+        // only allow one animation at a time
+        guard !isAnimating else {
+            return
+        }
+        
+        isAnimating = true
         
         // process card
         unknownCards.append(currentCard)
@@ -132,8 +149,12 @@ class StudyViewController: UIViewController {
     
     // Left swipe Gesture
     @IBAction func leftGesture(_ sender: UISwipeGestureRecognizer) {
-        print("Left")
-        print("know it")
+        // only allow one animation at a time
+        guard !isAnimating else {
+            return
+        }
+        
+        isAnimating = true
         
         // process card
         knownCards.append(currentCard)
@@ -159,14 +180,15 @@ class StudyViewController: UIViewController {
         }
         
         // animate card according to sign
-        let startingX = cardView.center.x
+        let startingX: CGFloat = cardView.center.x
+        let offscreenX: CGFloat = 2 * UIScreen.main.bounds.width
         view.layoutIfNeeded()
         UIView.animate(
-            withDuration: 1,
+            withDuration: animationDuration,
             delay: 0,
             animations: {
                 // slide off screen left or right, depending on sign
-                self.cardView.center.x += sign * 2 * UIScreen.main.bounds.width
+                self.cardView.center.x += sign * offscreenX
                 self.view.layoutIfNeeded()
             },
             completion: { _ in
@@ -174,10 +196,10 @@ class StudyViewController: UIViewController {
                 self.changeCard()
                 
                 // slide in from other side of screen, depending on sign
-                self.cardView.center.x = -sign * 2 * UIScreen.main.bounds.width
+                self.cardView.center.x = -sign * offscreenX
                 self.view.layoutIfNeeded()
                 UIView.animate(
-                    withDuration: 1,
+                    withDuration: self.animationDuration,
                     delay: 0,
                     animations: {
                         self.cardView.center.x = startingX
@@ -186,6 +208,8 @@ class StudyViewController: UIViewController {
                 )
             }
         )
+        
+        isAnimating = false
     }
     
     func catchNotification() {

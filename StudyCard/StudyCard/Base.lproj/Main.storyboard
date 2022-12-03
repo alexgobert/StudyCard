@@ -839,7 +839,7 @@
                                 <rect key="frame" x="0.0" y="253.99999999999997" width="393" height="420.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SummaryTableViewCell" textLabel="vvI-SM-ioC" detailTextLabel="sFy-0c-Val" rowHeight="100" style="IBUITableViewCellStyleSubtitle" translatesAutoresizingMaskIntoConstraints="NO" id="awK-0D-L9q" customClass="SummaryTableViewCell" customModule="StudyCard" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SummaryTableViewCell" textLabel="vvI-SM-ioC" detailTextLabel="sFy-0c-Val" rowHeight="100" style="IBUITableViewCellStyleSubtitle" translatesAutoresizingMaskIntoConstraints="NO" id="awK-0D-L9q" customClass="SummaryTableViewCell" customModule="StudyCard" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="393" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="awK-0D-L9q" translatesAutoresizingMaskIntoConstraints="NO" id="HYZ-bR-f1s" customClass="SummaryTableViewCell" customModule="StudyCard" customModuleProvider="target">
@@ -1110,8 +1110,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Swipe Based on Knowledge!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ALt-VB-fYY">
-                                <rect key="frame" x="89.000000000000014" y="598" width="215.33333333333337" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Swipe based on knowledge!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ALt-VB-fYY">
+                                <rect key="frame" x="90.333333333333329" y="598" width="212.66666666666669" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1120,14 +1120,14 @@
                                 <rect key="frame" x="120" y="713" width="150" height="4"/>
                                 <color key="trackTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </progressView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="I Know It!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rOF-f6-18s">
-                                <rect key="frame" x="16" y="133" width="70" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="&lt; I Know It!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rOF-f6-18s">
+                                <rect key="frame" x="16" y="133" width="84.666666666666671" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Needs Some Work" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ek8-Iv-lfr">
-                                <rect key="frame" x="235.66666666666663" y="135" width="141.33333333333337" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Needs Some Work &gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ek8-Iv-lfr">
+                                <rect key="frame" x="221" y="135" width="156" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1150,6 +1150,12 @@
                                     <constraint firstAttribute="trailing" secondItem="7iN-ax-dZr" secondAttribute="trailing" id="gYG-aR-YdI"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Tap to flip the card!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFo-w0-S3A">
+                                <rect key="frame" x="123" y="627" width="147" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Sxq-F8-hUV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1159,6 +1165,7 @@
                             <constraint firstItem="rOF-f6-18s" firstAttribute="leading" secondItem="Sxq-F8-hUV" secondAttribute="leading" constant="16" id="EEh-U8-YhB"/>
                             <constraint firstItem="Sxq-F8-hUV" firstAttribute="trailing" secondItem="Ek8-Iv-lfr" secondAttribute="trailing" constant="16" id="RSg-7J-Ug9"/>
                             <constraint firstItem="Sxq-F8-hUV" firstAttribute="trailing" secondItem="s6A-SZ-pEy" secondAttribute="trailing" constant="31" id="SdV-ha-Wbu"/>
+                            <constraint firstItem="lFo-w0-S3A" firstAttribute="centerX" secondItem="Sxq-F8-hUV" secondAttribute="centerX" id="TmH-g9-O4G"/>
                             <constraint firstItem="s6A-SZ-pEy" firstAttribute="top" secondItem="rOF-f6-18s" secondAttribute="bottom" constant="31" id="Xdc-J2-82S"/>
                             <constraint firstItem="ALt-VB-fYY" firstAttribute="top" secondItem="s6A-SZ-pEy" secondAttribute="bottom" constant="29" id="YIG-45-WcI"/>
                             <constraint firstItem="Sxq-F8-hUV" firstAttribute="trailing" secondItem="dMK-LK-nvz" secondAttribute="trailing" constant="123" id="Yor-nJ-xUY"/>

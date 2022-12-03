@@ -8,12 +8,6 @@
 import UIKit
 
 class StudySetupVC: UIViewController {
-    var cards: CardSet!
-    var shuffle: Bool = true
-    var itemFirst: String! // Term, Mixed, Definition
-    var delegate: ViewController!
-    var setIndex: Int!
-
     @IBOutlet weak var shuffleToggle: UISwitch!
     @IBOutlet weak var itemFirstCtrl: UISegmentedControl!
     @IBOutlet weak var shuffleLabel: UILabel!
@@ -21,6 +15,12 @@ class StudySetupVC: UIViewController {
     @IBOutlet weak var confirmButton: UIBarButtonItem!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
+    
+    var cards: CardSet!
+    var shuffle: Bool = true
+    var itemFirst: String! // Term, Mixed, Definition
+    var delegate: ViewController!
+    var setIndex: Int!
     
     override func viewDidLoad() {
         super.viewDidLoad()
