@@ -22,6 +22,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var settingsButton: UIBarButtonItem!
     @IBOutlet weak var profileButton: UIBarButtonItem!
     @IBOutlet weak var addButton: UIBarButtonItem!
+    @IBOutlet weak var instructionLabel: UILabel!
     
     var setList: [CardSet]!
     var timesStudiedList: [Int]!
@@ -123,6 +124,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if setList.count == 0 {
+            instructionLabel.text = "Press the '+' button to create a new flashcard set"
+        } else {
+            instructionLabel.text = ""
+        }
+        
         return searchData.count
     }
     
@@ -303,8 +310,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         settingsButton.tintColor = globalFontColor
         profileButton.tintColor = globalFontColor
         addButton.tintColor = globalFontColor
+        instructionLabel.textColor = globalFontColor
         
         setSearch.searchTextField.font = globalTextFont
+        instructionLabel.font = globalTextFont
         
         self.navigationController?.navigationBar.tintColor = globalFontColor
         
