@@ -54,8 +54,8 @@ class SummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         // update times studied
         cards.incrementTimesStudied()
         cards.updatePercent(knownCount: knownCards.count)
-        cards.updateTimesStudied(index: setIndex, newCount: cards.getTimesStudied(), setContext: context)
-        cards.updatePercentKnown(index: setIndex, newPercent: cards.getPercentKnown(), setContext: context)
+        
+        cards.updateStats(index: setIndex, newCount: cards.getTimesStudied(), newPercent: cards.getPercentKnown(), setContext: context)
         
         // theme compliance
         applyTheme()

@@ -3,8 +3,8 @@
     <entity name="StoredSet" representedClassName="StoredSet" syncable="YES" codeGenerationType="class">
         <attribute name="definitions" optional="YES" attributeType="Binary"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="percentKnown" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="percentKnown" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="terms" optional="YES" attributeType="Binary"/>
-        <attribute name="timesStudied" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="timesStudied" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
 </model>

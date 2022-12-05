@@ -53,14 +53,9 @@ class CardSet: Collection, Equatable, CustomStringConvertible {
     }
     
     func updatePercent(knownCount: Int) {
-        let currentKnown = Int(percentKnown * Float(count))
-        let newKnown = currentKnown + knownCount
         
-        if let parent = parent {
-            parent.updatePercent(knownCount: newKnown)
-        } else {
-            setPercentKnown(percent: Float(newKnown) / Float(count))
-        }
+        setPercentKnown(percent: Float(knownCount) / Float(count))
+        
     }
     
     static func == (lhs: CardSet, rhs: CardSet) -> Bool {
@@ -81,7 +76,7 @@ class CardSet: Collection, Equatable, CustomStringConvertible {
     
     func setPercentKnown(percent: Float) {
         // take the highest known value up to 100%
-        percentKnown = Swift.min(Swift.max(percentKnown, percent), 1)
+        percentKnown = percent
     }
     
     func getTimesStudied() -> Int {
@@ -134,7 +129,7 @@ class CardSet: Collection, Equatable, CustomStringConvertible {
         return string
     }
     
-    func updateTimesStudied(index: Int, newCount: Int, setContext: NSManagedObjectContext) {
+    func updateStats(index: Int, newCount: Int, newPercent: Float, setContext: NSManagedObjectContext) {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "StoredSet")
         var fetchedResults:[NSManagedObject]
         
@@ -142,25 +137,7 @@ class CardSet: Collection, Equatable, CustomStringConvertible {
             try fetchedResults = setContext.fetch(request) as! [NSManagedObject]
             
             fetchedResults[index].setValue(newCount, forKey: "timesStudied")
-            
-        } catch {
-            let nserror = error as NSError
-            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
-            abort()
-        }
-        
-        saveContext()
-        
-    }
-    
-    func updatePercentKnown(index: Int, newPercent: Float, setContext: NSManagedObjectContext) {
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "StoredSet")
-        var fetchedResults:[NSManagedObject]
-        
-        do {
-            try fetchedResults = setContext.fetch(request) as! [NSManagedObject]
-            
-            fetchedResults[index].setValue(self.getPercentKnown() + 1, forKey: "percentKnown")
+            fetchedResults[index].setValue(newPercent, forKey: "percentKnown")
             
         } catch {
             let nserror = error as NSError
