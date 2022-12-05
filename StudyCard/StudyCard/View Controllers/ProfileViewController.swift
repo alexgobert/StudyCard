@@ -15,7 +15,6 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     // Outlets to main
     @IBOutlet weak var profilePicImageView: UIImageView!
     @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailButton: UIButton!
     @IBOutlet weak var passwordButton: UIButton!
     @IBOutlet weak var deleteAcctButton: UIButton!
@@ -67,15 +66,33 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     
     // Button Function for Using Camera to take Profile Picture
     @IBAction func takeProfilePhotoButtonPressed(_ sender: Any) {
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            
-            let imagePickerController = UIImagePickerController()
-            
-            imagePickerController.delegate = self
-            imagePickerController.sourceType = .camera
-            
-            present(imagePickerController, animated: true)
+        guard UIImagePickerController.availableCaptureModes(for: .rear) != nil else {
+            // no rear camera is available
+            errorAlert(message: "Sorry, this device has no rear camera")
+            return
         }
+            
+        switch AVCaptureDevice.authorizationStatus(for: .video) {
+        case .notDetermined: // undetermined access to video
+            AVCaptureDevice.requestAccess(for: .video) {
+                accessGranted in
+                guard accessGranted else { // return if denied, fall through if accepted
+                    return
+                }
+            }
+        case .authorized: // access granted, fall through
+            break
+        default: // access not granted, return
+            errorAlert(message: "access denied")
+            return
+        }
+        
+        let picker = UIImagePickerController()
+        picker.delegate = self
+    
+        picker.sourceType = .camera
+        picker.cameraCaptureMode = .photo
+        present(picker, animated: true)
     }
     
     // Function for if user presses Cancel on Camera
@@ -351,10 +368,8 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         profilePicImageView.layer.borderColor = globalFontColor.cgColor
         self.view.backgroundColor = globalBkgdColor
         emailLabel.textColor = globalFontColor
-        nameLabel.textColor = globalFontColor
         
         emailLabel.font = globalTextFont
-        nameLabel.font = globalTextFont
         
         // alters the navigation bar title appearance
         let appearance = UINavigationBarAppearance()
