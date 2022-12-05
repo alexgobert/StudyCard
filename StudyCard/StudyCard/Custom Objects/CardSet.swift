@@ -5,6 +5,9 @@
 //  Created by Alex Gobert on 10/11/22.
 //
 
+import Foundation
+import CoreData
+
 class CardSet: Collection, Equatable, CustomStringConvertible {
     var cards: [Card] = [] {
         didSet {
@@ -130,4 +133,54 @@ class CardSet: Collection, Equatable, CustomStringConvertible {
         
         return string
     }
+    
+    func updateTimesStudied(index: Int, newCount: Int, setContext: NSManagedObjectContext) {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "StoredSet")
+        var fetchedResults:[NSManagedObject]
+        
+        do {
+            try fetchedResults = setContext.fetch(request) as! [NSManagedObject]
+            
+            fetchedResults[index].setValue(newCount, forKey: "timesStudied")
+            
+        } catch {
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
+        
+        saveContext()
+        
+    }
+    
+    func updatePercentKnown(index: Int, newPercent: Float, setContext: NSManagedObjectContext) {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "StoredSet")
+        var fetchedResults:[NSManagedObject]
+        
+        do {
+            try fetchedResults = setContext.fetch(request) as! [NSManagedObject]
+            
+            fetchedResults[index].setValue(self.getPercentKnown() + 1, forKey: "percentKnown")
+            
+        } catch {
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
+        
+        saveContext()
+        
+    }
+    
+    func saveContext() {
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                let nserror = error as NSError
+                NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
+        }
+    }
+    
 }

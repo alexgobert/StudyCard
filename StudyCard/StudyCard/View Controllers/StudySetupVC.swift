@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class StudySetupVC: UIViewController {
     @IBOutlet weak var shuffleToggle: UISwitch!
@@ -21,6 +22,7 @@ class StudySetupVC: UIViewController {
     var itemFirst: String! // Term, Mixed, Definition
     var delegate: ViewController!
     var setIndex: Int!
+    var context: NSManagedObjectContext!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +44,8 @@ class StudySetupVC: UIViewController {
             
             dest.setCards(cards)
             dest.itemFirst = itemFirst
+            dest.setIndex = setIndex
+            dest.context = context
         }
         
         if segue.identifier == "SetEditSegue", let dest = segue.destination as? SetCreationVC {
@@ -49,6 +53,7 @@ class StudySetupVC: UIViewController {
             dest.delegate = delegate
             dest.setIndex = setIndex
             dest.editingSet = true
+            dest.context = context
         }
     }
     

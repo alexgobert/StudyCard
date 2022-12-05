@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class SummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -24,6 +25,8 @@ class SummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var knownCards: [Card]!
     var unknownCards: [Card]!
     var sectionedCards: [[Card]] { [knownCards, unknownCards] }
+    var setIndex: Int!
+    var context: NSManagedObjectContext!
     
     var delegate: StudyViewController!
     
@@ -51,6 +54,8 @@ class SummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         // update times studied
         cards.incrementTimesStudied()
         cards.updatePercent(knownCount: knownCards.count)
+        cards.updateTimesStudied(index: setIndex, newCount: cards.getTimesStudied(), setContext: context)
+        cards.updatePercentKnown(index: setIndex, newPercent: cards.getPercentKnown(), setContext: context)
         
         // theme compliance
         applyTheme()

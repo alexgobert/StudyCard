@@ -9,6 +9,9 @@ import UIKit
 import FirebaseAuth
 import CoreData
 
+let appDelegate = UIApplication.shared.delegate as! AppDelegate
+let context = appDelegate.persistentContainer.viewContext
+
 let setTextCellIdentifier = "SetNameCell"
 let THEME_KEY = "themeKey"
 
@@ -21,12 +24,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var addButton: UIBarButtonItem!
     
     var setList: [CardSet]!
+    var timesStudiedList: [Int]!
+    var percentList: [Float]!
     var searchData: [CardSet]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         setList = []
+        timesStudiedList = []
+        percentList = []
         
         setsTableView.delegate = self
         setsTableView.dataSource = self
@@ -67,11 +74,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let setTitle = set.value(forKey: "name")
             let termsData = set.value(forKey: "terms")
             let definitionsData = set.value(forKey: "definitions")
+            let timesStudied = set.value(forKey: "timesStudied")
+            let percentKnown = set.value(forKey: "percentKnown")
 
             let terms: [String] = try! JSONDecoder().decode([String].self, from: termsData! as! Data)
             let definitions: [String] = try! JSONDecoder().decode([String].self, from: definitionsData! as! Data)
-
-            setList.append(CardSet(name: setTitle as! String, terms: terms, definitions: definitions))
+            
+            let currentSet = CardSet(name: setTitle as! String, terms: terms, definitions: definitions)
+            
+            currentSet.setTimesStudied(times: timesStudied as! Int)
+            currentSet.setPercentKnown(percent: percentKnown as! Float)
+            
+            setList.append(currentSet)
 
         }
         
@@ -99,10 +113,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if segue.identifier == "SetCreationSegue", let dest = segue.destination as? SetCreationVC {
             dest.delegate = self
             dest.editingSet = false
+            dest.context = context
         } else if segue.identifier == "StudySetupSegue", let dest = segue.destination as? StudySetupVC, let index = setsTableView.indexPathForSelectedRow?.row {
             dest.cards = setList[index]
             dest.delegate = self
             dest.setIndex = index
+            dest.context = context
         }
     }
     

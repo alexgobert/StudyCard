@@ -8,6 +8,7 @@
 
 import UIKit
 import AVKit
+import CoreData
 
 class StudyViewController: UIViewController {
     
@@ -28,6 +29,8 @@ class StudyViewController: UIViewController {
     var knownCards: [Card]!
     var unknownCards: [Card]!
     var remainingCards: [Card]!
+    var setIndex: Int!
+    var context: NSManagedObjectContext!
     
     var audioPlayer: AVAudioPlayer?
     
@@ -89,6 +92,8 @@ class StudyViewController: UIViewController {
             dest.knownCards = knownCards
             dest.unknownCards = unknownCards
             dest.cards = cardSet
+            dest.setIndex = setIndex
+            dest.context = context
         }
     }
     

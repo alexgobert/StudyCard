@@ -8,9 +8,6 @@
 import UIKit
 import CoreData
 
-let appDelegate = UIApplication.shared.delegate as! AppDelegate
-let context = appDelegate.persistentContainer.viewContext
-
 class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
     @IBOutlet weak var titleField: UITextField!
@@ -24,6 +21,7 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     var importedSet: CardSet!
     var setIndex: Int!
     var editingSet: Bool!
+    var context: NSManagedObjectContext!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -213,6 +211,8 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
                 fetchedResults[setIndex].setValue(name, forKey: "name")
                 fetchedResults[setIndex].setValue(termsData, forKey: "terms")
                 fetchedResults[setIndex].setValue(defsData, forKey: "definitions")
+                fetchedResults[setIndex].setValue(0, forKey: "timesStudied")
+                fetchedResults[setIndex].setValue(0, forKey: "percentKnown")
                 
             } catch {
                 let nserror = error as NSError
@@ -227,6 +227,8 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             set.setValue(name, forKey: "name")
             set.setValue(termsData, forKey: "terms")
             set.setValue(defsData, forKey: "definitions")
+            set.setValue(0, forKey: "timesStudied")
+            set.setValue(0, forKey: "percentKnown")
             
         }
         
