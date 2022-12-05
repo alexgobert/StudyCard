@@ -122,7 +122,9 @@ class StudyViewController: UIViewController {
             options: isShowingTerm ? .transitionFlipFromRight : .transitionFlipFromLeft,
             animations: nil
         )
-        playSound(named: "CardFlip")
+        if userDefaults.bool(forKey: MUTE_KEY) == false {
+            playSound(named: "CardFlip")
+        }
     
         // post conditions
         isShowingTerm.toggle()
@@ -144,7 +146,9 @@ class StudyViewController: UIViewController {
         
         // animate card motion
         animateCard(outBoundDirection: "Right")
-        playSound(named: "CardSwoosh")
+        if userDefaults.bool(forKey: MUTE_KEY) == false {
+            playSound(named: "CardSwoosh")
+        }
     }
     
     // Left swipe Gesture
@@ -162,7 +166,9 @@ class StudyViewController: UIViewController {
         
         // animate card motion
         animateCard(outBoundDirection: "Left")
-        playSound(named: "CardSwoosh")
+        if userDefaults.bool(forKey: MUTE_KEY) == false {
+            playSound(named: "CardSwoosh")
+        }
     }
     
     func animateCard(outBoundDirection: String) {

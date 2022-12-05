@@ -37,7 +37,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
             // authorization granted, can break
             guard !granted else {
-                userDefaults.set(true, forKey: NOTIFICATION_KEY)
                 return
             }
             
