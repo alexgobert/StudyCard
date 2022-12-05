@@ -233,6 +233,7 @@ class StudyViewController: UIViewController {
     
     func applyTheme() {
         self.view.backgroundColor = globalBkgdColor
+        self.cardView.layer.cornerRadius = 20
         progressBar.progressTintColor = globalSecondaryColor
         let labels: [UILabel] = [
             knownLabel,
