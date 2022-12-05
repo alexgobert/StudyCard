@@ -89,7 +89,6 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         
         let picker = UIImagePickerController()
         picker.delegate = self
-    
         picker.sourceType = .camera
         picker.cameraCaptureMode = .photo
         present(picker, animated: true)
