@@ -266,9 +266,6 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         present(changePasswordController, animated: true)
     }
         
-    @IBAction func changeNameButtonPressed(_ sender: Any) {
-    }
-
     @IBAction func deleteAccountButtonPressed(_ sender: Any) {
         
         // reauthenticate user before deleting acount

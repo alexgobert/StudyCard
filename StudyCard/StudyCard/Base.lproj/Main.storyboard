@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dvT-7C-Q4h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dvT-7C-Q4h">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -939,7 +939,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="VB2-zD-O2b" userLabel="Profile Stack">
-                                <rect key="frame" x="30" y="123.00000000000003" width="333" height="320.66666666666674"/>
+                                <rect key="frame" x="30" y="123.00000000000003" width="333" height="285.66666666666674"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bnh-bD-iST">
                                         <rect key="frame" x="0.0" y="0.0" width="330" height="190.66666666666666"/>
@@ -1014,21 +1014,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="bUz-41-lBZ" userLabel="Change Stack">
-                                        <rect key="frame" x="0.0" y="200.66666666666669" width="333" height="120"/>
+                                        <rect key="frame" x="0.0" y="200.66666666666669" width="333" height="85"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lV8-ea-bLz">
-                                                <rect key="frame" x="0.0" y="0.0" width="333" height="15"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="15" id="FiD-ul-fep"/>
-                                                </constraints>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Change Name"/>
-                                                <connections>
-                                                    <action selector="changeNameButtonPressed:" destination="FSq-yN-eSY" eventType="touchUpInside" id="EhL-EI-osv"/>
-                                                </connections>
-                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9TL-F2-FKU">
-                                                <rect key="frame" x="0.0" y="35" width="333" height="15"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="333" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="15" id="aHm-Xg-jxr"/>
                                                 </constraints>
@@ -1040,7 +1029,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wiz-jh-qOe">
-                                                <rect key="frame" x="0.0" y="70" width="333" height="15"/>
+                                                <rect key="frame" x="0.0" y="35" width="333" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="15" id="vGf-FF-Shs"/>
                                                 </constraints>
@@ -1051,7 +1040,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jvq-HA-Fhv">
-                                                <rect key="frame" x="0.0" y="105" width="333" height="15"/>
+                                                <rect key="frame" x="0.0" y="70" width="333" height="15"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="15" id="Hlb-aQ-Va7"/>
                                                 </constraints>
@@ -1065,7 +1054,6 @@
                                         <constraints>
                                             <constraint firstItem="9TL-F2-FKU" firstAttribute="width" secondItem="bUz-41-lBZ" secondAttribute="width" id="A2y-cL-DDP"/>
                                             <constraint firstItem="Wiz-jh-qOe" firstAttribute="width" secondItem="bUz-41-lBZ" secondAttribute="width" id="gZ5-9H-tsw"/>
-                                            <constraint firstItem="lV8-ea-bLz" firstAttribute="width" secondItem="bUz-41-lBZ" secondAttribute="width" id="nbc-cP-n1P"/>
                                             <constraint firstItem="Jvq-HA-Fhv" firstAttribute="width" secondItem="bUz-41-lBZ" secondAttribute="width" id="wT7-rc-GrA"/>
                                         </constraints>
                                     </stackView>
@@ -1090,7 +1078,6 @@
                         <outlet property="emailButton" destination="9TL-F2-FKU" id="de5-pU-TzU"/>
                         <outlet property="emailLabel" destination="oTN-1S-whu" id="Jqd-Kn-Fp3"/>
                         <outlet property="logoutButton" destination="7fp-be-SI8" id="Z6b-rz-OP8"/>
-                        <outlet property="nameButton" destination="lV8-ea-bLz" id="CRG-KB-PqR"/>
                         <outlet property="nameLabel" destination="VRA-rk-l4v" id="1Fd-Q8-1hc"/>
                         <outlet property="passwordButton" destination="Wiz-jh-qOe" id="l6P-tP-AiP"/>
                         <outlet property="profilePicImageView" destination="ME1-iv-sWH" id="zhm-Fw-B89"/>
