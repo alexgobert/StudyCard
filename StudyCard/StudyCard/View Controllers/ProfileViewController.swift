@@ -9,6 +9,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseStorage
 import CryptoKit
+import AVFoundation
 
 class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -50,7 +51,6 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             loadImage(photoURL: photoURL)
             imageName = photoURL.lastPathComponent
             self.emailLabel.text = user.email ?? ""
-            self.nameLabel.text = user.displayName ?? ""
         }
         
         // set up profile picture observer
