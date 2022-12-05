@@ -18,7 +18,6 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var emailButton: UIButton!
     @IBOutlet weak var passwordButton: UIButton!
-    @IBOutlet weak var nameButton: UIButton!
     @IBOutlet weak var deleteAcctButton: UIButton!
     @IBOutlet weak var takePicButton: UIButton!
     @IBOutlet weak var selectPicButton: UIButton!
@@ -375,7 +374,6 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         let buttons: [UIButton] = [
             emailButton,
             passwordButton,
-            nameButton,
             deleteAcctButton,
             takePicButton,
             selectPicButton,
