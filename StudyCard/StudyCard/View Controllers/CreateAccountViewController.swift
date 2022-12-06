@@ -77,6 +77,12 @@ class CreateAccountViewController: UIViewController {
         emailField.tintColor = globalSecondaryColor
         passwordField.tintColor = globalSecondaryColor
         confirmPasswordField.tintColor = globalSecondaryColor
+        emailField.textColor = globalFontColor
+        emailField.font = globalTextFont
+        passwordField.textColor = globalFontColor
+        passwordField.font = globalTextFont
+        confirmPasswordField.textColor = globalFontColor
+        confirmPasswordField.font = globalTextFont
         
         // changes font
         titleLabel.font = globalTitleFont
