@@ -46,6 +46,7 @@ class StudySetupVC: UIViewController {
             dest.itemFirst = itemFirst
             dest.setIndex = setIndex
             dest.context = context
+            dest.allCards = cards
         }
         
         if segue.identifier == "SetEditSegue", let dest = segue.destination as? SetCreationVC {

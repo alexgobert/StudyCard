@@ -31,6 +31,8 @@ class StudyViewController: UIViewController {
     var remainingCards: [Card]!
     var setIndex: Int!
     var context: NSManagedObjectContext!
+    var knownCount: Int!
+    var allCards: CardSet!
     
     var audioPlayer: AVAudioPlayer?
     
@@ -58,9 +60,14 @@ class StudyViewController: UIViewController {
         
         // theme compliance
         applyTheme()
+        
+        if knownCount == nil {
+            knownCount = 0
+        }
     }
     
     func studyDone() {
+        knownCount += knownCards.count
         performSegue(withIdentifier: "SummarySegue", sender: nil)
     }
     
@@ -94,6 +101,8 @@ class StudyViewController: UIViewController {
             dest.cards = cardSet
             dest.setIndex = setIndex
             dest.context = context
+            dest.knownCardCount = knownCount
+            dest.allCards = allCards
         }
     }
     

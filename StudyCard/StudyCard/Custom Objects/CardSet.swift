@@ -52,9 +52,9 @@ class CardSet: Collection, Equatable, CustomStringConvertible {
         endIndex = Swift.max(self.cards.count, 0)
     }
     
-    func updatePercent(knownCount: Int) {
+    func updatePercent(knownCount: Int, totalCount: Int) {
         
-        setPercentKnown(percent: Float(knownCount) / Float(count))
+        setPercentKnown(percent: Float(knownCount) / Float(totalCount))
         
     }
     

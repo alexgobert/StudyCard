@@ -27,6 +27,8 @@ class SummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var sectionedCards: [[Card]] { [knownCards, unknownCards] }
     var setIndex: Int!
     var context: NSManagedObjectContext!
+    var knownCardCount: Int!
+    var allCards: CardSet!
     
     var delegate: StudyViewController!
     
@@ -34,7 +36,7 @@ class SummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         super.viewDidLoad()
 
         // set variable height for rows
-//        tableView.rowHeight = UITableView.automaticDimension
+        // tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 100
         
         tableView.delegate = self
@@ -52,13 +54,14 @@ class SummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         unknownCounter.text = "\(unknownCards.count)"
         
         // update times studied
-        cards.incrementTimesStudied()
-        cards.updatePercent(knownCount: knownCards.count)
+        allCards.incrementTimesStudied()
+        allCards.updatePercent(knownCount: knownCardCount, totalCount: allCards.count)
         
-        cards.updateStats(index: setIndex, newCount: cards.getTimesStudied(), newPercent: cards.getPercentKnown(), setContext: context)
+        allCards.updateStats(index: setIndex, newCount: allCards.getTimesStudied(), newPercent: allCards.getPercentKnown(), setContext: context)
         
         // theme compliance
         applyTheme()
+        
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -120,12 +123,18 @@ class SummaryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             
             newSet = CardSet(name: cards.getName(), cards: unknownCards)
             newSet.parent = cards
+            
+            delegate.knownCount = knownCardCount
+            
         } else {
             newSet = cards
+            delegate.knownCount = 0
         }
         
         delegate.cardSet = newSet
+        
         navigationController?.popViewController(animated: true)
+        
     }
     
     @IBAction func doneButtonPressed(_ sender: Any) {
