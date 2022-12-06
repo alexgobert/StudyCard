@@ -96,6 +96,10 @@ class SetCreationVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             storeSet(name: titleField.text!, cards: cardSet)
             
             self.navigationController?.popViewController(animated: true)
+            
+            if editingSet {
+                self.navigationController?.popViewController(animated: true)
+            }
         }
         
     }
