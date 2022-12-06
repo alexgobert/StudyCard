@@ -35,7 +35,13 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         }
     }
     var observer: NSKeyValueObservation!
-    var uploadTasks: Queue<StorageUploadTask>!
+    var uploadTasks: Queue<StorageUploadTask>! {
+        didSet {
+            if uploadTasks.peek() == nil, let photoURL = Auth.auth().currentUser?.photoURL {
+                self.loadImage(photoURL: photoURL)
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,10 +58,12 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        let user = Auth.auth().currentUser
+        self.emailLabel.text = user?.email ?? ""
+ 
         // load user image
-        if let user = Auth.auth().currentUser, let photoURL = user.photoURL {
+        if let photoURL = user?.photoURL {
             imageName = photoURL.lastPathComponent
-            self.emailLabel.text = user.email ?? ""
             
             // if there's no upload task, download
             if uploadTasks.peek() == nil {
@@ -104,12 +112,15 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         let image = info[.originalImage] as! UIImage
         
         // https://www.hackingwithswift.com/example-code/cryptokit/how-to-calculate-the-sha-hash-of-a-string-or-data-instance
-        let imageData: Data = (image.jpegData(compressionQuality: 1))!
+        let imageData: Data = (image.jpegData(compressionQuality: 0.5))!
         let hashedData: SHA256Digest = SHA256.hash(data: imageData)
         let hashedString: String = hashedData.compactMap { String(format: "%02x", $0) }.joined()
         
         profilePicImageView.image = image
         imageName = hashedString + ".jpg"
+        
+        deleteImage(name: imageName)
+        storeImage(name: imageName, image: image)
         
         dismiss(animated: true)
     }
@@ -128,7 +139,7 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     
     // Stores profile picture in Firebase
     func storeImage(name: String, image: UIImage) {
-        guard let imageData = image.jpegData(compressionQuality: 1), let user = Auth.auth().currentUser else {
+        guard let imageData = image.jpegData(compressionQuality: 0.5), let user = Auth.auth().currentUser else {
             return
         }
         
