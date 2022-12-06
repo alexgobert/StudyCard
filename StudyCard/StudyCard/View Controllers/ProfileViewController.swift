@@ -313,6 +313,9 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             }
         }
         
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        deleteAccountController.addAction(cancelAction)
         deleteAccountController.addAction(deleteAction)
         deleteAccountController.addTextField { textField in
             textField.placeholder = "Enter Email"
