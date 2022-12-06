@@ -7,22 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F0A0DA62-B651-4190-BECA-34AE498CB9D9"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "StudyCard/View Controllers/StudyViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "changeCard()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "D1F2FF87-1DCB-4CF3-8307-8F39A99728D3"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -81,6 +65,246 @@
             startingLineNumber = "54"
             endingLineNumber = "54"
             landmarkName = "updatePercent(knownCount:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3B633E02-B1CA-4C47-ADEF-E69C5534371B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StudyCard/View Controllers/ProfileViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
+            landmarkName = "storeImage(name:image:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3B633E02-B1CA-4C47-ADEF-E69C5534371B - 933db38af225def0"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;FirebaseStorage.StorageMetadata&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in StudyCard.ProfileVC.storeImage(name: Swift.String, image: __C.UIImage) -&gt; ()"
+                  moduleName = "StudyCard"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lynnie/Documents/Alex%20Beep%20Boop/C-S-329E/StudyCard/StudyCard/StudyCard/View%20Controllers/ProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "150"
+                  endingLineNumber = "150"
+                  offsetFromSymbolStart = "60">
+               </Location>
+               <Location
+                  uuid = "3B633E02-B1CA-4C47-ADEF-E69C5534371B - 933db38af225def0"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;FirebaseStorage.StorageMetadata&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in StudyCard.ProfileVC.storeImage(name: Swift.String, image: __C.UIImage) -&gt; ()"
+                  moduleName = "StudyCard"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lynnie/Documents/Alex%20Beep%20Boop/C-S-329E/StudyCard/StudyCard/StudyCard/View%20Controllers/ProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "150"
+                  endingLineNumber = "150"
+                  offsetFromSymbolStart = "88">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A48B0F87-3B8B-478C-AC7C-7C122DBAC259"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StudyCard/View Controllers/ProfileViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "190"
+            endingLineNumber = "190"
+            landmarkName = "loadImage(photoURL:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A48B0F87-3B8B-478C-AC7C-7C122DBAC259 - dacaf6b456f81707"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StudyCard.ProfileVC.loadImage(photoURL: Foundation.URL) -&gt; ()"
+                  moduleName = "StudyCard"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lynnie/Documents/Alex%20Beep%20Boop/C-S-329E/StudyCard/StudyCard/StudyCard/View%20Controllers/ProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "204"
+                  endingLineNumber = "204"
+                  offsetFromSymbolStart = "300">
+               </Location>
+               <Location
+                  uuid = "A48B0F87-3B8B-478C-AC7C-7C122DBAC259 - cfc48834cb343501"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in StudyCard.ProfileVC.loadImage(photoURL: Foundation.URL) -&gt; ()"
+                  moduleName = "StudyCard"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lynnie/Documents/Alex%20Beep%20Boop/C-S-329E/StudyCard/StudyCard/StudyCard/View%20Controllers/ProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "206"
+                  endingLineNumber = "206"
+                  offsetFromSymbolStart = "112">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "980D85CE-1244-431D-8743-ACAAC53F9CF4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StudyCard/View Controllers/ProfileViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "updateProfileWithImageURL(ref:user:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "980D85CE-1244-431D-8743-ACAAC53F9CF4 - 4ad02b4ecf30ef91"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "StudyCard.ProfileVC.updateProfileWithImageURL(ref: FirebaseStorage.StorageReference, user: __C.FIRUser) -&gt; ()"
+                  moduleName = "StudyCard"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lynnie/Documents/Alex%20Beep%20Boop/C-S-329E/StudyCard/StudyCard/StudyCard/View%20Controllers/ProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "169"
+                  endingLineNumber = "169"
+                  offsetFromSymbolStart = "172">
+               </Location>
+               <Location
+                  uuid = "980D85CE-1244-431D-8743-ACAAC53F9CF4 - 57accf814c085650"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.URL&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in StudyCard.ProfileVC.updateProfileWithImageURL(ref: FirebaseStorage.StorageReference, user: __C.FIRUser) -&gt; ()"
+                  moduleName = "StudyCard"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lynnie/Documents/Alex%20Beep%20Boop/C-S-329E/StudyCard/StudyCard/StudyCard/View%20Controllers/ProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "170"
+                  endingLineNumber = "170"
+                  offsetFromSymbolStart = "300">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A8CADED2-5362-4C9E-9EC3-7283D8ACF1CB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StudyCard/View Controllers/ProfileViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
+            landmarkName = "updateProfileWithImageURL(ref:user:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A8CADED2-5362-4C9E-9EC3-7283D8ACF1CB - 57accf814c085548"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.URL&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in StudyCard.ProfileVC.updateProfileWithImageURL(ref: FirebaseStorage.StorageReference, user: __C.FIRUser) -&gt; ()"
+                  moduleName = "StudyCard"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lynnie/Documents/Alex%20Beep%20Boop/C-S-329E/StudyCard/StudyCard/StudyCard/View%20Controllers/ProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "178"
+                  endingLineNumber = "178"
+                  offsetFromSymbolStart = "904">
+               </Location>
+               <Location
+                  uuid = "A8CADED2-5362-4C9E-9EC3-7283D8ACF1CB - 45697a11ec1140ad"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 (Swift.Optional&lt;Foundation.URL&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in StudyCard.ProfileVC.updateProfileWithImageURL(ref: FirebaseStorage.StorageReference, user: __C.FIRUser) -&gt; ()"
+                  moduleName = "StudyCard"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lynnie/Documents/Alex%20Beep%20Boop/C-S-329E/StudyCard/StudyCard/StudyCard/View%20Controllers/ProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "179"
+                  endingLineNumber = "179"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CF5700E8-F406-40BC-998C-2FA6A90F31D7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StudyCard/View Controllers/ProfileViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
+            landmarkName = "updateProfileWithImageURL(ref:user:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F353AFF6-5E3D-4315-B8AC-EA349BAA9302"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StudyCard/View Controllers/ProfileViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
+            landmarkName = "updateProfileWithImageURL(ref:user:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6A2DF4D6-C2AF-4C1F-A21E-74724865736A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "StudyCard/View Controllers/ProfileViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
+            landmarkName = "storeImage(name:image:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

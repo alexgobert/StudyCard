@@ -23,41 +23,44 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     @IBOutlet weak var selectPicButton: UIButton!
     @IBOutlet weak var logoutButton: UIButton!
     
+    let imagePicker = UIImagePickerController()
     let storageRef: StorageReference = Storage.storage().reference().child("profile_pictures")
     let maxImageSize: Int64 = 10 * 1024 * 1024 // MB
     var imageName: String = "" {
         willSet {
-            if imageName != newValue {
-                self.deleteImage(name: imageName)
+            if imageName != "" && imageName != newValue, let image = profilePicImageView.image {
+                deleteImage(name: self.imageName)
+                storeImage(name: newValue, image: image)
             }
         }
     }
     var observer: NSKeyValueObservation!
+    var uploadTasks: Queue<StorageUploadTask>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // adds border to image view
+        profilePicImageView.layer.borderWidth = 1
+        
+        uploadTasks = Queue()
+        imagePicker.delegate = self
+        
         catchNotification()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // adds border to image view
-        profilePicImageView.layer.borderWidth = 1
-        
         // load user image
         if let user = Auth.auth().currentUser, let photoURL = user.photoURL {
-            loadImage(photoURL: photoURL)
             imageName = photoURL.lastPathComponent
             self.emailLabel.text = user.email ?? ""
-        }
-        
-        // set up profile picture observer
-        observer = profilePicImageView.observe(\.image, options: [.new]) {
-            _, change in
-            // name images by date
-            self.storeImage(name: self.imageName, image: change.newValue!!)
+            
+            // if there's no upload task, download
+            if uploadTasks.peek() == nil {
+                loadImage(photoURL: photoURL)
+            }
         }
         
         // theme compliance
@@ -87,28 +90,26 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             return
         }
         
-        let picker = UIImagePickerController()
-        picker.delegate = self
-        picker.sourceType = .camera
-        picker.cameraCaptureMode = .photo
-        present(picker, animated: true)
+        imagePicker.sourceType = .camera
+        imagePicker.cameraCaptureMode = .photo
+        present(imagePicker, animated: true)
     }
     
     // Function for if user presses Cancel on Camera
     func imagePickerControllerDidCancel (_ _picker: UIImagePickerController) {
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        let image = info[.originalImage] as! UIImage
         
         // https://www.hackingwithswift.com/example-code/cryptokit/how-to-calculate-the-sha-hash-of-a-string-or-data-instance
-        let imageData: Data = (image?.jpegData(compressionQuality: 1))!
+        let imageData: Data = (image.jpegData(compressionQuality: 1))!
         let hashedData: SHA256Digest = SHA256.hash(data: imageData)
         let hashedString: String = hashedData.compactMap { String(format: "%02x", $0) }.joined()
         
-        imageName = hashedString
         profilePicImageView.image = image
+        imageName = hashedString + ".jpg"
         
         dismiss(animated: true)
     }
@@ -116,15 +117,13 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
     
     // Button Function for using Camera roll to choose Profile Picture
     @IBAction func selectProfilePhotoButtonPressed(_ sender: Any) {
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            
-            let profilePicController = UIImagePickerController()
-            
-            profilePicController.delegate = self
-            profilePicController.sourceType = .photoLibrary
-            
-            present(profilePicController, animated: true)
+        guard UIImagePickerController.isSourceTypeAvailable(.photoLibrary) else {
+            return
         }
+
+        imagePicker.sourceType = .photoLibrary
+        
+        present(imagePicker, animated: true)
     }
     
     // Stores profile picture in Firebase
@@ -136,15 +135,18 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         let pfpRef = storageRef.child(name)
         
         // store image
-        let uploadTask: StorageUploadTask = pfpRef.putData(imageData) { _, error in
+        let uploadTask = pfpRef.putData(imageData) { _, error in
             if let error = error {
                 self.errorAlert(message: error.localizedDescription)
             }
         }
         
+        uploadTasks.enqueue(uploadTask)
+        
         // wait for image URL to be generated server-side before attempting to store it in user data
         uploadTask.observe(.success) { _ in
             self.updateProfileWithImageURL(ref: pfpRef, user: user)
+            self.uploadTasks.dequeue()
         }
     }
     
@@ -178,11 +180,7 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
         }
         
         let ref = storageRef.child(name)
-        ref.delete { error in
-            if let error = error {
-                self.errorAlert(message: error.localizedDescription)
-            }
-        }
+        ref.delete { _ in }
     }
     
     func loadImage(photoURL: URL) {
@@ -193,8 +191,6 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
             // update profilePicImageView with retrieved image
             if let data = data {
                 self.profilePicImageView.image = UIImage(data: data)
-            } else if let error = error {
-                self.errorAlert(message: error.localizedDescription)
             }
         }
     }

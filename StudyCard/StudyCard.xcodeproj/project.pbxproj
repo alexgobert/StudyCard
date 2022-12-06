@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		32317B6D29136154006DD86E /* SummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32317B6C29136154006DD86E /* SummaryTableViewCell.swift */; };
+		32687A94293EC9E200980554 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32687A93293EC9E200980554 /* Queue.swift */; };
 		3285A4D229189E2100466C2B /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 3285A4D129189E2100466C2B /* FirebaseAuth */; };
 		3285A4D429189E2100466C2B /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 3285A4D329189E2100466C2B /* FirebaseStorage */; };
 		32A0F1A3291F3CF800FAF704 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A0F1A2291F3CF800FAF704 /* UIViewControllerExtension.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		32317B6C29136154006DD86E /* SummaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryTableViewCell.swift; sourceTree = "<group>"; };
+		32687A93293EC9E200980554 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Queue.swift; path = "StudyCard/Custom Objects/Queue.swift"; sourceTree = SOURCE_ROOT; };
 		32A0F1A2291F3CF800FAF704 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		5069592C2935237000CD5133 /* CardFlip.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CardFlip.mp3; sourceTree = "<group>"; };
 		5069592E293523C000CD5133 /* CardSwoosh.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CardSwoosh.mp3; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				95FA8BD528F5EB3800276CBE /* SummaryVC.swift */,
 				95FA8BD328F5EACD00276CBE /* SetCreationVC.swift */,
 				50A5D6CB2900BBD800D0E964 /* ProfileViewController.swift */,
+				32687A93293EC9E200980554 /* Queue.swift */,
 				835E1163292B14EC00CC9075 /* CreateAccountViewController.swift */,
 				83B60F56292B1DA3006974FD /* ThemeChangeViewController.swift */,
 				83B60F5E292B6D40006974FD /* FontChangeViewControllerTableViewController.swift */,
@@ -268,6 +271,7 @@
 				50A5D6CC2900BBD800D0E964 /* ProfileViewController.swift in Sources */,
 				FDA5CC5428F69D5B00EF941B /* StudySetupVC.swift in Sources */,
 				32A0F1A3291F3CF800FAF704 /* UIViewControllerExtension.swift in Sources */,
+				32687A94293EC9E200980554 /* Queue.swift in Sources */,
 				835E1164292B14EC00CC9075 /* CreateAccountViewController.swift in Sources */,
 				FDA5CC3D28F524C300EF941B /* AppDelegate.swift in Sources */,
 				83DDC105291CFFC60099D7E5 /* SettingTableViewCell.swift in Sources */,
@@ -420,11 +424,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = GF72C348E3;
+				DEVELOPMENT_TEAM = P8RJ3UR435;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StudyCard/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Warning: This will take images!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -436,8 +442,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = CS329E.StudyCard;
+				PRODUCT_BUNDLE_IDENTIFIER = CS329E.StudyCard.alex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -449,11 +456,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = GF72C348E3;
+				DEVELOPMENT_TEAM = P8RJ3UR435;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StudyCard/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Warning: This will take images!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -465,8 +474,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = CS329E.StudyCard;
+				PRODUCT_BUNDLE_IDENTIFIER = CS329E.StudyCard.alex;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
