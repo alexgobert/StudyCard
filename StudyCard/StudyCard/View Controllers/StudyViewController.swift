@@ -5,7 +5,6 @@
 //  Created by Sam Song on 10/19/22.
 //
 
-
 import UIKit
 import AVKit
 import CoreData
@@ -31,9 +30,12 @@ class StudyViewController: UIViewController {
     var remainingCards: [Card]!
     var setIndex: Int!
     var context: NSManagedObjectContext!
+<<<<<<< Updated upstream
     var knownCount: Int!
     var allCards: CardSet!
     
+=======
+>>>>>>> Stashed changes
     var audioPlayer: AVAudioPlayer?
     
     override func viewDidLoad() {
@@ -136,7 +138,7 @@ class StudyViewController: UIViewController {
             options: isShowingTerm ? .transitionFlipFromRight : .transitionFlipFromLeft,
             animations: nil
         )
-        if userDefaults.bool(forKey: MUTE_KEY) == false {
+        if !userDefaults.bool(forKey: MUTE_KEY) {
             playSound(named: "CardFlip")
         }
     
@@ -160,9 +162,6 @@ class StudyViewController: UIViewController {
         
         // animate card motion
         animateCard(outBoundDirection: "Right")
-        if userDefaults.bool(forKey: MUTE_KEY) == false {
-            playSound(named: "CardSwoosh")
-        }
     }
     
     // Left swipe Gesture
@@ -180,12 +179,14 @@ class StudyViewController: UIViewController {
         
         // animate card motion
         animateCard(outBoundDirection: "Left")
-        if userDefaults.bool(forKey: MUTE_KEY) == false {
-            playSound(named: "CardSwoosh")
-        }
     }
     
     func animateCard(outBoundDirection: String) {
+        // play animation sound
+        if !userDefaults.bool(forKey: MUTE_KEY) {
+            playSound(named: "CardSwoosh")
+        }
+        
         // unit scalar that determines x direction of motion
         // -1 if left, +1 else (right)
         let sign: CGFloat = outBoundDirection == "Left" ? -1 : 1
