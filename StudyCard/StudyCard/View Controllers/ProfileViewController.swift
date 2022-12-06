@@ -217,6 +217,7 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
                 
             }
             self.updateEmail(user: currentUser, newEmail: newEmail)
+            self.navigationController?.popViewController(animated: true)
         }
         
         let cancelAction = UIAlertAction(
@@ -266,6 +267,9 @@ class ProfileVC: UIViewController, UIImagePickerControllerDelegate, UINavigation
                 } else {
                     self.updatePassword(user: currentUser, newPassword: newPassword)
                 }
+                
+                self.navigationController?.popViewController(animated: true)
+                
             }
         }
         

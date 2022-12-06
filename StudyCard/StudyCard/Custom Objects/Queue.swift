@@ -2,7 +2,7 @@
 //  Queue.swift
 //  StudyCard
 //
-//  Created by Lynn Tran on 12/5/22.
+//  Created by Alex Gobert on 12/5/22.
 //
 
 struct Queue<T> {

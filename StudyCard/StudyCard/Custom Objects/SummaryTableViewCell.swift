@@ -2,7 +2,7 @@
 //  SummaryTableViewCell.swift
 //  StudyCard
 //
-//  Created by Lynn Tran on 11/2/22.
+//  Created by Alex Gobert on 11/2/22.
 //
 
 import UIKit

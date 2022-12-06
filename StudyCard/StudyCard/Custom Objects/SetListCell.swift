@@ -2,7 +2,7 @@
 //  SetListCell.swift
 //  StudyCard
 //
-//  Created by A Horvath on 11/16/22.
+//  Created by R Horvath on 11/16/22.
 //
 
 import UIKit

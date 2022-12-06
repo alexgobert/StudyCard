@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  StudyCard
 //
-//  Created by A Horvath on 10/10/22.
+//  Created by R Horvath on 10/10/22.
 //
 
 import UIKit
