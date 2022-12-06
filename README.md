@@ -6,7 +6,7 @@
 
 ## Special Instructions  
 
-- Test Account (if desired, nothing special about this acct):
+- Test Account:
     - user: test@test.com  
     - pass: 12345678  
 - You may encounter issues with non-unique bundle identifiers. If this happens, append something (like .[name]) as a workaround. Although this should break our Firebase app, we have not encountered any issues with Firebase even with an inconsistent bundle ID. We first encountered this issue shortly after presenting during class on December 5th, and we are unsure why this happened seemingly at random.
