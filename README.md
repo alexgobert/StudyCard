@@ -2,13 +2,14 @@
 
 **Name of project:** StudyCard  
 **Team members:** Alex Gobert, Robert Horvath, Sam Song, Chris Tran  
-**Dependencies:** Xcode 14.0.1, Swift 5  
+**Dependencies:** Xcode 14.0.1, Swift 5, Firebase iOS SDK v9.0.0+
 
 ## Special Instructions  
 
-- Test Account (if desired):
+- Test Account (if desired, nothing special about this acct):
     - user: test@test.com  
     - pass: 12345678  
+- You may encounter issues with non-unique bundle identifiers. If this happens, append something (like .[name]) as a workaround. Although this should break our Firebase app, we have not encountered any issues with Firebase even with an inconsistent bundle ID. We first encountered this issue shortly after presenting during class on December 5th, and we are unsure why this happened seemingly at random.
 
 ## Required Feature Checklist  
 
