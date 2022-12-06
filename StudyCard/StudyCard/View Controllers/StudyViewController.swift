@@ -30,12 +30,10 @@ class StudyViewController: UIViewController {
     var remainingCards: [Card]!
     var setIndex: Int!
     var context: NSManagedObjectContext!
-<<<<<<< Updated upstream
+    
     var knownCount: Int!
     var allCards: CardSet!
     
-=======
->>>>>>> Stashed changes
     var audioPlayer: AVAudioPlayer?
     
     override func viewDidLoad() {
